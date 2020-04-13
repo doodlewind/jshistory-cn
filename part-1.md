@@ -6,7 +6,7 @@ NCSA Mosaic 是不仅易装易用，而且带有图形界面的 Web 客户端。
 Tim Berners-Lee 的 Web 技术的核心，是使用声明式的 HTML 标记语言来描述文档，将它们呈现为网页。但业界对于能方便最终用户编排应用操作的脚本语言，也展示出了相当大的兴趣。这些语言诸如微软 Office 中的 Visual Basic 和苹果 AppleScript 之类，其设计目标并非用于实现应用核心的复杂数据结构和算法组件。相反地，它们为用户提供了将此类应用组件「粘合」在一起的新方式。在 Netscape 扩大万维网受众范围的途中，一个重要的问题就是脚本语言「是否应该」与「如何」集成到网页中。
 
 ### Brendan Eich 加入网景
-Brendan Eich 于 1985 年在伊利诺伊大学香槟分校硕士毕业，然后立即入职了 SGI。他主要从事 Unix 内核和网络层的工作。1992 年，他在离开后 SGI 加盟了 MicroUnity。这是一家资金雄厚的新兴公司，致力于开发视频媒体处理器。在这两家公司，他都实现了用于支持内核与网络编程任务的小型专用语言。在 MicroUnity，他还在 GCC 编译器上做了些工作。
+Brendan Eich 于 1985 年在伊利诺伊大学香槟分校硕士毕业，然后立即入职了 SGI。他主要从事 Unix 内核和网络层的工作。1992 年，他在离开 SGI 后加盟了 MicroUnity。这是一家资金雄厚的新兴公司，致力于开发视频媒体处理器。在这两家公司，他都实现了用于支持内核与网络编程任务的小型专用语言。在 MicroUnity，他还在 GCC 编译器上做了些工作。
 
 1995 年初，Brendan Eich 被 Netscape 画的「在浏览器里写 Scheme」大饼打动而跳槽了。但当 Eich 于 1995 年 4 月 3 日加入 Netscape 时，他发现公司在产品营销与编程语言上的现状都很复杂。Netscape 在 1994 年底拒绝了微软的低价收购要约。此后 Netscape 管理层预计自己将直面微软「拥抱，扩展，灭绝」战略的攻击。在盖茨的直接领导下，微软已经迅速意识到它们即将推出的封闭生态信息应用 Blackbird 项目，在跨平台 Web 的兴起之下将无足轻重。因此，盖茨的「互联网浪潮」备忘录将微软的战略从 Blackbird 重新引导到了 Internet Explorer 与一整套服务器产品上，以应对 Netscape 的攻城略地。
 
@@ -46,7 +46,7 @@ Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直�
 这个十天创建 Mocha 故事的更多细节，可以参见 Brendan Eich 的复述。通过互联网档案馆，还可以获得 Mocha 生产版本的源码。Jamie Zawinski 的「Netscape 宿舍」也描述了在此期间作为 Netscape 软件开发者的工作经历。
 
 ## JavaScript 1.0 与 1.1
-Netscape 和 Sun 于 1995 年 12 月 4 日在联合新闻稿中发布了JavaScript。通稿中 JavaScript 被描述为「一种对象脚本语言」，可用于编写脚本来动态「修改 Java 对象的属性和行为」。它将作为「Java 的补充，方便进行在线应用开发」。尽管它们的技术设计只有表面上的相似，两家公司还是试图在 Java 和 JavaScript 语言间建立牢固的品牌联系。这种名称上的相似性及其带来的两种语言具备密切联系的暗示，长期以来都是导致混乱的根源之一。
+Netscape 和 Sun 于 1995 年 12 月 4 日在联合新闻稿中发布了 JavaScript。通稿中 JavaScript 被描述为「一种对象脚本语言」，可用于编写脚本来动态「修改 Java 对象的属性和行为」。它将作为「Java 的补充，方便进行在线应用开发」。尽管它们的技术设计只有表面上的相似，两家公司还是试图在 Java 和 JavaScript 语言间建立牢固的品牌联系。这种名称上的相似性及其带来的两种语言具备密切联系的暗示，长期以来都是导致混乱的根源之一。
 
 ![](./figures/2.png) 
 
@@ -85,7 +85,7 @@ JavaScript 中的声明（declaration）并未遵循 C 或 Java 的风格。Java
 
 与 C 不同的是，JavaScript 1.0 的语句块并未引入声明作用域的概念。在函数体内的语句块中，`var` 声明对这整个函数体均局部可见。位于函数外部块中的 `var` 声明则具备全局*作用域*。如果向「作用域内不存在 `function` 或 `var` 声明」的变量名赋值，则会隐式创建具有该名称的全局变量。事实证明这种行为是导致错误的重要原因，因为如果拼写错了已声明的变量，也会静默地创建名称错误的新变量。
 
-JavaScript 与传统 C 语法还有一个重要区别，那就是它对语句末尾分号的处理。C 将分号视为强制性的语句终止符，而 JavaScript 则允许在分号是行中最后一个有效字符时，省略这个用于终止语句的分号。该行为的确切规则并未包含在 JavaScript 1.0 文档中，《Netscape 2.0 手册》在描述各种 JavaScript 语句形式时也并未展示分号。它只说明「一条语句可能跨越多行。如果每条语句之间用分号分隔，则可能在一行上出现多条语句」。手册的 JavaScript 代码示例使用了无分号的编码风格，如下所示：
+JavaScript 与传统 C 语法还有一个重要区别，那就是它对语句末尾分号的处理。C 将分号视为强制性的语句终止符，而 JavaScript 则允许在分号是行中最后一个有效字符时，省略这个用于终止语句的分号。该行为的确切规则并未包含在 JavaScript 1.0 文档中。《Netscape 2.0 手册》在描述各种 JavaScript 语句形式时也并未展示分号，它只说明「一条语句可能跨越多行。如果每条语句之间用分号分隔，则可能在一行上出现多条语句」。手册的 JavaScript 代码示例使用了无分号的编码风格，如下所示：
 
 ``` js
 var a, x, y
@@ -110,7 +110,7 @@ JavaScript 1.0 的表达式语法基本上复制自 C，使用了一组相同的
 
 JavaScript 1.1 添加了 `delete`，`typeof` 和 `void` 运算符。在 JavaScript 1.1 中，`delete` 运算符仅会将其对应的变量或对象属性操作数设为 `null` 值。`typeof` 运算符会返回一个字符串，该字符串标识其操作数的原始类型。可能的字符串值包括 `"undefined"`、`"object"`、`"function"`、`"boolean"`、`"string"`、`"number"`，或一个「由实现环境决定的字符串值」来标示宿主对象的种类。令人困惑的是，`typeof null` 会返回字符串值 `"object"` 而不是 `"null"`。其实也可以说这与 Java 保持了一致，因为 Java 的所有值都是对象，而 `null` 本质上是表达「没有对象」的对象。但是，Java 缺少与 `typeof` 运算符等效的功能，并使用 `null` 作为未初始化变量的默认值。根据 Brendan Eich 的回忆，`typeof null` 的值是原始 Mocha 实现中*抽象泄漏*（leaky abstraction）的结果。`null` 的运行时值使用了与对象值相同的内部标记值进行编码，因此 `typeof` 运算符的实现就直接返回了 `"object"`，而无需任何额外的特殊处理。实践表明，这种选择对 JavaScript 程序员带来了很大的麻烦。他们通常想在尝试访问某个值的属性之前，先测试这个值是否确实是一个对象。但光是测试值的类型是否为 `"object"` 并不足以保护属性访问，因为尝试访问 `null` 的属性也会产生运行时错误。
 
-`void` 运算符仅计算其操作数，然后返回 *undefined*。访问 *undefined* 的一个惯用法是 `void 0`。引入 `void` 运算符，是为了在定义「单击时执行 JavaScript 代码的 HTML 超链接」时作为辅助。例如：
+`void` 运算符仅求值其操作数，然后返回 *undefined*。访问 *undefined* 的一个惯用法是 `void 0`。引入 `void` 运算符，是为了在定义「单击时执行 JavaScript 代码的 HTML 超链接」时作为辅助。例如：
 
 ``` html
 <a href="javascript:void usefulFunction()">
@@ -173,8 +173,12 @@ function ptDistance(pt2) {
 }
 
 // 定义 Point 构造函数
-function Point(x,y) {  // 创建并初始化新对象的数据属性
-  this.x = x;  this.y = y;  // 为每个对象实例添加方法
+function Point(x,y) {
+  // 创建并初始化新对象的数据属性
+  this.x = x;
+  this.y = y;
+
+  // 为每个对象实例添加方法
   this.sum = ptSum;
   this.distance = ptDistance;
 }var origin = new Point(0,0); // 创建 Point 对象
@@ -208,7 +212,8 @@ function ptDistance(pt2) {
 }
 
 // 定义 Point 构造函数
-function Point(x,y) { // 创建并初始化新对象的数据属性
+function Point(x,y) {
+  // 创建并初始化新对象的数据属性
   this.x = x;
   this.y = y;
 }
@@ -234,7 +239,8 @@ JavaScript 1.1 的文档并未完全描述这两个对象模型。它维护的�
 在 JavaScript 1.0 / 1.1 中，函数定义（function definition）会创建并命名一个可调用的函数。JavaScript 函数是一等（first-class）的对象值。在 `function` 声明中提供的名称会被定义为全局变量，类似于顶层代码中的 `var` 声明。而它的值则是函数对象，可以赋值给变量、设置为属性值、在函数调用中作为参数传递，以及作为函数的返回值。因为函数也是对象，所以在它们上面同样可以定义属性。以下示例展示了如何将属性添加到函数对象上：
 
 ``` js
-function countedHello() { alert("Hello , World!");
+function countedHello() {
+  alert("Hello , World!");
   countedHello.callCount++; // 增加该函数的 callCount 属性
 }
 countedHello.callCount = 0; // 将计数器与函数相关联
@@ -274,28 +280,30 @@ JavaScript 1.1 加入了可用的 `Array` 类。由 `Array` 构造函数创建�
 
 在 Netscape 2 中，每个 `<script>` 元素里的 JavaScript 代码都会按照它们在页面 HTML 文件中的出现顺序，逐个解析和求值。在后来的浏览器中，还可以标记 `<script>` 元素以支持延迟求值（deferred evaluation）。这使得浏览器可以在等待从网络上请求 JavaScript 代码的同时，继续处理 HTML。但不论在哪种情况下，浏览器一次都只会求值一个脚本。脚本之间通常共享同一个全局对象。由脚本创建的全局变量和函数，对所有后续脚本均可见。每个脚本都会运行到完成（run to completion），而不会被抢占（preëmption）或中断（interruption）。早期浏览器的这一特性已成为 JavaScript 的一条基本原理。脚本是执行的基本单位。每个脚本的执行一旦开始，就会持续到它完成为止。在脚本内部，不必担心其他脚本的并发执行，因为这种情况不会发生。
 
-Netscape 2 还引入了网页帧（Web page frame）的概念。帧（frame）是网页的一个区域，可以在其中载入单独的 HTML 文档。页面上的所有帧都会共享相同的 JavaScript 执行环境，每个帧在这一环境中都具有单独的全局上下文。在不同帧中加载的脚本对应不同的全局对象、不同的内置对象，以及不同的全局变量与函数。不过，全局上下文并没有独立的地址空间。JavaScript 执行环境对应单个用于存储对象的地址空间（address space），这一空间会在环境内的所有帧之间共享。由于所有对象都在同一个地址空间中，对象的引用可能经由不同帧内的 JavaScript 代码互相传递，从而混杂来自不同全局上下文的对象。这可能会导致让人意想不到的行为。图 9 中的 JavaScript 1.1 示例说明了这一点。
+Netscape 2 还引入了网页框架（Web page frame）的概念。页框（frame）是网页的一个区域，可以在其中载入单独的 HTML 文档。页面上的所有页框都会共享相同的 JavaScript 执行环境，每个页框在这一环境中都具有单独的全局上下文。在不同页框中加载的脚本对应不同的全局对象、不同的内置对象，以及不同的全局变量与函数。不过，全局上下文并没有独立的地址空间。JavaScript 执行环境对应单个用于存储对象的地址空间（address space），这一空间会在环境内的所有页框之间共享。由于所有对象都在同一个地址空间中，对象的引用可能经由不同页框内的 JavaScript 代码互相传递，从而混杂来自不同全局上下文的对象。这可能会导致让人意想不到的行为。图 9 中的 JavaScript 1.1 示例说明了这一点。
 
 ``` js
-// 只要在其他帧内求值 new Object()
+// 只要在其他页框内求值 new Object()
 // 就会让 alien 变量引用到在那里创建的对象
 var alien = createNewObjectInADifferentFrame();
-var native = new Object(); // 在当前帧创建对象
+var native = new Object(); // 在当前页框创建对象
 Object.prototype.sharedProperty = "each frame has distinct built-ins";
 alert(native.sharedProperty); // each frame has distinct built-ins
 alert(alien.sharedProperty); // undefined
 ```
 
-图 9. JavaScript 1.1 示例，表明即便不同 HTML 帧的内置对象不同，对象也可以互通。
+图 9. JavaScript 1.1 示例，表明即便不同 HTML 页框的内置对象不同，对象也可以互通。
 
-每个帧都有其自己独立的 `Object` 构造函数和 `Object.prototype`，它们提供「由该构造函数创建的所有对象继承」的属性。向某个帧的 `Object.prototype` 添加属性，不会使该属性对其他帧内由 `Object` 构造函数创建的对象可见。
+每个页框都有独立的 `Object` 构造函数和 `Object.prototype`，它们提供「由该构造函数创建的所有对象继承」的属性。向某个页框的 `Object.prototype` 添加属性，不会使该属性对其他页框内由 `Object` 构造函数创建的对象可见。
 
 交互式的 JavaScript 网页是事件驱动的应用。其中的事件循环（event loop）由浏览器实现。苹果的 HyperCard 启发了 Brendan Eich 在最初的 Netscape 2 DOM 设计中使用事件的概念。最初，事件主要是由用户交互触发的。但在现代浏览器中事件有很多种，其中只有一些是源自用户的。
 
 执行完网页定义的所有脚本后，该页面的 JavaScript 环境将保持活跃状态，等待事件发生。事件处理器可以与浏览器提供的对象相关联，这包括了许多 DOM 对象。一个事件处理器也就是一个 JavaScript 函数，能响应事件的发生而被调用。将函数赋值给浏览器对象的某些特定属性，就能使该函数成为与这一属性相关联的事件处理器。例如与可点击的指点设备（鼠标）相对应的对象，就具备可设置的 `onclick` 属性。也可以使用一段 JavaScript 代码，直接在 HTML 元素中定义 JavaScript 事件处理器，例如：
 
 ``` html
-<button onclick="doSomethingWhenClicked()">Click me</button>
+<button onclick="doSomethingWhenClicked()">
+  Click me
+</button>
 ```
 
 处理完 HTML 元素后，浏览器将创建一个 JavaScript 函数，并将其赋为按钮对象 `onclick` 属性的值。`onclick` 的代码片段会被用作函数体。当被 JavaScript 事件处理器监听的事件发生时，它将被放入未决（pending）事件池中。一旦没有正在执行的 JavaScript 代码，浏览器就会从事件池中获取一个未决事件，并调用与其关联的函数。和脚本一样，事件处理器函数也是运行到完成为止的。
@@ -315,11 +323,11 @@ function f(x, x) { // x 对应第二个形参，忽略第一个 x
 }
 ```
 
-函数 `f` 中所有的 `var` 声明都会指向相同的变量绑定，也就是函数第二个形参的绑定。在函数的形参列表中，同一名称可以多次出现。在执行函数体之前，由 `var` 声明定义的变量都会初始化为 *undefined*，但名称与形参名相同的 `var` 变量则不在此列。在这种情况下，变量初始值会与「为同名形参传递的实参」相同。`var` 声明的初始化过程（包括冗余声明在内）与「为初始化后的变量赋值」的语义相同。它们在函数体内按正常执行顺序，依此在（初始化阶段）到达时执行。
+函数 `f` 中所有的 `var` 声明都会指向相同的变量绑定，也就是函数第二个形参的绑定。在函数的形参列表中，同一名称可以多次出现。在执行函数体之前，由 `var` 声明定义的变量都会初始化为 *undefined*，但名称与形参名相同的 `var` 变量则不在此列。在这种情况下，变量初始值会与「为同名形参传递的实参」相同。`var` 声明的初始化过程（包括冗余声明在内）与「为初始化后的变量赋值」的语义相同。它们在函数体内按正常执行顺序，依次在（初始化阶段）到达时执行。
 
 脚本中可能有多个具有相同名称的 `function` 声明。在发生这种情况时，具有该名称的最后一个函数声明将被提升（hoist）到脚本顶部，并用这个名称初始化全局变量。所有其他同名的 `function` 声明都将被忽略。如果同时存在相同名称的全局 `function` 声明和全局 `var` 声明，它们都会指向相同的变量。在执行流程中遇到初始化器（即字面量）时，所有带初始化器的 `var` 声明都会覆盖函数值。
 
-*自动强制与 == 运算符*（Automatic Coercions and the `==` Operator）。自动强制旨在降低最初采用 JavaScript 作为简单脚本语言的入门障碍。但随着 JavaScript 逐渐演变为通用语言，事实证明强制是导致混淆和编码错误的重要来源，对 `==` 运算符来说尤其如此。在最初的 10 天冲刺之后，添加到 Mocha 中的一些有问题的强制，原本是为了响应 alpha 用户的请求，以简化 JavaScript 同 HTTP / HTML 的集成。例如，内部的 Netscape 用户要求使用 `==` 来比较包含字符串值 `"404"` 的 HTTP 状态码与数字 404。他们还要求在数字上下文中将空字符串自动强制为 `0`，从而为 HTML 表单的空字段提供默认值。这些强制转换带来了一些意外，例如 `1 == '1'` 且 `1 == '1.0'`，但 `'1' != '1.0'`。
+*自动强制与 == 运算符*（Automatic Coercions and the `==` Operator）。自动强制旨在降低最初采用 JavaScript 作为简单脚本语言的入门障碍。但随着 JavaScript 逐渐演变为通用语言，事实证明强制是导致混淆和编码错误的重要来源，对 `==` 运算符来说尤其如此。在最初的 10 天冲刺之后，添加到 Mocha 中的一些有问题的强制，原本是为了响应 alpha 用户的请求，以简化 JavaScript 同 HTTP / HTML 的集成。例如，Netscape 的内部用户要求使用 `==` 来比较包含字符串值 `"404"` 的 HTTP 状态码与数字 404。他们还要求在数字上下文中将空字符串自动强制为 `0`，从而为 HTML 表单的空字段提供默认值。这些强制转换带来了一些意外，例如 `1 == '1'` 且 `1 == '1.0'`，但 `'1' != '1.0'`。
 
 JavaScript 1.0 还会在 `if` 语句的断言内，将 `=` 运算符视为 `==`。例如：
 
@@ -366,7 +374,7 @@ alert(obj.x); // 显示 42
 
 当执行事件处理器时，它将触发按钮的 `onclick` 方法。这时 `this` 指向按钮对象，然后 `this.name` 会检索其 `name` 属性的值。
 
-*实参对象*（Arguments Objects）。函数的 `arguments` 对象与它的形参联系在一起——在「`arguments` 对象的数字索引属性」与函数的形参之间，存在着动态的映射。对 `arguments` 对象属性的更改，也会更改相应形参的值。并且可以发现对形参的更改，也会对相应 `arguments` 对象属性生效：
+*实参对象*（Arguments Objects）。函数的 `arguments` 对象与它的形参联系在一起——在「`arguments` 对象的数字索引属性」与函数的形参之间，存在着动态的映射。对 `arguments` 对象属性的更改，也会更改相应形参的值。并且可以发现对形参的更改，也会对相应的 `arguments` 对象属性生效：
 
 ``` js
 // JavaScript 1.0-1.1
@@ -477,16 +485,14 @@ alert(abc.prop); // 显示 42
 
 Welland 和 McKelvie 将脚本系统打包在一起，覆盖了对 JScript 和 VBS 的支持。这是一个可嵌入的组件，后来被称为 Active Scripting。该组件于 1996 年作为 IE3 和微软 Web 服务器产品 IIS 的一部分而提供。在 IIS 中，它为 Active Server Pages（ASP）提供了服务器端脚本支持。Active Scripting 随后成为了 Microsoft Windows 的标准组件，到 2019 年仍可用于支持旧版应用程序。
 
-IE 团队非常重视与 Netscape 的竞争。他们希望当时作为 Active Scripting 一部分的脚本调试器能够吸引到 JavaScript Web 开发者使用 IE，因为 Netscape 没有 JavaScript 调试器。但他们也了解到，与 Netscape 浏览器的网站互操作性对于推广 IE 至关重要。于是 Shon Katzenberger 和其他人针对数千个使用 JavaScript 的网站运行了 IE 3 的开发版本，并将结果同 Netscape 2 与Netscape 3 做了比较。每当发现差异时，Katzenberger 都必须对 Netscape JavaScript 的行为做反向工程，以了解其不同之处。其中有些行为让他们非常吃惊。当他们发现在 Netscape 实现中 HTML 帧竟然共享一个公共的对象地址空间并可以自由交换对象时，更是尤其让他们震惊。IE 已将帧实现为隔离的环境，因此需要大量的重新设计才能使对象在其中传递。
+IE 团队非常重视与 Netscape 的竞争。他们希望当时作为 Active Scripting 一部分的脚本调试器能够吸引到 JavaScript Web 开发者使用 IE，因为 Netscape 没有 JavaScript 调试器。但他们也了解到，与 Netscape 浏览器的网站互操作性对于推广 IE 至关重要。于是 Shon Katzenberger 和其他人针对数千个使用 JavaScript 的网站运行了 IE 3 的开发版本，并将结果同 Netscape 2 与 Netscape 3 做了比较。每当发现差异时，Katzenberger 都必须对 Netscape JavaScript 的行为做反向工程，以了解其不同之处。其中有些行为让他们非常吃惊。当他们发现在 Netscape 的实现中 HTML 页框竟然共享一个公共的对象地址空间并可以自由交换对象时，更是尤其让他们震惊。IE 已将页框实现为隔离的环境，因此需要大量的重新设计才能使对象在其中传递。
 
 在整个 JScript 的开发过程中，缺乏适当的语言规范一直是个问题。Welland 回忆说，在整个开发历程里，领导 IE3 开发的 Thomas Reardon 会抓住一切机会，就 JavaScript 语言规范的缺失而斥责 Netscape 同行。
 
 ## 从 Mocha 到 SpiderMonkey
 在 1995 年全年和 1996 年的大部分时间里，Brendan Eich 都是唯一全职从事 *JavaScript 引擎*开发工作的 Netscape 开发者。在 1996 年 8 月发布的 Netscape 3.0 版本中，JavaScript 1.1 仍然主要包含 1995 年 5 月的 10 天原型代码。在发布这个版本后，Eich 认为是时候偿还*引擎*的技术债，并努力使 JavaScript「成为一门更干净的语言」了。但 Netscape 管理层则希望他研究语言规范。他们对微软针对 JavaScript 规范缺失的批评很敏感，并认为即将开始的语言标准化进程需要这样一份规范作为输入。Eich 拒绝了，他想把重新实现 Mocha 作为开始。要想编写规范，他需要的是仔细检查 Mocha 的实现。他认为在检查 Mocha 时重写 Mocha 是最有效率的方法，这也能让他在初始的设计错误被纳入规范前纠正它们。
 
-由于对辩论感到沮丧，Brendan Eich 离开办公室，在家工作了两个星期。在此期间，他重新设计实现了 JavaScript 引擎的核心。此举的收获是一个更快、更可靠和更灵活的运行引擎。
-
-他舍弃了将 JavaScript 值表示为 *discriminated union* 的实践，改为使用包含即时原始值的标记指针（tagged pointer）。他实现了诸如嵌套函数、函数表达式和 `switch` 语句之类的功能，这些功能从未在原始引擎中实现过。基于引用计数的内存管理器也被替换成了基于标记 / 清除算法的垃圾收集器。
+由于对辩论感到沮丧，Brendan Eich 离开办公室，在家工作了两个星期。在此期间，他重新设计实现了 JavaScript 引擎的核心。此举的收获是一个更快、更可靠和更灵活的运行引擎。他舍弃了将 JavaScript 值表示为 *discriminated union* 的实践，改为使用包含即时原始值的标记指针（tagged pointer）。他还实现了诸如嵌套函数、函数表达式和 `switch` 语句之类的功能，这些功能从未在原始引擎中实现过。基于引用计数的内存管理器也被替换成了基于标记 / 清除算法的垃圾收集器。
 
 当 Eich 返回办公室时，新引擎已经取代了 Mocha。Chris Houck 这位早期的 Netscape 开发者也参与了进来，成为了 JavaScript 团队的第二位专职成员。Houck 根据电影《Beavis and Butt-Head Do America》中的梗，将新引擎命名为「SpiderMonkey」。Clayton Lewis 加入团队担任经理，并聘请来了 Norris Boyd。技术作家 Rand McKinny 被派来协助 Eich 编写规范。
 
@@ -563,7 +569,7 @@ alert(origin.distance(new Point(5, 5));
 
 尽管用户需求促生了 JavaScript 1.0 / 1.1 中 `==` 运算符的强制规则，但一些用户仍发现该行为令人惊讶和混乱。Brendan Eich 决定消除 JavaScript 的大多数自动强制，以修复 `==`。如果两个操作数都不是相同的原始类型（数字，字符串，布尔值，对象），那么 `==` 将返回 `false`。
 
-JavaScript 1.2 希望通过 `<script>` 标签的 `version` 属性，来应对 JavaScript 1.0 和 1.1 的语义更改。但是到 JavaScript 1.2 生产版本发布时，这种形式的版本管理对 Web 开发者来说已变得变得难以维护，对于需要工作在非 Netscape 浏览器上的网页来说尤其是这样。这些浏览器都维护了自己的 JavaScript 实现。
+JavaScript 1.2 希望通过 `<script>` 标签的 `version` 属性，来应对 JavaScript 1.0 和 1.1 的语义更改。但是到 JavaScript 1.2 生产版本发布时，这种形式的版本管理对 Web 开发者来说已变得难以维护，对于需要工作在非 Netscape 浏览器上的网页来说尤其是这样。这些浏览器都维护了自己的 JavaScript 实现。
 
 
 ## 插曲：风评被害
