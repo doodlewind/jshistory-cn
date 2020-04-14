@@ -181,7 +181,8 @@ function Point(x,y) {
   // 为每个对象实例添加方法
   this.sum = ptSum;
   this.distance = ptDistance;
-}var origin = new Point(0,0); // 创建 Point 对象
+}
+var origin = new Point(0,0); // 创建 Point 对象
 ```
 
 图 6. 使用 JavaScript 1.0 定义的 Point 抽象，每个实例对象具备自己的方法属性。
