@@ -574,6 +574,6 @@ JavaScript 1.2 希望通过 `<script>` 标签的 `version` 属性，来应对 Ja
 
 
 ## 插曲：风评被害
-从诞生之初，JavaScript 一直受到舆论的激烈批评。一些批评针对的是这门语言基本的设计决策，例如动态类型或强制转换等设计细节。其他批评者对于它与 HTML 的集成方式，或对于它暴露浏览器安全漏洞的风险，也存在着巨大的反对意见。 Robert Cailliau 称 JavaScript 为「计算史上最可怕的（友善度）」，并说：「我只知道一种比 C 更糟糕的编程语言，那就是 Javascript。」Bret Bos 在 W3C 研讨会上将 JavaScript 描述为「有史以来最糟糕的发明」。
+从诞生之初，JavaScript 一直受到舆论的激烈批评。一些批评针对的是这门语言基本的设计决策，例如动态类型或强制转换等设计细节。其他批评者对于它与 HTML 的集成方式，或对于它暴露浏览器安全漏洞的风险，也存在着巨大的反对意见。Robert Cailliau 称 JavaScript 为「计算史上最可怕的（友善度）」，并说：「我只知道一种比 C 更糟糕的编程语言，那就是 Javascript。」Bret Bos 在 W3C 研讨会上将 JavaScript 描述为「有史以来最糟糕的发明」。
 
 对许多新手程序员而言，浏览器中的 JavaScript 让他们首次接触到了常见的编程问题，例如浮点运算的挑战等。他们通常认为这些问题是 JavaScript 特有的。许多经验丰富的程序员将 JavaScript 与熟悉的编程语言（或由于名称混淆而与Java）进行比较，并发现 JavaScript 的不足。介绍 JavaScript 怪癖的文章以及相关网站（例如 `wtfjs.com` ）一度在 Web 上十分流行。
