@@ -189,11 +189,11 @@ var origin = new Point(0,0); // 创建 Point 对象
 
 在这个示例中值得注意的重要之处如下：
 
-* 每个方法都必须定义为全局可见的函数。此类函数的名称是必需的，且这个名称不应与用于定义其他「类抽象」（class-like abstraction）方法函数的名称冲突（`ptSum`，`ptDistance`）。
+* 每个方法都必须定义为全局可见的函数。这类函数的名称是必需的，而且其名称不应与用于定义其他「类抽象」（class-like abstraction）方法函数的名称冲突（`ptSum`，`ptDistance`）。
 * 构造对象时，必须为每个方法创建一个对象属性，并将其值初始化为相应的全局函数。
 * 方法是通过属性名称（`origin.distance`）而非声明的全局名称（`ptDistance`）被调用的。
 
-JavaScript 1.1 不再需要直接在每个新实例上创建方法属性。它通过函数对象名为 `prototype` 的属性，将*原型*对象与构造函数关联起来。*JavaScript 1.1 指南*将 `prototype` 描述为「由所有该类型对象共享的属性」。这是个模糊的描述，更好的表述可能是这样的：一个自身属性与所有「由构造函数创建的对象」共享的对象。
+JavaScript 1.1 不再需要直接在每个新实例上创建方法属性。它通过函数对象名为 `prototype` 的属性，将*原型*对象与构造函数关联起来。《JavaScript 1.1 指南》将 `prototype` 描述为「由所有该类型对象共享的属性」。这是个模糊的描述，更好的表述可能是这样的：一个自身属性与所有「由构造函数创建的对象」共享的对象。
 
 对这种共享机制没有更进一步的说明，但可以发现原型对象具备如下特征：
 
@@ -486,7 +486,7 @@ alert(abc.prop); // 显示 42
 
 Welland 和 McKelvie 将脚本系统打包在一起，覆盖了对 JScript 和 VBS 的支持。这是一个可嵌入的组件，后来被称为 Active Scripting。该组件于 1996 年作为 IE3 和微软 Web 服务器产品 IIS 的一部分而提供。在 IIS 中，它为 Active Server Pages（ASP）提供了服务器端脚本支持。Active Scripting 随后成为了 Microsoft Windows 的标准组件，到 2019 年仍可用于支持旧版应用程序。
 
-IE 团队非常重视与 Netscape 的竞争。他们希望当时作为 Active Scripting 一部分的脚本调试器能够吸引到 JavaScript Web 开发者使用 IE，因为 Netscape 没有 JavaScript 调试器。但他们也了解到，与 Netscape 浏览器的网站互操作性对于推广 IE 至关重要。于是 Shon Katzenberger 和其他人针对数千个使用 JavaScript 的网站运行了 IE 3 的开发版本，并将结果同 Netscape 2 与 Netscape 3 做了比较。每当发现差异时，Katzenberger 都必须对 Netscape JavaScript 的行为做反向工程，以了解其不同之处。其中有些行为让他们非常吃惊。当他们发现在 Netscape 的实现中 HTML 页框竟然共享一个公共的对象地址空间并可以自由交换对象时，更是尤其让他们震惊。IE 已将页框实现为隔离的环境，因此需要大量的重新设计才能使对象在其中传递。
+IE 团队非常重视与 Netscape 的竞争。他们希望当时作为 Active Scripting 一部分的脚本调试器能够吸引到 JavaScript Web 开发者使用 IE，因为 Netscape 没有 JavaScript 调试器。但他们也了解到，与 Netscape 浏览器的网站互操作性对于推广 IE 至关重要。于是 Shon Katzenberger 和其他人针对数千个使用 JavaScript 的网站运行了 IE 3 的开发版本，并将结果同 Netscape 2 与 Netscape 3 做了比较。每当发现差异时，Katzenberger 都必须对 Netscape JavaScript 的行为做逆向工程，以了解其不同之处。其中有些行为让他们非常吃惊。当他们发现在 Netscape 的实现中 HTML 页框竟然共享一个公共的对象地址空间并可以自由交换对象时，更是尤其让他们震惊。IE 已将页框实现为隔离的环境，因此需要大量的重新设计才能使对象在其中传递。
 
 在整个 JScript 的开发过程中，缺乏适当的语言规范一直是个问题。Welland 回忆说，在整个开发历程里，领导 IE3 开发的 Thomas Reardon 会抓住一切机会，就 JavaScript 语言规范的缺失而斥责 Netscape 同行。
 
