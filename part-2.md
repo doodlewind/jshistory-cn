@@ -109,8 +109,11 @@ Robert Welland 返回 Redmond（微软总部所在地，译者注）后，将他
 这个决定直接促成了几年后广泛使用的 JavaScript 惯用法。布尔运算符将 `null` 和 `undefined` 的值强制为 `false`，并将所有的对象引用强制为 `true`。这就带来了如图 16 所示的手法，它为对象属性和可选的函数参数提供了默认值。
 
 ``` js
-function f(options) {   options = options || getDefaultOptionsObject();
-  // 如果传递了 options 对象，那么就使用它   // 否则使用默认的一组配置   ...
+function f(options) {
+  options = options || getDefaultOptionsObject();
+  // 如果传递了 options 对象，那么就使用它
+  // 否则使用默认的一组配置
+  //  ...
 }
 ```
 
@@ -205,7 +208,7 @@ ES3 包含了内部函数声明和函数表达式，它们与 JavaScript 1.2 中
 > 
 > 2. 可以选择等到遇到此类声明时再绑定它们，这样也确实可行。但我们不想仅出于对函数的支持，就在 ES3 中实现这样的本地绑定。
 > 
-> 3. 在这类声明位于 `if` 语句的子语句位置时，规划中的设想是仅在 `if` 表达式为真（对 `else` 子句为假）时创建这些声明，并将其放入最接近的封闭块级作用域内。这就构成了某种形式的条件编译。而一个语句块如果前面有标记，那它就是一个非作用域块，这个块会把标记分配给它所包含的定义。于是这样就可能把多个定义附加到一条 `if` 语句了。
+> 3. 在这类声明位于 `if` 语句的子语句位置时，规划中的设想是仅在 `if` 表达式为真（对 `else` 子句为假）时创建这些声明，并将其放入最接近的封闭块级作用域内。这就构成了某种形式的条件编译。而一个语句块如果前面有标记（attribute），那它就是一个非作用域块，这个块会把标记分配给它所包含的定义。于是这样就可能把多个定义附加到一条 `if` 语句了。
 
 主要的浏览器都忽略了这些意见，选择继续在块内实现函数声明。然而，每种实现都为这些声明发明了自己的独特语义。十五年后，这为 ES6 的设计者带来了重大的问题。
 
@@ -220,7 +223,8 @@ ES3 包含了内部函数声明和函数表达式，它们与 JavaScript 1.2 中
 对于 *FunctionExpression*（函数表达式）中允许在函数名称位置出现的可选标识符，8 月的草案没有为其指定任何含义。例如：
 
 ``` js
-function fact(n) {throw "wrong fact"}; // 函数声明 var lambdaFact = function fact(n) { // 这个函数表达式，是否应该绑定到 fact 上？
+function fact(n) {throw "wrong fact"}; // 函数声明
+  var lambdaFact = function fact(n) { // 这个函数表达式，是否应该绑定到 fact 上？
   return n<=1 ? 1: fact(n-1);
 };
 lambdaFact(5); // 应该递归还是抛出异常？
@@ -232,16 +236,18 @@ lambdaFact(5); // 应该递归还是抛出异常？
 
 ``` js
 function getClosure() {return function() {/* 没有对自由变量的引用 */}}
-var firstTime = getClosure(); var secondTime = getClosure();
+var firstTime = getClosure();
+var secondTime = getClosure();
 
-// 下面的比较是 true 还是 false 由实现决定 console.log(firstTime === secondTime); // 是否是相同对象？
+// 下面的比较是 true 还是 false 由实现决定
+console.log(firstTime === secondTime); // 是否是相同对象？
 ```
 
 Waldemar Horwat 担心闭包创建的开销，并认为这个改动将可以让实现在某些常见情况下复用闭包。Herman Venter 表示了一些担忧，但在会议结束时同意支持这个改动。这本可能造成一个重大的设计错误，因为随后 Web 浏览器上的经验表明，这种功能所允许的某种「可观察到的实现差异」，可能会妨碍网站在不同浏览器上的正常工作。幸运的是，并没有浏览器实现函数联合功能，它在 2009 年也从 ES5 规范中删除。
 
 由于在字符串字面量中，对八进制常量（以 `0` 开头的数字写法）和八进制转义序列的使用不被提倡，它们从 *规范的*（normative）标准中移到了非规范性的附录 B（Annex B）中。一并移至附录 B 的内容包括：与 Y2K 不兼容的 Date 方法、`escape` 和 `unescape` 字符串函数，以及字符串方法 `substr`。这些功能都已被认定为过时，但仍被网站使用。此举背后的设想，在于功能一旦在标准的非规范性附录 B 中列出，即表明它们已被废弃而不应继续使用，各实现均有权最终删除它们。这是个幼稚的期望。TC39 成员尚未意识到，浏览器实现者们非常不愿意删除网页上实际可能用到的任何功能（不论是否标准化）——某些网页永远不会消失。
 
-在审查并解决了所有未解决的问题后，TC39 一致接受规范，认为它已经完备，并遵从纳入了会议中所提出的更改。Waldemar Horwat 和 Herman Venter 准备了最终文档，并于 1999 年 10 月 13 日将其交给了 Ecma 秘书处。最终草案中有一张表，其中列出了 ECMA-262 前三个版本的所有贡献者（图21），包括内容创作、技术会议参与，以及通过电子邮件的贡献。
+在审查并解决了所有未解决的问题后，TC39 一致接受规范，认为它已经完备，并遵从纳入了会议中所提出的更改。Waldemar Horwat 和 Herman Venter 准备了最终文档，并于 1999 年 10 月 13 日将其交给了 Ecma 秘书处。最终草案中有一张表，其中列出了 ECMA-262 前三个版本的所有贡献者（图 21），包括内容创作、技术会议参与，以及通过电子邮件的贡献。
 
 ![](./figures/21.png)
 
@@ -293,7 +299,8 @@ Web 2.0 和 AJAX 的出现，是 JavaScript 在 Web 开发中用途的主要转�
 
 ``` js
 // 使用模块模式定义 services
-var Services = function () {   var privateJobCount = 0; // 「模块」的私有状态
+var Services = function () {
+  var privateJobCount = 0; // 「模块」的私有状态
   return { // 命名空间对象
     jobCount: function {return privateJobCount},
     job1: function() {this.jobCount++}
@@ -301,7 +308,8 @@ var Services = function () {   var privateJobCount = 0; // 「模块」的私�
 }(); // Services 被初始化为调用该函数时的返回值
 
 // 从命名空间里获取实体
-Services.job1(); console.log(Services.jobCount()); // 显示 1
+Services.job1();
+console.log(Services.jobCount()); // 显示 1
 ```
 
 图 22. JavaScript 模块模式的示例。这里的 `Servies` 函数封装了私有的实现。`Servies` 会在被调用并返回命名空间对象时初始化，命名空间对象的属性暴露了「模块」的公共接口。
