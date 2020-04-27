@@ -24,7 +24,7 @@ TC39 的组织会议于 1996 年 11 月 21 日至 22 日在加州山景城的 Ne
 
 在会议的开始阶段，Netscape 和 Borland 都分发了技术规范草案，但微软则没有。在 Thomas Reardon 的发言中，他说微软已制定了自己的初步规范并保存了文件。Reardon 表示他们暂时还没有时间完成拷贝，但明天就会有可用的副本。因此微软的技术演讲移到了会议的第二天。
 
-Brendan Eich 参加了会议，但 Netscape 的技术演讲是由 Anh Nguyen 进行的，介绍了 Eich 和 C. Rand McKinny 为 JavaScript 1.1 编写的《JavaScript 语言规范》的初稿。Netscape 向 Ecma 贡献了该文档，作为标准化工作的基础文档之一。Nguyen 解释说，Netscape Navigator 3 中的 JavaScript 1.1 与 Netscape 2 中的初始 JavaScript 版本有一些差异。Netscape 的规范使用类似于 ANSI C 语言标准的 BNF 表示法来描述语言语法。它使用非正式的叙述（prose）来定义大多数语义，并使用表格来描述语言的类型转换（coercion）规则。
+Brendan Eich 参加了会议，但 Netscape 的技术演讲是由 Anh Nguyen 进行的，介绍了 Eich 和 C. Rand McKinny 为 JavaScript 1.1 编写的《JavaScript 语言规范》的初稿。Netscape 向 Ecma 贡献了该文档，作为标准化工作的基础文档之一。Nguyen 解释说，Netscape Navigator 3 中的 JavaScript 1.1 与 Netscape 2 中的初始 JavaScript 版本有一些差异。Netscape 的规范使用类似于 ANSI C 语言标准的 BNF 表示法来描述语言语法。它使用非正式的叙述（prose）来定义大多数语义，并使用表格来描述语言的隐式类型转换（coercion）规则。
 
 Borland 研发了JavaScript 和 JavaScript IDE 的服务端实现，其演讲专注于他们的实现中「已经完成或已纳入规划」的几种语言扩展。主要的扩展包括类定义、try / catch / finally 异常处理、类 C 的 switch 语句、作为一等值的代码块、数组字面量、类 C 的预处理器，以及许多内置库的新增特性（包括一些 IO 功能在内）。Borland 还指出了他们在尝试与 Netscape 的实现互相兼容时遇到的困难，并表示需要更正式的规范，以确保实现之间的互操作性。
 
