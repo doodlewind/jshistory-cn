@@ -224,7 +224,7 @@ ES3 包含了内部函数声明和函数表达式，它们与 JavaScript 1.2 中
 
 ``` js
 function fact(n) {throw "wrong fact"}; // 函数声明
-  var lambdaFact = function fact(n) { // 这个函数表达式，是否应该绑定到 fact 上？
+var lambdaFact = function fact(n) { // 这个函数表达式，是否应该绑定到 fact 上？
   return n<=1 ? 1: fact(n-1);
 };
 lambdaFact(5); // 应该递归还是抛出异常？
@@ -312,7 +312,7 @@ Services.job1();
 console.log(Services.jobCount()); // 显示 1
 ```
 
-图 22. JavaScript 模块模式的示例。这里的 `Servies` 函数封装了私有的实现。`Servies` 会在被调用并返回命名空间对象时初始化，命名空间对象的属性暴露了「模块」的公共接口。
+图 22. JavaScript 模块模式的示例。这里的 `Services` 函数封装了私有的实现。`Services` 会在被调用并返回命名空间对象时初始化，命名空间对象的属性暴露了「模块」的公共接口。
 
 模块模式有几个变体，但基本概念都是用 IIFE（或有时用命名函数）的词法作用域来「封装一系列函数的某些私有状态」。IIFE 会返回一个命名空间对象，其属性就是封装后需要支持被公开访问的函数。
 
