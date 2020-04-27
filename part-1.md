@@ -124,7 +124,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
 
 ![](./figures/4.png)
 
-图 4. Eich 和 McKinney 在 JavaScript 1.1 初始规范中提出的类型转换（Type Coercions）规则，最终标准化的规则与此略有不同。这是对原始表格的复制，存在一些印刷上的细微差别。脚注 3 并未出现在原文中。
+图 4. Eich 和 McKinney 在 JavaScript 1.1 初始规范中提出的隐式类型转换规则，最终标准化的规则与此略有不同。这是对原始表格的复制，存在一些印刷上的细微差别。脚注 3 并未出现在原文中。
 
 ### 对象
 JavaScript 1.0 的对象是关联数组，其元素称为属性（property）。每个属性都有一个字符串键和一个值，该值可以是任何 JavaScript 数据类型。属性可以被动态添加。JavaScript 1.0 / 1.1 不支持从对象中删除属性。
