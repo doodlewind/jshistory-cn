@@ -24,7 +24,7 @@ TC39 的组织会议于 1996 年 11 月 21 日至 22 日在加州山景城的 Ne
 
 在会议的开始阶段，Netscape 和 Borland 都分发了技术规范草案，但微软则没有。在 Thomas Reardon 的发言中，他说微软已制定了自己的初步规范并保存了文件。Reardon 表示他们暂时还没有时间完成拷贝，但明天就会有可用的副本。因此微软的技术演讲移到了会议的第二天。
 
-Brendan Eich 参加了会议，但 Netscape 的技术演讲是由 Anh Nguyen 进行的，介绍了 Eich 和 C. Rand McKinny 为 JavaScript 1.1 编写的《JavaScript 语言规范》的初稿。Netscape 向 Ecma 贡献了该文档，作为标准化工作的基础文档之一。Nguyen 解释说，Netscape Navigator 3 中的 JavaScript 1.1 与 Netscape 2 中的初始 JavaScript 版本有一些差异。Netscape 的规范使用类似于 ANSI C 语言标准的 BNF 表示法来描述语言语法。它使用非正式的叙述（prose）来定义大多数语义，并使用表格来描述语言的强制（coercion）规则。
+Brendan Eich 参加了会议，但 Netscape 的技术演讲是由 Anh Nguyen 进行的，介绍了 Eich 和 C. Rand McKinny 为 JavaScript 1.1 编写的《JavaScript 语言规范》的初稿。Netscape 向 Ecma 贡献了该文档，作为标准化工作的基础文档之一。Nguyen 解释说，Netscape Navigator 3 中的 JavaScript 1.1 与 Netscape 2 中的初始 JavaScript 版本有一些差异。Netscape 的规范使用类似于 ANSI C 语言标准的 BNF 表示法来描述语言语法。它使用非正式的叙述（prose）来定义大多数语义，并使用表格来描述语言的类型转换（coercion）规则。
 
 Borland 研发了JavaScript 和 JavaScript IDE 的服务端实现，其演讲专注于他们的实现中「已经完成或已纳入规划」的几种语言扩展。主要的扩展包括类定义、try / catch / finally 异常处理、类 C 的 switch 语句、作为一等值的代码块、数组字面量、类 C 的预处理器，以及许多内置库的新增特性（包括一些 IO 功能在内）。Borland 还指出了他们在尝试与 Netscape 的实现互相兼容时遇到的困难，并表示需要更正式的规范，以确保实现之间的互操作性。
 
@@ -32,7 +32,7 @@ Nombas 的 Brent Noorda 介绍了该公司定位于脚本语言的 Cmm（C minus
 
 从第一天会议休会起，微软的 Robert Welland 就开始了工作。Thomas Reardon 关于「没有时间做拷贝」的托词其实是种拖延策略，为的是让 Welland 有更多时间来处理微软的规范。为会议创建规范文档的任务之前已分配给了微软的技术作家，但当 Welland 在出差参会之际收到文档时，他发现这份文档甚至不足以作为初步的语言规范，并不想把这样的文档交给委员会。然而当他在会议开始前看到 Netscape 的文档时，他感觉 Netscape 的文档同样写得不充分，不希望它成为制定标准的唯一基础文档。于是 Welland 和 Reardon 决定拖延一天，从而在会议第二天开始时准备出更好的文档。
 
-会议结束后，Robert Welland 回到了他以前做 NewtonScript 时的同事 Walter Smith 的家中。Walter Smith 也供职于微软，但还住在湾区。他们通宵工作，将微软的文档改成了一份过得去的 JavaScript 核心语言初步规范。他们的规范还借鉴了 ANSI C 标准的大部分语法，并用一张表来表达类型强制规则。但是，Welland 希望其余部分的语义也能被更形式化地确定。他想到了《LISP 1.5 程序员手册》中描述 Lisp 解释器语义的一种风格。在这种风格下，每种句法形式都紧跟着对「如何为该语法求值」的精确描述。某些情况下，语义还会使用伪代码来表示。Welland 决定使用带有编号步骤的类似伪代码，来描述对 JavaScript 语义的求值。
+会议结束后，Robert Welland 回到了他以前做 NewtonScript 时的同事 Walter Smith 的家中。Walter Smith 也供职于微软，但还住在湾区。他们通宵工作，将微软的文档改成了一份过得去的 JavaScript 核心语言初步规范。他们的规范还借鉴了 ANSI C 标准的大部分语法，并用一张表来表达类型转换规则。但是，Welland 希望其余部分的语义也能被更形式化地确定。他想到了《LISP 1.5 程序员手册》中描述 Lisp 解释器语义的一种风格。在这种风格下，每种句法形式都紧跟着对「如何为该语法求值」的精确描述。某些情况下，语义还会使用伪代码来表示。Welland 决定使用带有编号步骤的类似伪代码，来描述对 JavaScript 语义的求值。
 
 Welland 和 Smith 根据当时的 JScript 实现，在文档中添加了语义。对于不确定的地方，他们会回退参考自己先前在 Self 和 NewtonScript 上的经验，找到从那个角度出发有价值的表述。这份文档包含了一张用于表示数组的对象图，它在对属性继承进行建模时，看起来非常像 Self。到第二天早上，他们觉得做出的文档对于当作起点来说已经足够好了。于是他们制作了副本，由 Welland 在第二天会议开始时进行了分发。这份文档就是《JScript 语言规范 0.1 版》，成为了微软贡献到 Ecma 的基础文档。
 
@@ -104,9 +104,9 @@ Robert Welland 返回 Redmond（微软总部所在地，译者注）后，将他
 
 在第一份 Gardner 和 Solton 起草的规范草案之后，Guy Steele 在 1997 年 2 月 27 日至 5 月 2 日之间，向整个委员会发布了另外七份草案，其余的工作草案则在工作组内分发。除了 Ecma GA 大会的最终草案之外，每份草案都包含详细的问题解决日志。
 
-规范制定过程中的某些问题，对语言的使用产生了长期的影响。比如有个受到持续讨论的问题是这样的：短路布尔运算符 `&&`和 `||` 在遇到可强制为布尔值的操作数时，是应该求值为其中一个操作数的实际值（所谓「Perl 风格」），还是 `true` 或 `false` 的布尔值（所谓「Java 风格」）。Brendan Eich 最初的实现主要使用了「Perl 风格」的语义，但少数情况下也有「Java 风格」的行为。微软和 Borland 则已经实现了完整的「Java 风格」语义。最终决定是一致采用「Perl 风格」。
+规范制定过程中的某些问题，对语言的使用产生了长期的影响。比如有个受到持续讨论的问题是这样的：短路布尔运算符 `&&`和 `||` 在遇到可转换为布尔值的操作数时，是应该求值为其中一个操作数的实际值（所谓「Perl 风格」），还是 `true` 或 `false` 的布尔值（所谓「Java 风格」）。Brendan Eich 最初的实现主要使用了「Perl 风格」的语义，但少数情况下也有「Java 风格」的行为。微软和 Borland 则已经实现了完整的「Java 风格」语义。最终决定是一致采用「Perl 风格」。
 
-这个决定直接促成了几年后广泛使用的 JavaScript 惯用法。布尔运算符将 `null` 和 `undefined` 的值强制为 `false`，并将所有的对象引用强制为 `true`。这就带来了如图 16 所示的手法，它为对象属性和可选的函数参数提供了默认值。
+这个决定直接促成了几年后广泛使用的 JavaScript 惯用法。布尔运算符将 `null` 和 `undefined` 的值转换为 `false`，并将所有的对象引用转换为 `true`。这就带来了如图 16 所示的手法，它为对象属性和可选的函数参数提供了默认值。
 
 ``` js
 function f(options) {
@@ -119,7 +119,7 @@ function f(options) {
 
 图 16. ECMAScript 1 中为函数形参赋予默认值的手法。
 
-Brendan Eich 回忆说，他希望加入 JavaScript 1.2 中自己对 `==` 运算符语义的更改，以消除其类型强制。Shon Katzenberger 成功地说服了他，理由是鉴于会破坏大量现有 Web 页面，现在做这种更改已经为时已晚。Eich 在 JavaScript 1.3 的 SpiderMonkey 版本中恢复了原始的语义。
+Brendan Eich 回忆说，他希望加入 JavaScript 1.2 中自己对 `==` 运算符语义的更改，以消除其类型转换问题。Shon Katzenberger 成功地说服了他，理由是鉴于会破坏大量现有 Web 页面，现在做这种更改已经为时已晚。Eich 在 JavaScript 1.3 的 SpiderMonkey 版本中恢复了原始的语义。
 
 TC39 的第三次会议是 1997 年 3 月 18 日至 19 日举行的。这是 6 月 Ecma GA 大会前最后一次排定的 TC39 正式会议，目标是让标准的第一版能获得接受和通过。为了满足这份时间表，TC39 需要在这次会议上投票，以将标准提交给 GA 大会。
 
