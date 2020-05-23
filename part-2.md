@@ -9,7 +9,7 @@
 
 在 1996 年初，浏览器技术是在「互联网时代」的节奏下发展的。但是，语言的标准化进程出了名的缓慢且容易引起争议。鉴于微软正认真对待浏览器竞争，Netscape 和 Sun 担心微软可能企图主导 Web 脚本标准的开发，从而把标准重新聚焦到基于 Visual Basic 的语言上。在 1996 年春天，Netscape 和 Sun 需要找到一个公认的标准开发组织，在它的保护下快速起草 JavaScript 标准。这个过程可以由微软参与，但不能由微软主导。Netscape 的标准专家 Carl Cargill 认识 Ecma 国际组织（Ecma International）的秘书长 Jan van den Beld，并朝这个方向推动了 JavaScript 的标准化。Ecma 对自己的定位是以业务为中心的标准组织，旨在将官僚主义流程最小化，从而把标准制定时间减至最少。由于国际标准组织（ISO）认可 Ecma 国际，Ecma 的标准可以通过快速通道来成为 ISO 标准。除了 Cargill 的人脉以外，Sun 也已经是 Ecma 的会员。它认为 Ecma 在微软反对下仍然坚持发布 Windows API 标准的行为，已经证明了其独立性。
 
-在 1996 年春天和夏天，Netscape、Sun 和 Jan van den Beld 做了非正式的联系和讨论。当年 9 月，Ecma 协调委员会考量了 Netscape 对启动 JavaScript 标准化活动的请求，并授权于 1996 年 11 月 4 日至 5 日在硅谷举行启动会议。Netscape 也正式申请成为 Ecma 的准会员（Associate Member）。10 月 30 日，Ecma 发表了对「JavaScript 项目启动会议」的开放邀请。如果获得足够兴趣，它将为活动组织出一个新的 Ecma 技术委员会（Technical Committee）。Ecma 使用数字来标记旗下的技术委员会，而下一个可用数字是 39。在 1996 年 12 月，Ecma 大会在其半年一度的 GA（General Assembly）大会上批准了 TC39 及其工作陈述（Statement of Work）的创立。与此同时，微软也作为普通会员（Ordinary Member）加入了 Ecma。
+在 1996 年春天和夏天，Netscape、Sun 和 Jan van den Beld 做了非正式的联系和讨论。当年 9 月，Ecma 协调委员会考量了 Netscape 对启动 JavaScript 标准化活动的请求，并授权于 1996 年 11 月 4 日至 5 日在硅谷举行启动会议。Netscape 也正式申请成为 Ecma 的准会员（Associate Member）。10 月 30 日，Ecma 发表了对「JavaScript 项目启动会议」的开放邀请。如果获得足够兴趣，它将为活动组织出一个新的 Ecma 技术委员会（Technical Committee）。Ecma 使用数字来标记旗下的技术委员会，而下一个可用数字是 39。在 1996 年 12 月，Ecma 大会在其半年一度的 GA（General Assembly）大会上批准了 TC39 及其工作陈述（Statement of Work）的创立。与此同时，微软也作为标准会员（Ordinary Member）加入了 Ecma。
 
 ## 首次 TC39 会议
 TC39 的组织会议于 1996 年 11 月 21 日至 22 日在加州山景城的 Netscape 办公室举行，根据记载共有 30 位与会者（图 11）。会议开始前，Netscape 核心技术副总裁 David Stryker 和代表 Ecma 的 Jan van den Beld 分别致了欢迎辞。Stryker 表达了对委员会所创建规范的愿景，希望规范与当前实现只有最小程度的偏差，并能将超出规范范畴的语言扩展留待未来考量。
