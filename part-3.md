@@ -89,7 +89,7 @@ TG1 召开会议的频率和出席人数都在逐渐降低。Chris Dollin 于 20
 ## 另一条死路
 在 1990 年代中期到后期，人们对软件组件（component）的概念产生了浓厚的兴趣，并提出与实现了几种软件组件模型。这其中包括来自对象管理组织（OMG）的 CORBA、微软的 COM，以及 Sun 的 JavaBeans。一般意义上，软件组件模型是一种模块化方案，提供了一种可以「描述、发现和使用基于对象的软件模块」的方式。在 1997 年 7 月的 TC39 会议上，代表 Oracle 的 Jim Tressa 作了有关组件脚本语言的 OMG 提案的介绍。据称在那次会议上，IBM、Netscape、Oracle 和其他公司都有兴趣对基于 ECMAScript 的提案作出回应，但是 OMG 最终制定的规范并非基于 ECMAScript。
 
-「ECMAScript 组件」概念希望发布特定于 JavaScript 的组件模型，以便在浏览器和其他 JavaScript 宿主中使用。它指定了一份 XML 模式（schema）和词汇表，用来描述 JavaScript 组件和一组实现者应遵守的约定。这项工作的赞助者是 NetObjects 公司和 Netscape。NetObjects 的 Richard Wagner 于 1998 年 6 月向 Ecma GA 进行了初步介绍。在同一次会议上，相应的技术规范草案被提交给了 TC39。这份文档经过了三份草案的修改，然后提交给了 Ecma GA 。它获准通过为 Ecma 标准，并发布为了 ECMA-290。然而，这份标准并没有被实际实现的记录。根据 TC39 的建议，Ecma GA 大会在 2009 年投票决定撤回 ECMA-290 标准。
+「ECMAScript 组件」概念希望发布特定于 JavaScript 的组件模型，以便在浏览器和其他 JavaScript 宿主中使用。它指定了一份 XML 模式（schema）和词汇表，用来描述 JavaScript 组件和一组实现者应遵守的约定。这项工作的赞助者是 NetObjects 公司和 Netscape。NetObjects 的 Richard Wagner 于 1998 年 6 月向 Ecma GA 进行了初步介绍。在同一次会议上，相应的技术规范草案被提交给了 TC39。这份文档经过了三份草案的修改，然后提交给了 Ecma GA。它获准通过为 Ecma 标准，并发布为了 ECMA-290。然而，这份标准并没有被实际实现的记录。根据 TC39 的建议，Ecma GA 大会在 2009 年投票决定撤回 ECMA-290 标准。
 
 ECMAScript 第三版中的「精简模式（compact profile）项目」为 ES3 的一个动态程度较低的子集定义出了一种语言*模式*（profile），这可以使得资源受限环境中的 JavaScript 实现仍然符合 ECMAScript 规范。这一规范的创建是由 Ecma 之外的 WMLScript 推动的，目标是定义用于手机应用的 JavaScript 方言。精简模式包含了 ES3 的所有特性，但允许实现移除对 `with` 语句的支持。实现也可以移除对 `eval` 和 `Function` 构造函数的支持。精简模式还支持让内置库的对象不可变的实现，这样可以进行预编译，或提供基于 ROM 的实现。Ecma GA 通过了 ECMA-327 精简模式标准。与 ECMA-290 不同的是，ECMA-327 实际上已经在某些环境中实现了。但是随着新版 ECMA-262 的发布，人们对更新 ECMA-327 缺乏兴趣。ECMA-262 的最新版本已经使用在了资源非常受限的环境上。如果针对这类环境的实现需要移除某些功能，直接做就是了。实际上对于大多数资源受限的应用而言，并没有证据表明实现之间需要具备完美的 JavaScript 互操作性。Ecma GA 在 2015 年投票决定撤回 ECMA-327 标准。
 
@@ -247,7 +247,7 @@ Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定�
 
 最终证明，这份文档是对人们设想中新版 ES4 语言的最佳整体描述。然而，Allen Wirfs-Brock 和 Douglas Crockford 都对「ECMAScript 第四版」这一名称被不加限定地使用表示担心，这暗示了其所描述的语言已非常接近最终通过的 Ecma 标准。此外这份文档在导言中宣称，其整体设计代表了 Ecma TC39-TG1 的共识，并未提及任何 TG1 中对新版 ES4 在设计上的不同意见。在沟通后，Hansen 同意在文档标题前加上「拟议」字样，并在文档导言中插入了一段话，指出 TG1 中有少数成员对该设计的标准化表示反对。在新版 ES4 小组成员为分发概览文件和参考实现代码而建立的网站上，人们也提出了类似的意见。这些事件增加了 ES3.1 提议者对新版 ES4 提议者们如何「公开宣传 ES4，同时继续无视或贬低 ES3.1 投入」的关切。
 
-Allen Wirfs-Brock 经常与微软的企业标准小组保持联系，其中包括 Ecma 共同协调委员会（CC）的成员 Isabelle Valet-Harper 。协调委员会关注的是，TG1 将外部托管的私有 Wiki 作为文档和会议记录的载体，Ecma 秘书处和一般会员无法访问它们。秘书处要求 TG1 将议程、会议记录和重要文档格式化，以便发表到对 Ecma 内部成员专用的网站上。TG1 决定，对此最简单的办法是将整个 TG1 的 Wiki 网站都设为公开可读。
+Allen Wirfs-Brock 经常与微软的企业标准小组保持联系，其中包括 Ecma 共同协调委员会（CC）的成员 Isabelle Valet-Harper。协调委员会关注的是，TG1 将外部托管的私有 Wiki 作为文档和会议记录的载体，Ecma 秘书处和一般会员无法访问它们。秘书处要求 TG1 将议程、会议记录和重要文档格式化，以便发表到对 Ecma 内部成员专用的网站上。TG1 决定，对此最简单的办法是将整个 TG1 的 Wiki 网站都设为公开可读。
 
 在 2007 年 10 月的 Ecma CC 会议上，委员会讨论了 TC39-TG1 的运作问题。在 2001 年之前，TC39 的章程只涉及 ECMAScript。2001 年它进行了扩张，包含了更多的编程语言和平台，其中每种都由一个基本独立的 TG 任务组负责。ECMAScript 的开发工作则交由 TC39-TG1 负责。Ecma 秘书处一般侧重于监督和支持 TC 技术委员会一级的活动，而非监督 TG 工作组。在 2007 年，TG1 工作组的独立运作似乎缺乏 TC39 或秘书处的监督。一些协调委员会成员担心，TG1 可能没有完全遵守 Ecma 的政策和程序。会议还讨论了 TG1 工作组内部据称对其当时的工作缺乏共识的问题。人们讨论了一种可能的解决办法，那就是将 TC39-TG1 升格为正式的 TC 技术委员会，这样它将得到秘书处更大的监督。时任 Ecma 主席 John Neumann 同意出席 2007 年 11 月的 TG1 会议，试图使情况明朗化。
 
@@ -393,4 +393,4 @@ return x * x;
 
 在 2011 年 5 月的 JSConf 大会上，Brendan Eich 与 Jeremy Ashkenas 一起分享了 CoffeeScript 及其在 JavaScript 的 Harmony 演变中的作用。在他的演讲中，Eich 介绍了一个名为「转译器（transpiler）」的术语，用来描述像 CoffeeScript 这样的源对源编译器。这并非「转译器」一词首次出现，但在 Eich 的演讲前，这个词并未被广泛地了解和使用。后来，这个概念开始在 JavaScript 开发者社区内外被普遍使用。
 
-Alon Zakai 的 Emscripten 是一个能将 C/C++ 翻译成高效 JavaScript 代码的转译器。它的诞生前提，在于作者发现通过 JavaScript 的 32 位算术编码模式和二进制的 TypedArray 数据结构，可以定义出一个易于被基于 JIT 的 JavaScript 引擎优化的 C 语言执行环境 。Emscripten 启发了 asm.js，这是一个定义了一组 JavaScript 代码模式的规范。相应编译器所生成的符合规范的 JavaScript 代码，都应该能被引擎识别和优化。asm.js 的成功进一步带来了 WebAssembly，它以字节码级接口扩展了 JS 引擎，可以作为 C/C++ 和类似的低级语言的编译目标。
+Alon Zakai 的 Emscripten 是一个能将 C/C++ 翻译成高效 JavaScript 代码的转译器。它的诞生前提，在于作者发现通过 JavaScript 的 32 位算术编码模式和二进制的 TypedArray 数据结构，可以定义出一个易于被基于 JIT 的 JavaScript 引擎优化的 C 语言执行环境。Emscripten 启发了 asm.js，这是一个定义了一组 JavaScript 代码模式的规范。相应编译器所生成的符合规范的 JavaScript 代码，都应该能被引擎识别和优化。asm.js 的成功进一步带来了 WebAssembly，它以字节码级接口扩展了 JS 引擎，可以作为 C/C++ 和类似的低级语言的编译目标。
