@@ -136,7 +136,7 @@ Brendan Eich 在 2005 年 11 月的博客文章中简化了这些目标，如下
 
 他还指出，标准的目标并不是让 ECMAScript 更像 Java 或任何其他语言，也不是让 ECMAScript 更易于被优化。在随后的演讲中，Eich 认可了对初版 ES4 规范的批评，这其中也包括了对于是否需要「声明式的静态类型」或者「类定义」的质疑。对此 Eich 反驳说，对此什么都不做是不行的。他认为，随着 Web 开发者构建出日益复杂的应用，ES3 语言在未来十年内的扩展性会显得很差。他特别指出，要想支持这样的应用，需要的是一种保证语言不变性（invariance，描述类型严谨程度的概念，译者注）的类型系统，这样的类型系统可以选择性地执行静态检查。不过做这种改变的机会只有一次，所以现在就是时候了。
 
-Brendan Eich 乐观地认为，在编程语言规范和类型系统领域的现代研究，可以帮助解决初版 ES4 原始工作中某些领域的问题。在 2006 年初，他招来 Dave Herman 加入了 TG1 新版 ES4 的设计团队。Herman 是美国东北大学的博士研究生，当时正致力于开发 ES3 的操作语义（operational semantics，用于保证程序在数学上严谨性的概念，译者注）。通过 Herman 的推荐，Eich 还邀请了圣克鲁斯大学教授 Cormac Flanagan 加入。Flanagan 是混合类型系统领域的专家。大约在同一时间，Opera Web 浏览器上的软件架构师 Lars Thomas Hansen 成为了 TG1 的常规参与者。Herman、Hansen 和 Flanagan 都与美国东北大学的编程语言研究社区有着直接或间接的联系。
+Brendan Eich 乐观地认为，在编程语言规范和类型系统领域的现代研究，可以帮助解决初版 ES4 原始工作中某些领域的问题。在 2006 年初，他招来 Dave Herman 加入了 TG1 新版 ES4 的设计团队。Herman 是美国东北大学的博士研究生，当时正致力于开发 ES3 的操作语义（operational semantics，用于保证程序在数学上严谨性的概念，译者注）。通过 Herman 的推荐，Eich 还邀请了圣克鲁斯大学教授 Cormac Flanagan 加入。Flanagan 是混合类型系统领域的专家。大约在同一时间，Opera Web 浏览器上的软件架构师 Lars Thomas Hansen 成为了 TG1 的经常性参与者。Herman、Hansen 和 Flanagan 都与美国东北大学的编程语言研究社区有着直接或间接的联系。
 
 ![](./figures/26.png)
 
