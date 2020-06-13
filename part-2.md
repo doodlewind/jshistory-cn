@@ -263,7 +263,7 @@ Waldemar Horwat 担心闭包创建的开销，并认为这个改动将可以让�
 
 > 当 JavaScript 刚出现时，我认为它不值得关注。很久之后我重新审视了它，发现隐藏在浏览器中的是一门出色的编程语言。我最早的态度来源于 Sun 和 Netscape 对 JavaScript 的最初定位。为了避免将 JavaScript 定位为 Java 的竞争对手，他们对 JavaScript 做了许多错误的陈述。这些虚假宣传一直在针对（友善度）和业余爱好者市场的大量不良 JavaScript 书籍中流传。
 
-Douglas Crockford 揭示了 JavaScript 类似于 Scheme 的闭包和类似于 Self 的对象机制，并说明了该如何使用它们。但他并没有掩盖 JavaScript 的缺陷和怪癖。除了识别出这些特性之外，Crockford 还创建并推广了 JSLINT，这是第一个广泛使用的 JavaScript linter 程序。另外，Crockford 还为 JavaScript 开发者引入了 minimization 的概念，并创建了 JSMIN 工具。他写了一本畅销书，告诉程序员该如何使用 JavaScript 的优点并规避缺点。最后，他成为了 JavaScript 标准化工作的参与者。
+Douglas Crockford 揭示了 JavaScript 类似于 Scheme 的闭包和类似于 Self 的对象机制，并说明了该如何使用它们。但他并没有掩盖 JavaScript 的缺陷和怪癖。除了识别出这些特性之外，Crockford 还创建并推广了 JSLINT，这是第一个广泛使用的 JavaScript linter 程序。另外，Crockford 还为 JavaScript 开发者引入了压缩（minimization）的概念，并创建了 JSMIN 工具。他写了一本畅销书，告诉程序员该如何使用 JavaScript 的优点并规避缺点。最后，他成为了 JavaScript 标准化工作的参与者。
 
 Crockford 倡导简单性，他意识到可以通过使用 JavaScript 对象和数组字面量语法子集的形式，实现独立于语言的数据交换格式，从而避免 XML 的复杂性。他将这种被广泛使用的格式命名为「JavaScript Object Notation」或「JSON」。这种简单的格式可以很容易地在任何语言中解析，但在 JavaScript 中尤其容易处理，因为有 `eval` 函数可以将 JSON 数据转换为 JavaScript 对象。
 
