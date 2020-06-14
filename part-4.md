@@ -92,7 +92,7 @@ Wirfs-Brock 回忆说，在 TC39 会议期间的某个休息时间，他找到�
 
 在 Douglas Crockford 列出的错误和不便清单上，还有许多关于严格模式的特性，但它们都没有纳入 ES5 中。对于这些特性，要么是 TC39 无法就其是否不受欢迎达成一致，要么是发现该改动不符合减法原则。例如，尽管 Crockford 和其他许多人都不喜欢 JavaScript 的自动分号插入，但许多开发者都更喜欢在没有显式分号的情况下编码。再比如，将 `typeof null` 更改为返回非 `"object"` 的其他值，也不符合减法原则。
 
-*Getter，Setter 和对象元操作*（Getters, Setters, Object Meta Operations）。从最早的 JavaScript 实现开始，内置对象和宿主对象中的某些属性就已具有一些标记。对于通过 JavaScript 代码创建的对象，这些标记并不可用。例如，某些属性具有只读的值或无法使用 `delete` 运算符删除，内置对象和宿主对象的方法属性在被 `for-in` 语句枚举时会被跳过。在 ES1 中这些特殊语义的确定，是通过将 ReadOnly，DontDelete 和 DontEnum 这些标记（attribute）与「规范中的对象模型」相关联的方式来实现的。这些标记会通过伪代码来测试，伪代码定义了它们所涉及的语言标记的语义。这些标记没有被具体化（reified）——在 JavaScript 中，并不存在能为「新创建或已有的属性」设置这些标记的语言特性。ES3 中添加了一个 `Object.prototype.propertyIsEnumerable` 方法，用于测试 DontEnum 标记是否存在。但规范中仍然没有对 ReadOnly 或 DontDelete 标记执行非破坏性测试的相应方法。类似地，有许多由浏览器 DOM 提供的宿主对象也暴露了一些属性，它们通常叫做「getter / setter 属性」。在 ES5 中，这些属性被命名为访问器属性（accessor properties），会在存取属性值时执行计算。由于缺少对这些功能的标准化支持，JavaScript 程序员既无法定义「遵守与内置或宿主对象相同约定」的库，也无法实现 polyfill 来可靠地模拟这类对象。
+*Getter，Setter 和对象元操作*（Getters, Setters, Object Meta Operations）。从最早的 JavaScript 实现开始，内置对象和宿主对象中的某些属性就已具有一些标记。对于通过 JavaScript 代码创建的对象，这些标记并不可用。例如，某些属性具有只读的值或无法使用 `delete` 运算符删除，内置对象和宿主对象的方法属性在被 `for-in` 语句枚举时会被跳过。在 ES1 中这些特殊语义的确定，是通过将 ReadOnly，DontDelete 和 DontEnum 这些标记（attribute）与「规范中的对象模型」相关联的方式来实现的。这些标记会通过伪代码来测试，伪代码定义了它们所涉及的语言标记的语义。这些标记没有被具体化（reified）——在 JavaScript 中，并不存在能为「新创建或已有的」属性设置这些标记的语言特性。ES3 中添加了一个 `Object.prototype.propertyIsEnumerable` 方法，用于测试 DontEnum 标记是否存在。但规范中仍然没有对 ReadOnly 或 DontDelete 标记执行非破坏性测试的相应方法。类似地，有许多由浏览器 DOM 提供的宿主对象也暴露了一些属性，它们通常叫做「getter / setter 属性」。在 ES5 中，这些属性被命名为访问器属性（accessor properties），会在存取属性值时执行计算。由于缺少对这些功能的标准化支持，JavaScript 程序员既无法定义「遵守与内置或宿主对象相同约定」的库，也无法实现 polyfill 来可靠地模拟这类对象。
 
 对这些问题的统一解决方案，构成了新版 ES5 特性中最大的一部分。这部分特性没有正式名称，它们被非正式地称为「静态对象函数」（Static Object Functions）或「对象反射函数」（Object Reflection Functions）。Allen Wirfs-Brock 为此这个功能集编写了设计原理文档，其中包含了用例与以下设计准则：
 
@@ -144,7 +144,7 @@ Object.defineProperties(obj, {
 });
 ```
 
-除了基于反射的接口外，ES3.1 还在语法上支持了用对象字面量来定义访问器属性。四种浏览器中有三种都已经实现了这个语法，因此它符合加入新语法的标准。在对象字面量中，可以通过函数来定义访问器属性，其中函数关键字 `function` 被 `get` 或 `set` 所替换，例如：
+除了这种基于反射的接口外，ES3.1 还在语法上支持了用对象字面量来定义访问器属性。四种浏览器中有三种都已经实现了这种语法，因此它符合加入新语法的标准。在对象字面量中，可以通过函数来定义访问器属性，其中函数关键字 `function` 被 `get` 或 `set` 所替换，例如：
 
 ``` js
 var obj = {
@@ -155,62 +155,66 @@ var obj = {
 };
 ```
 
-为了支持这些新功能，需要扩展内部对象模型，该对象模型首先在 ES1 规范中定义。并且还需要通过对象反射 API 暴露内部对象模型的一部分内容。这也为重新考虑对象模型的术语提供了契机。ES1 将属性描述为具有一个值和一组标记，这些标记包括 ReadOnly，DontEnum 和 DontDelete。ES1 的标记是无状态的，它们是附加到属性的标记，用来表明它们的存在与否。为了将标记作为属性描述对象的属性，ES3.1 设计人员通过更改内部模型将 ES1 标记建模为与每个对象属性相关联的布尔值状态变量，并且将属性值重新设定为另一个状态变量。内部标记的命名约定也更改为内部方法的双括号模式。为了支持访问器属性，内部对象模型需要添加 `[[Get]]` 和 `[[Set]]` 标记，这些标记的值分别是在值引用时调用的 getter 函数和在赋值时调用 setter 函数，或是表示默认函数的 `undefined`。属性根据是否具有 `[[Value]]` 标记、 `[[Get]]` 标记和 `[[Set]]` 标记来区分为数据属性或访问器属性。
+要支持这些新功能，需要扩展语言内部（最早在 ES1 中定义的）对象模型，通过对象反射 API 来部分开放它。这也为重新考虑对象模型的术语提供了契机。ES1 通过一个值和一组标记的方式来描述属性，这些标记包括 ReadOnly，DontEnum 和 DontDelete。ES1 中的标记是无状态的，它们是关联到属性的记号，以自身的存在与否来表达其含义。ES3.1 设计者则希望将这些标记作为属性描述符对象的属性。为此他们更改了内部模型，将 ES1 标记建模为与每个对象属性相关联的 Boolean 状态变量，并将属性值重新建模为另一个状态变量。而内部标记的命名约定，也更改成了与内部方法一致的双括号模式。为了支持访问器属性，内部对象模型上新添加了 `[[Get]]` 和 `[[Set]]` 标记，这些标记的值分别是在值被引用时调用的 getter 函数，以及在赋值时调用的 setter 函数（或者是表示默认函数的 `undefined`）。根据某个属性是否既具有 `[[Value]]` 标记又没有 `[[Get]]` 与 `[[Set]]` 标记，可以区分出数据属性和访问器属性。
 
-为了支持访问器属性，需要更新 ES1 定义的 `[[Get]]` ，`[[Put]]` 和 `[[CanPut]]` 内部方法的规范。为了支持对象反射 API 使用的属性描述符，还需要添加  `[[DefineOwnProperty]]`，`[[GetOwnProperty]]` 和 `[[GetProperty]]` 内部方法。但是反射 API 仍然不够。在 ES3.1 中，`for-in` 语句对属性键的枚举、`Object.getOwnPropertyNames` 以及 `Object.keys` 函数仍使用非正式的散文来定义语义。
+为了支持访问器属性，需要更新 ES1 中 `[[Get]]`、`[[Put]]` 和 `[[CanPut]]` 内部方法的规范。为了支持对象反射 API 使用的属性描述符，还需要添加 `[[DefineOwnProperty]]`、`[[GetOwnProperty]]` 和 `[[GetProperty]]` 内部方法。但光有这个反射 API 还是不够。在 ES3.1 中，`for-in` 语句对属性键的枚举、`Object.getOwnPropertyNames` 方法以及 `Object.keys` 函数，都仍然使用非形式化的叙述来定义语义。
 
-设计对象反射 API 的最后一步是为这些作为属性描述符对象中的属性标记的词汇，确定一致且可用的命名约定。尤其是 DontEnum 和 ReadOnly 之类的名称，它们缺乏内部一致性并引起可用性方面的问题，当它们被视为布尔值标志时更是如此。例如，将属性设为可枚举需要表达为双重否定（将 DontEnum 设置为 `false`）。在 2008 年初，Neil Mix 在与新版 ES4 有关的主题帖上建议，将 enumerable，writable 和 removable（对应 DontDelete）作为标记名更好。Mark Miller 对这些名称表示赞赏，并提出了一个设计指南：标记名应说明什么是允许的而不是什么是拒绝的。他还建议遵循安全最佳实践，即默认情况下拒绝。当定义属性时，必须显式地开启任何所需的标记。
+设计对象反射 API 的最后一步，是为这些属性描述符对象中表示属性标记的词汇，确定出一致且可用的命名约定。尤其像 DontEnum 和 ReadOnly 之类的名称就缺乏内部一致性，这引来了对其易用性问题的关注，当它们被用作布尔值标志时更是如此。例如若将属性设为可枚举，就需要表达双重否定（将 DontEnum 设置为 `false`）。在 2008 年初，Neil Mix 在与新版 ES4 有关的主题帖上建议，将 「enumerable」、「writable」和「removable」（对应 DontDelete）作为标记名会更好。Mark Miller 对这些名称表示赞赏，并提出了一条设计准则：标记名应说明它「允许什么」而非「拒绝什么」。他还建议遵循「默认拒绝」的最佳实践来保证安全性。当定义属性时，全部所需的标记都要显式地启用。
+
+对象反射 API 提供了 ECMAScript 早期版本中没有的新能力。它允许程序更改现有属性的标记，包括在数据属性和访问器属性之间切换。这里的一个考量在于，是否需要额外的标记来禁用此类更改。对此可能的命名包括「dynamic」、「flexible」和「fixed」。但人们担心添加这样一个额外的 Boolean 属性标记后，对现有实现可能产生的影响。如果一个语言实现没有可用的额外比特位来表示该标记，要怎么办呢？最后 ES3.1 工作组意识到，对属性标记的更改，等效于先对属性的当前标记做原子查询，再删除该属性，最后重新创建具有相同名称但标记值已修改的属性。鉴于这种等效性，可以使用单个标记来表达是否启用删除和修改。于是 DontDelete 和 removable 标记被重命名为「configurable」来代表这一含义。Mark Miller 绘制了 ES5 属性标记的状态图（图 34），并发布到了 ECMAScript Wiki 上。注意当 configurable 标记为 `false` 时，仍然可以将属性的 writable 标记从 `true` 更改为 `false`。这个反常之处的存在，是为了让安全*沙箱*（sandbox）能更改某些内置属性，使其从「不可配置但可写」变为「不可配置且不可写」。
 
 ![](./figures/34.png)
 
-图 34. ES5 中属性的标记状态图
+图 34. ES5 中属性的标记状态图。
 
-对象反射 API 提供了 ECMAScript 早期版本中没有的新功能。它允许程序更改现有属性的标记，这些属性包括在数据属性和访问器属性。有一个考虑是是否需要额外的标记来禁用进行此类更改，可能作为标记名称的包括「dynamic」、「flexible」和「fixed」。人们担心添加一个额外的布尔属性标记可能会对现有实现产生影响。如果一个实现没有可用的额外位来表示该标记怎么办？最终，ES3.1 工作组意识到，更改属性的标记等效于原子查询该属性的当前标记，删除该属性，然后重新创建具有相同名称但标记值已修改的属性。鉴于这种等效性，可以使用单个标记来开启删除和修改。DontDelete、removable 标记被重命名为「configurable」，并赋予了该含义。Mark Miller 绘制了ES5属性标记的状态图，并发布在 ECMAScript Wiki 上。注意，当 configurable 标记为 `false` 时，仍然可以将属性的 writable 标记从 `true` 更改为 `false`。创建这个奇怪现象是为了安全沙盒可以更改某些内置属性，从不可配置但可写为不可配置的、不可写。
+作为在 JavaScript 应用中使用「基于原型风格的面向对象编程」范式的倡导者，Douglas Crockford 提倡使用名为 `beget` 的函数，来基于「显式提供的原型」创建对象。ES5 中的 `Object.create` 函数，实质上就是将属性映射表添加为第二个可选参数的 `beget` 函数，例如：
 
-Douglas Crockford 作为在 JavaScript 应用程序中使用基于原型风格的面向对象编程的倡导者，他提倡使用名为 `beget` 的函数来创建具有明确的原型的对象。ES5 函数`Object.create` 本质上是将属性映射添加为可选第二参数的 `beget` 函​​数，例如：
-
-``` javascript
-var point1 = beget(protoPoint); // 创建一个 point , 使用 Crockford 风格
+``` js
+var point1 = beget(protoPoint); // 用 Crockford 风格创建一个 point
 point1.x = 0;
 point1.y = 0;
-var point2 = Object.create(protoPoint, { // 使用 ES5 声明式的风格
+var point2 = Object.create(protoPoint, { // 使用 ES5 声明式风格
     x: {value: 0},
     y: {value: 0}
 });
 ```
 
-ES3 中 Crockford 的 `beget` 函数与 ES5 的对比
+ES3 中 Crockford 的 `beget` 函数与 ES5 的对比。
 
-Allen Wirfs-Brock 曾希望 JavaScript 程序员采用声明式风格，并且实现可以识别该模式并优化对象的创建。然而在实践中，可用性问题阻止了这个 ES5 模式的广泛应用。这个问题出在默认属性标记的选择上。JavaScript 1.0 中，通过隐式赋值创建的属性具有等效的属性标记 `{writable：true，enumerable：true，configurable：true}`。但是，在设计 ES5 属性描述符时使用的默认拒绝策略意味着所有这些标记的默认值均为 `false`。`Object.create` 声明式风格的例子如下所示：
+Allen Wirfs-Brock 曾希望 JavaScript 程序员采用声明式风格，这样语言实现就可以识别出该模式，并据此优化对象的创建。然而在实践中，有个易用性问题妨碍了这种 ES5 模式的广泛应用。这个问题出在对默认属性标记的选择上。在 JavaScript 1.0 中，通过隐式赋值创建的属性具有与此等效的属性标记：`{writable：true，enumerable：true，configurable：true}`。但 ES5 属性描述符所遵循的「默认拒绝」策略，意味着在使用声明式风格的 `Object.create` 时，所有这些标记的默认值均为 `false`。例子如下所示：
 
-``` javascript
-// 使用 Crockford 风格，通过 Object.create 创建
+``` js
+// 以 Crockford 风格使用 Object.create
 var point1 = Object.create(protoPoint);
 point1.x = 0;
 point1.y = 0;
-// point1.x attributes: writable: true, enumerable: true, configurable: true
-// point1.y attributes: writable: true, enumerable: true, configurable: true
+// point1.x 的标记为
+// writable: true, enumerable: true, configurable: true
+// point1.y 的标记为
+// writable: true, enumerable: true, configurable: true
 
-// using Object.create in a declarative
+// 以声明式风格使用 Object.create
 var point2 = Object.create(protoPoint, {
     x: {value: 0},
     y: {value: 0}
 });
-// point2.x attributes: writable: false, enumerable: false, configurable: false
-// point2.y attributes: writable: false, enumerable: false, configurable: false
+// point2.x 的标记为
+// writable: false, enumerable: false, configurable: false
+// point2.y 的标记为
+// writable: false, enumerable: false, configurable: false
 ```
 
-为了完全匹配 `beget` 示例的效果，使用 ES5 风格的 JavaScript 程序员必须编写：
+要与 `beget` 示例的效果完全一致，使用 ES5 风格的 JavaScript 程序员就必须编写：
 
-``` javascript
-// 创建一个 point 实例, 通过 ES5 支持以及传统的标记值
+``` js
+// 通过 ES5 与例行的标记值来创建 point 实例
 var point2 = Object.create(protoPoint, {
     x: {value: 0, writable: true, enumerable: true, configurable: true },
     y: {value: 0, writable: true, enumerable: true, configurable: true }
 });
 ```
 
-对于大多数希望使用 JavaScript 传统意义上更为宽松的默认值的程序员而言，这种表达方式过于繁琐。在实践中，通常使用 `Object.create` 的单参数形式来创建新对象，使用 `Object.defineProperties` 定义和操作已创建的对象的属性，很少使用 `Object.create` 的两个参数形式来定义新建对象的属性。
+对于大多数希望使用 JavaScript（传统意义上更为宽松的）默认值的程序员而言，这种表达方式过于繁琐。在实践中，人们通常使用 `Object.create` 的单参数形式来创建新对象，使用 `Object.defineProperties` 来定义和操作对象创建后的属性，很少使用 `Object.create` 的双参数形式来定义新对象的属性。
 
 *对象的完整性与安全性功能*。Netscape 3 引入的 HTML `<script>` 元素 `src` 属性使网页可以从多个 Web 服务器加载 JavaScript 代码。按照最常见的说法，脚本被加载到一个JavaScript 执行环境中，在那里它们共享一个全局名称空间。跨站脚本可以直接进行交互，这使得人们可以创建 mashup 应用程序。跨站脚本的加载功能得到了广泛使用，并且使基于广告的 Web 业务模型成为了可能。但是，跨站脚本也可能相互篡改与干扰，并干扰页面主页站点中的脚本。Web 开发人员最终意识到，第三方脚本可能引发一些诸如窃取密码之类的用户机密数据或是修改页面行为以欺骗用户的风险。到 2007 年，网络广告经纪人在悄悄地分发恶意广告的行为开始被发现。浏览器厂商开发了各种 HTML 和 HTTP 级别的功能来解决该问题，例如内容安全策略（CSP），但是该级别的功能不能直接解决许多低级别的 JavaScript 漏洞。
 
