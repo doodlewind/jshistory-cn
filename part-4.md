@@ -92,9 +92,9 @@ Wirfs-Brock 回忆说，在 TC39 会议期间的某个休息时间，他找到�
 
 在 Douglas Crockford 列出的错误和不便清单上，还有许多关于严格模式的特性，但它们都没有纳入 ES5 中。对于这些特性，要么是 TC39 无法就其是否不受欢迎达成一致，要么是发现该改动不符合减法原则。例如，尽管 Crockford 和其他许多人都不喜欢 JavaScript 的自动分号插入，但许多开发者都更喜欢在没有显式分号的情况下编码。再比如，将 `typeof null` 更改为返回非 `"object"` 的其他值，也不符合减法原则。
 
-*Getter，Setter 和对象元操作*（Getters, Setters, Object Meta Operations）。从最早的 JavaScript 实现开始，内置对象和宿主对象中的某些属性就已具有一些标记。对于通过 JavaScript 代码创建的对象，这些标记并不可用。例如，某些属性具有只读的值或无法使用 `delete` 运算符删除，内置对象和宿主对象的方法属性在被 `for-in` 语句枚举时会被跳过。在 ES1 中这些特殊语义的确定，是通过将 ReadOnly，DontDelete 和 DontEnum 这些标记（attribute）与「规范中的对象模型」相关联的方式来实现的。这些标记会通过伪代码来测试，伪代码定义了它们所涉及的语言标记的语义。这些标记没有被具体化（reified）——在 JavaScript 中，并不存在能为「新创建或已有的」属性设置这些标记的语言特性。ES3 中添加了一个 `Object.prototype.propertyIsEnumerable` 方法，用于测试 DontEnum 标记是否存在。但规范中仍然没有对 ReadOnly 或 DontDelete 标记执行非破坏性测试的相应方法。类似地，有许多由浏览器 DOM 提供的宿主对象也暴露了一些属性，它们通常叫做「getter / setter 属性」。在 ES5 中，这些属性被命名为访问器属性（accessor properties），会在存取属性值时执行计算。由于缺少对这些功能的标准化支持，JavaScript 程序员既无法定义「遵守与内置或宿主对象相同约定」的库，也无法实现 polyfill 来可靠地模拟这类对象。
+*Getter，Setter 和对象元操作*（Getters, Setters, Object Meta Operations）。从最早的 JavaScript 实现开始，内置对象和宿主对象中的某些属性就已具备一些特殊性质。而通过 JavaScript 代码所创建的对象，是无法应用它们的。例如某些属性具有只读的值，或无法使用 `delete` 运算符删除；内置对象和宿主对象的方法属性在由 `for-in` 语句枚举时会被跳过。在 ES1 中这些特殊语义的确定，是通过将 ReadOnly，DontDelete 和 DontEnum 这些标记（attribute）与规范中的对象模型相关联的方式来实现的。这些标记会通过伪代码来测试，伪代码中定义了它们所涉及的语言标记的语义。这些标记没有被具体化（reified）——在 JavaScript 中，并不存在能为「新创建或已有的」属性设置这些标记的语言特性。ES3 中添加了一个 `Object.prototype.propertyIsEnumerable` 方法，用于测试 DontEnum 标记是否存在。但规范中仍然没有对 ReadOnly 或 DontDelete 标记执行非破坏性测试的相应方法。类似地，有许多由浏览器 DOM 提供的宿主对象也暴露了一些属性，它们通常叫做「getter / setter 属性」。在 ES5 中，这些属性被命名为访问器属性（accessor properties），会在存取属性值时执行计算。由于缺少对这些特性的标准化支持，JavaScript 程序员既无法定义「遵守与内置或宿主对象相同约定」的库，也无法实现 polyfill 来可靠地模拟这类对象。
 
-对这些问题的统一解决方案，构成了新版 ES5 特性中最大的一部分。这部分特性没有正式名称，它们被非正式地称为「静态对象函数」（Static Object Functions）或「对象反射函数」（Object Reflection Functions）。Allen Wirfs-Brock 为此这个功能集编写了设计原理文档，其中包含了用例与以下设计准则：
+对这些问题的统一解决方案，构成了新版 ES5 特性中最大的一部分。这部分特性没有正式名称，它们被非正式地称为「静态对象函数」（Static Object Functions）或「对象反射函数」（Object Reflection Functions）。Allen Wirfs-Brock 为这个功能集编写了设计原理文档，其中包含了用例与以下设计准则：
 
 * 干净地将元层（meta）和应用程序层分开。
 * 尽量降低 API 的复杂度，例如方法的数量和方法参数的复杂度。
@@ -106,7 +106,7 @@ Wirfs-Brock 回忆说，在 TC39 会议期间的某个休息时间，他找到�
 
 下一个问题是确定 API 的形式。基于第二条准则，ES5 设计者希望避免给每个「属性标记」与「访问器属性」分别设置单独的查询与赋值函数。设计者考虑了许多方法来将这一特性合并到少量函数中。一些可能性包括使用具有 Boolean 标记（如「read-only」）的位编码的单个函数，或者具有大量位置参数（positional parameters）的单个函数。但是这两种方法的可用性都不够好。使用可选的关键字参数（keyword arguments）或许可以解决这些可用性问题，但 ES5 中缺少关键字参数。
 
-Allen Wirfs-Brock 建议使用描述符对象（descriptor object），这种对象的属性将与各种属性标记相对应。这种描述符可以用来定义和检查属性。Wirfs-Brock 的第一份草案展示了一个可能的 API 示例，它用于向名为 `obj` 的对象添加属性：
+Allen Wirfs-Brock 建议使用描述符对象（descriptor object），这种对象的属性将与各种属性标记相对应。这种描述符可以用来定义和检查属性。Wirfs-Brock 的第一份草案展示了一种可能的 API 示例，用于向名为 `obj` 的对象添加属性：
 
 ``` js
 Object.addProperty(obj, { name:"pi", value:3.14159, writable:false });
@@ -291,11 +291,11 @@ ES1–ES3
 
 另一种意外情况，是 ES3 中对 `try` 语句的 `catch` 子句形参的处理。此时的形参会在新作用域中作为「使用本地词法作用域」的绑定，而这个新作用域包含了 `catch` 子句的语句体。使用 ECMAScript 对象来表示作用域轮廓的手段，也给这一语义带来了问题。ES5 规范对该问题的描述如下：
 
-> 12.4：在第 3 版中，会以类似 `new Object()` 的形式创建出一个对象，作为解析「传递给 `try` 语句 `catch` 子句的异常形参」名称的作用域。如果实际的异常对象是一个函数，并且它在 `catch` 子句中被调用，那么作用域对象将被作为调用的 `this` 值传递。而后，函数体可以在 `this` 值上定义新属性。并且在函数返回后，这些属性名称将成为 `catch` 子句作用域内可见的标识符绑定。在第 5 版中，当将异常参数作为函数调用时，`undefined` 将作为 `this` 的值来传递。
+> 12.4：在第 3 版中，会以类似 `new Object()` 的形式创建出一个对象，作为解析「传递给 `try` 语句 `catch` 子句的异常形参」名称的作用域。如果实际的异常对象是一个函数，并且它在 `catch` 子句中被调用，那么作用域对象将被作为函数调用的 `this` 值传递。而后，函数体可以在 `this` 值上定义新属性。并且在函数返回后，这些属性名称将成为 `catch` 子句作用域内可见的标识符绑定。在第 5 版中，当将异常参数作为函数调用时，将把 `undefined` 作为 `this` 的值来传递。
 
 在 2008 年的大部分时间里，工作组打算在新版本中引入 `const` 声明，因为尽管语义不同，这个特性在四种浏览器中也有三种支持。计划的目的是使 `const` 词法作用域缩小到块级，这有望进一步对早期规范版本中遗留的作用域模型施加压力。
 
-为了解决这些问题，Allen Wirfs-Brock 在规范层面上开发了一种新的作用域与绑定模型。这个模型并不使用 ECMAScript 对象语义来定义标识符解析机制，并且引入了环境记录（environment record）的概念。环境记录包含单个作用域轮廓中的绑定，以及一些环境（environment），每个环境都是环境记录的有序列表。环境记录为在 ECMAScript 程序中某个位置做标识符解析提供了上下文。环境记录有不同的种类，它们可用于表示全局作用域、函数作用域、块作用域以及 `with` 语句的作用域。而所有环境都开放了一个规范级的通用协议，用于对单个绑定做定义、查找和值修改。规范中对于与「声明或访问变量」和「其他种类的绑定」相关的语言特性，都需要使用通用的环境记录协议。
+为了解决这些问题，Allen Wirfs-Brock 在规范层面上开发了一种新的作用域与绑定模型。这个模型并不使用 ECMAScript 对象语义来定义标识符解析机制，并且引入了环境记录（environment record）的概念。环境记录包含单个作用域轮廓中的绑定，以及一些环境（environment），每个环境都是环境记录的有序列表。环境记录为在 ECMAScript 程序中某个位置做标识符解析提供了上下文。环境记录有不同的种类，它们可用于表示全局作用域、函数作用域、块级作用域，以及 `with` 语句的作用域。而所有环境都开放了一个规范级的通用协议，用于对单个绑定做定义、查找和值修改。规范中对于与「声明或访问变量」和「其他种类的绑定」相关的语言特性，都需要使用通用的环境记录协议。
 
 不过，`const` 声明最终推迟到了未来的 harmony 规范版本中，因为工作组意识到过早纳入 `const` 可能会引入一些有问题的语义，从而妨碍将来更全面的块级作用域设计。新的作用域模型仍然在 ES5 中得以应用，以解决与作用域相关的已知遗留问题，并为 ES6 中一组更全面的声明语句奠定了基础。
 
@@ -303,7 +303,7 @@ ES1–ES3
 
 * `JSON.parse` 和 `JSON.stringify`，它们可以在对象与其 JSON 格式字符串之间做相互转换。
 * 9 个新的 `Array.prototype` 方法：`indexOf`、`lastIndexOf`、`every`、`some`、`forEach`、`map`、`filter`、`reduce` 和 `reduceRight`。
-* 一个新的 `String.prototype` 方法：`trim`。
+* 1 个新的 `String.prototype` 方法：`trim`。
 * `Date`：`Date.prototype.now` 方法与新扩展，用于解析和产生 ISO 8601 日期格式下的数据字符串。
 * 新的 `Function.prototype` 方法 `bind`，以及函数实例上的 `name` 属性。
 
@@ -354,4 +354,4 @@ function testcase() {
 
 微软向 Ecma 贡献了这些测试，并在其开源项目门户 `codeplex.com` 上以「ES5conform」的名义发布了它们。大致在同一时间，谷歌宣布将发布他们在开发 Chrome 的 V8 JavaScript 引擎过程中创建的开源 ES3 测试套件。这个测试套件被命名为「Sputnik」，包含了 5000 多个测试。
 
-2010 年，ES5conform 和 Sputnik 成为了名为「Test262」的通用测试套件的核心，这一套件由 Ecma TC39 管理。像这样由 Ecma 技术委员会来维护和分发软件包，是一种根本性的改变。为了实现这一目标，必须要解决许多政策与许可证问题。Test262 开发过程中，最早的 ES5 阶段由 David Fugate 领导。而后 Brian Terlson 为 ES6 组织了 Test262。在 ES6 阶段过后，Test262 由 Leo Balter 组织。现在，Test262 已成为了 TC39 开发过程中不可或缺的一部分，每个 ECMAScript 新特性必须在测试后才能纳入 ECMAScript 标准。截至 2018 年 8 月 21 日，Test262 包含了 61877 个测试。Test262 的成功使得 TC39 相信，一份可执行的规范已经不再是必需品了。
+2010 年，ES5conform 和 Sputnik 成为了名为「Test262」的通用测试套件的核心，这一套件由 Ecma TC39 管理。像这样由 Ecma 技术委员会来维护和分发软件包，是一种根本性的改变。为了实现这一目标，必须要解决许多政策与许可证问题。Test262 开发过程中，最早的 ES5 阶段由 David Fugate 领导，到 ES6 阶段这一职责交给了 Brian Terlson。在 ES6 阶段后，Test262 由 Leo Balter 组织。现在，Test262 已经成为了 TC39 开发过程中不可或缺的一部分，每个 ECMAScript 新特性必须在测试后才能纳入 ECMAScript 标准。截至 2018 年 8 月 21 日，Test262 包含了 61877 个测试。Test262 的成功使得 TC39 相信，一份可执行的规范已经不再是必需品了。
