@@ -368,9 +368,9 @@ exports[propName] = modx[propName];
 
 图 28. CommonJS 模块被模块加载器转换成了「实现模块模式的函数」。模块之间的共享，是通过动态构造出的 `exports` 对象上的属性来实现的。
 
-CommonJS 模块的早期采用者之一，是 2009 年初由 Ryan Dahl 开发的 *Node.js*。Node.js 被设想为一个基于 JavaScript 的开源平台，用于构建服务端应用，其能力足以处理大量的客户端同时连接。Node.js 提供了一个带有库的 JavaScript 编程环境，支持一种异步的 I/O 模型。它连接起了常见的 POSIX 接口、JavaScript 回调，以及简化的浏览器事件循环，其实现主要包含了谷歌的 V8 JavaScript 引擎、一个 CommonJS 模块加载器，以及一组 C 语言实现的模块。这些模块提供了许多平台接口的非阻塞版本，包括 POSIX API 和其他高层面的文件和网络操作。Node.js 的首个公开版本是在 2009 年 5 月发布的。但直到 2009 年 11 月 Dahl 在 jsconf.eu 上做了一次演讲后，它才引起了人们的重视。此后不久，Dahl 被 Joyent 雇用。Joyent 负责管理和支持 Node.js 的进一步开发，直到 2015 年将其交接给 Node.js 基金会为止。
+CommonJS 模块的早期采用者之一，是 2009 年初由 Ryan Dahl 开发的 *Node.js*。在设想中，Node.js 是个用于通过 JavaScript 构建服务端应用的开源平台，其能力足以处理大量的客户端同时连接。Node.js 支持一种异步的 I/O 模型，并为此提供了一个带有库的 JavaScript 编程环境。它连接起了常见的 POSIX 接口、JavaScript 回调，以及简化的浏览器事件循环，其整体实现主要包含了谷歌的 V8 JavaScript 引擎、一个 CommonJS 模块加载器，以及一组 C 语言实现的模块。这些模块提供了许多平台接口的非阻塞版本，包括 POSIX API 和其他高层面的文件和网络操作。Node.js 的首个公开版本是在 2009 年 5 月发布的。但直到 2009 年 11 月 Dahl 在 jsconf.eu 上做了一次演讲后，它才引起了人们的重视。此后不久，Dahl 被 Joyent 雇用。Joyent 负责管理和支持 Node.js 的进一步开发，直到 2015 年将其交接给 Node.js 基金会为止。
 
-Node.js 原先被设想为一种用于构建服务端应用的技术，但它成为了一个平台，使 JavaScript 能作为通用编程语言，应用在包括小型嵌入式设备在内的各种平台上。Node.js 的 I/O 模块与高性能的 V8 引擎相结合，在能力上足以与 Python 和 Ruby 等其他动态应用语言相媲美，在性能上也往往更胜一筹，成为了编写命令行 JavaScript 应用时的事实标准。Node.js 使掌握了 JavaScript 的 Web 程序员能将其技能转移到其他类型的应用和非浏览器环境中。最初许多客户端 Web 应用的开发者们之所以使用 JavaScript 编程，是因为他们别无选择。而许多 Node.js 开发者选择使用它，反而是因为他们更喜欢用 JavaScript 编程。
+Node.js 最早被设想为一种用于构建服务端应用的技术。但它已经成为了一个平台，使 JavaScript 能作为通用编程语言，应用在包括小型嵌入式设备在内的各种平台上。Node.js 的 I/O 模块与高性能的 V8 引擎相结合，在能力上足以与 Python 和 Ruby 等其他动态应用语言相媲美，在性能上也往往更胜一筹，成为了编写命令行 JavaScript 应用时的事实标准。Node.js 使掌握了 JavaScript 的 Web 程序员能将其技能转移到其他类型的应用和非浏览器环境中。最初许多客户端 Web 应用的开发者们之所以使用 JavaScript 编程，是因为他们别无选择。而许多 Node.js 开发者选择使用它，反而是因为他们更喜欢用 JavaScript 编程。
 
 ### 成为浏览器通用运行时的 JavaScript
 JavaScript 这门语言属于一系列 Web 标准套件中的一部分，这些标准定义出了可互操作的浏览器平台。它是仅有的一门网页开发者们可以预期在每个浏览器中都能使用的语言。如 Java、Adobe Flash 和微软 *Silverlight* 等其他语言环境，都不属于这个标准平台的一部分，必须使用特定于浏览器的扩展机制来集成到浏览器中——前提是这门语言支持这个浏览器。通常情况下，语言引擎必须由浏览器用户单独安装，并且可能无法完全集成到浏览器的标准服务中，比如基于 DOM 的图形模型。
@@ -381,9 +381,9 @@ JavaScript 这门语言属于一系列 Web 标准套件中的一部分，这些�
 
 2006 年 5 月公开发布的 Google Web Toolkit（GWT），是首个使用源到源翻译的 AJAX 工具套件。GWT 集成了 Java 到 JavaScript 的编译器，它被成功地应用于一些 Google 重要的对外 Web 应用，并在 Google 以外也得到了大量使用。GWT 的成功，证明了将 JavaScript 用于源对源翻译的可行性，许多其他语言的翻译器也随之而来。有一份文档记录了「可编译到 JS」的语言列表。它在 2011 年 1 月共有 19 个条目，但到 2018 年则包括了 270 多种语言。这些语言要么被翻译到 JavaScript，要么以 JavaScript 为宿主。这些语言中有一些是玩具级或不完整的实现，然而其中也有许多是拥有大量用户的严肃编译器，甚至还有一个针对 JavaScript 的 Dart 编译器。
 
-源对源翻译不仅被用来支持 Web 页面上的遗留语言，还为实验新语言和扩展 JavaScript 提供了一种手段。最成功的源对源翻译器之一是 *CoffeeScript*，它由 Jeremy Ashkenas 在 2009 年到 2010 年开发。在成为 Web 开发者前，Ashkenas 曾用 Ruby 语言编程，他更喜欢 Ruby 相对无标点符号的语法和 Python 式的留白缩进，而非 JavaScript 使用的 C 风格语法。他创建了 CoffeeScript 作为 JavaScript 的新表层语法，同时保留了 JavaScript 的底层运行时语义。Ashkenas 这样描述他在 CoffeeScript 上的工作：
+源对源翻译不仅被用来支持 Web 页面上的遗留语言，还为实验新语言和扩展 JavaScript 提供了一种手段。*CoffeeScript* 是最成功的源对源翻译器之一，它由 Jeremy Ashkenas 在 2009 年到 2010 年开发。在成为 Web 开发者前，Ashkenas 曾用 Ruby 语言编程，他更喜欢 Ruby 相对无标点符号的语法和 Python 式的留白缩进，而非 JavaScript 使用的 C 风格语法。他创建了 CoffeeScript 作为 JavaScript 的新表层语法，同时保留了 JavaScript 的底层运行时语义。Ashkenas 这样描述他在 CoffeeScript 上的工作：
 
-> JavaScript 一直以来都将一个漂亮的对象模型隐藏在了 Java 式的语法中。CoffeeScript 试图通过偏好表达式而非语句的语法，减少标点符号的噪音，提供优雅的函数字面量，从而展示出 JavaScript 好的部分。像 `square: x => x * x` 这行 CoffeeScript，就可以编译成这样的 JavaScript：
+> 长期以来，JavaScript 都把一个漂亮的对象模型隐藏在了 Java 式的语法中。CoffeeScript 试图通过偏好表达式而非语句的语法，减少标点符号的噪音，提供优雅的函数字面量，从而展示出 JavaScript 好的部分。像 `square: x => x * x` 这行 CoffeeScript，就可以编译成这样的 JavaScript：
 
 ``` js
 var square = function(x) {
@@ -395,4 +395,4 @@ return x * x;
 
 在 2011 年 5 月的 JSConf 大会上，Brendan Eich 与 Jeremy Ashkenas 一起分享了 CoffeeScript 及其在 JavaScript 的 Harmony 演变中的作用。在他的演讲中，Eich 介绍了一个名为「转译器（transpiler）」的术语，用来描述像 CoffeeScript 这样的源对源编译器。这并非「转译器」一词首次出现，但在 Eich 的演讲前，这个词并未被广泛地了解和使用。后来，这个概念开始在 JavaScript 开发者社区内外被普遍使用。
 
-Alon Zakai 的 Emscripten 是一个能将 C/C++ 翻译成高效 JavaScript 代码的转译器。它的诞生前提，在于作者发现通过 JavaScript 的 32 位算术编码模式和二进制的 TypedArray 数据结构，可以定义出一个易于被基于 JIT 的 JavaScript 引擎优化的 C 语言执行环境。Emscripten 启发了 asm.js，这是一个定义了一组 JavaScript 代码模式的规范。相应编译器所生成的符合规范的 JavaScript 代码，都应该能被引擎识别和优化。asm.js 的成功进一步带来了 WebAssembly，它以字节码级接口扩展了 JS 引擎，可以作为 C/C++ 和类似的低级语言的编译目标。
+Alon Zakai 的 Emscripten 是一个能将 C/C++ 翻译成高效 JavaScript 代码的转译器。它的诞生前提，在于作者发现通过 JavaScript 的 32 位算术编码模式和二进制的 TypedArray 数据结构，可以定义出一个易于被基于 JIT 的 JavaScript 引擎优化的 C 语言执行环境。Emscripten 启发了 asm.js，这是个定义了一组 JavaScript 代码模式的规范。相应编译器所生成的符合规范的 JavaScript 代码，都应该能被引擎识别和优化。asm.js 的成功进一步带来了 WebAssembly，它以字节码级接口扩展了 JS 引擎，可以作为 C/C++ 和类似的低级语言的编译目标。

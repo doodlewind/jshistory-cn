@@ -1,5 +1,5 @@
 ## 史前时代
-万维网的概念与基础技术，是 1989-1991 年间由 CERN 的 Tim Berners-Lee 研发的。Web 技术在高能物理圈内流通了几年，但并未在物理社区外引起强烈反响。它真正引发关注的契机，还是 1992-1993 年开发的 Mosaic。这款由本科生 Marc Andreessen 和伊利诺伊大学香槟分校超算中心（NCSA）的 Eric Bina 研发的应用，本质上定义了「Web 浏览器」这一全新软件类别。
+万维网的概念与基础技术，是 1989-1991 年间由 CERN 的 Tim Berners-Lee 创造的。Web 技术在高能物理圈内流通了几年，但并未在物理社区外引起强烈反响。它真正引发关注的契机，还是 1992-1993 年开发的 Mosaic。这款由本科生 Marc Andreessen 和伊利诺伊大学香槟分校超算中心（NCSA）的 Eric Bina 研发的应用，本质上定义了「Web 浏览器」这一全新软件类别。
 
 NCSA Mosaic 是不仅易装易用，而且带有图形界面的 Web 客户端。它在物理学界之外普及了万维网的概念，传播相当广泛。到 1994 年初，商业资本开始通过获得 Mosaic 代码许可或从头研发仿 Mosaic 式浏览器的方式，争相加入这波浏览器浪潮。硅谷图形公司（SGI）的创始人 Jim Clark 拉到了风险投资，并招来了 Marc Andreessen 和 Eric Bina 两人。在 1994 年 4 月，他们共同创立了一家公司。这家公司最终定名为网景通讯（Netscape Communications Corporation），目标是推出世界上最流行的浏览器来替代 Mosaic。网景从零开始研发了下一代 Mosaic 式浏览器 Netscape Navigator，它于 1994 年 10 月起开始发行。到 1995 年初，Netscape Navigator 达到了初始目标，正在迅速地取代 Mosaic。
 
