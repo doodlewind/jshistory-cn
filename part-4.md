@@ -446,11 +446,15 @@ Brendan Eich - Mozilla
 Cormac Flanagan - UCSC
 David Fugate - Microsoft
 Dave Herman - Mozilla
-Luke Hoban - MicrosoftBill Frants - Periwinkle (guest)
+Luke Hoban - Microsoft
+Bill Frants - Periwinkle (guest)
 Waldemar Horwat - Google
-Mark Miller - GoogleJohn Neumann - Ecma
+Mark Miller - Google
+John Neumann - Ecma
 Alex Russell - Google
-Mike Samuel - GoogleIstván Sebestyén - EcmaSam Tobin-Hochstadt - Northeastern University
+Mike Samuel - Google
+István Sebestyén - Ecma
+Sam Tobin-Hochstadt - Northeastern University
 Allen Wirfs-Brock - Mozilla
 ```
 
