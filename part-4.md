@@ -218,7 +218,7 @@ var point2 = Object.create(protoPoint, {
 
 *对象的完整性与安全性特性*。Netscape 3 所引入的 HTML `<script>` 元素 `src` 属性，使网页可以从多个 Web 服务器加载 JavaScript 代码。按最常见的说法，脚本会被加载到单个 JavaScript 执行环境中，在此它们共享同一个全局命名空间。跨站脚本也可以直接与此交互，这使得人们有条件创建 mashup 应用。跨站脚本的加载能力得到了广泛使用，并对支持基于广告的 Web 商业模式起了关键作用。但是跨站脚本既可能相互篡改与干扰，也可能如此影响原站点页面中的脚本。最后 Web 开发者们意识到，第三方脚本可能引发一些风险，比如窃取密码等用户机密数据，或者修改页面行为以欺骗用户。到 2007 年，人们发现 Web 广告代理商开始在暗中分发恶意广告。浏览器厂商开发了各种 HTML 和 HTTP 级别的特性来解决这一问题，例如内容安全策略（CSP）。但这种级别的特性并不能直接解决许多低层面的 JavaScript 漏洞。
 
-当 Douglas Crockford 和 Mark Miller 参加 ES3.1 工作组时，他们都在积极开发用于支持 JavaScript 执行沙箱的技术，这些沙箱可用于安全地托管执行不受信任的第三方 JavaScript 代码。尽管 ES3.1 强势的向后兼容性需求意味着已无法消除许多已知的第三方脚本漏洞，但 Crockford 和 Miller 都力求消除那些可以在兼容前提下修补的漏洞，并继续添加新特性，以助于创建安全沙箱。在这之中，Mark Miller 对基于对象能力构建沙箱所需的特性尤其感兴趣。
+当 Douglas Crockford 和 Mark Miller 参加 ES3.1 工作组时，他们都在积极开发用于支持 JavaScript 执行沙箱的技术，这些沙箱可用于安全地托管执行不受信任的第三方 JavaScript 代码。尽管 ES3.1 强势的向后兼容性需求意味着已无法消除许多已知的第三方脚本漏洞，但 Crockford 和 Miller 都力求消除那些可以在兼容前提下修补的漏洞，并继续添加新特性，以助于创建安全沙箱。在这之中，Mark Miller 对基于对象能力（object capability）构建沙箱所需的特性尤其感兴趣。
 
 这里最大的问题是 JavaScript 对象的可变性（mutability）。默认情况下，包括标准库对象在内的所有 JavaScript 对象，对于任意获取到了对其引用的代码而言，都是完全可变的。对象的属性和方法都可以被更改、赋值或删除。对于被直接引用的对象以及（从根级对象起）被间接引用的对象来说，情况都是这样的。尽管 ES3 中并没有方法能直接修改某个对象「到其原型对象」的引用，但是除 IE 之外的所有主流浏览器都已经实现了非标准属性 `__proto__`。通过该属性，可以修改对象的原型继承链。对于这种普遍存在的可变性，仅有的例外是 ES3 中带有 ReadOnly 或 DontDelete 标记的少数内置属性。
 
@@ -267,7 +267,7 @@ var objectWithSecret = {
 
 对这个漏洞的修复，会产生对象字面量语义上的破坏性变更，但浏览器厂商愿意为修复这样的安全漏洞而做出改动。实际的规范更改很简单：不再使用 `[[Put]]` 语义来创建新对象的属性。ES5 使用了新的 `[[DefineOwnProperty]]` 内部方法，这个方法会始终忽略继承的属性，直接在对象上创建新的属性。
 
-ES5 只能使 JavaScript 在安全方面前进一小步。当 ES5 的工作正在进行时，Douglas Crockford 建议在 TC39 内成立一个安全 ECMAScript（SES）工作组，目的是探索开发一种新 ECMAScript 安全方言的可能性，这种方言不受后向兼容性的约束。SES 工作组在 2008 到 2009 年举行了四次会议，并评估了一些现有的 JavaScript 解决方案，以实现对不可信代码的安全求值。最后，TC39 放弃了对单独的新方言做标准化的想法，但诸如对象能力模型（object-capability model）一类的 SES 概念则极大地影响了 Harmony 的研发。Ankur Taly 等人基于形式化手段，展示了严格模式和其他 ES5 特性是如何支持「对 mashup 友好的安全 ECMAScript 子集」的。
+ES5 只能使 JavaScript 在安全方面前进一小步。当 ES5 的工作正在进行时，Douglas Crockford 建议在 TC39 内成立一个安全 ECMAScript（SES）工作组，目的是探索开发一种新 ECMAScript 安全方言的可能性，这种方言不受后向兼容性的约束。SES 工作组在 2008 到 2009 年举行了四次会议，并评估了一些现有的 JavaScript 解决方案，以实现对不可信代码的安全求值。最后，TC39 放弃了对单独的新方言做标准化的想法，但诸如对象能力模型一类的 SES 概念则极大地影响了 Harmony 的研发。Ankur Taly 等人基于形式化手段，展示了严格模式和其他 ES5 特性是如何支持「对 mashup 友好的安全 ECMAScript 子集」的。
 
 *活跃对象的移除*（Elimination of Activation Objects）。在 ES5 之前，ECMAScript 规范已经明确要求使用 ECMAScript 对象来定义 ECMAScript 语言的作用域语义。每个*作用域轮廓*（scope contour）都由一个活跃对象（AO）表示。活跃对象也是普通的 ECMAScript 对象，其属性提供了变量和函数绑定，这些绑定是由与当前轮廓相对应的代码创建的。嵌套作用域被定义为一份活跃对象的列表，可在其中依次搜索对某个引用的绑定。语言特点在于，引用绑定在访问「活跃对象」和访问「用户程序定义出的对象属性」时，都会使用相同的属性访问语义运算符。ES1 及其后续规范指出，活跃对象的概念仅用于纯粹的语言规范化，对 ECMAScript 程序而言是透明的。然而如果引擎完全符合规范，这种属性访问语义会导致出现一些边界情况下意料之外的行为。对于这些边界情况下的语义，实际实现则各有不同。
 
@@ -655,3 +655,90 @@ ES6 特性中引入了更多种类的早期错误。例如，试图使用 `let` 
 ![](./figures/43.png)
 
 图 43. ES6 静态语义规则示例。
+
+### ES2015 语言特性
+Harmony 提案 Wiki 页面最终版本中所列出的提案，被开发成了几十种语言及其标准库的新特性与扩展特性。典型提案在被纳入规范草案之前，要经过多次反复的迭代。有些提案在纳入规范草案后，还会继续进行改进。一些提案最终被放弃审议，或推迟到未来的版本中。
+
+以下各节将深入探讨几项重要提案的发展历史，并总结其他重要特性的细节。
+
+*Realms、Jobs、Proxies 和元对象编程（MOP）*。Harmony 的目标之一，在于使外来对象不分其为内置还是由宿主定义，均能实现自托管，并完全确定其由 Web 浏览器所实现的语义扩展机制。为支持这一目标，需要完善某些 ECMAScript「虚拟机」中现有的抽象，并进一步增加新的抽象，以确定新的（或不够明确的）语言特性。
+
+「Realm」是一种新的规范抽象。引入它的目的，是为了支持在单个 ECMAScript 执行环境中描述多个全局命名空间的语义。Realm 能支持 HTML 页框的语义，这是 ECMAScript 自 ES1 以来一直忽略的浏览器特性。而「Job」这种规范抽象的加入，是为了确定性地定义 ECMAScript 执行环境该如何将多个脚本依次执行到完成（run-to-completion）。基于 Job 所提供的方法，能解释由浏览器和其他 JavaScript 宿主所提供的「事件派发」和「延迟回调」的语义。它们还为定义 ES2015 中 Promise 的语义建立了基础。
+
+ES1 所提供的内部方法，基本上是个残缺的元对象协议。在对各种内置对象和宿主提供的对象做属性访问时，会有各类可见的语义区别。基于内部方法，可以将这些区别解释为它们在内部方法规范上的差异。但在 ES2015 之前，内部方法的语义还不够完整和规范，其使用也不够一致。为了「驯服」宿主对象，实现外来对象的自托管，并支持对象能力的*膜*（membrane）。ES1 到 ES5 中所设计的内部方法，被转换成了一种完全确定好的元对象编程（MOP）。
+
+JavaScript 代码要想定义外来对象，就必须能为这些对象所用的内部方法提供相应的实现。这个特性是由 ES2015 中的 `Proxy` 对象提供的。新版 ES4 提出了一种名为「catchalls」的机制，从而让 JavaScript 代码能逐对象地覆盖当「试图访问某个属性，或调用某个不存在的方法」时发生的默认动作。这个「catchalls」机制的目的，是改进 JavaScript 1.5 的非标准 `__noSuchMethod__` 机制。在 Harmony 中，Brendan Eich 引入了所谓的「动作方法（action method）」概念，使其能动态附加到对象上，从而令新版 ES4 的 catchalls 更进一步通用化。在对某个对象执行某些语言操作时，如果该对象上已定义了相应的动作方法，则会调用该方法。可用的动作集与 ES5 的内部方法集类似，但不是它们的直接映射。这里有个悬而未决的问题，即这些动作是在执行所有属性访问时触发，还是仅当访问不存在的属性时触发。Eich 所设计的用于将动作附加到对象上的 API，是以 ES5 对象反射函数为基础的：
+
+``` js
+var peer = new Object;
+Object.defineCatchAll(obj, {
+  // 加入支持数组式行为的动作
+  has: function (id) { return peer.hasOwnProperty(id); },
+  get: function (id) { return peer[id]; },
+  set: function (id, value) {
+       if ((id >>> 0) === id && id >= peer.length) peer.length = 1 + id;
+       peer[id] = value},
+  add: function (id) { Object.defineProperty(obj, id,
+        { get: function (){ return peer[id]; },
+        set: function (value) { peer[id] = value);
+       }})},
+  // 其他动作的定义...
+});
+```
+
+Harmony Catchall 提案
+
+在这个例子中，属性 `has`、`get`、`set` 和 `add` 提供了动态附加到 `obj` 对象上的所有动作。各动作函数可在词法上共享对 `peer` 对象的访问，这就在 `obj` 和 `peer` 之间建立了一对一的关联。这些处理函数共同使用 `peer` 来支持对 `obj` 自有属性的存储。它们还会动态更新 `peer` 对象的 `length` 属性值，因此该值总比用作属性名的最大整数大 1。
+
+在 Brendan Eich 的 catchall 提案之后不久，Tom Van Cutsem 和 Mark Miller 又提出了另一种设计。这就是「基于代理的 catchall 提案」，它定义了一套分层的对象交互 API。Proxy 提案的目的是支持对虚拟对象的定义，例如在安全的「基于对象能力」式系统中，定义出用于实现隔离的膜对象（membrane object）。TC39 基本认可了 Proxy 稻草人，并很快将其作为 Harmony 提案接受。
+
+这份提案引入了 Proxy 对象的概念。提案没有扩展出具侵入性动作方法的基础对象，而是选择创建一个与处理器对象（handler object）相关联的 Proxy 对象，其中的方法称之为「trap」。Trap 会由语言操作而触发。通过处理器函数，可以完全定义出语言操作所用的对象行为。Trap 既可能是自包含的，也可能通过词法捕获的形式，与「对处理器函数可见的已有对象」一起使用。如下所示：
+
+``` js
+// 一个进行简单转发的代理
+function makeHandler(obj) { return {
+  has: function(name) { return name in obj; },
+  get: function(rcvr,name) { return obj[name]; },
+  set: function(rcvr,name,val) { obj[name]=val; return true; },
+  enumerate: function() {
+    var res = []; for (name in obj) { res.push(name); }; return res; },
+  delete: function(name) { return delete obj[name]; } };
+}
+var proxy = Proxy.create(makeHandler(o), Object.getPrototypeOf(o));
+```
+
+最早的 Harmony Proxy 提案
+
+在这个例子中，`makeHandler` 是用于创建处理器对象的辅助函数，其 trap 在词法上共享对「作为参数传递给 `makeHandler` 的对象」的访问。传递给 `makeHandler` 的对象可能是一个新创建的对象，这时它的作用类似于 catch-all 例子中的 `peer` 对象。另外，被传递的对象也可以是一个已有的对象。这时，trap 可以将部分或全部被截获的操作转发给该对象。在这种情况下，`obj` 对象的角色就相当于「被转发代理」的目标。
+
+通过将 trap 方法放在处理器对象中的方式，可以避免它与基础对象属性的名称冲突。提案中定义了 7 种基本 trap、6 种派生 trap，以及 2 种针对函数对象的 trap。和 catchall 提案类似地，trap 和 ES5 的内部方法相接近，但也不是 ES5 内部方法的直接映射。ES5 中为 `[[GetOwnProperty]]` 和 `[[DefineOwnProperty]]` 内部方法建立了某些不可违背的不变量。而对 ES2015 来说，有个棘手的问题就是如何在保证这些不变性的同时，对「被冻结或密封的对象」与「不可配置的属性」进行虚拟化。
+
+在对原始 Proxy 提案做原型建设后，Van Cutsem 宣布了重大修订：
+
+> 几周前，Mark 和我坐在一起研究了 proxy 的一些现存问题，特别是如何让 proxy 更好地处理不可配置的属性和不可扩展的对象。其结果就是我们所说的「直接代理」：在我们的新提案中，proxy 总是另一个「目标」对象的包装器。只要以这种方式稍微转变我们对 proxy 的看法，很多早先开放的问题就不复存在了。并且这样一来，proxy 的开销在某些情况下可能会大大减少。
+
+在「直接代理」的提案中，目标对象（以下例子中的 `o`）类似于转发代理例子中传递给 `makeHandler` 的对象。它作为 Proxy 对象的内部状态而保存，并在调用 trap 时作为一个显式参数而传递。因为 Proxy 知道目标对象，所以它可以在使用目标对象时强制保证必要的不变量。以下是直接代理版本的 Proxy 转发示例：
+
+``` js
+// 一个进行简单直接转发的代理
+var Proxy(o,{
+  // 处理器对象
+  has:function(target ,name){return Reflect.has(target ,name)},
+  get:function(target,name,rcvr){return Reflect.get(target,name,rcvr)},
+  set:function(target,name,val,rcvr){return Reflect.set(target,name,val,rcvr)},
+  enumerate:function(target){return Reflect.enumerate(target)},
+  // ...
+});
+```
+
+Harmony 直接代理提案
+
+这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brook 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。这是通过「增加新的内部方法」和「将一些不可截取的操作重新定义为常规的基础级、可捕获的方法调用」来实现的。此外提案还定义了每个内部方法的关键不变量。ECMAScript 的实现和宿主都必须遵守这些不变量，而 `Proxy` 可以保证自托管的外来对象也遵守它们。图 44 是对 ES2015 中元对象编程的概述：
+
+![](./figures/44.png)
+
+图 44. ES6/ES2015 的元对象协议由规范级内部方法定义，并通过 `Proxy` 的 trap 和 `Reflect` 方法进行验证。
+
+在直接代理的设计中，使用了一个封装过的目标对象。但它的设计目的并非提供目标对象的简易透明封装。与其表象相反，代理并不是一种用来记录属性访问或处理「方法未找到」问题的简单方式。为了支持这些用例而朴素实现的 Proxy 对象，通常是不可靠或有错误的。直接代理的核心使用场景，是对象的虚拟化和安全膜的创建。正如 Mark Miller 所解释的那样：
+
+> Proxy 和 WeakMap 的最初设计动机，是支持膜的创建。单独使用的 proxy 不可能是透明的，也不能合理地达到接近透明的程度。膜能合理且几乎透明地模拟 realm 的边界。对于具备私有成员的类而言，这种模拟基本上是完美的。
