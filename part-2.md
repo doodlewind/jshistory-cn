@@ -299,8 +299,8 @@ Web 2.0 和 AJAX 的出现，是 JavaScript 在 Web 开发中用途的主要转�
 var Services = function () {
   var privateJobCount = 0; // 「模块」的私有状态
   return { // 命名空间对象
-    jobCount: function {return privateJobCount},
-    job1: function() {this.jobCount++}
+    jobCount: function() {return privateJobCount},
+    job1: function() {this.privateJobCount++}
   }
 }(); // Services 被初始化为调用该函数时的返回值
 
