@@ -13,7 +13,7 @@
 1. **[语言诞生](./part-1.md)**（The Origins of JavaScript），介绍了 JavaScript 的创建与早期发展，包括语言的诞生背景、命名方式、原始功能及其设计理念等。这一节还追溯了它在 Netscape 与其他公司最初的演化，例如微软的 JScript。
 2. **[创立标准](./part-2.md)**（Creating a Standard），介绍了从 JavaScript 到 ECMAScript 标准的历程。这主要涵盖 JavaScript 标准化工作的启动、规范的创建、相关贡献者以及决策方式等。
 3. **[改革遗恨](./part-3.md)**（Failed Reformations），介绍了在 Eich 离开后，缺乏「仁慈独裁者」的 ECMAScript 委员会修改语言的失败尝试。这主要涉及委员会的分裂、对 ES4 的两轮投入，以及 Flash 与 ActionScript 在其中的渊源等。
-4. **继往开来**（Modernizing JavaScript），介绍了 2009 年 ES5 与 2015 年 ES6 这两个成功标准背后的故事，主要包括对 ES5 与 ES6 的目标、重大基础更改以及重要新功能的介绍与回顾。
+4. **[继往开来](./part-4.md)**（Modernizing JavaScript），介绍了 2009 年 ES5 与 2015 年 ES6 这两个成功标准背后的故事，主要包括对 ES5 与 ES6 的目标、重大基础更改以及重要新功能的介绍与回顾。
 
-## 关于本项目
+## 许可
 本文基于 [CC-BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/) 许可，不限制非商用转载。
