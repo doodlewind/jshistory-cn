@@ -1097,3 +1097,83 @@ TC39 同时也对提供具有精简语义的「lambda 函数」感兴趣，比�
 * **TypeScript** 是微软的一款免费语言产品，最初以带有 ES6+ 特性的 ES5 为目标，后来增加了 ES2015 作为编译目标。TypeScript 最重要的功能，是一个可选的静态分析类型系统与类型注解。它可以编译成人们惯用的动态类型 JavaScript 代码。在 2020 年，TypeScript 是编写带类型注解的 JavaScript 时的事实标准。
 
 转译器的生产级使用（尤其是 Babel 和 TypeScript），是许多 JavaScript 开发团队内部大型文化转型的一部分。在这些团队中，JavaScript 已经被近似于当作传统的、具备开发和部署构建工具链的 AOT 编译型语言，而不是作为一个动态执行环境，加载并直接执行程序员的原始源代码。
+
+
+### 完成 ECMAScript 2015
+在 2015 年 3 月的会议上，TC39 批准了当时的候选规范，将其提交给了 Ecma GA 大会进行最终批准。Ecma GA 在 2015 年 6 月的会议上投票批准了它，并立即发布了 ECMA-262 第 6 版，是为《ECMAScript 2015 语言规范》。
+
+ECMAScript 2015 的开发和发布历时近 7 年，数百人为其开发做出了贡献。从 2008 年 7 月的会议（Harmony 工作开始之处）开始，到 2015 年 3 月的会议（候选规范获得批准之处）为止，委员会共召开了 41 次 TC39 会议。有 145 人亲自或通过电话参加了这些会议，具体参与程度不一。ES2015 的开发与 ES5/ES5.1、《ECMA-402 ECMAScript 国际化 API》、《ECMA-404 JSON 数据交换格式》以及 Test262 测试验证套件的开发相重叠。一些与会者的主要兴趣是其中的一项或多项工作。在 145 名与会者中，有 62 人只参加了一次会议，他们通常以观察员身份列席。
+
+TC39 主席 John Neumann 和 Ecma 秘书长 István Sebestyén 为项目提供了行政上的支持，确保了会议的顺利进行。项目编辑 Allen Wirfs-Brock 在项目过程中发布了 38 份规范草案。有 7 人（图 47）实质上属于整个项目的技术贡献者。另有 35 名与会者（图 48）参加了 5 至 24 次会议，其中大多数人对项目作出了重要的技术贡献。在 ES2015 的开发过程中，数百名 JavaScript 开发者社区成员向 `es-discuss` 邮件列表发布了超过 36000 条消息，并在 TC39 的 bug 跟踪系统中，提出了 4000 多个与 ES2015 规范草案有关的工单。
+
+```
+Allen Wirfs-Brock (Project Editor) - Microsoft, Mozilla
+Brendan Eich - Mozilla, invited expert
+Mark S. Miller - Google
+Waldemar Horwat - Google
+Dave Herman - Northeastern Univ, Mozilla
+Douglas Crockford - Yahoo!, PayPal
+Erik Arvidsson - Google
+```
+
+图 47. TC39 技术贡献者，他们在整个 ES2015 开发工作中表现活跃。在此期间，每人至少参加了 41 次 TC39 会议中的 30 次。2009 年 5 月，Arvidsson 首次参加。Crockford 最后一次参加是在 2014 年 4 月。其余的人从头到尾都参加了项目。
+
+```
+Sam Tobin-Hochstadt (24), Alex Russell (21), Luke Hoban (20),
+Cormac Flanagan (18), Yehuda Katz (17), Rick Waldron (17),
+Eric Ferraiuolo (15), Tom Van Cutsem (14), Nebojsa Ćirić (13),
+Andreas Rossberg (13), Oliver Hunt (12), Norbert Lindenberg (12),
+Sam Ruby (12), Brian Terlson (12), Sebastian Markbage (11),
+Jeff Morrison (11), Rob Sayre (10), Matt Sweeney (10),
+Rafael Weinstein (10), Jeff Dyer (8), David Fugate (8),
+Domenic Denicola (7), Rick Hudson (7), Jafar Husain (7),
+Dimitry Lomov (7), Ben Newman (7), Caridy Patino (7),
+Chris Pine (7), Mike Samuel (6), Ihab Awad (5),
+Reid Burke (5), Andreas Gal (5), Peter Jensen (5),
+Pratap Lakshman(5), Nicholas Malsakic (5)
+```
+
+图 48. 在制定 ES2015 期间，经常参加 TC39 会议的技术贡献者。这些数字反映了他们参加了多少次会议。
+
+在 ES6 的开发过程中，人们对 TC39 的兴趣和参与度急剧增加，并在其完成后继续增加。2008 年 7 月，TC39 的第一次 Harmony 会议仅有代表 8 个组织的 13 人参加。2015 年 7 月的会议是在 ES2015 发布一个月后举行的，有代表 15 个组织的 34 名个人参会者（有些是远程参会）。在 2019 年 7 月的 TC39 会议上，有代表 24 个组织的 76 名参会者（46 人到场，30 人远程）。
+
+*准备 ES6 之后的未来*。2013 年和 2014 年，随着 ES6 开发工作的结束，TC39 开始考虑未来版本的开发该如何进行。ES6 进程中的一个关注点在于，其中一些特性的设计是在它们「能出现在已发布的 ECMAScript 标准中」之前几年就完成了的。这与大多数主流浏览器厂商所采用的「常青浏览器」概念相冲突。常青浏览器每隔几周就会更新一次，使错误修复和新特性能尽快推出。大多数 TC39 成员认为，ECMAScript 标准需要更快的更新周期，以便更好地适应浏览器的快速发展。
+
+为此，委员会提出了以一年为发布周期的提议。这将使各个新特性在标准中迅速变得可用。每年发布版本还可以使规范中的错误迅速得到纠正，并消除了多年来对长篇勘误表的需要。按照标准组织的规范，每年一次的发布周期是非常快的，但 Ecma 同意接受这个时间表。
+
+以年为单位进行更新，将要求 TC39 在开发新语言特性方面更加规范。有些设计工作仍然需要多年才能完成，因此这需要一个流程，以适应跨越多个年度发布周期的特性开发项目，并能协调不同特性之间重叠的开发周期。还有人担心，ES6 过于依赖一位编辑来完成大部分规范的编写工作。要想成功实现每年发布，倡议者需要为自己的特性进行大部分的规范编写。
+
+Rafael Weinstein 和 Dimitry Lomov 提出了一项建议，即在开发过程中，新特性提案要经过五个成熟阶段。后来 Weinstein 与 Allen Wirfs-Brook 合作，进一步定义和文档化了这一过程。附录 Q 是对新流程和发展阶段的描述。从 2014 年起，TC39 在 ES6 之后的所有工作中都遵循这一程序。截至 2020 年 6 月发表本文，TC39 在每年 6 月都成功发布了 ECMAScript 规范的新版本。
+
+## 总结
+JavaScript 是一门以低预期要求来创建的语言。它的初衷是作为 Java 在浏览器内的一个辅助工具，适合初级网页开发者和兼职程序员使用。然而在很短的时间内，它就（在浏览器里）超过了 Java，成为了交互式网页的主要语言。尽管 JavaScript 的前 20 年里充满了增强、改进、重新设计或取代它的失败尝试，但到这一时期结束时，JavaScript 已成为了世界上使用最广泛的编程语言——而且还不仅仅用于网页。除了使用 Node.js 和其他宿主构建的服务器应用外，JavaScript 还被用于构建桌面应用、移动设备应用、健身追踪器、机器人和众多嵌入式系统。它甚至是詹姆斯·韦伯太空望远镜的一部分。这个望远镜使用 Nombas 的 ES1 级嵌入式 JavaScript，作为其板载控制软件的一部分。
+
+JavaScript 的崛起是必然的吗？Web 和浏览器博弈论中提出的可操作性要求，可能会倾向于得到一种单一的主流网页编程语言，但并没有特别的理由说明这种语言必须是 JavaScript。其他语言也本可以填补这一角色。实际上纵观 JavaScript 的历史，有很多地方的结果都可能是不同的：
+
+* 如果 Marc Andreessen 没有倡导开发浏览器脚本语言，会怎么样呢？
+* 如果 Sun 公司的 Bill Joy 没有支持启动开发 Mocha 来作为 Java 的补充，会怎么样呢？
+* 如果把开发 Mocha 的任务交给 Brendan Eich 以外的人，会怎么样呢？
+* 如果 Eich 是一位更有经验的语言设计者或实现者，并总结认为 10 天内完成 demo 是一件不可能完成的任务，会怎么样呢？
+* 如果 Eich 的编程能力不够，或者在语言设计上的野心太大，导致没能在 10 天内创建出 Mocha 的 demo，会怎么样呢？
+* 如果 JavaScript 最初的设计中没有包含一等公民式的函数，会怎么样呢？
+* 如果 Sun 或 Netscape 公司花大力气把 Java 与 HTML 更好地结合起来，而不是把 Java 作为一个孤立的环境来托管，会怎么样呢？
+* 如果微软没有实现 JScript，而是更大力地推广它的 Visual Basic 替代方案，会怎么样呢？
+* 如果微软在取得 90% 以上的浏览器市场份额后，继续投资浏览器语言技术，会怎么样呢？
+* 如果 Macromedia/Adobe 推动将 ActionScript 2 或 3 作为浏览器的官方标准，而不是参与新版 ES4 的重新设计，会怎么样呢？
+* 如果 TC39 内部没有出现反对新版 ES4 的声音，会怎么样呢？
+
+如果，如果，如果……但这些事情其实都没有发生。相反，有时面对激烈的批评甚至是嘲笑，一个世代的浏览器实现者、引擎开发者、框架设计者、标准贡献者、工具构建者和 Web 应用程序员们，都找到了务实的方法来继续使用和增强 JavaScript，而且通常还不会破坏 Web。
+
+Brendan Eich 在 2011 年一次名为「JSLOL」的会议演讲中，是这么描述 JavaScript 的：
+
+> 最早他们说 JavaScript 没法做「富互联网应用」。
+> 
+> 然后他们说 JavaScript 没法快起来。
+> 
+> 然后他们说 JavaScript 没法修复语言问题。
+> 
+> 然后他们说 JavaScript 没法做多核与 GPU 运算。
+> 
+> 他们每次都错了！
+> 
+> 我建议：**永远押宝在 JS**。
