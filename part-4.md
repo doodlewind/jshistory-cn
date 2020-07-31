@@ -1084,7 +1084,7 @@ TC39 同时也对提供具有精简语义的「lambda 函数」感兴趣，比�
 * **Realms API**：Realm API 原本可使 JavaScript 程序员能在新的 Realms 中创建、补充和执行代码，它与模块加载器 API 密切相关。这一特性被推迟，以进行额外的设计工作。
 * **模式匹配**：解构的通用化，它原本将包括受 Haskell 启发的可驳式匹配（refutable matching）。
 * **Object.observe**：一种复杂的数据绑定机制，可以在受监控对象的属性被修改时产生事件。
-* **并行JavaScript**。又名 River Trail，是英特尔和 Mozilla 的一个联合项目，旨在使 JavaScript 程序员能够明确地利用处理器的 SIMD 功能。
+* **并行 JavaScript**。又名 River Trail，是英特尔和 Mozilla 的一个联合项目，旨在使 JavaScript 程序员能够明确地利用处理器的 SIMD 功能。
 * **值对象**：其目标是提供一种通用性的支持，以便定义出类似 Number 和 String 的新原始数据类型（包括运算符重载）。这可以允许库实现十进制小数、大整数等特性。
 * **Guards**：为声明添加的类似于类型的注解，可对其进行动态验证。
 

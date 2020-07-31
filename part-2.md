@@ -300,7 +300,7 @@ var Services = function () {
   var privateJobCount = 0; // 「模块」的私有状态
   return { // 命名空间对象
     jobCount: function() {return privateJobCount},
-    job1: function() {this.privateJobCount++}
+    job1: function() {privateJobCount++}
   }
 }(); // Services 被初始化为调用该函数时的返回值
 
