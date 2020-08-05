@@ -19,4 +19,4 @@
 4. **[继往开来](./part-4.md)**（Modernizing JavaScript），介绍了 2009 年 ES5 与 2015 年 ES6 这两个成功标准背后的故事，主要包括对 ES5 与 ES6 的目标、重大基础更改以及重要新功能的介绍与回顾。
 
 ## 许可
-本文基于 [CC-BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/) 许可，不限制非商用转载。
+本文基于 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 许可，不限制非商用转载。
