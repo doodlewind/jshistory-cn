@@ -276,6 +276,8 @@ ES5 只能使 JavaScript 在安全方面前进一小步。当 ES5 的工作正�
 对绑定的解析是动态发生的，其中会使用活跃对象进行属性查找。因此只要在调用函数前，预先加入相应名称在 `Object.prototype` 上的绑定，任何在被调用函数中的自由引用都可以被拦截，例如：
 
 ``` js
+// ES1–ES3
+
 var originalArray = Array;
 function AltArray() {
     // 用于替代内置的 Array 构造器
@@ -286,8 +288,6 @@ Object.prototype.Array = AltArray;
 somethingThatFreelyReferencesArray();
 delete Object.prototype.Array; // 移除可选的 Array 绑定
 ```
-
-ES1–ES3
 
 另一种意外情况，是 ES3 中对 `try` 语句的 `catch` 子句形参的处理。此时的形参会在新作用域中作为「使用本地词法作用域」的绑定，而这个新作用域包含了 `catch` 子句的语句体。使用 ECMAScript 对象来表示作用域轮廓的手段，也给这一语义带来了问题。ES5 规范对该问题的描述如下：
 
