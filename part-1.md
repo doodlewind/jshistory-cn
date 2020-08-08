@@ -1,18 +1,18 @@
 ## 史前时代
 万维网的概念与基础技术，是 1989-1991 年间由 CERN 的 Tim Berners-Lee 创造的。Web 技术在高能物理圈内流通了几年，但并未在物理社区外引起强烈反响。它真正引发关注的契机，还是 1992-1993 年开发的 Mosaic。这款由本科生 Marc Andreessen 和伊利诺伊大学香槟分校超算中心（NCSA）的 Eric Bina 研发的应用，本质上定义了「Web 浏览器」这一全新软件类别。
 
-NCSA Mosaic 是不仅易装易用，而且带有图形界面的 Web 客户端。它在物理学界之外普及了万维网的概念，传播相当广泛。到 1994 年初，商业资本开始通过获得 Mosaic 代码许可或从头研发仿 Mosaic 式浏览器的方式，争相加入这波浏览器浪潮。硅谷图形公司（SGI）的创始人 Jim Clark 拉到了风险投资，并招来了 Marc Andreessen 和 Eric Bina 两人。在 1994 年 4 月，他们共同创立了一家公司。这家公司最终定名为网景通讯（Netscape Communications Corporation），目标是推出世界上最流行的浏览器来替代 Mosaic。网景从零开始研发了下一代 Mosaic 式浏览器 Netscape Navigator，它于 1994 年 10 月起开始发行。到 1995 年初，Netscape Navigator 达到了初始目标，正在迅速地取代 Mosaic。
+NCSA Mosaic 是不仅易装易用，而且带有图形界面的 Web 客户端。它在物理学界之外普及了万维网的概念，传播相当广泛。到 1994 年初，商业资本开始通过获得 Mosaic 代码许可或从头研发仿 Mosaic 式浏览器的方式，争相加入这波浏览器浪潮。SGI（硅谷图形公司）的创始人 Jim Clark 拉到了风险投资，并招来了 Marc Andreessen 和 Eric Bina 两人。在 1994 年 4 月，他们共同创立了一家公司。这家公司最终定名为 Netscape（网景通讯），目标是推出世界上最流行的浏览器来替代 Mosaic。为此，Netscape 从零开始研发了下一代 Mosaic 式浏览器 Netscape Navigator，它于 1994 年 10 月起开始发行。到 1995 年初，Netscape Navigator 达到了初始目标，正在迅速地取代 Mosaic。
 
 Tim Berners-Lee 的 Web 技术的核心，是使用声明式的 HTML 标记语言来描述文档，将它们呈现为网页。但业界对于能方便最终用户编排应用操作的脚本语言，也展示出了相当大的兴趣。这些语言诸如微软 Office 中的 Visual Basic 和苹果 AppleScript 之类，其设计目标并非用于实现应用核心的复杂数据结构和算法组件。相反地，它们为用户提供了将此类应用组件「粘合」在一起的新方式。在 Netscape 扩大万维网受众范围的途中，一个重要的问题就是脚本语言「是否应该」与「如何」集成到网页中。
 
-### Brendan Eich 加入网景
+### Brendan Eich 加入 Netscape
 Brendan Eich 于 1985 年在伊利诺伊大学香槟分校硕士毕业，然后立即入职了 SGI。他主要从事 Unix 内核和网络层的工作。1992 年，他在离开 SGI 后加盟了 MicroUnity。这是一家资金雄厚的新兴公司，致力于开发视频媒体处理器。在这两家公司，他都实现了用于支持内核与网络编程任务的小型专用语言。在 MicroUnity，他还在 GCC 编译器上做了些工作。
 
 1995 年初，Brendan Eich 被 Netscape 画的「在浏览器里写 Scheme」大饼打动而跳槽了。但当 Eich 于 1995 年 4 月 3 日加入 Netscape 时，他发现公司在产品营销与编程语言上的现状都很复杂。Netscape 在 1994 年底拒绝了微软的低价收购要约。此后 Netscape 管理层预计自己将直面微软「拥抱，扩展，灭绝」战略的攻击。在盖茨的直接领导下，微软已经迅速意识到它们即将推出的封闭生态信息应用 Blackbird 项目，在跨平台 Web 的兴起之下将无足轻重。因此，盖茨的「互联网浪潮」备忘录将微软的战略从 Blackbird 重新引导到了 Internet Explorer 与一整套服务器产品上，以应对 Netscape 的攻城略地。
 
-网页脚本语言的备选项，包括 Scheme 这样的研究型语言，Perl / Python / Tcl 这样基于 Unix 的实用型语言，以及微软 Visual Basic 这样的专有语言。Brendan Eich 希望的是在浏览器中实现 Scheme。但在 1995 年初，太阳微系统公司（Sun Microsystems）开始为当时尚未发布的 Java 发起游击营销活动。Sun 和 Netscape 迅速达成协议，决定将 Java 集成到 Netscape 2 中。Eich 回忆说，Marc Andreessen 在 Netscape 会议上的口号是「Netscape 加 Java 干掉 Windows」。在 1995 年 5 月 23 日 Sun 的 Java 发布会上，Netscape 宣布了他们许可 Sun 的 Java 技术在浏览器中使用的意向。
+网页脚本语言的备选项，包括 Scheme 这样的研究型语言，Perl / Python / Tcl 这样基于 Unix 的实用型语言，以及微软 Visual Basic 这样的专有语言。Brendan Eich 希望的是在浏览器中实现 Scheme。但在 1995 年初，Sun（太阳微系统公司）开始为当时尚未发布的 Java 发起游击营销活动。Sun 和 Netscape 迅速达成协议，决定将 Java 集成到 Netscape 2 中。Eich 回忆说，Marc Andreessen 在 Netscape 会议上的口号是「Netscape 加 Java 干掉 Windows」。在 1995 年 5 月 23 日 Sun 的 Java 发布会上，Netscape 宣布了他们许可 Sun 的 Java 技术在浏览器中使用的意向。
 
-Netscape 内部的这个快速决策，使得对 Scheme / Perl / Python / Tcl / Visual Basic 等脚本语言的选型都受到了严重的阻碍，它们在商业利益和（或）上市时间的角度上看都是不可行的。对 Netscape 和 Sun 的高层，尤其是 Marc Andreessen 和 Sun 的 Bill Joy 来说，他们认为唯一可行的方法是设计实现一门「小语言」来补充 Java。
+Netscape 内部的这项快速决策，使得对 Scheme / Perl / Python / Tcl / Visual Basic 等脚本语言的选型都受到了严重的阻碍，它们在商业利益和（或）上市时间的角度上看都是不可行的。对 Netscape 和 Sun 的高层，尤其是 Marc Andreessen 和 Sun 的 Bill Joy 来说，他们认为唯一可行的方法是设计实现一门「小语言」来补充 Java。
 
 对这一决策的怀疑者在 Sun 占支配地位，在 Netscape 也占多数。他们质疑是否需要这样一门更简单的脚本语言：Java 是否不适合脚本编写？如何解释为什么两种语言比一种更好？Netscape 是否具备创建新语言的专业能力？
 
