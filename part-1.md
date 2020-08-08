@@ -35,7 +35,7 @@ Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直�
 
 在外表接近 Java 的要求之外，Brendan Eich 可以自由选择大多数语言设计细节。加入 Netscape 后，他探索了一些「易于使用」与「教育用途」的语言，包括 HyperTalk 语言，Logo 语言和 Self 语言。所有人都认可 Mocha 将会「基于对象」但没有类。因为支持类将花费很长时间，并有与 Java 竞争的风险。出于对 Self 的认可，Eich 选择使用带有单个原型链接的*委托*机制，来创建动态的对象模型。他认为这样可以节省实现成本，但最后还是没有足够时间在 Mocha 原型中暴露该机制。
 
-对象是通过为*构造函数*应用 `new` 操作符的方式创建的。名为 `Object` 的「默认对象构造函数」与其他内建对象一起内置在环境中。每个对象由零个或多个属性组成。每个*属性*（property）都有一个名称（也叫*属性键*）和一个值，该值可以是*函数*、对象或其他几种内建数据类型之一。可以通过「为未使用的属性键赋值」的方式来创建属性。属性没有可见性或赋值限制，构造函数还可以提供一组初始属性。创建对象后，也可以将其他属性添加上去。LiveWire 团队特别喜欢这种非常动态的手法。
+对象是通过为*构造函数*应用 `new` 运算符的方式创建的。名为 `Object` 的「默认对象构造函数」与其他内建对象一起内置在环境中。每个对象由零个或多个属性组成。每个*属性*（property）都有一个名称（也叫*属性键*）和一个值，该值可以是*函数*、对象或其他几种内建数据类型之一。可以通过「为未使用的属性键赋值」的方式来创建属性。属性没有可见性或赋值限制，构造函数还可以提供一组初始属性。创建对象后，也可以将其他属性添加上去。LiveWire 团队特别喜欢这种非常动态的手法。
 
 尽管 Scheme 的诱惑已经不再，Brendan Eich 仍然发现 Lisp 式的函数一等公民概念很有吸引力。函数一等公民对应的这套工具深受 Scheme 习惯用法的启发，方法不必被包含在类中。这包括支持顶层的子程序、将函数作为参数传递、对象上的方法，以及事件处理器（event handler）。由于时间限制，函数表达式（也叫 *lambda 表达式*，或简称 lambda）被延期，但在语法中得以保留。事件处理器和对象方法通过向 Java（在 C++ 之后）借鉴的 `this` 关键字得以统一。在所有函数中，它都用于表示该函数「在作为方法被调用时」的上下文对象。
 
@@ -68,7 +68,28 @@ JavaScript 只是 Netscape Navigator 中一个相对较小的功能，因此其�
 
 JavaScript 1.0 是一种简单的*动态类型*语言，它支持数字、字符串与布尔值、一等公民函数，以及对象数据类型。从语法上看，JavaScript 与 Java 一样属于 C 家族，其控制流语句借鉴了 C，其表达式语法也包括了大多数 C 的数字运算符。JavaScript 1.0 有一个小的内置函数库，其源码通常直接嵌入 HTML 文件中，但其内置库包含一个 `eval` 函数，可以解析并求值编码到字符串中的 JavaScript 源码。整个 JavaScript 1.0 是一门非常精简的语言。图 3 总结了一些缺失的特性。对于现代 JavaScript 程序员而言，这些特性的遗漏可能令人惊讶。
 
-![](./figures/3.png)
+```
+* 独立的 Array 对象类型
+* 数组字面量
+* 正则表达式
+* 对象字面量
+* 对 undefined 的全局绑定
+* === 运算符
+* typeof, void, delete 运算符
+* in, instanceof 运算符
+* do-while 语句
+* switch 语句
+* try-catch-finally 语句
+* break/continue 语句
+* 嵌套函数声明
+* 函数表达式
+* 函数的 call 和 apply 方法
+* 函数的 prototype 属性
+* 基于原型的继承
+* 对内置原型对象的访问
+* 循环垃圾收集
+* HTML <script> 标签的 src 属性
+```
 
 图 3. JavaScript 1.0 中未涉及的 JavaScript 常用特性（约 2010 年时）。
 
@@ -122,9 +143,136 @@ JavaScript 1.1 添加了 `delete`，`typeof` 和 `void` 运算符。在 JavaScri
 
 C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自动将其操作数隐式转换为运算符领域内的数据类型。JavaScript 1.1 添加了一种可配置的机制，用于将任意对象转换为数字或字符串值。图 4 总结了 JavaScript 1.1 的隐式类型转换（coercion）规则。
 
-![](./figures/4.png)
+<table>
+  <thead>
+    <tr>
+      <th>From - To</th>
+      <th>function</th>
+      <th>object</th>
+      <th>number</th>
+      <th>boolean</th>
+      <th>string</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>undefined</th>
+      <th>error</th>
+      <th>null</th>
+      <th>error</th>
+      <th>false</th>
+      <th><code>"undefined"</code></th>
+    </tr>
+    <tr>
+      <th>function</th>
+      <th>N/C</th>
+      <th>Function object</th>
+      <th>valueOf/error</th>
+      <th>valueOf/true</th>
+      <th>decompile</th>
+    </tr>
+    <tr>
+      <th>object (not null)</th>
+      <th>Function object</th>
+      <th>N/C</th>
+      <th>valueOf/error</th>
+      <th>valueOf/true</th>
+      <th>toString/valueOf<sup>1</sup></th>
+    </tr>
+    <tr>
+      <th>object (null)</th>
+      <th>error</th>
+      <th>N/C</th>
+      <th>0</th>
+      <th>false</th>
+      <th><code>"null"</code></th>
+    </tr>
+    <tr>
+      <th>number (zero)</th>
+      <th>error</th>
+      <th>null</th>
+      <th>N/C</th>
+      <th>false</th>
+      <th><code>"0"</code></th>
+    </tr>
+    <tr>
+      <th>number (nonzero)</th>
+      <th>error</th>
+      <th>Number</th>
+      <th>N/C</th>
+      <th>true</th>
+      <th>default</th>
+    </tr>
+    <tr>
+      <th>number (NaN)</th>
+      <th>error</th>
+      <th>Number</th>
+      <th>N/C</th>
+      <th>false<sup>2</sup></th>
+      <th><code>"NaN"</code></th>
+    </tr>
+    <tr>
+      <th>number (+Infinity)</th>
+      <th>error</th>
+      <th>Number</th>
+      <th>N/C</th>
+      <th>true</th>
+      <th><code>"+Infinity"</code></th>
+    </tr>
+    <tr>
+      <th>number (-Infinity)</th>
+      <th>error</th>
+      <th>Number</th>
+      <th>N/C</th>
+      <th>true</th>
+      <th><code>"-Infinity"</code></th>
+    </tr>
+    <tr>
+      <th>boolean (false)</th>
+      <th>error</th>
+      <th>Boolean</th>
+      <th>0</th>
+      <th>N/C</th>
+      <th><code>"false"</code></th>
+    </tr>
+    <tr>
+      <th>boolean (true)</th>
+      <th>error</th>
+      <th>Boolean</th>
+      <th>1</th>
+      <th>N/C</th>
+      <th><code>"true"</code></th>
+    </tr>
+    <tr>
+      <th>string (empty)</th>
+      <th>error</th>
+      <th>String</th>
+      <th>error<sup>3</sup></th>
+      <th>false</th>
+      <th>N/C</th>
+    </tr>
+    <tr>
+      <th>string (non-empty)</th>
+      <th>error</th>
+      <th>String</th>
+      <th>number/error</th>
+      <th>true</th>
+      <th>N/C</th>
+    </tr>
+  </tbody>
+</table>
 
-图 4. Eich 和 McKinney 在 JavaScript 1.1 初始规范中提出的隐式类型转换规则，最终标准化的规则与此略有不同。这是对原始表格的复制，存在一些印刷上的细微差别。脚注 3 并未出现在原文中。
+* 若结果以斜杠分隔，表示 JavaScript 会先尝试前者，若未成功则使用后者。
+* **N/C** 表示不需转换（No Conversion Necessary）。
+* **decompile** 表示一份包含函数独有源码的字符串。
+* **toString** 表示调用 toString 方法的结果。
+* **valueOf** 表示在 valueOf 方法能为目标类型返回值时，对其进行调用的结果。
+* **number** 表示在字符串为有效整数或浮点数字面量时，相应的数值。
+* <sup>1</sup> 如果 valueOf 没有返回字符串，则进行默认的对象到字符串转换。
+* <sup>2</sup> 在 Navigator 3.0 所用的 JavaScript 1.1 中，会将 NaN 转换为 true。
+* <sup>3</sup> 在 Navigator 3.0 所用的 JavaScript 1.1 中，会将空字符串转换为 0。
+
+图 4. Eich 和 McKinney 在 JavaScript 1.1 初始规范中提出的隐式类型转换规则，最终标准化的规则与此略有不同。这是对原始表格的复制，存在一些排版上的细微差别。脚注 3 并未出现在原文中。
 
 ### 对象
 JavaScript 1.0 的对象是关联数组，其元素称为属性（property）。每个属性都有一个字符串键和一个值，该值可以是任何 JavaScript 数据类型。属性可以被动态添加。JavaScript 1.0 / 1.1 不支持从对象中删除属性。
@@ -133,7 +281,7 @@ JavaScript 1.0 的对象是关联数组，其元素称为属性（property）。
 
 属性既可以用作数据存储，也可以将行为与对象关联。「值为函数的属性」可以作为对象的方法被调用。而作为对象方法被调用的函数，则可以通过关键字 `this` 的动态绑定来访问该对象。
 
-对象是通过将 `new` 操作符应用于「内置函数或用户定义的函数」的方式来创建的。意图以这种方式被使用的函数，称为构造函数（constructor）。构造函数通常会将属性添加到新对象。这些属性既可以是数据，也可以是方法。内置的构造函数 `Object` 可以用于创建最初没有属性的新对象。图 5 展示了如何使用 `Object` 构造函数或用户定义的构造函数，来创建新对象。
+对象是通过将 `new` 运算符应用于「内置函数或用户定义的函数」的方式来创建的。意图以这种方式被使用的函数，称为构造函数（constructor）。构造函数通常会将属性添加到新对象。这些属性既可以是数据，也可以是方法。内置的构造函数 `Object` 可以用于创建最初没有属性的新对象。图 5 展示了如何使用 `Object` 构造函数或用户定义的构造函数，来创建新对象。
 
 ``` js
 // 使用 Object 构造函数
