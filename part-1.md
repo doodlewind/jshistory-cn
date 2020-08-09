@@ -414,8 +414,7 @@ JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的�
   <thead>
     <tr>
       <th colspan="2">Base Objects</th>
-      <th>Properties</th>
-      <th>Properties</th>
+      <th colspan="2">Properties</th>
     </tr>
     <tr>
       <th>1.0</th>
