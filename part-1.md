@@ -410,13 +410,97 @@ JavaScript 1.0 仅具有两个通用的对象类，即 `String` 和 `Date`。此
 
 JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的存在。图 8 总结了 JavaScript 1.0 和 1.1 中定义的那些与宿主无关的类。
 
-![](./figures/8.png)
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Base Objects</th>
+      <th>Properties</th>
+      <th>Properties</th>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <th>1.1</th>
+      <th>1.0</th>
+      <th>Added in 1.1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">(global functions)</td>
+      <td>eval, isNaN<sup>1</sup>, parseFloat<sup>2</sup>, parseInt<sup>2</sup></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><del>Array</del><sup>3</sup></td>
+      <td>Array</td>
+      <td></td>
+      <td>join, reverse, sort, toString</td>
+    </tr>
+    <tr>
+      <td><del>Boolean</del><sup>3</sup></td>
+      <td>Boolean</td>
+      <td></td>
+      <td>toString</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td></td>
+      <td>getDate, getDay, getHours, getMinutes, getMonth, getSeconds, getTime, getTimezoneOffset, getYear, setDate, setHours, setMinutes, setMonth, setSeconds, setTime, setYear, toGMTString, toLocaleString, Date.parse, Date.UTC</td>
+      <td>toString</td>
+    </tr>
+    <tr>
+      <td colspan="2">(function objects)</td>
+      <td>arguments, length, caller</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><del>Function</del><sup>3</sup></td>
+      <td>Function</td>
+      <td></td>
+      <td>prototype, toString</td>
+    </tr>
+    <tr>
+      <td>Math</td>
+      <td></td>
+      <td>E, LN2, LN10, LOG2E, LOG10E, PI, SQRT1_2, SQRT2, abs, acos, asin, atan, ceil, cos, exp, floor, log, max, min, pow, random<sup>1</sup>, round, sin, sqrt, tan</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Object</td>
+      <td></td>
+      <td></td>
+      <td>constructor, eval, toString, valueOf</td>
+    </tr>
+    <tr>
+      <td><del>Number</del><sup>3</sup></td>
+      <td>Number</td>
+      <td></td>
+      <td>toString, Number.NaN, Number.MAX_VALUE, Number.MIN_VALUE, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY</td>
+    </tr>
+    <tr>
+      <td colspan="2">(string values)</td>
+      <td>length</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>String</td>
+      <td>charAt<sup>4</sup>, indexOf, lastIndexOf, <del>split</del><sup>3</sup>, substring, toLowerCase, toUpperCase, (plus 13 HTML wrapper methods)</td>
+      <td>split, toString, valueOf</td>
+    </tr>
+  </tbody>
+</table>
+
+* <sup>1</sup> 在 1.0 中仅于 Unix 平台可用。
+* <sup>2</sup> 在 1.0 中的行为，视宿主操作系统不同而不同。
+* <sup>3</sup> 在 1.0 中存在，但缺乏实用性或 bug 多。
+* <sup>4</sup> 在 1.0 中这些方法是字符串值的属性。在 1.1 中它们是 String.prototype 的属性。
 
 图 8. JavaScript 1.0 / 1.1 中宿主独立的内置库。
 
-`String` 类提供了 `length` 属性和 6 个对不可变字符串值进行操作的通用方法，它们会在适当的时候返回新的字符串值。JavaScript 1.0 的 `String` 类还包括 13 种方法，用于使用各种 HTML 标签来包装字符串值。这个例子说明了 JavaScript 1.0 / 1.1 中「与宿主相关的特性」和「通用特性」之间的模糊界限。JavaScript 1.0 没有提供全局 `String` 构造函数，所有字符串值都是使用字符串字面量（literal）、运算符或内置函数创建的。JavaScript 1.1 添加了全局 `String` 构造函数和 `split` 方法。
+`String` 类提供了 `length` 属性和 6 个对不可变字符串值进行操作的通用方法，它们会在适当的时候返回新的字符串值。JavaScript 1.0 的 `String` 类还包括 13 种方法，用于使用各种 HTML 标签来包装字符串值。这个例子说明了 JavaScript 1.0 / 1.1 中「与宿主相关的特性」和「通用特性」之间的模糊界限。JavaScript 1.0 没有提供全局 `String` 构造函数，所有字符串值都是使用字符串字面量、运算符或内置函数创建的。JavaScript 1.1 添加了全局 `String` 构造函数和 `split` 方法。
 
-`Date` 类用于表示日历日期和时间。JavaScript 1.0 的 `Date` 是直接照着 Java 1.0 中 `java.util.Date` 类搬运来的，连 bug 都没落下。这里包括了一些编码细节，如使用以 GMT 时间 1970 年 1 月 1 日 00:00:00 为中心的毫秒级分辨率时间值，在外部以 0-11 编号的月份，以及 Java 设计中存在的 2000 年歧义。这个设计决策的理由，是与 Java 互操作性（interoperability）方面的需求。唯一被排除的 Java 方法是 `equal`，`before` 和 `after`。这里并没有使用它们的必要，因为 JavaScript 具备隐式类型转换（automatic coercion）转换能力，可以将数字关系运算符直接与 Date 对象一起使用。
+`Date` 类用于表示日历日期和时间。JavaScript 1.0 的 `Date` 是直接照着 Java 1.0 中 `java.util.Date` 类搬运来的，连 bug 都没落下。这里包括了一些编码细节，如使用以 GMT 时间 1970 年 1 月 1 日 00:00:00 为中心的毫秒级分辨率时间值，在外部以 0-11 编号的月份，以及 Java 设计中存在的 2000 年歧义。这个设计决策的理由，是与 Java 互操作性方面的需求。唯一被排除的 Java 方法是 `equal`，`before` 和 `after`。这里并没有使用它们的必要，因为 JavaScript 具备隐式类型转换（automatic coercion）转换能力，可以将数字关系运算符直接与 Date 对象一起使用。
 
 除了 `Object` 之外，`Date` 是 JavaScript 1.0 中唯一可用的内置构造函数。另外除了类的实例方法之外，`Date` 也是唯一在构造函数对象上暴露方法的类。那些浏览器特定（broswer-specific）的类则都没有暴露出构造函数。
 
