@@ -156,7 +156,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
   </thead>
   <tbody>
     <tr>
-      <th>undefined</th>
+      <td><b>undefined</b></td>
       <td>error</td>
       <td>null</td>
       <td>error</td>
@@ -164,7 +164,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"undefined"</code></td>
     </tr>
     <tr>
-      <th>function</th>
+      <td><b>function</b></td>
       <td>N/C</td>
       <td>Function object</td>
       <td>valueOf/error</td>
@@ -172,7 +172,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td>decompile</td>
     </tr>
     <tr>
-      <th>object (not null)</th>
+      <td><b>object (not null)</b></td>
       <td>Function object</td>
       <td>N/C</td>
       <td>valueOf/error</td>
@@ -180,7 +180,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td>toString/valueOf<sup>1</sup></td>
     </tr>
     <tr>
-      <th>object (null)</th>
+      <td><b>object (null)</b></td>
       <td>error</td>
       <td>N/C</td>
       <td>0</td>
@@ -188,7 +188,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"null"</code></td>
     </tr>
     <tr>
-      <th>number (zero)</th>
+      <td><b>number (zero)</b></td>
       <td>error</td>
       <td>null</td>
       <td>N/C</td>
@@ -196,7 +196,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"0"</code></td>
     </tr>
     <tr>
-      <th>number (nonzero)</th>
+      <td><b>number (nonzero)</b></td>
       <td>error</td>
       <td>Number</td>
       <td>N/C</td>
@@ -204,7 +204,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td>default</td>
     </tr>
     <tr>
-      <th>number (NaN)</th>
+      <td><b>number (NaN)</b></td>
       <td>error</td>
       <td>Number</td>
       <td>N/C</td>
@@ -212,7 +212,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"NaN"</code></td>
     </tr>
     <tr>
-      <th>number (+Infinity)</th>
+      <td><b>number (+Infinity)</b></td>
       <td>error</td>
       <td>Number</td>
       <td>N/C</td>
@@ -220,7 +220,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"+Infinity"</code></td>
     </tr>
     <tr>
-      <th>number (-Infinity)</th>
+      <td><b>number (-Infinity)</b></td>
       <td>error</td>
       <td>Number</td>
       <td>N/C</td>
@@ -228,7 +228,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"-Infinity"</code></td>
     </tr>
     <tr>
-      <th>boolean (false)</th>
+      <td><b>boolean (false)</b></td>
       <td>error</td>
       <td>Boolean</td>
       <td>0</td>
@@ -236,7 +236,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"false"</code></td>
     </tr>
     <tr>
-      <th>boolean (true)</th>
+      <td><b>boolean (true)</b></td>
       <td>error</td>
       <td>Boolean</td>
       <td>1</td>
@@ -244,7 +244,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td><code>"true"</code></td>
     </tr>
     <tr>
-      <th>string (empty)</th>
+      <td><b>string (empty)</b></td>
       <td>error</td>
       <td>String</td>
       <td>error<sup>3</sup></td>
@@ -252,7 +252,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
       <td>N/C</td>
     </tr>
     <tr>
-      <th>string (non-empty)</th>
+      <td><b>string (non-empty)</b></td>
       <td>error</td>
       <td>String</td>
       <td>number/error</td>
@@ -493,7 +493,7 @@ JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的�
 
 * <sup>1</sup> 在 1.0 中仅于 Unix 平台可用。
 * <sup>2</sup> 在 1.0 中的行为，视宿主操作系统不同而不同。
-* <sup>3</sup> 在 1.0 中存在，但缺乏实用性或 bug 多。
+* <sup>3</sup> 在 1.0 中存在，但缺乏实用性或 bug 较多。
 * <sup>4</sup> 在 1.0 中这些方法是字符串值的属性。在 1.1 中它们是 String.prototype 的属性。
 
 图 8. JavaScript 1.0 / 1.1 中宿主独立的内置库。
@@ -741,7 +741,29 @@ Brendan Eich 继续将语言增强为 JavaScript 1.2，以使其成为 Netscape 
 
 SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScript 1.0 / 1.1 有了显著的增强。图 10 列出了JavaScript 1.2 中主要的新特性。
 
-![](./figures/10.png)
+```
+* do 语句
+* 语句标签，以及 break/continue 到标签
+* switch 语句
+* 嵌套函数声明（使用词法作用域）
+* 函数表达式（lambda 表达式）
+* 消除原本由 == 运算符所执行的隐式类型转换
+* 可妥善删除属性的 delete 运算符
+* 对象字面量
+* 数组字面量
+* 正则表达式字面量
+* 可进行正则表达式匹配的 RegExp 对象
+* 所有对象上的 __proto__ 伪属性
+* 新数组方法 push, pop, shift, unshift, solice, concat, slice
+* 新字符串方法 charCodeAt
+* 基于 RegExp 的 fromCharCode (ISO latin-1), match, replace, search, substr, split
+* 函数的 arity 属性
+* 将函数及其 arguments 对象拆分为不同对象
+* 函数的形参与局部声明，可作为 arguments 对象上的属性名
+* arguments.callee
+* watch/unwatch 函数
+* import/export 语句与脚本签名
+```
 
 图 10. JavaScript 1.2 的新特性。
 

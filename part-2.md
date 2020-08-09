@@ -14,7 +14,12 @@
 ## 首次 TC39 会议
 TC39 的组织会议于 1996 年 11 月 21 日至 22 日在加州山景城的 Netscape 办公室举行，根据记载共有 30 位与会者（图 11）。会议开始前，Netscape 核心技术副总裁 David Stryker 和代表 Ecma 的 Jan van den Beld 分别致了欢迎辞。Stryker 表达了对委员会所创建规范的愿景，希望规范与当前实现只有最小程度的偏差，并能将超出规范范畴的语言扩展留待未来考量。
 
-![](./figures/11.png) 
+<table>
+  <tr><td><b>Acting Chairman</b></td><td>Mr. J. van den Beld</td></tr>
+  <tr><td><b>Secretary</b></td><td>Mr. J. van den Beld (SG ECMA)</td></tr>
+  <tr><td><b>Attending</b></td><td>Mr. Cargill (Netscape), Ms. Converse (Netscape), Mr. Eich (Netscape), Mr. Fisher (NIST), Mr. Gardner (Borland), Mr. Krull (Borland), Mr. Ksar (HP), Mr. Lenkov (HP), Mr. Lie (W3C), Mr. Luu (Mainsoft), Mr. Mathis (Pithecanthropus, JTC1/SC22), Mr. Matzke (Apple), Mr. Murarka (Spyglass), Ms. Nguyen (Netscape), Mr. Noorda (Nombas), Mr. Palay (Silicon Graphics), Mr. Reardon (Microsoft), Mr. Robinson (Sun), Mr. Singer (IBM), Mr. Smilonich (Unysis), Mr. Smith (Digital), Mr. Stryker (Netscape), Ms. Thompson (Unisys), Mr. Urquhart (Sun), Mr. Veale (Borland), Mr. Welland (Microsoft), Mr. White (AAC Group, Microsoft), Mr. Willingmyre (GTW Associates, Microsoft), Mr. Wiltamuth (Microsoft).</td></tr>
+  <tr><td><b>Excused</b></td><td>Mr. Huffadine (Callscan)</td></tr>
+</table>
 
 图 11. 首次 TC39 会议的参会者。
 
@@ -40,7 +45,13 @@ Welland 和 Smith 根据当时的 JScript 实现，在文档中添加了语义�
 
 委员会选举出了最初的主席团成员（图 12），并设定了非常激进的目标：在 1997 年 1 月的下一次会议上准备出初稿，在 1997 年 4 月准备出最终稿，进而在 1997 年 6 月的 Ecma GA 大会上通过该标准。他们安排了后续约每六周一次的会议，并着手建立私人邮件列表和 FTP 服务器。
 
-![](./figures/12.png)
+<table>
+  <tr><td>Chairman</td><td><b>Mr. G. Robinson</b> (Sun)</td></tr>
+  <tr><td>Vice-Chairman</td><td><b>Mr. C. Cargill</b> (Netscape)</td></tr>
+  <tr><td>Vice-Chairman</td><td><b>Mr. S. Wiltamuth</b> (Microsoft)</td></tr>
+  <tr><td>Principal editor</td><td><b>Mr. M. Gardner</b> (Borland) (to be confirmed)</td></tr>
+  <tr><td>Assistant editor</td><td><b>Mr. A. Murarka</b> (Spyglass) (to be confirmed)</td></tr>
+</table>
 
 图 12. 首次 TC39 会议选举出的主席团成员。
 
@@ -61,7 +72,29 @@ Robert Welland 返回雷德蒙德市（微软总部所在地，译者注）后�
 
 1 月 10 日的草案建立了规范的基本结构（图 13），并确定了用于定义语言的许多基础技术、约定和惯用语。在 20 年后的 ECMAScript 标准版本中，这些概念有许多仍在使用。
 
-![](./figures/13.png)
+<table>
+  <thead>
+    <tr><th>January 10, 1997 Draft</th><th>ECMA-262, First Edition</th></tr>
+  </thead>
+  <tbody>
+    <tr><td></td><td>Scope</td></tr>
+    <tr><td></td><td>Conformance</td></tr>
+    <tr><td></td><td>Reference</td></tr>
+    <tr><td></td><td>Overview</td></tr>
+    <tr><td>Notational Conventions</td><td>Notational Conventions</td></tr>
+    <tr><td>Source Text</td><td>Source Text</td></tr>
+    <tr><td>Lexical Conventions</td><td>Lexical Conventions</td></tr>
+    <tr><td>Types</td><td>Types</td></tr>
+    <tr><td>Type Conversion</td><td>Type Conversion</td></tr>
+    <tr><td>Variables</td><td>Execution Contexts</td></tr>
+    <tr><td>Expressions</td><td>Expressions</td></tr>
+    <tr><td>Statements</td><td>Statements</td></tr>
+    <tr><td>Function Definition</td><td>Function Definition</td></tr>
+    <tr><td>Program</td><td>Program</td></tr>
+    <tr><td>Native ECMAScript Objects</td><td>Native ECMAScript Objects</td></tr>
+    <tr><td></td><td>Errors</td></tr>
+  </tbody>
+</table>
 
 图 13. ECMAScript 标准的结构。
 
@@ -71,7 +104,15 @@ Robert Welland 返回雷德蒙德市（微软总部所在地，译者注）后�
 
 1 月 10 日的草案中包含了 Shon Katzenberger 的伪代码算法（例如图 14），用于定义各种语言结构的语义。算法由「顺序编号的步骤」和「步骤之间的简单条件控制流」组成。每个步骤都包含一些*命令式*（imperative）的叙述。步骤的叙述用英语编写，并结合了规范中针对常见动作所定义的基本词汇。可以在规范内的其他算法中命名和「调用」这些算法。
 
-![](./figures/14.png)
+```
+4.4.7 GetValue(V)
+
+1. If Type(V) is not a Reference, return V.
+2. Call GetBase(V)
+3. If Result(2) is null, generate a runtime error.
+4. Call the [[Get]] method of Result(2), passing GetProperty(V) for the property name and GetAccess(V) for the access mode.
+5. Return Result(4).
+```
 
 图 14. 在 2007 年 1 月 10 日的 ECMAScript 规范中，一个具名的伪代码算法。原始文档中的步骤 2 末尾少了一个句号。
 
@@ -98,7 +139,15 @@ Robert Welland 返回雷德蒙德市（微软总部所在地，译者注）后�
 
 工作组（图 15）在 1997 年 4 月中旬之前定期开会，研究了一系列的主要和次要问题，并审查了编辑编写的工作草案文本。有九次工作会议留下了记录。参加了一些工作组会议的 Richard Gabriel 在个人通讯中回忆说，这些会议期间的互动并不罕见。Guy Steele 会询问一些边界条件下特性行为的问题。有时 Brendan Eich 会说「我不知道」，有时 Eich 和 Shon Katzenberger 可能不太确定或产生分歧。在这种时候，他们会在各自的实现中尝试测试用例。如果得到相同的答案，这个答案就会成为被确定下来的行为；如果出现差异，他们将会就问题讨论到达成共识为止。
 
-![](./figures/15.png)
+<table>
+  <tr><td>Scott Wiltamuth (note taker)</td><td>Microsoft</td></tr>
+  <tr><td>Brendan Eich</td><td>Netscape</td></tr>
+  <tr><td>Shon Katzenberger</td><td>Microsoft</td></tr>
+  <tr><td>Michael Gardner (1st draft co-editor)</td><td>Borland</td></tr>
+  <tr><td>Randy Solton (1st draft co-editor)</td><td>Borland</td></tr>
+  <tr><td>Clayton Lewis</td><td>Netscape</td></tr>
+  <tr><td>Guy Steele (editor)</td><td>Sun</td></tr>
+</table>
 
 图 15. ES1 规范工作组的定期参与者。
 
@@ -154,7 +203,174 @@ ISO/IEC 投票产生了来自丹麦、法国、日本、荷兰和美国的国家
 
 到 1997 年 7 月的 TC39 会议时，第一版的工作已接近完成。委员会考虑的重点转移到了下一版规范中所应包含的新特性。Netscape 已经表明了其 Netscape 4.0 的发展方向，其中会将 SpiderMonkey 引擎与 JavaScript 1.2 的扩展相结合。Scott Wiltamuth 则提出了微软关于「ECMAScript 2.0」的初步建议，其中包括 `switch` 语句、`do while` 语句，以及带有标签的 `break` 和 `continue` 语句。一并包含的还有 `===` 和 `!==` 运算符，以及将 `caller` 属性添加到 `arguments` 对象。微软的 Andrew Clinick 提出了一份单独的提案，希望增加条件编译支持。微软在 10 月将 JScript 3.0 作为 Internet Explorer 4.0 的组件发布时，确定了「第二版」的起点。图 17 列出了截至 1997 年底，由 Netscape 和微软浏览器为 ECMAScript 第一版实现的主要扩展。
 
-![](./figures/17.png)
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>JavaScript 1.2</th>
+      <th>JScript 3.0</th>
+      <th>ECMA-262 3rd Edition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>do</code> statement</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>break</code>/<code>continue</code> to label</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>switch</code> statement</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Nested functions</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Functions in expressions</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Object literals</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Array literals</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>===</code> and <code>!==</code></td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Regular Expression literals</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>delete</code> operator</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>__proto__</code> pseudo property of all objects</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Array methods: <code>concat</code>, <code>slice</code></td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Array methods: <code>push</code>, <code>pop</code>, <code>shift</code>, <code>splice</code>, <code>unshift</code></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Sparse arrays with inherited elements</td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>String methods: <code>fromCharCode</code>, <code>match</code>, <code>replace</code>, <code>search</code>, <code>substr</code>, <code>split</code> using regular expressions</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>String method: <code>charCodeAt</code></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>RegExp method: <code>compile</code>, <code>exec</code>, <code>test</code></td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>RegExp properties: <code>$1</code>...<code>$9</code>, <code>input</code></td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>RegExp global properties: <code>lastMatch</code>, <code>lastParen</code>, <code>leftContext</code>, <code>rightContext</code></td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>arguments</code> object has local declaration properties</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>arguments.callee</code></td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td><code>arguments.caller</code></td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>watch</code>/<code>unwatch</code> functions</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>import</code>/<code>export</code> statements and signed scripts</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Conditional compilation</td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>debugger</code> keyword</td>
+      <td></td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 图 17. 主流浏览器在 1997 年对 ECMA-262 第一版的扩展。它们中的多数最终包含在了 ECMA-262 第三版中。
 
@@ -164,13 +380,31 @@ TC39 的正式会议已经改由代表成员公司的小组与项目经理参加
 
 到 1997 年底，技术工作组的参与者发生了重大变化。图 18 列出了 1998 年间在工作组会议记录中出现的个人。在开发第一版的工作组常规参与者中，只有 Clayton Lewis 仍然保持活跃。Brendan Eich 在 1998 年 2 月参加了一次会议，而后成为了 Mozilla 项目的联合创始人，致力于开源 Netscape 浏览器的代码，由 Waldemar Horwat 接任 TC39 的 Netscape 语言设计负责人。无独有偶，微软的 Katzenberger 也在休假后转入其他项目，Herman Venter 和 Rok Yu 接替了他代表微软在 TC39 的职责。
 
-![](./figures/18.png)
+<table>
+  <tr><td>Norris Boyd</td><td>Netscape</td><td>Drew Lytle</td><td>Microsoft</td></tr>
+  <tr><td>Andrew Clinick</td><td>Microsoft</td><td>Karl Matzke</td><td>SunSoft</td></tr>
+  <tr><td>Mike Cowlishaw</td><td>IBM</td><td>Mick McCabe</td><td>Netscape</td></tr>
+  <tr><td>Jeff Dyer</td><td>Nombas</td><td>Dave Ragget</td><td>HP/W3C</td></tr>
+  <tr><td>Bill Gibbons</td><td>Netscape</td><td>Herman Venter</td><td>Microsoft</td></tr>
+  <tr><td>Waldemar Horwat</td><td>Netscape</td><td>Rok Yu</td><td>Microsoft</td></tr>
+  <tr><td>Mike Ksar</td><td>HP</td><td>Chris Weight</td><td>Microsoft</td></tr>
+  <tr><td>Clayton Lewis</td><td>Netscape</td><td></td><td></td></tr>
+</table>
 
 图 18. 1998 年 TC39 技术工作组的经常性参与者。
 
 在 1997 年 10 月，技术工作组为可以包含在第二版中的特性列出了清单（附录 H）。这里获得认可而列出的特性除了一些例外，主要都是 Netscape JavaScript 1.2 和微软 JScript 3.0 特性的结合。还有 `toSource` 也包括在内，对应于 Brendan Eich 为 JavaScript 1.3 开发的对象序列化与持久性方案。其他已在设想中但缺乏共识的特性则另外列出。与第一版一样，工作组的大部分注意力集中在「精确指定已实现的特性」与「解决实现之间存在的差异」上。但是，商定的特性列表里还包括异常处理机制、`instanceof` 运算符，以及尚未实现的所有其他特性。开发这些特性将需要某种设计工作，这在第一版中是不必的。图 19 列出了一些 1998 年前的浏览器所没有的特性，这些特性最终都包含在了 ES3 中。
 
-![](./figures/19.png)
+```
+* try-catch-finally 和异常对象
+* instancesof 和 in 运算符
+* 对象原型方法: hasInstance, hasOwnProperty, isPrototypeOf, propertyIsEnumerable
+* undefined 的全局绑定
+* toFixed, toExponential, toPrecision
+* URI 处理器函数
+* 标识符中的 Unicode 字符
+* 基础的 I18N 方法: Object toLocaleString; Array toLocaleString; Number toLocaleString; String localeCompare, toLocaleLowerCase, toLocaleUpperCase; Date toLocaleDateString, toLocaleTimeString
+```
 
 图 19. 1998 年前的浏览器所缺乏的 ES3 新特性。它们中的一些在 TC39 开发 ES3 时就集成到了浏览器里。
 
@@ -188,7 +422,57 @@ Netscape 的设计还允许将任何值作为异常抛出。但在这种设计�
 
 在 1998 年 2 月的会议上，委员会同意使用 `try` 和 `catch` 关键字，并且 `throw` 语句可以传播任何值（不仅是特定内置异常类的实例）来表示异常。在 1998 年 3 月的工作组会议上，Waldemar Horwat 主张加入 `finally` 子句，并同意进一步研究相应实现的细节。4 月的工作草案合并了 Netscape 的设计，但当时尚未解决的问题包括：对 `finally` 的支持、`catch` 变量绑定的作用域、是否允许多个 `catch` 子句、是否应该将 `instanceof` 用作 `catch` 的选择器，以及是否应自动重新抛出未被选中的异常。图 20 提供了一些示例，展示了微软的提案、Netscape 修改后的提案，以及最终在 ES3 中确定的语法。注意 Netscape 的设计使用了单独的选择器表达式来选择 `catch` 子句。但在微软和最终的 ES3 设计中，则需要使用单个 `catch` 块中的用户逻辑来区分不同的异常。
 
-![](./figures/20.png)
+``` js
+// 微软的设计
+try {
+  doSomething();
+} catch (var e) {
+  if (e == "thing")
+    console.log("a thing")
+  else if (e == 42)
+    console.log("42")
+  else {
+    console.log(e);
+    cleanup();
+    throw e; // 重新 throw
+  }
+// 没有 finally 语法
+}
+cleanup();
+
+
+// Netscape 的设计
+try {
+  doSomething();
+}catch (e if e == "thing"){
+    console.log("a thing")
+}catch (e2 == if e2 == 42){
+    console.log("42")
+}catch (e3){
+    console.log(e3);
+    throw e3; // 重新 throw
+  }
+}finally {
+  cleanup();
+}
+
+
+// 第 3 版规范的最终设计
+try {
+  doSomething();
+}catch (e){
+  if (e == "thing")
+    console.log("a thing")
+  else if (e == 42)
+    console.log("42")
+  else {
+    console.log(e);
+    throw e; // 重新 throw
+  }
+}finally {
+  cleanup();
+}
+```
 
 图 20. 异常处理的几种设计。在这些示例中，`doSomething` 函数可能抛出两种异常，它们在当前函数继续执行前都需要单独处理。所有其他异常都被「重新抛出」以传播给当前函数的 `caller`。当前函数还具备 `cleanup` 流程，不管 `doSomething` 是否抛出异常都会执行。
 
@@ -247,7 +531,19 @@ Waldemar Horwat 担心闭包创建的开销，并认为这个改动将可以让�
 
 在审查并解决了所有未解决的问题后，TC39 一致接受规范，认为它已经完备，遵从并纳入了会议中所提出的更改要求。Waldemar Horwat 和 Herman Venter 准备了最终文档，并于 1999 年 10 月 13 日将其交给了 Ecma 秘书处。最终草案中有一张表，其中列出了 ECMA-262 前三个版本的所有贡献者（图 21），包括内容创作、技术会议参与，以及通过电子邮件的贡献。
 
-![](./figures/21.png)
+<table>
+  <tr><td>Mike Ang</td><td>Gary Fisher</td><td>Clayton Lewis</td><td>Sam Ruby</td></tr>
+  <tr><td>Christine Begle</td><td>Richard Gabriel</td><td>Drew Lytle</td><td>Dario Russi</td></tr>
+  <tr><td>Norris Boyd</td><td>Michael Gardner</td><td>Bob Mathis</td><td>David Singer</td></tr>
+  <tr><td>Carl Cargill</td><td>Bill Gibbons</td><td>Karl Matzke</td><td>Randy Solton</td></tr>
+  <tr><td>Andrew Clinick</td><td>Richard Gillam</td><td>Mike McCabe</td><td>Guy Steele</td></tr>
+  <tr><td>Donna Converse</td><td>Waldemar Horwat</td><td>Tom McFarland</td><td>Michael Turyn</td></tr>
+  <tr><td>Mike Cowlishaw</td><td>Shon Katzenberg</td><td>Anh Nguyen</td><td>Herman Venter</td></tr>
+  <tr><td>Chris Dollin</td><td>Cedric Krumbein</td><td>Brent Noorda</td><td>George Wilingmyre</td></tr>
+  <tr><td>Jeff Dyer</td><td>Mike Ksar</td><td>Andy Palay</td><td>Scott Wiltamuth</td></tr>
+  <tr><td>Brendan Eich</td><td>Roger Lawrence</td><td>Dave Raggett</td><td>Rok Yu</td></tr>
+  <tr><td>Chris Espinosa</td><td>Steve Leach</td><td>Gary Robinson</td><td></td></tr>
+</table>
 
 图 21. ECMA-262 第 1、2、3 版的技术贡献者。
 
