@@ -3,7 +3,26 @@
 
 ES3.1 工作组有一个直接的关注点，那就是微软为 Internet Explorer 实现的 JScript 以不符合 Web 标准而闻名。为了验证这些 ECMAScript 相关问题的有效性与影响范围，Allen Wirfs-Brock 请 Pratap Lakshman 进行分析，以确定 IE 的 JScript 与 ES3 规范之间一共有哪些出入。这次分析于 2007 年 9 月完成，其成果是一份长达 87 页的报告，名为《JScript 到 ES3 的偏差》。这份报告分为三个主要部分。在第一部分里，报告逐个确定了「当时的 JScript 实现」与「ES3 规范的明确要求」之间存在偏差的具体位置。对每个偏差，报告都提供了 ES3 中相应被违反之处的描述、用于观察偏差的测试用例，以及在当时最新版的 IE、Mozilla Firefox、Opera 和苹果 Safari 上执行测试的结果。这些浏览器是当时公认的「前四大」浏览器。如图 29 中的示例，就展示了一个被确定出的此类偏差。其中有些偏差为 IE 所特有，有些偏差在所有受测浏览器中均存在，还有些偏差在 IE 和其他若干浏览器中存在。
 
-![](./figures/29.png)
+```
+2.15 String.prototype.split: §15.4.4.14
+
+ES3 陈述为「如果分隔符是一个包含捕获小括号的正则表达式，那么每次匹配分隔符时，捕获小括号的结果（包括任何未定义的结果在内）都会被拼接到输出数组中。」
+
+JScript 忽视了捕获小括号。FF 输出了空字符串而不是 undefined。
+
+示例
+
+<script>
+alert("A<B>bold</B>and<CODE>coded</CODE>".split(/<(\/)?([^<>]+)>/));
+</script>
+
+输出
+
+IE: A,bold,and,coded
+FF: A,,B,bold,/,B,and,,CODE,coded,/,CODE,
+Opera: 和 FF 相同
+Safari: 和 FF 相同
+```
 
 图 29. 一个记录在 JScript 偏差报告中的 ES3 偏差。
 
@@ -45,7 +64,20 @@ Kris Zyp - Dojo 基金会
 
 在 2008 年 3 月的面对面会议上，工作组一致认为应该立即开始编写实际的 ES3.1 规范文档。Patrap Lakshman 在会议上提供了一份经过纠正的 ES3 规范，其改动来源于 Mozilla 维护的勘误表。工作组同意将其用作 ES3.1 基础文档，并请 Lakshman 担任编辑。跟以前的版本一样，规范文档将使用微软 Word 编写。通过相对于第三版的修订追踪（change tracking）功能，可以跟踪规范的演变情况，从而进行评审，并确保这些改动能被重新集成到新版 ES4 中。工作组成员被分配到了对具体新特性的规范文本开发上（图 32）。工作完成后，Lakshman 会将它们合并到 master 草案中。
 
-![](./figures/32.png)
+<table>
+  <tr><td>Lakshman</td><td>基于 Mozilla「数组扩展」的新数组方法，以及 <code>reduce</code> 和 <code>reduceRight</code></td></tr>
+  <tr><td>Lakshman</td><td>为字符串添加数组式的下标索引支持</td></tr>
+  <tr><td>Lakshman</td><td><code>Date</code> 的改进</td></tr>
+  <tr><td>Lakshman</td><td>严格模式下的属性访问语义</td></tr>
+  <tr><td>Crockford</td><td>JSON 支持</td></tr>
+  <tr><td>Crockford</td><td>Unicode 更新</td></tr>
+  <tr><td>Peller</td><td>推荐基于微软偏差文档的改动</td></tr>
+  <tr><td>Ruby</td><td>十进制小数</td></tr>
+  <tr><td>Zyp</td><td>对象字面量的 getter 和 setter</td></tr>
+  <tr><td>Wirfs-Brock</td><td>用于创建和检视属性的静态方法</td></tr>
+  <tr><td>Wirfs-Brock</td><td>更新伪代码记号和约定</td></tr>
+  <tr><td>Miller</td><td>对象的 freeze 和 seal，并对整份规范从安全角度进行评审</td></tr>
+</table>
 
 图 32. 截至 2008 年 3 月 28 日的 ES3.1 工作组任务分配。
 
@@ -127,7 +159,68 @@ Object.defineProperties(obj, {
 
 Miller 建议移除 `defineProperty`，只保留 `defineProperties` 的形式，因为后者也很容易用于定义单个属性。但是，这种表达方式很难定义出具有计算名称（computed name）的属性。在 ES3.1 中并没有语法能将计算值放置在「对象字面量的属性名称」位置处。最后，ES3.1 既提供了能通过「将名称独立地传递为参数」来定义单个属性的 `defineProperty`，也提供了能通过属性映射表定义多个属性的 `defineProperties`。ES5 定义的整套对象反射函数如图 33 所示。
 
-![](./figures/33.png)
+<table>
+  <thead>
+    <tr>
+      <th>函数名</th>
+      <th>行为</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Object.create</code></td>
+      <td>使用所提供的对象作为原型，创建一个新的对象。支持通过可选的属性映射表来添加属性。</td>
+    </tr>
+    <tr>
+      <td><code>Object.defineProperty</code></td>
+      <td>基于属性描述符创建一个新属性，或更新已有属性的定义。</td>
+    </tr>
+    <tr>
+      <td><code>Object.defineProperties</code></td>
+      <td>创建或更新属性映射表中一组属性的定义。</td>
+    </tr>
+    <tr>
+      <td><code>Object.getOwnPropertyDescriptor</code></td>
+      <td>返回某个具名属性的描述符对象，不存在该属性时则返回 <code>undefined</code>。</td>
+    </tr>
+    <tr>
+      <td><code>Object.getOwnPropertyNames</code></td>
+      <td>返回包含了某对象全部自有属性名字符串的 <code>Array</code>。</td>
+    </tr>
+    <tr>
+      <td><code>Object.getPrototypeOf</code></td>
+      <td>返回所传入对象的原型对象。</td>
+    </tr>
+    <tr>
+      <td><code>Object.keys</code></td>
+      <td>返回一个 <code>Array</code>，其中包含对象自有属性的字符串名称，这些属性均在使用 <code>for-in</code> 时可见。</td>
+    </tr>
+    <tr>
+      <td><code>Object.preventExtensions</code></td>
+      <td>阻止所有向对象上添加新属性的操作。</td>
+    </tr>
+    <tr>
+      <td><code>Object.seal</code></td>
+      <td>阻止所有向对象上添加新属性的操作，并阻止对其自有属性定义的修改。</td>
+    </tr>
+    <tr>
+      <td><code>Object.freeze</code></td>
+      <td>封存对象，并冻结其所有自有数据属性的值。</td>
+    </tr>
+    <tr>
+      <td><code>Object.isExtensible</code></td>
+      <td>测试是否可为对象添加新自有属性。</td>
+    </tr>
+      <tr>
+      <td><code>Object.isSealed</code></td>
+      <td>测试某对象是否被封存。</td>
+    </tr>
+    <tr>
+      <td><code>Object.isFrozen</code></td>
+      <td>测试某对象是否被冻结。</td>
+    </tr>
+  </tbody>
+</table>
 
 图 33. ES5 对象反射函数。
 
@@ -330,7 +423,18 @@ delete Object.prototype.Array; // 移除可选的 Array 绑定
 
 已被实现出的测试用例将被贡献回社区。而整个测试套件的目标则是实现最大的代码覆盖率，这里的「代码」指的是规范中的伪代码。每个测试用例都以它在最新规范草案中的章节和算法步骤编号来命名，并放置在单独的 `.js` 源文件中。图 36 说明了测试文件所使用的命名约定。
 
-![](./figures/36.png)
+
+<table>
+  <thead>
+    <tr><th colspan="2">sectionNumber-algorithmStepNumber-testNumber-s.js</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>sectionNumber</b></td><td>规范中的章节号</td></tr>
+    <tr><td><b>algorithmStepNumber</b></td><td>某个算法步骤，其需求可由该测试用例验证</td></tr>
+    <tr><td><b>testNumber</b></td><td>可选，应于该算法步骤具备多个测试用例时添加</td></tr>
+    <tr><td><b>-s</b></td><td>可选，应于测试用例面向严格模式时添加</td></tr>
+  </tbody>
+</table>
 
 图 36. 用于 esconform 测试用例文件的命名约定。每个文件包含一个测试，并以其在规范中所测试的伪代码步骤作为文件名。
 
@@ -646,9 +750,41 @@ if x > y { f() else if x > z { g() }
 
 原始规范及其修订版将三部分交织在一起，掩盖了这一基本结构。Allen Wirfs-Brock 认为，将规范明确地组织成三部分结构将使其更容易理解，还能更清楚地介绍大量新的 ES6 材料。委员会对此表示同意。图 42 显示了 ES2015 规范的新组织结构与 ES5 规范之间的比较。
 
-![](./figures/42.png)
+<table>
+  <thead>
+    <tr><th>Clause</th><th>ECMA-262, 5.1 Edition (245 pages)</th><th>ECMA-262, 6th Edition (545 pages)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Scope</td><td>Scope</td></tr>
+    <tr><td>2</td><td>Conformance</td><td>Conformance</td></tr>
+    <tr><td>3</td><td>Normative References</td><td>Normative References</td></tr>
+    <tr><td>4</td><td>Overview</td><td>Overview</td></tr>
+    <tr><td>5</td><td>Conventions</td><td>Notational Conventions</td></tr>
+    <tr><td>6</td><td>Source Text</td><td>ECMAScript Data Types and Values</td></tr>
+    <tr><td>7</td><td>Lexical Conventions</td><td>Abstract Operations</td></tr>
+    <tr><td>8</td><td>Types</td><td>Executable Code and Execution Contexts</td></tr>
+    <tr><td>9</td><td>Type Conversion and Testing</td><td>Ordinary and Exotic Object Behaviors</td></tr>
+    <tr><td>10</td><td>Executable Code and Execution Contexts</td><td>ECMAScript Language: Source Code</td></tr>
+    <tr><td>11</td><td>Expressions</td><td>ECMAScript Language: Lexical Grammar</td></tr>
+    <tr><td>12</td><td>Statements</td><td>ECMAScript Language: Expressions</td></tr>
+    <tr><td>13</td><td>Function Definition</td><td>ECMAScript Language: Statements and Declarations</td></tr>
+    <tr><td>14</td><td>Program</td><td>ECMAScript Language: Functions and Classes</td></tr>
+    <tr><td>15</td><td>Standard Built-in ECMAScript Objects</td><td>ECMAScript Language: Scripts and Modules</td></tr>
+    <tr><td>16</td><td>Errors</td><td>Error Handling and Language Extensions</td></tr>
+    <tr><td>17</td><td></td><td>ECMAScript Standard Built-in Objects</td></tr>
+    <tr><td>18</td><td></td><td>The Global Object</td></tr>
+    <tr><td>19</td><td></td><td>Fundamental Objects</td></tr>
+    <tr><td>20</td><td></td><td>Numbers and Dates</td></tr>
+    <tr><td>21</td><td></td><td>Text Processing</td></tr>
+    <tr><td>22</td><td></td><td>Indexed Collections</td></tr>
+    <tr><td>23</td><td></td><td>Keyed Collections</td></tr>
+    <tr><td>24</td><td></td><td>Structured Data</td></tr>
+    <tr><td>25</td><td></td><td>Control Abstraction Objects</td></tr>
+    <tr><td>26</td><td></td><td>Reflection</td></tr>
+  </tbody>
+</table>
 
-图 42. 第五版和第六版的组织。在 ES6 规范中，第 6-9 条定义了虚拟机语义。第 10-15 条定义了语言，第 17-26 条定义了标准库。
+图 42. 第五版和第六版规范的组织。在 ES6 规范中，第 6-9 条定义了虚拟机语义。第 10-15 条定义了语言，第 17-26 条定义了标准库。
 
 #### 新的术语
 ES6 为澄清和更新规范中使用的一些术语提供了机会。其中需要注意的一个领域，就是对象的命名规则。在 JavaScript 1.0 的实现中，JavaScript 程序可以访问特定于宿主和 JavaScript 引擎的对象。这些对象的基本语义，相比于用 ECMAScript 代码所能创建的对象，有着多种不同的区别。ES1 规范中使用了以下术语：「对象」、「原生对象」、「标准对象」、「内置对象」、「标准原生对象」、「内置原生对象」和「宿主对象」，以指代可以实现对象的各种方式。这些称呼之间的区别很微妙，但却没有特别的用处。人们不清楚这些类别中到底哪些允许特别的对象语义，也不清楚 JavaScript 程序员所创建的对象与其中的哪些相匹配。
@@ -666,7 +802,24 @@ ES6 引入了形如对象解构之类的新特性，它们具有复杂的行为�
 
 ES6 特性中引入了更多种类的早期错误。例如，试图使用 `let` 或 `const` 声明来重复定义一个标识符，就属于早期错误。ES6 在语法中增加了「静态语义」（Static Semantic）子条目，用于一致地指定早期错误的触发条件。图 43 显示了一组早期错误定义的示例。如图所示，早期错误规则可以引用静态语义算法。静态语义算法使用与运行时算法相同的约定，只是它们可能不会引用 ECMAScript 环境的任何运行时状态——因为它们是在求值脚本之前应用的。这些静态语义早期错误规则和算法，仅限于使用和分析可从源代码中提取的信息，而无需执行源代码。运行时算法中可以调用静态语义算法，但静态语义算法不能调用运行时算法。
 
-![](./figures/43.png)
+```
+13.3.1.1 静态语义: Early Errors
+
+LexicalDeclaration : LetOrConst BindingList ;
+  * 如果 BindingList 的 BoundNames 包含 "let"，属于 Syntax Error。
+  * 如果 BindingList 的 BoundNames 包含重复项，属于 Syntax Error。
+LexicalBinding : BindingIdentifier Initializer (opt)
+  * 如果 Initializer 不存在，且包含这条产生式的 LexicalDeclaration 对应的 IsConstantDeclaration 结果为 true，属于 Syntax Error。
+
+...
+13.3.1.3 静态语义: IsConstantDeclaration
+LexicalDeclaration : LetOrConst BindingList ;
+  1. 返回 LetOrConst 的 IsConstantDeclaration。
+LetOrConst : let
+  1. 返回 false。
+LetOrConst : const
+  1. 返回 true。
+```
 
 图 43. ES6 静态语义规则示例。
 
@@ -750,7 +903,30 @@ var Proxy(o,{
 
 这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brook 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。这是通过「增加新的内部方法」和「将一些不可截取的操作重新定义为常规的基础级、可捕获的方法调用」来实现的。此外提案还定义了每个内部方法的关键不变量。ECMAScript 的实现和宿主都必须遵守这些不变量，而 `Proxy` 可以保证自托管的外来对象也遵守它们。图 44 是对 ES2015 中元对象编程的概述：
 
-![](./figures/44.png)
+<table>
+  <thead>
+    <tr><th>ES5 Internal Method</th><th>ES6 Internal Methods</th><th>ES6 Proxy Traps & Reflect Methods</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>[[Canput]]</td><td></td><td></td></tr>
+    <tr><td>[[DefaultValue]]</td><td></td><td></td></tr>
+    <tr><td>[[GetProperty]]</td><td></td><td></td></tr>
+    <tr><td>[[HasProperty]]</td><td>[[HasProperty]]</td><td>has</td></tr>
+    <tr><td>[[Get]]</td><td>[[Get]]</td><td>get</td></tr>
+    <tr><td>[[GetOwnProperty]]</td><td>[[GetOwnProperty]]</td><td>getOwnPropertyDescriptor</td></tr>
+    <tr><td>[[Put]]</td><td>[[Set]]</td><td>set</td></tr>
+    <tr><td>[[Delete]]</td><td>[[Delete]]</td><td>deleteProperty</td></tr>
+    <tr><td>[[DefineOwnProperty]]</td><td>[[DefineOwnProperty]]</td><td>defineProperty</td></tr>
+    <tr><td>[[Call]]</td><td>[[Call]]</td><td>apply</td></tr>
+    <tr><td>[[Construct]]</td><td>[[Construct]]</td><td>construct</td></tr>
+    <tr><td></td><td>[[Enumerate]]</td><td>enumerate</td></tr>
+    <tr><td></td><td>[[OwnPropertyKeys]]</td><td>ownKeys</td></tr>
+    <tr><td></td><td>[[GetPrototypeOf]]</td><td>getPrototypeOf</td></tr>
+    <tr><td></td><td>[[SetPrototypeOf]]</td><td>setPrototypeOf</td></tr>
+    <tr><td></td><td>[[IsExtensible]]</td><td>isExtensible</td></tr>
+    <tr><td></td><td>[[PreventExtensions]]</td><td>preventExtensions</td></tr>
+  </tbody>
+</table>
 
 图 44. ES6/ES2015 的元对象协议由规范级内部方法定义，并通过 `Proxy` 的 trap 和 `Reflect` 方法进行验证。
 

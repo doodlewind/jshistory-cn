@@ -62,7 +62,20 @@ JavaScript 2.0 并未尝试与原始 JavaScript（甚至还有尚未完成的 EC
 
 > ECMAScript 2.0 是一个进取且大幅改进的 ECMAScript 语言规范，委员会希望在 2000 年实现标准化（当然这个野心可能过大）。ECMAScript 2.0 的主要目标是为「大型编程」提供支持——这也就是说，要支持开发由多人构建的程序，并可能是史上第一次要在用户的桌面上组装出这些程序。
 
-![](./figures/25.png)
+```
+* 模块化增强: classes, types, modules, libraries, packages 等
+* 国际化（I18N）相关:
+  - 国际化库 [可能作为独立的 ECMA 技术报告]
+  - 日历
+* 十进制小数（对 Number 对象的增强或替代）
+* Catch guards（带类型）
+* 对原子（线程安全）操作的讨论或定义（可能非规范性）
+* 其他各类更新 [除模块化相关外]:
+  - 声明修饰符的扩展机制
+  - 可扩展的语法（如用 # 表达 RGB 值）
+  - 单位语法和算术库
+  - Here 文档（长字符串常量）
+```
 
 图 25. TC39 在 1999 年 11 月的《未来特性展望表》中设想的初版 ES4 特性。
 
@@ -138,7 +151,15 @@ Brendan Eich 在 2005 年 11 月的博客文章中简化了这些目标，如下
 
 Brendan Eich 乐观地认为，在编程语言规范和类型系统领域的现代研究，可以帮助解决初版 ES4 原始工作中某些领域的问题。在 2006 年初，他招来 Dave Herman 加入了 TG1 新版 ES4 的设计团队。Herman 是美国东北大学的博士研究生，当时正致力于开发 ES3 的操作语义（operational semantics，用于保证程序在数学上严谨性的概念，译者注）。通过 Herman 的推荐，Eich 还邀请了圣克鲁斯大学教授 Cormac Flanagan 加入。Flanagan 是混合类型系统领域的专家。大约在同一时间，Opera Web 浏览器上的软件架构师 Lars Thomas Hansen 成为了 TG1 的经常性参与者。Herman、Hansen 和 Flanagan 都与美国东北大学的编程语言研究社区有着直接或间接的联系。
 
-![](./figures/26.png)
+<table>
+  <tr><td>Jeff Dyer</td><td>Adobe</td></tr>
+  <tr><td>Brendan Eich</td><td>Mozilla</td></tr>
+  <tr><td>Cormac Flanagan</td><td>University of California, Santa Cruz</td></tr>
+  <tr><td>Lars T Hansen</td><td>Opera/Adobe</td></tr>
+  <tr><td>Dave Herman</td><td>Northeasten University</td></tr>
+  <tr><td>Graydon Hoare</td><td>Mozilla</td></tr>
+  <tr><td>Edwin Smith</td><td>Adobe</td></tr>
+</table>
 
 图 26. 2006 年新版 ES4 的核心设计团队。
 
