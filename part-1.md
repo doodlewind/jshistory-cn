@@ -157,107 +157,107 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
   <tbody>
     <tr>
       <th>undefined</th>
-      <th>error</th>
-      <th>null</th>
-      <th>error</th>
-      <th>false</th>
-      <th><code>"undefined"</code></th>
+      <td>error</td>
+      <td>null</td>
+      <td>error</td>
+      <td>false</td>
+      <td><code>"undefined"</code></td>
     </tr>
     <tr>
       <th>function</th>
-      <th>N/C</th>
-      <th>Function object</th>
-      <th>valueOf/error</th>
-      <th>valueOf/true</th>
-      <th>decompile</th>
+      <td>N/C</td>
+      <td>Function object</td>
+      <td>valueOf/error</td>
+      <td>valueOf/true</td>
+      <td>decompile</td>
     </tr>
     <tr>
       <th>object (not null)</th>
-      <th>Function object</th>
-      <th>N/C</th>
-      <th>valueOf/error</th>
-      <th>valueOf/true</th>
-      <th>toString/valueOf<sup>1</sup></th>
+      <td>Function object</td>
+      <td>N/C</td>
+      <td>valueOf/error</td>
+      <td>valueOf/true</td>
+      <td>toString/valueOf<sup>1</sup></td>
     </tr>
     <tr>
       <th>object (null)</th>
-      <th>error</th>
-      <th>N/C</th>
-      <th>0</th>
-      <th>false</th>
-      <th><code>"null"</code></th>
+      <td>error</td>
+      <td>N/C</td>
+      <td>0</td>
+      <td>false</td>
+      <td><code>"null"</code></td>
     </tr>
     <tr>
       <th>number (zero)</th>
-      <th>error</th>
-      <th>null</th>
-      <th>N/C</th>
-      <th>false</th>
-      <th><code>"0"</code></th>
+      <td>error</td>
+      <td>null</td>
+      <td>N/C</td>
+      <td>false</td>
+      <td><code>"0"</code></td>
     </tr>
     <tr>
       <th>number (nonzero)</th>
-      <th>error</th>
-      <th>Number</th>
-      <th>N/C</th>
-      <th>true</th>
-      <th>default</th>
+      <td>error</td>
+      <td>Number</td>
+      <td>N/C</td>
+      <td>true</td>
+      <td>default</td>
     </tr>
     <tr>
       <th>number (NaN)</th>
-      <th>error</th>
-      <th>Number</th>
-      <th>N/C</th>
-      <th>false<sup>2</sup></th>
-      <th><code>"NaN"</code></th>
+      <td>error</td>
+      <td>Number</td>
+      <td>N/C</td>
+      <td>false<sup>2</sup></td>
+      <td><code>"NaN"</code></td>
     </tr>
     <tr>
       <th>number (+Infinity)</th>
-      <th>error</th>
-      <th>Number</th>
-      <th>N/C</th>
-      <th>true</th>
-      <th><code>"+Infinity"</code></th>
+      <td>error</td>
+      <td>Number</td>
+      <td>N/C</td>
+      <td>true</td>
+      <td><code>"+Infinity"</code></td>
     </tr>
     <tr>
       <th>number (-Infinity)</th>
-      <th>error</th>
-      <th>Number</th>
-      <th>N/C</th>
-      <th>true</th>
-      <th><code>"-Infinity"</code></th>
+      <td>error</td>
+      <td>Number</td>
+      <td>N/C</td>
+      <td>true</td>
+      <td><code>"-Infinity"</code></td>
     </tr>
     <tr>
       <th>boolean (false)</th>
-      <th>error</th>
-      <th>Boolean</th>
-      <th>0</th>
-      <th>N/C</th>
-      <th><code>"false"</code></th>
+      <td>error</td>
+      <td>Boolean</td>
+      <td>0</td>
+      <td>N/C</td>
+      <td><code>"false"</code></td>
     </tr>
     <tr>
       <th>boolean (true)</th>
-      <th>error</th>
-      <th>Boolean</th>
-      <th>1</th>
-      <th>N/C</th>
-      <th><code>"true"</code></th>
+      <td>error</td>
+      <td>Boolean</td>
+      <td>1</td>
+      <td>N/C</td>
+      <td><code>"true"</code></td>
     </tr>
     <tr>
       <th>string (empty)</th>
-      <th>error</th>
-      <th>String</th>
-      <th>error<sup>3</sup></th>
-      <th>false</th>
-      <th>N/C</th>
+      <td>error</td>
+      <td>String</td>
+      <td>error<sup>3</sup></td>
+      <td>false</td>
+      <td>N/C</td>
     </tr>
     <tr>
       <th>string (non-empty)</th>
-      <th>error</th>
-      <th>String</th>
-      <th>number/error</th>
-      <th>true</th>
-      <th>N/C</th>
+      <td>error</td>
+      <td>String</td>
+      <td>number/error</td>
+      <td>true</td>
+      <td>N/C</td>
     </tr>
   </tbody>
 </table>
@@ -267,7 +267,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
 * **decompile** 表示一份包含函数独有源码的字符串。
 * **toString** 表示调用 toString 方法的结果。
 * **valueOf** 表示在 valueOf 方法能为目标类型返回值时，对其进行调用的结果。
-* **number** 表示在字符串为有效整数或浮点数字面量时，相应的数值。
+* **number** 表示在字符串为有效整数或浮点数字面量时，其相应的数值。
 * <sup>1</sup> 如果 valueOf 没有返回字符串，则进行默认的对象到字符串转换。
 * <sup>2</sup> 在 Navigator 3.0 所用的 JavaScript 1.1 中，会将 NaN 转换为 true。
 * <sup>3</sup> 在 Navigator 3.0 所用的 JavaScript 1.1 中，会将空字符串转换为 0。
