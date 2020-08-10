@@ -8,7 +8,7 @@ ES3.1 工作组有一个直接的关注点，那就是微软为 Internet Explore
 
 ES3 陈述为「如果分隔符是一个包含捕获小括号的正则表达式，那么每次匹配分隔符时，捕获小括号的结果（包括任何未定义的结果在内）都会被拼接到输出数组中。」
 
-JScript 忽视了捕获小括号。FF 输出了空字符串而不是 undefined。
+JScript 忽略了捕获小括号。FF 输出了空字符串而不是 undefined。
 
 示例
 
@@ -30,15 +30,15 @@ Safari: 和 FF 相同
 
 ES3.1 的开发在 2008 年 1 月的 TC39 会议上正式启动。这次会议上探讨了规范的目标，其中另有几位 TC39 成员对参与开发工作也表示出了兴趣。2 月 11 日，Lakshman 向 TC39 的内部邮件列表发送了一条消息，呼吁对 ES3.1 行动的参与。这封邮件提醒人们注意去年夏天准备的偏差与互操作性文档，并请求对这些文档提供更多反馈。在 2 月 21 日举行的电话会议上，每周两次电话会议的工作时间表得以确定。与以前的 ES3.1 讨论相比，参与这些电话会议的人数明显更多。图 30 中列出了相应的经常性参与者。起初，人们通过直发邮件来交换和讨论提案，也有一些讨论在 `es4-discuss` 邮件论坛进行。然而，由于与新版 ES4 主题相关的流量很大，因此很难挑选出其中与 ES3.1 相关的主题。为此在 4 月，一个单独的 `es3.1-discuss` 邮件论坛得以成立。之后大多数在会议前后对 ES3.1 设计的讨论，都移到了这个论坛来进行。
 
-```
-Douglas Crockford - 雅虎
-Pratap Lakshman - 微软
-Mark S. Miller - 谷歌
-Adam Peller - IBM
-Sam Ruby - IBM
-Allen Wirfs-Brock - 微软
-Kris Zyp - Dojo 基金会
-```
+<table>
+  <tr><td>Douglas Crockford</td><td>Yahoo!</td></tr>
+  <tr><td>Pratap Lakshman</td><td>Microsoft</td></tr>
+  <tr><td>Mark S. Miller</td><td>Google</td></tr>
+  <tr><td>Adam Peller</td><td>IBM</td></tr>
+  <tr><td>Sam Ruby</td><td>IBM</td></tr>
+  <tr><td>Allen Wirfs-Brock</td><td>Microsoft</td></tr>
+  <tr><td>Kris Zyp</td><td>The Dojo Foundation</td></tr>
+</table>
 
 图 30. 2008 年 ES3.1 WG 会议的经常性参与者。
 
@@ -551,24 +551,16 @@ Dave Herman 向委员会建议，认为委员会应该采用一种名为「倡�
 
 2009 年，Brendan Eich 建议 TC39 将 2012 年 6 月作为Ecma GA 通过「ES.next」的目标日期，并将特性冻结的目标日期定为 2011 年 5 月。随着 5 月目标日期的临近，规范明显还无法在 2012 年 6 月完成。但起草一份规范所承诺的特性列表以便专注于其开发，仍然有其意义所在。5 月会议的大部分时间用于对稻草人列表进行分类，并就哪些剩余的稻草人提案将推进到「Harmony 提案」状态达成了共识。每份稻草人提案都先经过讨论，然后再去衡量是否有共识来推进它。在经过最低限度的审查后，一些提案获得推进，另一些则被拒绝。对于其他代表重要特性的提案，虽然委员会对当时相应的稻草人不够满意，但它们也得到了推进。这些提案被当作占位符，等待后续开发改进后的提案。如模块和类即均以此方式处理。最终的 Harmony 特性集并未在会议上被严格冻结。随着 ES.next 开发的继续，也有一些提案被加入和放弃。但此次会议所列出的提案清单，已经确立了后来 ES2015 的大致形态。图 40 列出了 5 月会议的参会者，附录 O 则展示了会后的 Harmony 提案页面。
 
-```
-Avner Aharon - Microsoft
-Douglas Crockford - Yahoo! (Phone)
-Brendan Eich - Mozilla
-Cormac Flanagan - UCSC
-David Fugate - Microsoft
-Dave Herman - Mozilla
-Luke Hoban - Microsoft
-Bill Frants - Periwinkle (guest)
-Waldemar Horwat - Google
-Mark Miller - Google
-John Neumann - Ecma
-Alex Russell - Google
-Mike Samuel - Google
-István Sebestyén - Ecma
-Sam Tobin-Hochstadt - Northeastern University
-Allen Wirfs-Brock - Mozilla
-```
+<table>
+  <tr><td>Avner Aharon</td><td>Microsoft</td><td>Waldemar Horwat</td><td>Google</td></tr>
+  <tr><td>Douglas Crockford</td><td>Yahoo! (Phone)</td><td>Mark Miller</td><td>Google</td></tr>
+  <tr><td>Brendan Eich</td><td>Mozilla</td><td>John Neumann</td><td>Ecma</td></tr>
+  <tr><td>Cormac Flanagan</td><td>UCSC</td><td>Alex Russell</td><td>Google</td></tr>
+  <tr><td>David Fugate</td><td>Microsoft</td><td>Mike Samuel</td><td>Google</td></tr>
+  <tr><td>Dave Herman</td><td>Mozilla</td><td>István Sebestyén</td><td>Ecma</td></tr>
+  <tr><td>Luke Hoban</td><td>Microsoft</td><td>Sam Tobin-Hochstadt</td><td>Northeastern Univ</td></tr>
+  <tr><td>Bill Frants</td><td>Periwinkle (guest)</td><td>Allen Wirfs-Brock</td><td>Mozilla</td></tr>
+</table>
 
 图 40. 2011 年 5 月 TC39 特性筛选会的参会者。
 
@@ -1303,32 +1295,29 @@ ECMAScript 2015 的开发和发布历时近 7 年，数百人为其开发做出�
 
 TC39 主席 John Neumann 和 Ecma 秘书长 István Sebestyén 为项目提供了行政上的支持，确保了会议的顺利进行。项目编辑 Allen Wirfs-Brock 在项目过程中发布了 38 份规范草案。有 7 人（图 47）实质上属于整个项目的技术贡献者。另有 35 名与会者（图 48）参加了 5 至 24 次会议，其中大多数人对项目作出了重要的技术贡献。在 ES2015 的开发过程中，数百名 JavaScript 开发者社区成员向 `es-discuss` 邮件列表发布了超过 36000 条消息，并在 TC39 的 bug 跟踪系统中，提出了 4000 多个与 ES2015 规范草案有关的工单。
 
-```
-Allen Wirfs-Brock (Project Editor) - Microsoft, Mozilla
-Brendan Eich - Mozilla, invited expert
-Mark S. Miller - Google
-Waldemar Horwat - Google
-Dave Herman - Northeastern Univ, Mozilla
-Douglas Crockford - Yahoo!, PayPal
-Erik Arvidsson - Google
-```
+<table>
+  <tr><td>Allen Wirfs-Brock (Project Editor)</td><td>Microsoft, Mozilla</td></tr>
+  <tr><td>Brendan Eich</td><td>Mozilla, invited expert</td></tr>
+  <tr><td>Mark S. Miller</td><td>Google</td></tr>
+  <tr><td>Waldemar Horwat</td><td>Google</td></tr>
+  <tr><td>Dave Herman</td><td>Northeastern Univ, Mozilla</td></tr>
+  <tr><td>Douglas Crockford</td><td>Yahoo!, PayPal</td></tr>
+  <tr><td>Erik Arvidsson</td><td>Google</td></tr>
+</table>
 
 图 47. TC39 技术贡献者，他们在整个 ES2015 开发工作中表现活跃。在此期间，每人至少参加了 41 次 TC39 会议中的 30 次。2009 年 5 月，Arvidsson 首次参加。Crockford 最后一次参加是在 2014 年 4 月。其余的人从头到尾都参加了项目。
 
-```
-Sam Tobin-Hochstadt (24), Alex Russell (21), Luke Hoban (20),
-Cormac Flanagan (18), Yehuda Katz (17), Rick Waldron (17),
-Eric Ferraiuolo (15), Tom Van Cutsem (14), Nebojsa Ćirić (13),
-Andreas Rossberg (13), Oliver Hunt (12), Norbert Lindenberg (12),
-Sam Ruby (12), Brian Terlson (12), Sebastian Markbage (11),
-Jeff Morrison (11), Rob Sayre (10), Matt Sweeney (10),
-Rafael Weinstein (10), Jeff Dyer (8), David Fugate (8),
-Domenic Denicola (7), Rick Hudson (7), Jafar Husain (7),
-Dimitry Lomov (7), Ben Newman (7), Caridy Patino (7),
-Chris Pine (7), Mike Samuel (6), Ihab Awad (5),
-Reid Burke (5), Andreas Gal (5), Peter Jensen (5),
-Pratap Lakshman(5), Nicholas Malsakic (5)
-```
+<table>
+  <tr><td>Sam Tobin-Hochstadt (24)</td><td>Andreas Rossberg (13)</td><td>Rafael Weinstein (10)</td><td>Chris Pine (7)</td></tr>
+  <tr><td>Alex Russell (21)</td><td>Oliver Hunt (12)</td><td>Jeff Dyer (8)</td><td>Mike Samuel (6)</td></tr>
+  <tr><td>Luke Hoban (20)</td><td>Norbert Lindenberg (12)</td><td>David Fugate (8)</td><td>Ihab Awad (5)</td></tr>
+  <tr><td>Cormac Flanagan (18)</td><td>Sam Ruby (12)</td><td>Domenic Denicola (7)</td><td>Reid Burke (5)</td></tr>
+  <tr><td>Yehuda Katz (17)</td><td>Brian Terlson (12)</td><td>Rick Hudson (7)</td><td>Andreas Gal (5)</td></tr>
+  <tr><td>Rick Waldron (17)</td><td>Sebastian Markbage (11)</td><td>Jafar Husain (7)</td><td>Peter Jensen (5)</td></tr>
+  <tr><td>Eric Ferraiuolo (15)</td><td>Jeff Morrison (11)</td><td>Dimitry Lomov (7)</td><td>Pratap Lakshman(5)</td></tr>
+  <tr><td>Tom Van Cutsem (14)</td><td>Rob Sayre (10)</td><td>Ben Newman (7)</td><td>Nicholas Malsakic (5)</td></tr>
+  <tr><td>Nebojsa Ćirić (13)</td><td>Matt Sweeney (10)</td><td>Caridy Patino (7)</td><td></td></tr>
+</table>
 
 图 48. 在制定 ES2015 期间，经常参加 TC39 会议的技术贡献者。这些数字反映了他们参加了多少次会议。
 
