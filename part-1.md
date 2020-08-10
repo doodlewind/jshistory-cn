@@ -8,9 +8,9 @@ Tim Berners-Lee 的 Web 技术的核心，是使用声明式的 HTML 标记语�
 ### Brendan Eich 加入 Netscape
 Brendan Eich 于 1985 年在伊利诺伊大学香槟分校硕士毕业，然后立即入职了 SGI。他主要从事 Unix 内核和网络层的工作。1992 年，他在离开 SGI 后加盟了 MicroUnity。这是一家资金雄厚的新兴公司，致力于开发视频媒体处理器。在这两家公司，他都实现了用于支持内核与网络编程任务的小型专用语言。在 MicroUnity，他还在 GCC 编译器上做了些工作。
 
-1995 年初，Brendan Eich 被 Netscape 画的「在浏览器里写 Scheme」大饼打动而跳槽了。但当 Eich 于 1995 年 4 月 3 日加入 Netscape 时，他发现公司在产品营销与编程语言上的现状都很复杂。Netscape 在 1994 年底拒绝了微软的低价收购要约。此后 Netscape 管理层预计自己将直面微软「拥抱，扩展，灭绝」战略的攻击。在盖茨的直接领导下，微软已经迅速意识到它们即将推出的封闭生态信息应用 Blackbird 项目，在跨平台 Web 的兴起之下将无足轻重。因此，盖茨的「互联网浪潮」备忘录将微软的战略从 Blackbird 重新引导到了 Internet Explorer 与一整套服务器产品上，以应对 Netscape 的攻城略地。
+1995 年初，Brendan Eich 被 Netscape 画的「在浏览器里写 Scheme」大饼打动而跳槽了。但当 Eich 于 1995 年 4 月 3 日加入 Netscape 时，他发现公司在产品营销与编程语言上的现状都很复杂。Netscape 在 1994 年底拒绝了微软的低价收购要约。此后 Netscape 管理层预计自己将直面微软「拥抱，扩展，灭绝」战略 [[Wikipedia 2019](./references.md#wikip:EEE)] 的攻击。在盖茨的直接领导下，微软已经迅速意识到它们即将推出的封闭生态信息应用 Blackbird 项目 [[Anderson 2007](./references.md#msft:blackbird)]，在跨平台 Web 的兴起之下将无足轻重。因此，盖茨的「互联网浪潮」备忘录 [[Gates 1995](./references.md#gates:tidalwave)] 将微软的战略从 Blackbird 重新引导到了 Internet Explorer 与一整套服务器产品上，以应对 Netscape 的攻城略地。
 
-网页脚本语言的备选项，包括 Scheme 这样的研究型语言，Perl / Python / Tcl 这样基于 Unix 的实用型语言，以及微软 Visual Basic 这样的专有语言。Brendan Eich 希望的是在浏览器中实现 Scheme。但在 1995 年初，Sun（太阳微系统公司）开始为当时尚未发布的 Java 发起游击营销活动。Sun 和 Netscape 迅速达成协议，决定将 Java 集成到 Netscape 2 中。Eich 回忆说，Marc Andreessen 在 Netscape 会议上的口号是「Netscape 加 Java 干掉 Windows」。在 1995 年 5 月 23 日 Sun 的 Java 发布会上，Netscape 宣布了他们许可 Sun 的 Java 技术在浏览器中使用的意向。
+网页脚本语言的备选项，包括 Scheme 这样的研究型语言，Perl / Python / Tcl 这样基于 Unix 的实用型语言，以及微软 Visual Basic 这样的专有语言。Brendan Eich 希望的是在浏览器中实现 Scheme。但在 1995 年初，Sun（太阳微系统公司）开始为当时尚未发布的 Java 发起了游击营销活动 [[Byous 1998](./references.md#javahist)]。Sun 和 Netscape 迅速达成协议，决定将 Java 集成到 Netscape 2 中。Eich 回忆说，Marc Andreessen 在 Netscape 会议上的口号是「Netscape 加 Java 干掉 Windows」。在 1995 年 5 月 23 日 Sun 的 Java 发布会上，Netscape 宣布了他们授权 Sun 的 Java 技术 [[Netscape 1995a](./references.md#netscape:press:java)] 在浏览器中使用的意向。
 
 Netscape 内部的这项快速决策，使得对 Scheme / Perl / Python / Tcl / Visual Basic 等脚本语言的选型都受到了严重的阻碍，它们在商业利益和（或）上市时间的角度上看都是不可行的。对 Netscape 和 Sun 的高层，尤其是 Marc Andreessen 和 Sun 的 Bill Joy 来说，他们认为唯一可行的方法是设计实现一门「小语言」来补充 Java。
 
@@ -27,13 +27,13 @@ Netscape 内部的这项快速决策，使得对 Scheme / Perl / Python / Tcl / 
 ### Mocha 的故事
 随着 Java 发布的临近，Brendan Eich 认为时间至关重要。双鸟在林不如一鸟在手，因此他在 1995 年 5 月花了连续十天进行第一个 *Mocha* 实现的原型设计。这项工作赶在了可行性论证的最后期限之前完成。这个 Demo 包括语言的最小实现，并最小化地集成到了 Netscape 2 浏览器的 pre-alpha 版本中。
 
-Eich 的原型是在 SGI Indy Unix 工作站上开发的，使用了一个手写的词法分析器和递归下降解析器（parser）。这个解析器发出（emit）的是字节码指令，而不是语法分析树（parse tree）。字节码*解释器*简单而缓慢。
+Eich 的原型是在 SGI Indy Unix 工作站 [[Netfreak 2019](./references.md#sgiIndy)] 上开发的，使用了一个手写的词法分析器和递归下降解析器（parser）。这个解析器发出（emit）的是字节码指令，而不是语法分析树（parse tree）。字节码*解释器*简单而缓慢。
 
 字节码特性源于 Netscape LiveWire 服务器的需求，其开发人员甚至在将 Mocha 原型化之前就希望将其嵌入。该团队的前 Borland 管理和工程人员都坚信动态脚本语言的未来，但他们希望使用字节码而非源码解析的方式，加快服务器应用的加载速度。
 
 Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直接在 HTML 文档中编写几行。Sun 和 Netscape 的高层管理人员则重申了 Mocha 应该「看起来像 Java」的要求，明确排除了 BASIC 式的东西。但这种 Java 式的外表也带来了对 Java 式行为的期望，这种期望影响了语言*对象*模型的设计，以及原始类型（如 `boolean` / `int` / `double` / `string` 等）的语义。
 
-在外表接近 Java 的要求之外，Brendan Eich 可以自由选择大多数语言设计细节。加入 Netscape 后，他探索了一些「易于使用」与「教育用途」的语言，包括 HyperTalk 语言，Logo 语言和 Self 语言。所有人都认可 Mocha 将会「基于对象」但没有类。因为支持类将花费很长时间，并有与 Java 竞争的风险。出于对 Self 的认可，Eich 选择使用带有单个原型链接的*委托*机制，来创建动态的对象模型。他认为这样可以节省实现成本，但最后还是没有足够时间在 Mocha 原型中暴露该机制。
+在外表接近 Java 的要求之外，Brendan Eich 可以自由选择大多数语言设计细节。加入 Netscape 后，他探索了一些「易于使用」与「教育用途」的语言，包括 HyperTalk 语言 [[Apple Computer 1988](./references.md#apple1988hypercard)]，Logo 语言 [[Papert 1980](./references.md#logo)] 和 Self 语言 [[Ungar and Smith 1987](./references.md#self)]。所有人都认可 Mocha 将会「基于对象」但没有类。因为支持类将花费很长时间，并有与 Java 竞争的风险。出于对 Self 的认可，Eich 选择使用带有单个原型链接的*委托*机制，来创建动态的对象模型。他认为这样可以节省实现成本，但最后还是没有足够时间在 Mocha 原型中暴露该机制。
 
 对象是通过为*构造函数*应用 `new` 运算符的方式创建的。名为 `Object` 的「默认对象构造函数」与其他内建对象一起内置在环境中。每个对象由零个或多个属性组成。每个*属性*（property）都有一个名称（也叫*属性键*）和一个值，该值可以是*函数*、对象或其他几种内建数据类型之一。可以通过「为未使用的属性键赋值」的方式来创建属性。属性没有可见性或赋值限制，构造函数还可以提供一组初始属性。创建对象后，也可以将其他属性添加上去。LiveWire 团队特别喜欢这种非常动态的手法。
 
@@ -43,7 +43,7 @@ Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直�
 
 十天结束时，原型在一次全体 Netscape 工程人员的会议上进行了演示（图 2）。演示获得了成功，这使人们对于交付更加完整且集成度更高的 Netscape 2 感到过分乐观。Netscape 2 的首个 beta 版本计划于当年 9 月发布。Brendan Eich 在那个夏天的主要工作，则是将 Mocha 更全面地集成到浏览器中。这需要设计实现使 Mocha 程序能与网页交互的 API。同时，他还需要将语言的原型实现转变为可交付的软件，并响应早期内部用户的错误报告、更改建议与特性需求。
 
-这个十天创建 Mocha 故事的更多细节，可以参见 Brendan Eich 的复述。通过互联网档案馆，还可以获得 Mocha 生产版本的源码。Jamie Zawinski 的「Netscape 宿舍」也描述了在此期间作为 Netscape 软件开发者的工作经历。
+这个十天创建 Mocha 故事的更多细节，可以参见 Brendan Eich 的复述 [[Eich 2008c](./references.md#BrendanHistory08), [2011d](./references.md#BrendanHistory11); [JavaScript Jabber 2014](./references.md#js-jabber:brendan); [Walker 2018](./references.md#jollyswagman:brendan)]。通过互联网档案馆，还可以获得 Mocha 生产版本的源码 [[Netscape 1997b](./references.md#netscaoe3.0.2)]。Jamie Zawinski [[1999](./references.md#nscpdorm)] 的「Netscape 宿舍」也描述了在此期间作为 Netscape 软件开发者的工作经历。
 
 ## JavaScript 1.0 与 1.1
 Netscape 和 Sun 于 1995 年 12 月 4 日在联合新闻稿中发布了 JavaScript。通稿中 JavaScript 被描述为「一种对象脚本语言」，可用于编写脚本来动态地「修改 Java 对象的属性和行为」。它将作为「Java 的补充，方便进行在线应用开发」。尽管它们的技术设计只有表面上的相似，两家公司还是试图在 Java 和 JavaScript 语言间建立牢固的品牌联系。这种名称上的相似性及其带来的两种语言具备密切联系的暗示，长期以来都是导致混乱的根源之一。
