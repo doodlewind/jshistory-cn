@@ -1,3 +1,5 @@
+# 创立标准
+
 ## 寻找场地
 当 1995 年 Mocha 项目开始时，要想确保网页在不同浏览器之间的兼容性，需要的显然已经是规范化的标准了。Netscape 和 Sun 在发布 JavaScript 时 [[1995](./references.md#netscape:press:javascript)] 也指出了这一点：
 
