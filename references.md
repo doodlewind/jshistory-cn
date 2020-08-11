@@ -30,7 +30,7 @@
 * <a id="Bilic07">[Happy 10th birthday, Outlook Web Access!](https://web.archive.org/web/20190708214319/https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Happy-10th-birthday-Outlook-Web-Access/ba-p/593150)</a>
 * <a id="browserwars">[Browser wars: High price, huge rewards.](https://web.archive.org/web/20141221074510/http://www.zdnet.com/article/browser-wars-high-price-huge-rewards/)</a>
 * <a id="TC39:1996:006">[Proposed JavaScript Extensions](https://www.ecma-international.org/archive/ecmascript/1996/TC39/96-006.pdf)</a>
-* <a id="bos05">[``JavaScript, the worst invention ever''](https://web.archive.org/web/20060430041247/http://www.phonk.net/Gedachten/JavaScript)</a>
+* <a id="bos05">[JavaScript, the worst invention ever](https://web.archive.org/web/20060430041247/http://www.phonk.net/Gedachten/JavaScript)</a>
 * <a id="wtfjs">[wtfjs](https://web.archive.org/web/20100607024513/http://wtfjs.com/)</a>
 * <a id="javahist">[Happy 3rd Birthday!](https://web.archive.org/web/19990224053407/http://java.sun.com:80/features/1998/05/birthday.html)</a>
 * <a id="caja:project">[Google Caja](https://web.archive.org/web/20121115023736/https://developers.google.com/caja/)</a>
@@ -141,8 +141,8 @@
 * <a id="telescript">[Telescript Language Reference](https://web.archive.org/web/20100505125110/http://bitsavers.org/pdf/generalMagic/Telescript_Language_Reference_Oct95.pdf)</a>
 * <a id="Gibbons:990825-e3-final">[ECMAScript Language Specification, Edition 3 Final Draft](https://www.ecma-international.org/archive/ecmascript/1999/TC39WG/990825-e3-final.pdf)</a>
 * <a id="Gillam:i18n9811">[I18N meeting minutes](https://www.ecma-international.org/archive/ecmascript/1998/TC39WG/981118-i18n9811.htm)</a>
-* <a id="Gillam:i18n9901">[Proposal for Improving Internationalization Support in](https://www.ecma-international.org/archive/ecmascript/1999/TC39WG/990115-i18n9901.pdf)</a>
-* <a id="Gillam:i18n9904">[Proposal for Improving Internationalization Support in](https://www.ecma-international.org/archive/ecmascript/1999/TC39WG/990429-i18n9904.pdf)</a>
+* <a id="Gillam:i18n9901">[Proposal for Improving Internationalization Support in ECMAScript 2.0 (Version 0.3)](https://www.ecma-international.org/archive/ecmascript/1999/TC39WG/990115-i18n9901.pdf)</a>
+* <a id="Gillam:i18n9904">[Proposal for Improving Internationalization Support in ECMAScript 2.0 (Version 1.0)](https://www.ecma-international.org/archive/ecmascript/1999/TC39WG/990429-i18n9904.pdf)</a>
 * <a id="gwt2006">[Google Web Toolkit(Beta)](https://web.archive.org/web/20060523141321/http://code.google.com/webtoolkit/)</a>
 * <a id="v8benchmarks">[V8 Benchmark Suite -- version 1](https://web.archive.org/web/20080904201317/http://code.google.com/apis/v8/run.html)</a>
 * <a id="v8design">[V8 JavaScript Engine: Design Elements](https://web.archive.org/web/20080904201714/http://code.google.com/apis/v8/design.html)</a>
@@ -329,7 +329,7 @@
 * <a id="jquery">[jQuery: New Wave Javascript](https://web.archive.org/web/20060203025710/http://jquery.com:80/)</a>
 * <a id="reuters:ieshare">[Microsoft Dominates Browser Battle](https://web.archive.org/web/20001020224608/http://www.pcworld.com:80/news/article.asp?aid=17448)</a>
 * <a id="rossberg:patmatch">[Harmony: Refutable Patterns](https://web.archive.org/web/20130605015214/http://wiki.ecmascript.org/doku.php?id=harmony:refutable_matching)</a>
-* <a id="dojo">[d\=oj\=o the browser toolkit](https://web.archive.org/web/20050901044303/http://dojotoolkit.org:80/)</a>
+* <a id="dojo">[dojo the browser toolkit](https://web.archive.org/web/20050901044303/http://dojotoolkit.org:80/)</a>
 * <a id="GA:1996:098">[Netscape Application for Associate membership](https://www.ecma-international.org/archive/ecmascript/1996/GA/96-098.pdf)</a>
 * <a id="ecma:ga:2004:76">[TG1 of TC39 Intentions](https://www.ecma-international.org/archive/ecmascript/2004/TG1/tc39-tg1-2004-005.pdf)</a>
 * <a id="ecma:TC39-TG1:2004:006">[TG1 Convener's Report to TC39s](https://www.ecma-international.org/archive/ecmascript/2004/TG1/tc39-tg1-2004-006.pdf)</a>
