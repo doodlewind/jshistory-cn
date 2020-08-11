@@ -255,7 +255,7 @@
 * <a id="TC39:1997:032">[Microsoft Design Proposals for the Ecmascript 2.0 Language Specification](https://www.ecma-international.org/archive/ecmascript/1997/TC39/97-032.pdf)</a>
 * <a id="microsoft:pressdotnet">[Microsoft Unveils Vision for Next Generation Internet](https://web.archive.org/web/20151219230705/http://news.microsoft.com/2000/06/22/microsoft-unveils-vision-for-next-generation-internet/)</a>
 * <a id="microsoft:pressdotnetSDK">[Microsoft Delivers First .NET Platform Developer Tools for Building Web Services](https://web.archive.org/web/20200226233713/https://news.microsoft.com/2000/07/11/microsoft-delivers-first-net-platform-developer-tools-for-building-web-services/)</a>
-* <a id="jacriptversions">[JScript Version Information](https://web.archive.org/web/20090211114102/http://msdn.microsoft.com:80/en-us/library/s4esdbwz(VS.71).aspx)</a>
+* <a id="jscriptversions">[JScript Version Information](https://web.archive.org/web/20090211114102/http://msdn.microsoft.com:80/en-us/library/s4esdbwz(VS.71).aspx)</a>
 * <a id="microsoft:wpf">[WPF overview](https://web.archive.org/web/20200211232805/https://docs.microsoft.com/en-us/dotnet/framework/wpf/introduction-to-wpf?view=vs-2019)</a>
 * <a id="typescript">[www.typescriptlang.org](https://web.archive.org/web/20190404224013/https://www.typescriptlang.org/)</a>
 * <a id="msm:defineProp">[Comments regarding: defineProperty/getProperty design sketch](https://web.archive.org/web/20140605052239/https://mail.mozilla.org/pipermail/es-discuss/2008-April/006222.html)</a>
