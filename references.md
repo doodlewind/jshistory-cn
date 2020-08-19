@@ -314,7 +314,7 @@
 * <a id="logo">Mindstorms: Children, Computers, and Powerful Ideas</a>
 * <a id="VJ.net">[Microsoft's VJ\#.Net is made in India](https://web.archive.org/web/20131128170355/http://computer.financialexpress.com/20020729/indnews3.shtml)</a>
 * <a id="mootools">[mootools.net](https://web.archive.org/web/20061024032526/http://mootools.net:80/)</a>
-* <a id="TC39wg:980303-spice">[W3C `Spice' details](https://www.ecma-international.org/archive/ecmascript/1998/TC39WG/980303-spice.htm)</a>
+* <a id="TC39wg:980303-spice">[W3C "Spice" details](https://www.ecma-international.org/archive/ecmascript/1998/TC39WG/980303-spice.htm)</a>
 * <a id="w3c:htmlfuture">[Shaping the Future of HTML](https://web.archive.org/web/19980703155723/https://www.w3.org/MarkUp/future/)</a>
 * <a id="singer:futurehtml">[The Future of HTML: A Modest Proposal](https://web.archive.org/web/19991023024910/http://www.w3.org/MarkUp/future/papers/singer/im-164149.htm)</a>
 * <a id="TC39wg:980928-spice-docs">[Spice documentation](https://www.ecma-international.org/archive/ecmascript/1998/TC39WG/980928-spice-docs/index.html)</a>

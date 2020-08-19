@@ -188,9 +188,9 @@ Dave Herman 和 Cormac Flanagan 早期提出的建议，是使用契约模型（
 ### 阻力
 微软几乎没有参与重启新版 ES4。虽然 DevDiv（开发者部门）在组织上远离了负责 IE 的微软 Windows 团队，但 JScript 的开发始终由 DevDiv 负责。在 2000 年初，DevDiv 为支持 .NET 计划进行了重组，其中的 C# 产品部门同时负责 JScript .NET 和 IE 中更传统的 JScript 引擎。这也包括了参加 ECMAScript 标准化活动的责任。但由于客户对 JScript .NET 的接受程度较弱，而且 Windows 团队对于增强 IE 的兴趣不大，因此与 JScript 和 ECMAScript 相关的工作，在 C# 团队中属于低优先级的事项。
 
-在 2000 年代，微软通常将战略上重要的开发工作放在华盛顿州 Redmond 市的总部里，并经常将更多的战术项目分配到世界各地的其他分部中。在 2006 财年（2005 年 7 月至 2006 年 6 月）里，微软 DevDiv 决定将所有与 JScript 和 ECMAScript 相关工作的职责交接给位于印度 Hyderabad 市的印度研发中心（IDC）。DevDiv 之前已经将类似 Java 的 J# .NET 产品交接给了 IDC。到 2006 年春季，交接工作得以基本完成。在 TG1 上代表微软的任务，则交给了曾经在 J# 团队工作过，并参与过 Ecma C# 标准工作组 TC39-TG3 的 Pratap Lakshman。Lakshman 在 2006 年 4 月第一次远程参加了 TG1 会议，并开始参加电话会议和一些面对面的会议。但在此期间，他并不是新版 ES4 开发工作的重要贡献者。
+在 2000 年代，微软通常将战略上重要的开发工作放在华盛顿州 Redmond 市的总部里，并经常将更多的战术项目分配到世界各地的其他分部中。在 2006 财年（2005 年 7 月至 2006 年 6 月）里，微软 DevDiv 决定将所有与 JScript 和 ECMAScript 相关工作的职责交接给位于印度 Hyderabad 市的印度研发中心（IDC）。DevDiv 之前已经将类似 Java 的 J# .NET 产品交接给了 IDC [[Prasanna 2002](./references.md#VJ.net)]。到 2006 年春季，交接工作得以基本完成。在 TG1 上代表微软的任务，则交给了曾经在 J# 团队工作过，并参与过 Ecma C# 标准工作组 TC39-TG3 的 Pratap Lakshman。Lakshman 在 2006 年 4 月第一次远程参加了 TG1 会议，并开始参加电话会议和一些面对面的会议。但在此期间，他并不是新版 ES4 开发工作的重要贡献者。
 
-本文作者之一 Allen Wirfs-Brock 于 2003 年加入微软，担任软件架构师，负责研究新 IDE 体系结构的探索性项目。在加入微软前，他已经在 Smalltalk 编程语言和开发环境方面工作了二十多年。Wirfs-Brock 曾是首个商用 Smalltalk 虚拟机实现的首席开发者。他致力于增强 Smalltalk 的特性以支持大型编程，设计了标准的 Smalltalk 异常处理系统，并编写了 ANSI Smalltalk 标准中的语言定义部分。
+本文作者之一 Allen Wirfs-Brock 于 2003 年加入微软，担任软件架构师，负责研究新 IDE 体系结构的探索性项目。在加入微软前，他已经在 Smalltalk 编程语言和开发环境方面工作了二十多年。Wirfs-Brock 曾是首个商用 Smalltalk 虚拟机实现 [[Caudill and Wirfs-Brock 1986](./references.md#Caudill:1986:TGS:28697.28709)] 的首席开发者。他致力于增强 Smalltalk 的特性以支持大型编程，设计了标准的 Smalltalk 异常处理系统，并编写了 ANSI Smalltalk 标准 [[ANSI X3J20 1998](./references.md#ansiSmalltalk)] 中的语言定义部分。
 
 到 2006 年底，IDE 项目似乎已经进入了正轨，Wirfs-Brock 也开始寻找新的机会。这时 DevDiv 内部对于动态语言的兴趣正在增加。由于还没有单独的 DevDiv 产品组负责动态语言，各个产品组的经理都抢着想揽下这份工作。Wirfs-Brock 当时担任资深架构师，向 Visual Basic 产品组经理 Julia Liuson 汇报，为她提供动态语言技术和机遇方面的建议。
 
@@ -200,15 +200,15 @@ Allen Wirfs-Brock 的新岗位从 2007 年 1 月的第一周起开始。在一�
 
 Allen Wirfs-Brock 回复 Julia Liuson 说，这听起来像是一次彻底的重新设计。根据他的经验，通过增加静态类型来改进动态语言的尝试很少成功。他对 JavaScript 或 Web 开发还不够了解，无法给出更确切的意见。不过，他提出要进一步研究一下。
 
-Wirfs-Brock 花了几天时间来熟悉 JavaScript、当时的 ES3 规范以及公开 Wiki 快照中的 TG1 提案。他与 Lakshman、IE 团队的软件架构师和从事 Web 应用开发的微软工程师都进行了交谈。他意识到 JavaScript 在 Web 上发挥的作用，明显属于 Richard Gabriel 的「Worse Is Better」理念的实例。它最早只是个最低限度上的创造，并以一种分散的方式成长，现在则已经深深地根植在了 Web 之中。相比之下，新版 ES4 的努力在 Wirfs-Brock 看来，则属于被 Gabriel 称为「做正确的事」的项目，不太可能获得成果。哪怕取得了成果，也会对 Web 造成很大的破坏。作为结论，他认为在技术上负责任的做法，是尝试让 ECMAScript 的演化重新回到增量演进的道路上。
+Wirfs-Brock 花了几天时间来熟悉 JavaScript、当时的 ES3 规范以及公开 Wiki 快照中的 TG1 提案 [[TC39 ES4 2007f](./references.md#es4:priv-wiki-jan-2007)]。他与 Lakshman、IE 团队的软件架构师和从事 Web 应用开发的微软工程师都进行了交谈。他意识到 JavaScript 在 Web 上发挥的作用，明显属于 Richard Gabriel [[1990](./references.md#WiB)]「Worse Is Better」理念的实例。它最早只是个最低限度上的创造，并以一种分散的方式成长，现在则已经深深地根植在了 Web 之中。相比之下，新版 ES4 的努力在 Wirfs-Brock 看来，则属于被 Gabriel 称为「做正确的事」的项目，不太可能获得成果。哪怕取得了成果，也会对 Web 造成很大的破坏。作为结论，他认为在技术上负责任的做法，是尝试让 ECMAScript 的演化重新回到增量演进的道路上。
 
 鉴于微软当时对 Web 浏览器技术缺乏战略兴趣，Wirfs-Brock 认为 DevDiv 管理层不太可能有兴趣将资源分配给与 Web 浏览器相关的工作。他决定在向 DevDiv 内部公开时，需要关注新版 ES4 倘若成功所可能带来的后果。他确定的主要关注点是 Adobe 在 ActionScript 3 语言定义和虚拟机方面的贡献。DevDiv 特别关注的地方是 .NET 平台和 C# 旗舰语言，这些产品的主要客户是企业级应用的开发者。虽然 .NET 的主要竞争对手是 Sun 公司的 Java 平台，但 DevDiv 也开始将 Adobe 公司基于 ActionScript 的 Flash 和 Flex 产品视为 .NET 的竞争对手。Wirfs-Brock 预计新版 ES4 如果成功落地，可以将 ActionScript 转变为一线企业级语言，其功能和实用性可以与 C# 或 Java 相媲美。基于这一点，再加上 JavaScript 作为 Web 开发主要语言的标准化，可以推测出新语言可能对微软的语言和开发者产品造成严重的竞争威胁。
 
-Allen Wirfs-Brock 写了一份备忘录，说明了这些担忧，并建议微软在 TG1 内部积极开展工作，试图将 TG1 重新引导到对 ECMAScript 标准增量、非破坏性演进的道路上。到 1 月中旬，这个建议获得采纳，Wirfs-Brock 则被授权执行该建议。2007 年 1 月 18 日，Pratap Lakshman 在 TG1 内部邮件列表上发布了一条消息，介绍 Wirfs-Brock 为新的微软 TG1 代表。
+Allen Wirfs-Brock 写了一份备忘录，说明了这些担忧，并建议微软在 TG1 内部积极开展工作，试图将 TG1 重新引导到对 ECMAScript 标准增量、非破坏性演进的道路上。到 1 月中旬，这个建议获得采纳，Wirfs-Brock 则被授权执行该建议。2007 年 1 月 18 日，Pratap Lakshman 在 TG1 内部邮件列表上发布了一条消息 [[TC39 2003](./references.md#tc39:reflector)]，介绍 Wirfs-Brock 为新的微软 TG1 代表。
 
-3 月份的 TG1 面对面会议将由微软主办，Wirfs-Brock 决定在这次会议上首次参会。但他还觉得，必须尽快打消委员会对「微软支持新版 ES4 工作」态度的认识。他要求 Pratap Lakshman 在 2 月的会议上传达这一信息。Lakshman 照做了，并在 TG1 的内部 Wiki 上发布了一个页面，提出了一种描述简化的 ES4 浏览器模式（browser profile）的设想。他报告说自己收到的回应相当不友好，但在一次茶歇时间，Douglas Crockford 找到了他，提出雅虎愿意和微软一起反对新版 ES4。
+3 月份的 TG1 面对面会议将由微软主办，Wirfs-Brock 决定在这次会议上首次参会。但他还觉得，必须尽快打消委员会对「微软支持新版 ES4 工作」态度的认识。他要求 Pratap Lakshman 在 2 月的会议上传达这一信息。Lakshman 照做了，并在 TG1 的内部 Wiki 上发布了一个页面 [[Lakshman 2007a](./references.md#browserprofile)]，提出了一种描述简化的 ES4 浏览器模式（browser profile）的设想。他报告说自己收到的回应相当不友好，但在一次茶歇时间，Douglas Crockford 找到了他，提出雅虎愿意和微软一起反对新版 ES4。
 
-Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定微软 - 雅虎的联合提案，以替代新版 ES4 项目。Crockford 此前曾发布过一小套希望修改 ECMAScript 语言的建议，目的是通过纠正原始设计中的错误和不便，从而使语言「更好一点」。Wirfs-Brock 和 Crockford 同意将这些建议作为联合提案在技术上的出发点。Pratap Lakshman 则提出了一种最小化的修改方法，其中能纳入 Crockford 所建议的许多 ES3 改动，相当于他对自己「浏览器模式」设想的后续行动。同时，Wirfs-Brock 与 Crockford 和 Lakshman 合作，起草了一份更正式的提案，并在微软和雅虎内部流传，以供内部批准。在 3 月 21 到 23 日的 TG1 会议前，他们于 2007 年 3 月 15 日发布了提案。Crockford 将提案通过 TG1 的内部邮件列表进行了分发。
+Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定微软 - 雅虎的联合提案，以替代新版 ES4 项目。Crockford [[2002d](./references.md#crock2002)] 此前曾发布过一小套关于修改 ECMAScript 语言的建议，其目的是通过纠正原始设计中的错误和不便，从而使语言「更好一点」。Wirfs-Brock 和 Crockford 同意将这些建议作为联合提案在技术上的出发点。Pratap Lakshman 则提出了一份进行最小化修改的提案 [[Lakshman 2007b](./references.md#minimalES4)]，其中能纳入 Crockford 所建议的许多 ES3 改动，相当于他对自己「浏览器模式」设想的后续行动。同时，Wirfs-Brock 与 Crockford 和 Lakshman 合作，起草了一份更正式的提案，并在微软和雅虎内部流传，以供内部批准。在 3 月 21 到 23 日的 TG1 会议前，他们于 2007 年 3 月 15 日发布了提案 [[Crockford et al. 2007](./references.md#crock:refocus)]。Crockford 将提案通过 TG1 的内部邮件列表进行了分发。
 
 这份提案名为《关于重新聚焦 TC39-TG1 对 ECMAScript 第三版规范维护的提案》，其开篇段落如下：
 
@@ -216,17 +216,17 @@ Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定�
 
 这份提案建议，TG1 应围绕三个工作项目进行重组。第一个工作项目是维护当时的 ECMAScript 语言，即由第三版规范定义的 ECMAScript 语言。维护工作将包括：澄清第三版规范中未明确的部分，纳入新特性（如 Mozilla 的 JavaScript 1.6 / 1.7 中的新特性），以及一些如 Crockford 所列举的小型修正和改进。第二个工作项目是为 ActionScript 起草一份标准定义。第三个工作项目是为浏览器定义一种新的编程语言，这门语言可以与 ECMAScript 共存，同时不受 ECMAScript 兼容性的限制。提案还提出了将工作项目二和三合并的可能性。它建议将这两者分配给一个新的 TC39 工作组，而不是 TG1 工作组。
 
-正如预期的那样，TG1 内部邮件列表上对此的反应普遍是负面的，但它确实显示出苹果的 Maciej Stachowiak 也对新版 ES4 的发展方向持保留意见。Brendan Eich 是最有发言权的回应者，他为静态类型和其他新版 ES4 的特性辩护，认为这些特性对于增强性能和大型应用的结构化至关重要。他还质疑了微软和雅虎提出这个提案的动机。
+正如预期的那样，TG1 内部邮件列表上对此的反应普遍是负面的，但它确实显示出苹果的 Maciej Stachowiak [[2007b](./references.md#maciej:refocus)] 也对新版 ES4 的发展方向持保留意见。Brendan Eich [[2007b](./references.md#brendan:refocus1)] 是最有分量的回应者，他为静态类型和其他新版 ES4 的特性辩护，认为这些特性对于增强性能和大型应用的结构化至关重要。他还质疑了微软和雅虎提出这份提案的动机 [[Eich 2007c](./references.md#brendan:refocus0)]。
 
 随着 3 月会议日期的临近，电子邮件上的讨论愈演愈烈。Pratap Lakshman 要求将会议第二天的大部分时间用于讨论微软和雅虎的提案。Brendan Eich 反驳说讨论一个小时就应该足够了。他和 Jeff Dyer 都表示希望将会议的大部分时间继续作为新版 ES4 的 hackathon。并且 Eich 和 Dyer 都认为，新版 ES4 的开发代表了微软帮助建立的 TG1 长期以来形成的共识，并质疑微软和雅虎现在试图打破这一共识是否合适。Allen Wirfs-Brock 对此回复说，现在共识已经被打破了，因为微软和雅虎是 Ecma 三个标准会员（Ordinary Member）中的两个，他们都经常参加 TG1。
 
-3 月份会议第二天的出席人数比平时多。除了 Allen Wirfs-Brock 和 Pratap Lakshman 外，微软的代表还有 Scott Isaacs 和 Chris Wilson。Isaacs 是微软「live.com」的框架架构师，还是 DHTML 的初始开发者之一。Wilson 则是 Internet Explorer 的平台架构师，并积极参与 W3C Web 标准的制定。Isaacs 和 Douglas Crockford 都谈到了在浏览器 ECMAScript 实现的互操作性不佳的情况下，Web 应用开发上的困难。Crockford 认为，更完整的 ES3 级特性规范将有助于消除互操作性问题，从而提高 Web 的稳定性。Isaacs 特别关注的是，应当尽量减少新的语言语法扩展，因为这些新的扩展可能导致旧浏览器在执行新网页时出现解析错误。Isaacs 和 Crockford 都强调了 Web 应用中安全和隐私功能的重要性。对此 Eich、Dyer 和 Graydon Hoare 则反驳说，要想构建更稳定、更安全、更高性能的浏览器编程环境，新版 ES4 的类型系统是必需的基础。Wirfs-Brock 认为，进化后的「ES3.1」规范将有助于稳定 Web，并为 ES4 的实现和流行提供时间。Eich 担心这只是一种拖延策略，让微软有时间建立他们基于 .NET 的富互联网应用平台，从而与基于标准的 HTML / CSS / JavaScript 平台进行竞争。他警告说，现在社区里已经有很多人对 ES4 充满了热情，如果微软和雅虎强行推迟开发 ES4，会给微软和雅虎带来负面影响。
+3 月份会议第二天 [[TC39-TG1 2007c](./references.md#TC39-TG1:2007:013)] 的出席人数比平时多。除了 Allen Wirfs-Brock 和 Pratap Lakshman 外，微软的代表还有 Scott Isaacs 和 Chris Wilson。Isaacs 是微软「live.com」的框架架构师，还是 DHTML 的初始开发者之一。Wilson 则是 Internet Explorer 的平台架构师，并积极参与 W3C Web 标准的制定。Isaacs 和 Douglas Crockford 都谈到了在浏览器 ECMAScript 实现的互操作性不佳的情况下，Web 应用开发上的困难。Crockford 认为，更完整的 ES3 级特性规范将有助于消除互操作性问题，从而提高 Web 的稳定性。Isaacs 特别关注的是，应当尽量减少新的语言语法扩展，因为这些新的扩展可能导致旧浏览器在执行新网页时出现解析错误。Isaacs 和 Crockford 都强调了 Web 应用中安全和隐私功能的重要性。对此 Eich、Dyer 和 Graydon Hoare 则反驳说，要想构建更稳定、更安全、更高性能的浏览器编程环境，新版 ES4 的类型系统是必需的基础。Wirfs-Brock 认为，进化后的「ES3.1」规范将有助于稳定 Web，并为 ES4 的实现和流行提供时间。Eich 担心这只是一种拖延策略，让微软有时间建立他们基于 .NET 的富互联网应用平台，从而与基于标准的 HTML / CSS / JavaScript 平台进行竞争。他警告说，现在社区里已经有很多人对 ES4 充满了热情，如果微软和雅虎强行推迟开发 ES4，会给微软和雅虎带来负面影响。
 
 最终，大家一致认为，开发「ES3.1」规范可能有一定的价值，微软和雅虎可以在 TG1 的背景下进行工作。这也就是 Wirfs-Brock 在筹备会议时所希望的结果。新版 ES4 的支持者坚持认为 ES3.1 必须是新版 ES4 的一个子集，其规范必须使用为新版 ES4 开发的规范风格。Wirfs-Brock 对这些限制并不太担心，因为他仍然认为新版 ES4 规范不太可能完成并发布。
 
 会后，Pratap Lakshman、Allen Wirfs-Brock 和 Douglas Crockford 开始着手定义 ES3.1 项目。Wirfs-Brock 和 Crockford 在 3 月 29 日举行了会议，并同意 Lakshman 应起草一份初步提案，在 4 月 TG1 会议前分发。Crockford 提出了一些设计准则，并建议 3.1 规范采用与 ES3 规范相同的风格。这与 3 月会议上达成的共识有冲突，但在新版 ES4 规范的最终形式尚未确定的情况下，使用相同的规范形式也是有问题的。
 
-4 月 15 日，Pratap Lakshman 以《ES3.1 提案工作草案》为题，在 Wiki 上发布了一些页面。它列出了一系列目标、前后向兼容性要求，以及设计准则（图 27）。它还包括了大约 20 个修复、修改和新特性的描述，这些特性都是候选的，其中有许多来自于 Douglas Crockford 的《ECMAScript 修改建议》文档。他于 4 月初更新了这份文档，并在 ES3.1 开发过程中进行了两次更新。
+4 月 15 日，Pratap Lakshman 以《ES3.1 提案工作草案》[[Lakshman et al. 2007](./references.md#es3.1:wd0)] 为题，在 Wiki 上发布了一些页面。它列出了一系列目标、前后向兼容性要求，以及设计准则（图 27）。它还包括了大约 20 个修复、修改和新特性的描述，这些特性都是候选的，其中有许多来自于 Douglas Crockford 的《ECMAScript 修改建议》文档。他于 4 月初更新了这份文档，并在 ES3.1 开发过程中进行了两次更新 [[Crockford 2007b](./references.md#crock:2007b), [c](./references.md#crock:2007a), [d](./references.md#crock:2007c)]。
 
 ```
 目标
@@ -247,19 +247,19 @@ Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定�
   a. 考虑废弃那些会导致重大性能问题的低价值特性。
 ```
 
-图 27. ES3.1 的初始目标和设计准则。
+图 27. ES3.1 的初始目标和设计准则 [[Lakshman et al. 2007](./references.md#es3.1:wd0)]。
 
-在 4 月的会议上，委员会讨论了 ES3.1 工作草案。新版 ES4 开发者的主要关注点是 ES3.1 工作与新版 ES4 规范之间的关系。他们希望 ES3.1 工作遵循他们打算在新版 ES4 中使用的 ML 参考实现规范技术。ES3.1 小组反驳说，为一个规范的维护版本完全改变规范技术，其意义似乎并不大。Jeff Dyer 最后建议，鉴于观点的不同，ES3.1 的人应该继续他们手头的工作。但他也提出了警告，认为在 ES3 规范的背景下所做的工作，对小组的其他成员没有什么价值。
+在 4 月的会议 [[TC39-TG1 2007a](./references.md#TC39-TG1:2007:017)] 上，委员会讨论了 ES3.1 工作草案。新版 ES4 开发者的主要关注点是 ES3.1 工作与新版 ES4 规范之间的关系。他们希望 ES3.1 工作遵循他们打算在新版 ES4 中使用的 ML 参考实现规范技术。ES3.1 小组反驳说，为一个规范的维护版本完全改变规范技术，其意义似乎并不大。Jeff Dyer 最后建议，鉴于观点的不同，ES3.1 的人应该继续他们手头的工作。但他也提出了警告，认为在 ES3 规范的背景下所做的工作，对小组的其他成员没有什么价值。
 
-在 2007 年春夏之交的其余时间里，这两个小组基本上都持续在各自的项目上工作。ES3.1 小组分析了现有的 ES3 规范及其实现，以确定由于规范化程度不够或未能遵循规范而存在的互操作性问题。新版 ES4 小组则以其 ML 参考实现为工具，继续完善他们的各种提案。
+在 2007 年春夏之交的其余时间里，这两个小组基本上都持续在各自的项目上工作。ES3.1 小组分析了现有的 ES3 规范及其实现，以确定由于规范化程度不够或未能遵循规范而存在的互操作性问题 [[Lakshman 2007c](./references.md#jscriptdeviations); [Wirfs-Brock 2007b](./references.md#awb:mozextensions); [Wirfs-Brock and Crockford 2007](./references.md#awb:aug07crockmeeting)]。新版 ES4 小组则以其 ML 参考实现为工具，继续完善他们的各种提案。
 
-新版 ES4 项目的时间安排仍然非常紧迫。在 2007 年 5 月初，一份提交给 Ecma 共同管理委员会的报告指出，新版 ES4 规范的最终草案将在 2007 年 10 月前完成，以便 Ecma GA 大会在 12 月通过。2007 年 6 月 8 日，Dave Herman 在 Lambda the Ultimate 博客上宣布 ES4 参考实现的「里程碑 0」版本已经可用。
+新版 ES4 项目的时间安排仍然非常紧迫。在 2007 年 5 月初，一份提交给 Ecma 共同管理委员会的报告 [[Miller 2007](./references.md#TC39:2007:002)] 指出，新版 ES4 规范的最终草案将在 2007 年 10 月前完成，以便 Ecma GA 大会在 12 月通过。2007 年 6 月 8 日，Dave Herman [[2007](./references.md#Herman:LtU); Appendix K] 在 Lambda the Ultimate 博客上宣布 ES4 参考实现的「里程碑 0」版本已经可用。
 
-在 6 月的会议上，有人呼吁立即启动 ES4 的「规范编写过程」。但当时仍有重大的技术设计问题未能解决，也经常发现新的问题。例如在 7 月的会议上人们意识到，新版语言在对结构化类型做运行时类型检查时还有重大问题。
+在 6 月的会议 [[TC39-TG1 2007b](./references.md#TC39-TG1:2007:025)] 上，有人呼吁立即启动 ES4 的「规范编写过程」。但当时仍有重大的技术设计问题未能解决，也经常发现新的问题。例如在 7 月的会议 [[Eich 2007d](./references.md#TC39:2007:008)] 上人们意识到，新版语言在对结构化类型做运行时类型检查时还有重大问题。
 
 9 月 7 日的 TG1 主持人报告指出，想在 2007 年完成新版规范是不现实的，新的完成日期被推后一年至 2008 年 9 月。报告中还介绍 Lars Hansen 将担任新版 ES4 的编辑。这份报告既没有提到正在进行的 ES3.1 工作，也没有提到雅虎和微软对新版 ES4 的保留。
 
-9 月会议的目标之一，是接受、拒绝或推迟 ES4 Wiki 上所有未决的新版 ES4 提案。从新版 ES4 工作组的角度来看，这包括了被标记为「维护 ES3」的提案，这是 ES3.1 工作的总括性提案。Jeff Dyer 在会上的立场是，这份提案需要在当天被接受或拒绝（并在 Wiki 上标明）。如果被否决，该提案将不再作为 TG1 的工作项目。从会议记录中可以看出，他不认为提案有可能被接受。Brendan Eich 的立场则更为微妙。作为新版 ES4 的公开支持者，他认为 ES3.1 的努力让他分心，并非常怀疑微软的动机。他不希望 ES3.1 的开发与新版 ES4 竞争，并建议 ES3.1 的支持者们考虑离开 TG1，看看 TC39 是否愿意为他们建立一个新的任务组。然而作为 TG1 的主持人，他希望找到一种避免组织分裂的方法。他建议，ES3.1 小组的工作成果可以作为 Ecma 技术报告来发表，或发表为其他一些不太正式、非 ISO、非标准轨道的文档。整个谈话过程非常激烈，对新版 ES4 和 ES3.1 的支持者来说都很紧张。Pratap Lakshman 一度沮丧地表示：「不论是全部还是部分，我们都既不支持也不同意目前的 ES4 提案。我们打算继续与有兴趣的任务组成员合作，制定一份对现行规范进行更多增量修订的提案。」尽管这不是个非常政治化的声明，但它也反映了微软的立场，只是在范围涉及全部新版 ES4 这一点上略有出入。最后「维护 ES3」提案状态的问题得以变通解决，方法是将关于 ES3.1 的页面从 Wiki 的「提案」命名空间下移到了新的「ES3.1」命名空间下。然而，ES3.1 和新版 ES4 的支持者们在目标上的冲突仍然存在，相关言论很快就公开化了。
+9 月会议 [[TC39-TG1 2007d](./references.md#TC39-TG1:2007:036)] 的目标之一，是接受、拒绝或推迟 ES4 Wiki 上所有未决的新版 ES4 提案。从新版 ES4 工作组的角度来看，这包括了被标记为「维护 ES3」的提案，这是 ES3.1 工作的总括性提案。Jeff Dyer 在会上的立场是，这份提案需要在当天被接受或拒绝（并在 Wiki 上标明）。如果被否决，该提案将不再作为 TG1 的工作项目。从会议记录中可以看出，他不认为提案有可能被接受。Brendan Eich 的立场则更为微妙。作为新版 ES4 的公开支持者，他认为 ES3.1 的努力让他分心，并非常怀疑微软的动机。他不希望 ES3.1 的开发与新版 ES4 竞争，并建议 ES3.1 的支持者们考虑离开 TG1，看看 TC39 是否愿意为他们建立一个新的任务组。然而作为 TG1 的主持人，他希望找到一种避免组织分裂的方法。他建议，ES3.1 小组的工作成果可以作为 Ecma 技术报告来发表，或发表为其他一些不太正式、非 ISO、非标准轨道的文档。整个谈话过程非常激烈，对新版 ES4 和 ES3.1 的支持者来说都很紧张。Pratap Lakshman 一度沮丧地表示：「不论是全部还是部分，我们都既不支持也不同意目前的 ES4 提案。我们打算继续与有兴趣的任务组成员合作，制定一份对现行规范进行更多增量修订的提案。」尽管这不是个非常政治化的声明，但它也反映了微软的立场，只是在范围涉及全部新版 ES4 这一点上略有出入。最后「维护 ES3」提案状态的问题得以变通解决，方法是将关于 ES3.1 的页面从 Wiki 的「提案」命名空间下移到了新的「ES3.1」命名空间下。然而，ES3.1 和新版 ES4 的支持者们在目标上的冲突仍然存在，相关言论很快就公开化了 [[Kanaracus 2007](./references.md#sabers)]。
 
 ### 寻求和谐
 2007 年期间，活跃的 TG1 参与者开始增加，这其中部分原因在于 ES3.1 和新版 ES4 小组都努力鼓励新成员和目前不活跃的成员参加会议。在春季，不活跃的 TG1 成员 IBM 和苹果也开始更经常地派代表参加 TG1 会议，并参与在线讨论。Google 作为标准会员加入了 Ecma，并任命 Waldemar Horwat 为其 GA 代表和 TG1 代表领导。Dojo 基金会作为非营利成员加入，由 Alex Russell 和 Chris Zyp 代表。Allen Wirfs-Brock 和 Douglas Crockford 都鼓励对象能力（OCAP）语言专家 Mark S. Miller 参与进来。Miller 曾在 Google 工作，他开始以 Google 代表的身份参加会议。一些新的与会者为小组带来了属于 Web 开发者的视角，在以前小组一直是由语言设计者和引擎实现者主导的。
