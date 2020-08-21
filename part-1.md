@@ -50,7 +50,7 @@ Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直�
 ## JavaScript 1.0 与 1.1
 Netscape 和 Sun 于 1995 年 12 月 4 日在联合新闻稿 [[Netscape and Sun 1995](./references.md#netscape:press:javascript); Appendix F] 中发布了 JavaScript。通稿中 JavaScript 被描述为「一种对象脚本语言」，可用于编写脚本来动态地「修改 Java 对象的属性和行为」。它将作为「Java 的补充，方便进行在线应用开发」。尽管它们的技术设计只有表面上的相似，两家公司还是试图在 Java 和 JavaScript 语言间建立牢固的品牌联系。这种名称上的相似性及其带来的两种语言具备密切联系的暗示，长期以来都是导致混乱的根源之一。
 
-![](./figures/2.png)
+![](./images/2.png)
 
 图 2. Mocha 控制台。Brendan Eich 的 Mocha 初始 Demo，其所演示的功能是在 SGI Unix 工作站的 Netscape 2 pre-alpha 中运行的「Mocha 控制台」。这个 Mocha 控制台除了名称改变之外，基本按原样发布在了 Netscape 2 正式版中。这是在 Windows 95 上运行的 Netscape 2.02 的屏幕截图。可以通过在浏览器地址栏中键入 `mocha:` 来激活这个 Mocha 控制台——正式版 Netscape 2 已将其更改为 `javascript:`，但 `mocha:` 仍然有效。激活控制台后，浏览器会打开两个页面框架。在下部文本框中键入的 Mocha 表达式，其求值运行后的效果会体现在上方页面中。这一示例展示了调用内置 `alert` 函数来获得表达式计算值的弹出窗口。原始演示版本的弹出窗口显示的是「Mocha Alert」，而不是 「JavaScript Alert」。
 

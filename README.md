@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3710954.svg)](https://doi.org/10.5281/zenodo.3710954)
 
-![](./figures/2.png)
+![](./images/2.png)
 
 《JavaScript: The First 20 Years》以上百页的篇幅，详细记述了 JavaScript 自 1995 至 2015 年间的演化故事。本项目将尝试搬运其内容到中文社区，方便更多同学接触这份兼有收藏与研究价值的史料。
 

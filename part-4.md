@@ -260,7 +260,7 @@ var obj = {
 
 对象反射 API 提供了 ECMAScript 早期版本中没有的新能力。它允许程序更改现有属性的标记，包括在数据属性和访问器属性之间切换。这里的一个考量在于，是否需要额外的标记来禁用此类更改。对此可能的命名包括「dynamic」、「flexible」和「fixed」。但人们担心添加这样一个额外的 Boolean 属性标记后，对现有实现可能产生的影响。如果一个语言实现没有可用的额外比特位来表示该标记，要怎么办呢？最后 ES3.1 工作组意识到，对属性标记的更改，等效于先对属性的当前标记做原子查询，再删除该属性，最后重新创建具有相同名称但标记值已修改的属性。鉴于这种等效性，可以使用单个标记来表达是否启用删除和修改。于是 DontDelete 和 removable 标记被重命名为「configurable」来代表这一含义。Mark Miller [[2010b](./references.md#ES5Attributes)] 绘制了 ES5 属性标记的状态图 [[Harel 2007](./references.md#Harel:hopl)]（图 34），并发布到了 ECMAScript Wiki 上。注意当 configurable 标记为 `false` 时，仍然可以将属性的 writable 标记从 `true` 更改为 `false`。这个反常之处的存在，是为了让安全*沙箱*（sandbox）能更改某些内置属性，使其从「不可配置但可写」变为「不可配置且不可写」。
 
-![](./figures/34.png)
+![](./images/34.png)
 
 图 34. ES5 中属性的标记状态图 [[Miller 2010b](./references.md#ES5Attributes)]。
 
