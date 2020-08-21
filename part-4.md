@@ -879,7 +879,7 @@ var proxy = Proxy.create(makeHandler(o), Object.getPrototypeOf(o));
 
 > 几周前，Mark 和我坐在一起研究了 proxy 的一些现存问题，特别是如何让 proxy 更好地处理不可配置的属性和不可扩展的对象。其结果就是我们所说的「直接代理」：在我们的新提案中，proxy 总是另一个「目标」对象的包装器。只要以这种方式稍微转变我们对 proxy 的看法，很多早先开放的问题就不复存在了。并且这样一来，proxy 的开销在某些情况下可能会大大减少。
 
-在「直接代理」的提案 [[Van Cutsem and Miller 2011a](./references.md#directproxyspec), [b](./references.md#directproxystrawman), [2012](./references.md#)] 中，目标对象（以下例子中的 `o`）类似于转发代理例子中传递给 `makeHandler` 的对象。它作为 Proxy 对象的内部状态而保存，并在调用 trap 时作为一个显式参数而传递。因为 Proxy 知道目标对象，所以它可以在使用目标对象时强制保证必要的不变量。以下是直接代理版本的 Proxy 转发示例：
+在「直接代理」的提案 [[Van Cutsem and Miller 2011a](./references.md#directproxyspec), [b](./references.md#directproxystrawman), [2012](./references.md#directproxyproposal)] 中，目标对象（以下例子中的 `o`）类似于转发代理例子中传递给 `makeHandler` 的对象。它作为 Proxy 对象的内部状态而保存，并在调用 trap 时作为一个显式参数而传递。因为 Proxy 知道目标对象，所以它可以在使用目标对象时强制保证必要的不变量。以下是直接代理版本的 Proxy 转发示例：
 
 ``` js
 // Harmony 直接代理提案
@@ -1331,7 +1331,7 @@ TC39 主席 John Neumann 和 Ecma 秘书长 István Sebestyén 为项目提供�
 
 以年为单位进行更新，将要求 TC39 在开发新语言特性方面更加规范。有些设计工作仍然需要多年才能完成，因此这需要一个流程，以适应跨越多个年度发布周期的特性开发项目，并能协调不同特性之间重叠的开发周期。还有人担心，ES6 过于依赖一位编辑来完成大部分规范的编写工作。要想成功实现每年发布，倡议者需要为自己的特性进行大部分的规范编写。
 
-Rafael Weinstein 和 Dimitry Lomov 发表了一份提案 [[TC39 2013c](./references.md#postES6:1stdeck); [Weinstein and Lomov 2013](./references.md#postES6:1stdeck)]，建议在开发过程中，新特性提案要经过五个成熟阶段。后来 Weinstein 与 Allen Wirfs-Brook 合作，进一步定义和文档化了这一过程。附录 Q 是对新流程和发展阶段的描述。从 2014 年起，TC39 在 ES6 之后的所有工作中都遵循这一程序。截至 2020 年 6 月发表本文，TC39 在每年 6 月都成功发布了 ECMAScript 规范的新版本。
+Rafael Weinstein 和 Dimitry Lomov 发表了一份提案 [[TC39 2013c](./references.md#TC39:2013:055); [Weinstein and Lomov 2013](./references.md#postES6:1stdeck)]，建议在开发过程中，新特性提案要经过五个成熟阶段。后来 Weinstein 与 Allen Wirfs-Brook 合作，进一步定义和文档化了这一过程。附录 Q 是对新流程和发展阶段的描述。从 2014 年起，TC39 在 ES6 之后的所有工作中都遵循这一程序。截至 2020 年 6 月发表本文，TC39 在每年 6 月都成功发布了 ECMAScript 规范的新版本。
 
 ## 总结
 JavaScript 是一门以低预期要求来创建的语言。它的初衷是作为 Java 在浏览器内的一个辅助工具，适合初级网页开发者和兼职程序员使用。然而在很短的时间内，它就（在浏览器里）超过了 Java，成为了交互式网页的主要语言。尽管 JavaScript 的前 20 年里充满了增强、改进、重新设计或取代它的失败尝试，但到这一时期结束时，JavaScript 已成为了世界上使用最广泛的编程语言——而且还不仅仅用于网页。除了使用 Node.js 和其他宿主构建的服务器应用外，JavaScript 还被用于构建桌面应用、移动设备应用、健身追踪器、机器人和众多嵌入式系统。它甚至是詹姆斯·韦伯太空望远镜的一部分。这个望远镜使用 Nombas 的 ES1 级嵌入式 JavaScript，作为其板载控制软件的一部分 [[Dashevsky and Balzano 2008](./references.md#jameswebb)]。
