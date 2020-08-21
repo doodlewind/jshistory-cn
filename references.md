@@ -16,7 +16,7 @@
 * <a id="langlist2011">[List of languages that compile to JS](https://web.archive.org/web/20190327012411/https://github.com/jashkenas/coffeescript/wiki/List-of-languages-that-compile-to-JS/eaca17540d9b66289dcc5f9bb8b6368f868c1e0a)</a>
 * <a id="langlist2018">[List of languages that compile to JS](https://web.archive.org/web/20190327013227/https://github.com/jashkenas/coffeescript/wiki/List-of-languages-that-compile-to-JS/b14e7ef4c9963d50d39ed5443b5baa6ed0f63645)</a>
 * <a id="coffee1">[CoffeeScript, a little language that compiles to JavaScript. Happy Holidays, HN](https://web.archive.org/web/20091227023651/http://news.ycombinator.com/item?id=1014080)</a>
-* <a id="coffee2">[CoffeeScript 1.0.](https://web.archive.org/web/20101230111719/http://jashkenas.github.com/coffee-script/)</a>
+* <a id="coffee2">[CoffeeScript 1.0](https://web.archive.org/web/20101230111719/http://jashkenas.github.com/coffee-script/)</a>
 * <a id="Ashkenas:minclass">[jashkenas / minimalist-classes.js](https://web.archive.org/web/20131213041713/https://gist.github.com/jashkenas/1329619)</a>
 * <a id="tc39:2009:12">[Presentation on Modules](https://www.ecma-international.org/archive/ecmascript/2009/TC39/tc39-2009-012.pdf)</a>
 * <a id="emakermods">[Strawman: Modules Emaker Style](https://web.archive.org/web/20100206044245/http://wiki.ecmascript.org/doku.php?id=strawman:modules_emaker_style)</a>
