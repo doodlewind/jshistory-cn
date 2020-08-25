@@ -26,3 +26,23 @@
 * <a id="27">[27]</a> SpiderMonkey 成为了后续 Netscape 和 Mozilla 浏览器中 JavaScript 子系统的名称。截止到 2020 年，尽管实际实现技术已经多次改变，Mozilla 仍然在使用这个名称。
 * <a id="28">[28]</a> JavaScript 1.2 的文档和 ES3 规范中，将字面量语法称为「数组初始化器」和「对象初始化器」。但「字面量」术语在 JavaScript 程序员群体与文章和书籍中更为常见。
 * <a id="29">[29]</a> `__proto__` 伪属性类似于 Self 中的 parent slot。
+* <a id="30">[30]</a> 「互联网节奏」（Internet time）这个词，是为了描述 Netscape 和其他早期 Web 技术开发商的短开发周期与频繁的产品发布而创造的。
+* <a id="31">[31]</a> 在此期间，Ecma 使用明确的连字符来拼写 "coördinating" 一词。
+* <a id="32">[32]</a> Ecma 准会员仅可参加一个技术委员会。Ecma 称其最高会员等级为标准会员。标准会员是 Ecma GA 大会的正式投票成员，可参加所有的技术委员会。
+* <a id="33">[33]</a> Welland 想到的可能是 McCarthy 编写的附录 B 中，对 PROG 特性的描述。
+* <a id="34">[34]</a> 我们没能找到关于这些频道的档案。
+* <a id="35">[35]</a> Brendan Eich 认为，Netscape 从来没有认真考虑过允许 Ecma 使用 LiveScript 这个名字。
+* <a id="36">[36]</a> RDScript 指 Rapid Development Scripting Language。
+* <a id="37">[37]</a> JavaScript 1.3 中的序列化方案，包含了一套可扩展的 `toSource` 方法，用于将单个对象序列化为 JavaScript 源代码。另外还有用于表示循环引用的 `#` 变量。全局函数 `uneval` 会从一个对象的根级开始，序列化出一份对象图。这一过程所产生的源码字符串，可以用 `eval` 进行反序列化。Brendan Eich 从 Common Lisp [[Steele 1990](./references.md#steele1990common), pages 578-579] 中借鉴了 `#` 变量的 `#n=` 和 `#n#` 语法。
+* <a id="38">[38]</a> Mike Shaver 在 2019 年的个人交流中说，设计多个 `catch` 子句的想法是他原创的。后来 Netscape [[2000](./references.md#netscape:js1.5:guide)] 在 JavaScript 1.5 中支持了多个 `catch` 子句，这属于对 ES3 的非标准扩展。
+* <a id="39">[39]</a> 在一些工作文档 [[Horwat 1998](./references.md#980930-horwat:12); [Venter 1998c](./references.md#Venter:980430-label3)] 中，以 `catch` 为前缀守卫表达式的 `if` 关键字，会被一个冒号所取代。
+* <a id="40">[40]</a> *FunctionExpression* 是 ECMAScript 语法中的一个非终止符。按照约定，这一符号用斜体表示。 
+* <a id="41">[41]</a> Annex B 是 ES3 规范的附录之一，用于提供对 ECMAScript 废弃特性的定义。
+* <a id="42">[42]</a> Linter 是一种开发时工具，可以检查源码中是否存在可疑的编码实践，以及容易出错的结构。
+* <a id="43">[43]</a> Minimization 意味着删除注释和不必要的空白，并执行其他保持语义不变的源代码变换，以此来机制性地减少 JavaScript 程序的下载体积。
+* <a id="44">[44]</a> 最后人们认识到，使用 `eval` 来处理 JSON 是一种安全隐患，可能会使应用受到代码注入攻击。现代 JavaScript 引擎使用专门的 JSON 解析器，因此不容易受到这种攻击。
+* <a id="45">[45]</a> DiNucci [[1999](./references.md#Web20)] 很早就使用了 Web 1.0 和 Web 2.0 的术语。
+* <a id="46">[46]</a> 动态 HTML（DHTML）使用 JavaScript 来动态修改活动网页中的 HTML 元素。
+* <a id="47">[47]</a> Firefox 是 Netscape 的 Mozilla 项目的产物，Brendan Eich 是该项目的首席架构师。
+* <a id="48">[48]</a> 该观点来自 2019 年与 Douglas Crockford 的个人交流。
+* <a id="49">[49]</a> 立即执行的函数表达式，属于块级作用域的替代品。这种技术为 Scheme 程序员所熟知，并从 2000 年代中期开始被 JavaScript 程序员广泛使用。Ben Alman [[2010](./references.md#iife)] 创造了 IIFE 这个术语。
