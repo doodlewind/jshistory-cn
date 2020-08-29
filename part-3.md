@@ -97,7 +97,7 @@ Horwat [[2003a](./references.md#es4-1:2003)] 从 JavaScript 2.0 文档中 fork �
 
 微软凭借 IE 在竞争中取胜，并最终获得了 90％ 以上的市场份额。它对继续增强自己没有专有控制权的 Web 编程平台的兴趣不大。在微软内部，研发资源从增强开放的浏览器技术（例如 ECMAScript）转到了开发专有的微软技术（如 Windows Presentation Framework<sup>[56](./notes.md#56)</sup> [[Microsoft 2016](./references.md#microsoft:wpf)]）上，微软希望它们能最终淘汰和取代开放的 Web 技术。在 .NET 的编程语言领域，微软专注于 C# 和 VisualBasic .NET。在这种情况下 JScript .NET 的重要性，仅仅取决于它能使多少 JavaScript 程序员迁移到 .NET 平台。
 
-TG1 继续开展会议，讨论特定问题，并更新规范草案<sup>[57](./notes.md#57)</sup>。微软与 Netscape 在类型系统的性质方面存在着重大的持续分歧。Waldemar Horwat 在 MIT 轻量语言研讨会上发表了有关 JavaScript 2.0 设计的论文 [[Horwat 2001](./references.md#Horwat:LL1)]，他将 JavaScript 2.0 描述为具有「强大的动态类型」能力的语言。他进一步解释说，在 JavaScript 2.0 中，所有变量都具有关联的类型，这些类型限制了可以存储在其中的值，但是类型约束的检查必须在运行时进行。在一般情况下，JavaScript 2.0 的一等公民类型值和隐式的 downcast<sup>[57](./notes.md#57)</sup> 会导致无法对程序进行静态类型检查。
+TG1 继续开展会议，讨论特定问题，并更新规范草案<sup>[57](./notes.md#57)</sup>。微软与 Netscape 在类型系统的性质方面存在着重大的持续分歧。Waldemar Horwat 在 MIT 轻量语言研讨会上发表了有关 JavaScript 2.0 设计的论文 [[Horwat 2001](./references.md#Horwat:LL1)]，他将 JavaScript 2.0 描述为具有「强大的动态类型」能力的语言。他进一步解释说，在 JavaScript 2.0 中，所有变量都具有关联的类型，这些类型限制了可以存储在其中的值，但是类型约束的检查必须在运行时进行。在一般情况下，JavaScript 2.0 的一等公民类型值和隐式的 downcast<sup>[58](./notes.md#58)</sup> 会导致无法对程序进行静态类型检查。
 
 TG1 召开会议的频率和出席人数都在逐渐降低。Chris Dollin 于 2001 年 6 月参加了最后一次会议，而 Herman Venter 参加的最后一次 TC39-TG1 会议则是在 2002 年 6 月。2003 年 7 月 15 日，美国在线宣布将解散 Netscape，并解雇了包括 Waldemar Horwat 在内的大多数员工。在同一周举行的 TG1 会议上，Horwat 辞去了 ES4 编辑的职务。TG1 的其余成员决定将精力集中在为 ECMAScript 开发 XML 支持上，并中止 ES4 的工作，直到 XML 项目完成并可以确定出新的编辑为止。
 
