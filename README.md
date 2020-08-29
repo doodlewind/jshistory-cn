@@ -1,4 +1,4 @@
-# 《JavaScript 20 年史》中文版
+# 《JavaScript 20 年》中文版
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3710954.svg)](https://doi.org/10.5281/zenodo.3710954)
 
