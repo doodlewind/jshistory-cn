@@ -30,7 +30,7 @@ Safari: 和 FF 相同
 
 偏差报告的第二个主要部分，确定了所有在 ES3 规范中被明确定义为「行为依赖于实现」或定义不够充分之处。这部分也提供了测试用例，以及在四个主流浏览器上执行测试的结果。报告的最后一部分则描述了 IE 中实现的各类属于 ES3 规范扩展的特性。Wirfs-Brock [[2007b](./references.md#awb:mozextensions)] 还准备了一份列表，记录了 Firefox 中实现的 ES3 扩展。在 2007 年 8 月 16 日的会议上，Douglas Crockford 和 Allen Wirfs-Brock 讨论了这些文档的草案，相应产物是一系列 ES3.1 规范中的试验性变更 [[Wirfs-Brock and Crockford 2007](./references.md#awb:aug07crockmeeting)]。
 
-ES3.1 的开发在 2008 年 1 月的 TC39 会议上正式启动。这次会议上探讨了规范的目标，其中另有几位 TC39 成员对参与开发工作也表示出了兴趣。2 月 11 日，Lakshman 向 TC39 的内部邮件列表发送了一条消息，呼吁对 ES3.1 行动的参与。这封邮件提醒人们注意去年夏天准备的偏差与互操作性文档，并请求对这些文档提供更多反馈。在 2 月 21 日举行的电话会议上，每周两次电话会议的工作时间表得以确定。与以前的 ES3.1 讨论相比，参与这些电话会议的人数明显更多。图 30 中列出了相应的经常性参与者。起初，人们通过直发邮件来交换和讨论提案，也有一些讨论在 `es4-discuss` 邮件论坛进行。然而，由于与新版 ES4 主题相关的流量很大，因此很难挑选出其中与 ES3.1 相关的主题。为此在 4 月，一个单独的 `es3.1-discuss` 邮件论坛 [[TC39 et al. 2008](./references.md#es5-discuss)] 得以成立。之后大多数在会议前后对 ES3.1 设计的讨论，都移到了这个论坛来进行。
+ES3.1 的开发在 2008 年 1 月的 TC39 会议上正式启动。这次会议上探讨了规范的目标，其中另有几位 TC39 成员对参与开发工作也表示出了兴趣。2 月 11 日，Lakshman 向 TC39 的内部邮件列表发送了一条消息，呼吁对 ES3.1 行动的参与。这封邮件提醒人们注意去年夏天准备的偏差与互操作性文档，并请求对这些文档提供更多反馈。在 2 月 21 日举行的电话会议上，每周两次电话会议的工作时间表得以确定。与以前的 ES3.1 讨论相比，参与这些电话会议的人数明显更多。图 30 中列出了相应的经常性参与者。起初，人们通过直发邮件来交换和讨论提案，也有一些讨论在 `es4-discuss` 邮件论坛进行。然而，由于与新版 ES4 主题相关的流量很大，因此很难挑选出其中与 ES3.1 相关的主题。为此在 4 月，一个单独的 `es3.1-discuss`<sup>[80](./notes.md#80)</sup> 邮件论坛 [[TC39 et al. 2008](./references.md#es5-discuss)] 得以成立。之后大多数在会议前后对 ES3.1 设计的讨论，都移到了这个论坛来进行。
 
 <table>
   <tr><td>Douglas Crockford</td><td>Yahoo!</td></tr>
@@ -121,7 +121,7 @@ ES5 严格模式直接源于 Douglas Crockford 在 JavaScript 的设计中「纠
 * `eval` 函数不能动态添加新绑定到当前作用域。
 * `eval` 和 `arguments` 不能用作变量名或参数名。
 * 函数的 `arguments` 对象不与其形参相关联。作为替代，严格模式下的 `arguments` 对象是一个数组式（array-like）的对象，其元素是传递给函数的参数值的快照。修改其元素不会修改相应形参的值，反之亦然。
-* 严格模式下，函数的 `arguments` 对象没有 `callee` 属性。将这样的 `arguments` 对象传递给其他代码时，不会再隐式转移出调用它上面函数的能力。
+* 严格模式下，函数的 `arguments` 对象没有 `callee` 属性。将这样的 `arguments` 对象传递给其他代码时，不会再隐式转移出对其上函数的调用能力<sup>[81](./notes.md#81)</sup>。
 * 严格模式下，不允许实现在函数的 `arguments` 对象上提供 `caller` 属性。 `caller` 属性是 ES3 的一个非标准但已广泛实现的扩展，它允许遍历函数的调用堆栈，获取到所有的调用者函数。
 * 严格模式下，调用函数时如果没有提供 `this` 值，全局对象对其就不可见。
 
@@ -130,19 +130,19 @@ ES5 严格模式直接源于 Douglas Crockford 在 JavaScript 的设计中「纠
 #### Getters，Setters 和对象元操作
 从最早的 JavaScript 实现开始，内置对象和宿主对象中的某些属性就已具备一些特殊性质。而通过 JavaScript 代码所创建的对象，是无法应用它们的。例如某些属性具有只读的值，或无法使用 `delete` 运算符删除；内置对象和宿主对象的方法属性在由 `for-in` 语句枚举时会被跳过。在 ES1 中这些特殊语义的确定，是通过将 ReadOnly，DontDelete 和 DontEnum 这些标记（attribute）与规范中的对象模型相关联的方式来实现的。这些标记会通过伪代码来测试，伪代码中定义了它们所涉及的语言标记的语义。这些标记没有被具体化（reified）——在 JavaScript 中，并不存在能为「新创建或已有的」属性设置这些标记的语言特性。ES3 中添加了一个 `Object.prototype.propertyIsEnumerable` 方法，用于测试 DontEnum 标记是否存在。但规范中仍然没有对 ReadOnly 或 DontDelete 标记执行非破坏性测试的相应方法。类似地，有许多由浏览器 DOM 提供的宿主对象也暴露了一些属性，它们通常叫做「getter / setter 属性」。在 ES5 中，这些属性被命名为访问器属性（accessor properties），会在存取属性值时执行计算。由于缺少对这些特性的标准化支持，JavaScript 程序员既无法定义「遵守与内置或宿主对象相同约定」的库，也无法实现 polyfill 来可靠地模拟这类对象。
 
-对这些问题的统一解决方案，构成了新版 ES5 特性中最大的一部分。这部分特性没有正式名称，它们被非正式地称为「静态对象函数」（Static Object Functions）或「对象反射函数」（Object Reflection Functions）。Allen Wirfs-Brock [[2008](./references.md#awb:objectfunctions)] 为这个特性集编写了设计原理文档，其中包含了用例与以下设计准则：
+对这些问题的统一解决方案，构成了新版 ES5 特性中最大的一部分。这部分特性没有正式名称，它们被非正式地称为「静态对象函数<sup>[82](./notes.md#82)</sup>」（Static Object Functions）或「对象反射函数」（Object Reflection Functions）。Allen Wirfs-Brock [[2008](./references.md#awb:objectfunctions)] 为这个特性集编写了设计原理文档，其中包含了用例与以下设计准则：
 
 * 干净地将元层（meta）和应用层分开。
 * 尽量降低 API 的复杂度，例如方法的数量和方法参数的复杂度。
 * 专注于命名和参数设计上的易用性。
-* 尝试复用设计中的基本元素。
+* 尝试复用设计中的基本元素<sup>[83](./notes.md#83)</sup>。
 * 尽可能使程序员或语言实现能静态优化对该 API 的使用。
 
 第一条准则不鼓励在 `Object.prototype` 中添加形如 `propertyIsEnumerable` 的新方法，这会进一步模糊元层和应用层的分离。作为替代，ES5 工作组决定把这些特性作为命名空间对象的属性，从而将它们与应用层对象分离。他们考虑添加一个名为 `Reflect` 的新内置全局对象作为命名空间对象，但又担心这会与现有代码的名称冲突。最终，他们决定将新函数作为 `Object` 构造函数的属性，而不是 `Object.prototype` 的属性。将对象构造函数作为命名空间是一个不错的选择，因为它是一个已经存在的全局变量，并且在当前的语言实现和以前的标准版本中，都没有在其上定义任何属性。同时，它的名称也与重新考虑对象定义的想法相契合。
 
 下一个问题是确定 API 的形式。基于第二条准则，ES5 设计者希望避免给每个「属性标记」与「访问器属性」分别设置单独的查询与赋值函数。设计者考虑了许多方法来将这一特性合并到少量函数中。一些可能性包括使用具有 Boolean 标记（如「read-only」）的位编码的单个函数，或者具有大量位置参数（positional parameters）的单个函数。但是这两种方法的易用性都不够好。使用可选的关键字参数（keyword arguments）或许可以解决这些易用性问题，但 ES5 中缺少关键字参数。
 
-Allen Wirfs-Brock 建议使用描述符对象（descriptor object），这种对象的属性将与各种属性标记相对应。这种描述符可以用来定义和检查属性。Wirfs-Brock 的第一份草案展示了一种可能的 API 示例，用于向名为 `obj` 的对象添加属性：
+Allen Wirfs-Brock 建议使用描述符对象（descriptor object），这种对象的属性将与各种属性标记相对应。这种描述符可以用来定义和检查属性。Wirfs-Brock 的第一份草案<sup>[84](./notes.md#84)</sup>展示了一种可能的 API 示例，用于向名为 `obj` 的对象添加属性：
 
 ``` js
 Object.addProperty(obj, { name:"pi", value:3.14159, writable:false });
@@ -258,7 +258,7 @@ var obj = {
 
 设计对象反射 API 的最后一步，是为这些属性描述符对象中表示属性标记的词汇，确定出一致且可用的命名约定。尤其像 DontEnum 和 ReadOnly 之类的名称就缺乏内部一致性，这引来了对其易用性问题的关注，当它们被用作布尔值标志时更是如此。例如若将属性设为可枚举，就需要表达双重否定（将 DontEnum 设置为 `false`）。在 2008 年初，Neil Mix [[2008b](./references.md#mix:13mar08)] 在与新版 ES4 有关的主题帖上建议，将 「enumerable」、「writable」和「removable」（对应 DontDelete）作为标记名会更好。Mark Miller [[2008b](./references.md#msm:dontenum)] 对这些名称表示赞赏，并提出了一条设计准则：标记名应说明它「允许什么」而非「拒绝什么」。他还建议遵循「默认拒绝」的最佳实践来保证安全性。当定义属性时，全部所需的标记都要显式地启用。
 
-对象反射 API 提供了 ECMAScript 早期版本中没有的新能力。它允许程序更改现有属性的标记，包括在数据属性和访问器属性之间切换。这里的一个考量在于，是否需要额外的标记来禁用此类更改。对此可能的命名包括「dynamic」、「flexible」和「fixed」。但人们担心添加这样一个额外的 Boolean 属性标记后，对现有实现可能产生的影响。如果一个语言实现没有可用的额外比特位来表示该标记，要怎么办呢？最后 ES3.1 工作组意识到，对属性标记的更改，等效于先对属性的当前标记做原子查询，再删除该属性，最后重新创建具有相同名称但标记值已修改的属性。鉴于这种等效性，可以使用单个标记来表达是否启用删除和修改。于是 DontDelete 和 removable 标记被重命名为「configurable」来代表这一含义。Mark Miller [[2010b](./references.md#ES5Attributes)] 绘制了 ES5 属性标记的状态图 [[Harel 2007](./references.md#Harel:hopl)]（图 34），并发布到了 ECMAScript Wiki 上。注意当 configurable 标记为 `false` 时，仍然可以将属性的 writable 标记从 `true` 更改为 `false`。这个反常之处的存在，是为了让安全*沙箱*（sandbox）能更改某些内置属性，使其从「不可配置但可写」变为「不可配置且不可写」。
+对象反射 API 提供了 ECMAScript 早期版本中没有的新能力。它允许程序更改现有属性的标记，包括在数据属性和访问器属性之间切换。这里的一个考量在于，是否需要额外的标记来禁用此类更改。对此可能的命名包括「dynamic」、「flexible」和「fixed」。但人们担心添加这样一个额外的 Boolean 属性标记后，对现有实现可能产生的影响。如果一个语言实现没有可用的额外比特位来表示该标记，要怎么办呢？最后 ES3.1 工作组意识到，对属性标记的更改，等效于先对属性的当前标记做原子查询，再删除该属性，最后重新创建具有相同名称但标记值已修改的属性。鉴于这种等效性，可以使用单个标记来表达是否启用删除和修改。于是 DontDelete 和 removable 标记被重命名为了「configurable」<sup>[85](./notes.md#85)</sup>，以此来代表这一含义。Mark Miller [[2010b](./references.md#ES5Attributes)] 绘制了 ES5 属性标记的状态图 [[Harel 2007](./references.md#Harel:hopl)]（图 34），并发布到了 ECMAScript Wiki 上。注意当 configurable 标记为 `false` 时，仍然可以将属性的 writable 标记从 `true` 更改为 `false`。这个反常之处的存在，是为了让安全*沙箱*（sandbox）能更改某些内置属性，使其从「不可配置但可写」变为「不可配置且不可写」。
 
 ![](./images/34.png)
 
@@ -418,7 +418,7 @@ delete Object.prototype.Array; // 移除可选的 Array 绑定
 * 要求对于所有规范中的算法，都用 `Object`、`Array` 等的内置初始值来替代当前值。
 * 规范附录 D 和 E 中列出的各种非规范性语义修订。
 
-### 实现与测试
+### 实现与测试<sup>[86](./notes.md#86)</sup>
 在 2008 年 7 月于奥斯陆举行的 Ecma TC39 会议上，委员会同意在发布 ES3.1 之前，先获得两种互相兼容的实现。提出「两种互相兼容的实现」需求的主要原因，是确保 TC39 不会去对那些尚未被证明「技术上可行且与现有 Web 内容兼容」的内容进行标准化。Mozilla 承诺提供其中一种实现。由于微软的市场地位及其历来低频的浏览器更新，TC39 内部有一种强烈的情绪，认为微软应该公开浏览器宿主内的语言原型实现，以此作为 ES3.1 验证过程的一部分，展示它对 ES3.1 所应承担的责任。当时 TC39 计划在 2009 年 6 月的 Ecma GA 大会上，做好发布 ES3.1 的准备。这需要在 2009 年 3 月的 TC39 会议上，根据在 2 月到 3 月期限内所进行的互通性测试的结果，来决定出是否继续。当时还没有针对 ECMA-262 的官方一致性测试（conformance test）套件，自然也没有针对 ES3.1 新特性的测试用例，各种语言实现都具备自己的专用测试（ad hoc test）套件。另外除微软外的所有语言实现，也会使用 Mozilla 的 JavaScript 测试套件。微软对 Mozilla 测试套件所使用的 Mozilla 公共许可证有所顾虑，因此不会使用或贡献它。微软的首选测试套件应该使用 MIT 或 BSD 风格许可证，经由 Ecma 来提供。
 
 在 2008 年 10 月，Pratap Lakshman 开始同时开发以 IE 为宿主的 ES3.1 实现，以及为其配套的测试套件。
@@ -517,7 +517,7 @@ TC39 的 Harmony 项目没有受限于 ES4 开发期间所做的决策，但仍�
 图 38. 2009 年 7 月的 Harmony 目标说明 [[Eich 2009a](./references.md#Harmony:goals)]。
 
 #### 倡导者模型
-Dave Herman 向委员会建议，认为委员会应该采用一种名为「倡导者模型」的开发方式。基于这种模型，应由一位或一小组成员共同对一项单独的特性负责。倡导者（champion）需要写出最初的稻草人提案，并持续对其进行改进，直到提案可以被整合到实际规范中为止。从提出最早的稻草人提案起，倡导者还需要随提案发展向整个委员会做报告，并接受来自委员会和其他评审者的反馈。这些反馈意见也由倡导者消化，并据此决定是否对提案进行更新。基于倡导者模型，委员会就应该不会在倡导者报告过程中陷入「委员会设计」的行为了。不过最后仍然需要委员会全体达成一致，以决定将最终提案纳入规范。
+Dave Herman 向委员会建议，认为委员会应该采用一种名为「倡导者模型」的开发方式<sup>[87](./notes.md#87)</sup>。基于这种模型，应由一位或一小组成员共同对一项单独的特性负责。倡导者（champion）需要写出最初的稻草人提案，并持续对其进行改进，直到提案可以被整合到实际规范中为止。从提出最早的稻草人提案起，倡导者还需要随提案发展向整个委员会做报告，并接受来自委员会和其他评审者的反馈。这些反馈意见也由倡导者消化，并据此决定是否对提案进行更新。基于倡导者模型，委员会就应该不会在倡导者报告过程中陷入「委员会设计」的行为了。不过最后仍然需要委员会全体达成一致，以决定将最终提案纳入规范。
 
 委员会接受了 Herman 对倡导者模型的提案，并总体上有效地使用了这一模型。但这种机制也有崩溃的时候。这一时期的核心会员群体相对较小，技术能力也很强。他们有时根本抵挡不住「由委员会做一些设计」的诱惑，有时这其实是在提案上取得进展的最有效方式。有时会出现多位倡导者，他们会对某一特定特性或设计问题提出不同的解法和提案。在这种情况下，如果相互竞争的倡导者们不能就一份共同的提案达成一致，委员会就必须选择一个提案，或在某些情况下拒绝所有相互竞争的提案。
 
@@ -601,7 +601,7 @@ Dave Herman [[2011b](./references.md#nooptin)] 在题为「ES6 不需要 opt-in�
 
 他介绍了各种场景下如何使用 ES5 特性进行编码的示例，以及如何在他梦想的 Harmony 中表达同等内容的替代性示例。这些设想中的例子，展示了 Harmony 提案的中间阶段，以及它们是如何演变成实际 ES2015 特性的。他提出的一些内容并未纳入 ES2015 中，大多数特性最后在某些方面发生了变化。另外也有必要做出其他的改动，因为 1JS 理念消除了对现有特性的语法和语义进行选择性修改的可能性。
 
-为了解这些特性的演化，这里将比较 Brendan Eich 在 2011 年的「梦想」和最终成为现实的 ES2015。
+为了解这些特性的演化，这里将比较 Brendan Eich 在 2011 年的「梦想」<sup>[88](./notes.md#88)</sup>和最终成为现实的 ES2015。
 
 **梦想：绑定与作用域**。块级作用域的声明和自由变量引用，属于早期（解析时）错误：
 
@@ -873,13 +873,13 @@ var proxy = Proxy.create(makeHandler(o), Object.getPrototypeOf(o));
 
 在这个例子中，`makeHandler` 是用于创建处理器对象的辅助函数，其 trap 在词法上共享对「作为参数传递给 `makeHandler` 的对象」的访问。传递给 `makeHandler` 的对象可能是一个新创建的对象，这时它的作用类似于 catch-all 例子中的 `peer` 对象。另外，被传递的对象也可以是一个已有的对象。这时，trap 可以将部分或全部被截获的操作转发给该对象。在这种情况下，`obj` 对象的角色就相当于「被转发代理」的目标。
 
-通过将 trap 方法放在处理器对象中的方式，可以避免它与基础对象属性的名称冲突。提案中定义了 7 种基本 trap、6 种派生 trap，以及 2 种针对函数对象的 trap。和 catchall 提案类似地，trap 和 ES5 的内部方法相接近，但也不是 ES5 内部方法的直接映射。ES5 中为 `[[GetOwnProperty]]` 和 `[[DefineOwnProperty]]` 内部方法建立了某些不可违背的不变量 [[Wirfs-Brock 2011b](./references.md#ES5.1), page 33]。而对 ES2015 来说，有个棘手的问题就是如何在保证这些不变性的同时，对「被冻结或密封的对象」与「不可配置的属性」进行虚拟化。
+通过将 trap 方法放在处理器对象中的方式，可以避免它与基础对象属性的名称相冲突。提案中定义了 7 种基本 trap、6 种派生 trap<sup>[89](./notes.md#89)</sup>，以及 2 种针对函数对象的 trap。和 catchall 提案类似地，trap 和 ES5 的内部方法相接近，但也不是 ES5 内部方法的直接映射。ES5 中为 `[[GetOwnProperty]]` 和 `[[DefineOwnProperty]]` 内部方法建立了某些不可违背的一致性规则 [[Wirfs-Brock 2011b](./references.md#ES5.1), page 33]。而对 ES2015 来说，有个棘手的问题就是如何在实行<sup>[90](./notes.md#90)</sup>这些规则的同时，对「被冻结或密封的对象」与「不可配置的属性」进行虚拟化。
 
 在对原始 Proxy 提案做原型建设后，Van Cutsem [[2011](./references.md#directproxyannounce)] 宣布了重大修订：
 
 > 几周前，Mark 和我坐在一起研究了 proxy 的一些现存问题，特别是如何让 proxy 更好地处理不可配置的属性和不可扩展的对象。其结果就是我们所说的「直接代理」：在我们的新提案中，proxy 总是另一个「目标」对象的包装器。只要以这种方式稍微转变我们对 proxy 的看法，很多早先开放的问题就不复存在了。并且这样一来，proxy 的开销在某些情况下可能会大大减少。
 
-在「直接代理」的提案 [[Van Cutsem and Miller 2011a](./references.md#directproxyspec), [b](./references.md#directproxystrawman), [2012](./references.md#directproxyproposal)] 中，目标对象（以下例子中的 `o`）类似于转发代理例子中传递给 `makeHandler` 的对象。它作为 Proxy 对象的内部状态而保存，并在调用 trap 时作为一个显式参数而传递。因为 Proxy 知道目标对象，所以它可以在使用目标对象时强制保证必要的不变量。以下是直接代理版本的 Proxy 转发示例：
+在「直接代理」的提案 [[Van Cutsem and Miller 2011a](./references.md#directproxyspec), [b](./references.md#directproxystrawman), [2012](./references.md#directproxyproposal)] 中，目标对象（以下例子中的 `o`）类似于转发代理例子中传递给 `makeHandler` 的对象。它作为 Proxy 对象的内部状态而保存，并在调用 trap 时作为一个显式参数来传递。因为 Proxy 了解目标对象的信息，所以它可以在使用目标对象时，确保其符合必要的一致性规则。以下是直接代理版本的 Proxy 转发示例：
 
 ``` js
 // Harmony 直接代理提案
@@ -895,7 +895,7 @@ var Proxy(o,{
 });
 ```
 
-这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brook 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。这是通过「增加新的内部方法」和「将一些不可截取的操作重新定义为常规的基础级、可捕获的方法调用」来实现的。此外提案还定义了每个内部方法的关键不变量。ECMAScript 的实现和宿主都必须遵守这些不变量，而 `Proxy` 可以保证自托管的外来对象也遵守它们。图 44 是对 ES2015 中元对象编程的概述：
+这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brook 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。其具体的实现手段是增加新的内部方法，以及将一些不可截取的操作，重新定义为基础级、可捕获的常规方法调用。此外提案还定义了每个内部方法的关键一致性规则。ECMAScript 的实现和宿主都必须确保符合这些一致性规则，而 `Proxy` 可以对自托管的外来对象来实行<sup>[91](./notes.md#91)</sup>它们。图 44 是对 ES2015 中元对象编程的概述：
 
 <table>
   <thead>
@@ -1046,7 +1046,7 @@ Mark Miller [[2008d](./references.md#msm:nothis)] 认为，对于类抽象所需
 
 Cormac Flanagan [[2008](./references.md#Harmony:konaclasses)] 将最初对类的讨论总结如下：
 
-> EcmaScript（原文如此）需要提供对「具有数据抽象和隐藏的高完整性对象」更好的支持，也需要更好地支持私有字段和方法……
+> EcmaScript（原文如此）需要提供对「具有数据抽象和隐藏的高完整性对象<sup>[92](./notes.md#92)</sup>」更好的支持，也需要更好地支持私有字段和方法……
 > 
 > ……我们最初专注于一个简单的、极简的设计，它不支持继承或类型注解，并使用在实例中私有的数据。类名没有单独的命名空间，类对象是一种新的（一等公民）值。
 
@@ -1071,7 +1071,7 @@ Mark Miller 提出的「糖式类」提案所经常受到的一种批评，是�
 
 > 小组内部关于目标的分歧：「高完整性」VS.「用更好的语法来支持人们已经在写的东西」VS. 也许有可能两者兼得。
 
-Allen Wirfs-Brock 认为，如果让对象的创建变得不那么命令式，可能可以支持第二条目标。在经典的 JavaScript 中，最接近 Class 的是构造函数，它需要命令式地定义一个新对象的属性。对象字面量提供了一种更为声明式的方式来定义对象属性，但其缺乏与 ECMAScript 的内置类相匹配的能力。也许对象字面量可以进行扩展，以更好地支持人们已经在写的东西，而不必引入「类」作为新的语言实体。
+Allen Wirfs-Brock 认为，如果让对象的创建变得不那么命令式，可能可以支持第二条目标。在经典的 JavaScript 中，最接近 Class 的是构造函数，它需要命令式地定义一个新对象的属性。对象字面量提供了一种更为声明式的方式来定义对象属性，但其缺乏与 ECMAScript 的内置类约定<sup>[93](./notes.md#93)</sup>相匹配的能力。也许对象字面量可以进行扩展，以更好地支持人们已经在写的东西，而不必引入「类」作为新的语言实体。
 
 ``` js
 function tripleFactory(a,b,c) {
@@ -1095,7 +1095,7 @@ function tripleFactory(a,b,c) {
 
 在一组相关提案中，Wirfs-Brock [[2011c](./references.md#awb:straw:propmods); [2011d](./references.md#awb:straw:objlitext)] 展示了如何扩展对象字面量，使其更为声明式，并消除在定义常规对象时使用 ES5 对象反射 API 的需求。例如，图 45 显示了在基于扩展对象字面量的*工厂函数*时，该如何定义具有显式原型、方法和私有属性的类。
 
-Allen Wirfs-Brock 的提案还展示了对于扩展对象字面量的语法，该如何将其用作类定义的主体。在 2011 年 3 月的 TC39 演讲中 Wirfs-Brock [[2011a](./references.md#awb:declobjs)] 提出，类定义应该能生成 ECMAScript 规范第 15 条里内置库 Class 所使用的「构造函数、原型对象和实例对象」基本三要素，这在所有 ECMA-262 已有版本中都是通用的。与其将类定义去糖化为 lambda 表达式（糖化类）或一种新的运行时实体（受 Java 启发的类），不如将其去糖化为 JavaScript 程序员和框架作者们已经使用且熟悉的构造函数和原型继承对象。在会议上，大家对扩展对象字面量语法的许多细节有很大的意见分歧，但达成了一个宽松的共识，即核心类定义的语义，应该符合规范第 15 条中的构造函数 / 原型 / 实例三要素。
+Allen Wirfs-Brock 的提案还展示了对于扩展对象字面量的语法，该如何将其用作类定义的主体。在 2011 年 3 月的 TC39 演讲中 Wirfs-Brock [[2011a](./references.md#awb:declobjs)] 提出，类定义应该能生成 ECMAScript 规范第 15 条<sup>[94](./notes.md#94)</sup>里内置库 Class 所使用的「构造函数、原型对象和实例对象」基本三要素，这在所有 ECMA-262 已有版本中都是通用的。与其将类定义去糖化为 lambda 表达式（糖化类）或一种新的运行时实体（受 Java 启发的类），不如将其去糖化为 JavaScript 程序员和框架作者们已经使用且熟悉的构造函数和原型继承对象。在会议上，大家对扩展对象字面量语法的许多细节有很大的意见分歧，但达成了一个宽松的共识，即核心类定义的语义，应该符合规范第 15 条中的构造函数 / 原型 / 实例三要素。
 
 2011 年 5 月初，TC39 的 ES.next 特性冻结会议迅速临近，此时仍然有几个与类相关的稻草人提案在进行竞争。看起来委员会仍然未必有足够的共识，能使其中的某个提案被采纳。2011 年 5 月 10 日，Allen Wirfs-Brock 与 Mark Miller、Peter Hallam 和 Bob Nystrom 见了面。Hallam 和 Nystrom 是使用 Google 的 Traceur 转译器 [[Traceur Project 2011b](./references.md#traceurfeatures)]，对 JavaScript 类支持进行原型设计的团队成员。他们的原型融合了 Wirfs-Brock 和 Miller 提案中的想法。会议的目标是取得足够的一致意见，以便能提出一份统一的提案。Bob Nystrom [[2011](./references.md#Nystrom:classes)] 在其会议报告中列出了许多一致意见，包括：
 
@@ -1141,11 +1141,11 @@ class Monster extends Character {
 
 > ……Waldemar 观察到的总体趋势是真实的：如果（提案的覆盖面）太小，就没有意义。而如果太大，我们又很难同意。我们需要「金发姑娘」（童话《金发姑娘和三字小熊》中的主人公，译者注）——恰到好处的温度和数量。
 
-到 2012 年 3 月初，`es-discuss` 社区成员对于 TC39 明显无法完成 ES.next 中类的设计，表示出了越来越大的失望。Russell Leggett [[2012](./references.md#safetysyntax)] 在一篇题为「为类找到一个『安全』语法」的文章中提出了这个问题：
+到 2012 年 3 月初，`es-discuss` 社区成员对于 TC39 明显无法完成 ES.next 中类的设计，表示出了越来越大的失望。Russell Leggett [[2012](./references.md#safetysyntax)] 在一篇题为「为类找到一个『安全』语法」<sup>[95](./notes.md#95)</sup>的文章中提出了这个问题：
 
 > 我们是否能想出一种大家都认为「比没有好」的类语法，并注重于为将来的改进留出可能性呢？作为一种「安全语法」，这并不意味着我们停止尝试寻找更好的语法。它只意味着如果我们还没有找到答案，那我们也仍然留着一些东西——这些东西我们可以在 ES7 中做得更好。
 
-Leggett 的帖子在三天内收到了 119 个以正面为主的回复。它列出了一套「绝对最低的要求」，这与 Dave Herman 去年夏天的清单基本相同。Leggett 的贡献是创造了「安全学校」的隐喻。Allen Wirfs-Brook 对此立即表示支持，并创造了一份新的「最大化的最小」（max-min）版本 [[Wirfs-Brock 2012d](./references.md#awb:straw:maxmin)] 提案，用这个隐喻重新定义了 Herman 的最小化类提案。这里最大的技术变动，是移除了原提案中的构造器属性。如果此时要将此「max-min」提案正式列入 2012 年 3 月 TC39 会议的议程，已经为时已晚。但 Allen Wirfs-Brock 和 Alex Russell 在会议结束时，领导了一次非正式讨论 [[TC39 2012a](./references.md#TC39:2012:020:r2)]。总体来说，委员会对提案的接受度是积极的。但有几位成员就此表示担心，认为提案内容可能过少而不值得就此费心，或者可能会对他们考虑的未来扩展产生不利影响。当时没有试图就该提案达成共识，但 Wirfs-Brook 和 Russell 表示，任何更详细的内容都不可能进入 ES.next。
+Leggett 的帖子在三天内收到了 119 个以正面为主的回复。它列出了一套「绝对最低的要求」，这与 Dave Herman 去年夏天的清单基本相同。Leggett 的贡献是创造了「安全学校」的隐喻。Allen Wirfs-Brook 对此立即表示支持，并创造了一份新的「最大化的最小」（max-min）版本 [[Wirfs-Brock 2012d](./references.md#awb:straw:maxmin)] 提案，用这个隐喻重新定义了 Herman 的最小化类提案。这里最大的技术变动，是移除了原提案中的构造器属性<sup>[96](./notes.md#96)</sup>。如果此时要将此「max-min」提案正式列入 2012 年 3 月 TC39 会议的议程，已经为时已晚。但 Allen Wirfs-Brock 和 Alex Russell 在会议结束时，领导了一次非正式讨论 [[TC39 2012a](./references.md#TC39:2012:020:r2)]。总体来说，委员会对提案的接受度是积极的。但有几位成员就此表示担心，认为提案内容可能过少而不值得就此费心，或者可能会对他们考虑的未来扩展产生不利影响。当时没有试图就该提案达成共识，但 Wirfs-Brook 和 Russell 表示，任何更详细的内容都不可能进入 ES.next。
 
 这份 max-min 提案正式列入了 2012 年 5 月的会议议程，并在会上进行了类似的讨论 [[TC39 2012b](./references.md#TC39:2012:034)]，其结果是类似的。与会人员正逐步就该提案达成共识，但还有一些关键人物缺席。由于时间上的压力，与会者一致认为，已经可以就原型和初步规范草案开展工作了。到 7 月会议 [[TC39 2012c](./references.md#TC39:2012:056)] 时，Allen Wirfs-Brock 已经写好了 max-min 类提案的规范文本，并准备了一套演示文稿 [[Wirfs-Brock 2012b](./references.md#TC39:2012:054-X1)]，列举了他遇到的每项设计决策。他带领委员会逐条审查了每项决策，并记录了对某一备选方案的接受或共识。这种方法回避了就整个提案达成共识的问题，但却让委员会在细节设计层面参与了共识的形成。ES.next 规范的下一份草案 [[Wirfs-Brock et al. 2012b](./references.md#ES6rev10), [c](./references.md#TC39:2012:071)] 包含了完整的 max-min 类设计，其中纳入了 7 月会议上做出的决策。对此没有人表示反对。
 
@@ -1213,7 +1213,7 @@ import from "my.js"; // 仅为初始化副作用而导入 my.js
 import z from "mz.js"; // 导入由 mz.js 所导出的唯一默认绑定
 ```
 
-`module` 声明的取消和默认绑定 `import` 形式的增加，均属于设计的后期变化。Node.js 的普及出乎意料地迅速，它将 CommonJS 模块广泛暴露在了 JavaScript 开发者社区中。TC39 为此收到了负面的社区反馈 [[Denicola 2014](./references.md#modimport)]，并担心 CommonJS 模块事实上的标准化，可能会给 Harmony 设计蒙上阴影。TC39 为此增加了 `export default` 形式，以适应那些习惯于在许多 CommonJS 模块中使用唯一导出设计模式（single export pattern）的开发者。TC39 模块倡导者们也开始向 Node.js 开发者布道 [[Katz 2014](./references.md#jsmodules)] Harmony 模块。
+`module` 声明的取消和默认绑定 `import` 形式的增加，均属于设计的后期变化。Node.js 的普及出乎意料地迅速，它将 CommonJS 模块广泛暴露在了 JavaScript 开发者社区中。TC39 为此收到了负面的社区反馈 [[Denicola 2014](./references.md#modimport)]，并担心 CommonJS 模块事实上的标准化，可能会给 Harmony 设计蒙上阴影。TC39 为此增加了 `export default` 形式，以适应那些习惯于在许多 CommonJS 模块中使用单体导出设计模式<sup>[97](./notes.md#97)</sup>的开发者。TC39 模块倡导者们也开始向 Node.js 开发者布道 [[Katz 2014](./references.md#jsmodules)] Harmony 模块。
 
 最初的「简单模块」提案包含了模块加载器 [[Herman 2010e](./references.md#modloaderstraw)] 的概念，它提供了将模块整合到运行中的 JavaScript 程序时的语义。其目的在于由 ECMAScript 规范来定义出：模块的语言级语法和语义、模块加载的运行时语义，以及模块加载器的 API。这其中模块加载器的 API，能为 JavaScript 程序员提供「控制和扩展加载器语义」的机制。加载过程最终被设想 [[Herman 2013b](./references.md#modloaderharmony)] 为一条由五个阶段组成的流水线，包括规范化、解析、获取、翻译和链接。加载器首先会对模块标识符进行规范化处理。然后它会通过对模块源码的检索和预处理，确定模块的相互依赖性，将导入和导出联系起来，最后再初始化相互依赖的模块。模块加载器的设计目标是高度的灵活性，以完全支持 Web 浏览器的异步 I/O 模式。在 2011 年的 JSConf 上，Dave Herman 展示了 [[Leung 2011](./references.md#jsconfleung)] 一个概念验证性的模块加载器。它扩展了加载过程中的翻译阶段，将 CoffeeScript 和 Scheme 代码加载为了运行在 JavaScript 网页之中的模块。
 
@@ -1236,9 +1236,9 @@ x => x /* 一个 identity 函数 */
 
 与其他函数定义形式不同的是，箭头函数不会重新绑定 `this` 和其他函数作用域内的隐式绑定。这使得箭头函数在「内层函数需访问其外层函数的隐式绑定」的情况下，显得非常方便。
 
-设计箭头函数的主要动机，在于开发者经常需要编写冗长的函数表达式，以此作为平台和库 API 函数的回调参数。在 JavaScript 1.8 中，Mozilla [[2008b](./references.md#moz:new1.8)] 实现了「表达式闭包」，它保留了对`function` 关键字的使用，允许使用无括号的单个表达式体。TC39 讨论了一些类似但较短小的表示法，用诸如 𝜆、*f*、\ 或 # 等符号 [[Eich 2010b](./references.md#eich:bikeshed); [TC39 Harmony 2010c](./references.md#Harmony:shorterfuncs)] 来代替函数，但未能就其中任何一种方法达成共识。
+设计箭头函数的主要动机，在于开发者经常需要编写冗长的函数表达式，以此作为平台和库 API 函数的回调参数。在 JavaScript 1.8 中，Mozilla [[2008b](./references.md#moz:new1.8)] 实现了<sup>[98](./notes.md#98)</sup>「表达式闭包」，它保留了对`function` 关键字的使用，允许使用无括号的单个表达式体。TC39 讨论了一些类似但较短小的表示法，用诸如 𝜆、*f*、\ 或 # 等符号 [[Eich 2010b](./references.md#eich:bikeshed); [TC39 Harmony 2010c](./references.md#Harmony:shorterfuncs)] 来代替函数，但未能就其中任何一种方法达成共识。
 
-TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精简语义的「lambda 函数」感兴趣，比如支持*正确的尾调用*（proper tail call）和 Tennent 一致性原则（Tennent's correspondence principle）[[1981](./references.md#tennent1981principles)]。其支持者们认为，这样的函数将会在实现由语言或库所定义的控制抽象时有所用处。在 Harmony 进程早期，Brendan Eich [[2008a](./references.md#Eich:allenslambda)] 在 `es-discuss` 上的一篇讨论贴中， 提出了一个最初由 Allen Wirfs-Brook 所提出的建议，即基于 Smalltalk 块语法的启发，采用一种简洁的 lambda 函数语法。例如 `{|a，b| a+b}` 就相当于 Herman 的 `lambda(a,b){a+b}`。Eich 的帖子引发了一场大规模但没有结论的线上讨论，话题涉及与（某种可能的）简明函数特性所相关的方方面面。作为关键总结，可以认为其中许多语法的灵感会带来解析或可用性上的问题，而且 JavaScript 的非本地控制转移语句——`return`、`break` 和 `continue`——会显著地使编写控制抽象的机制变得更加复杂。大多数 TC39 成员和 `es-discuss` 订阅者似乎主要对简洁的函数语法更感兴趣，而非对 Tennent 一致性感兴趣。
+TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精简语义的「lambda 函数」感兴趣，比如支持*对尾调用的适当处理*（proper tail call）和 Tennent [[1981](./references.md#tennent1981principles)] 一致性原则<sup>[99](./notes.md#99)</sup>。其支持者们认为，这样的函数将会在实现由语言或库所定义的控制抽象时有所用处。在 Harmony 进程早期，Brendan Eich [[2008a](./references.md#Eich:allenslambda)] 在 `es-discuss` 上的一篇讨论贴中， 提出了一个最初由 Allen Wirfs-Brook 所提出的建议，即基于 Smalltalk 块语法的启发，采用一种简洁的 lambda 函数语法。例如 `{|a，b| a+b}` 就相当于 Herman 的 `lambda(a,b){a+b}`。Eich 的帖子引发了一场大规模但没有结论的线上讨论，话题涉及与（某种可能的）简明函数特性所相关的方方面面。作为关键总结，可以认为其中许多语法的灵感会带来解析或可用性上的问题，而且 JavaScript 的非本地控制转移语句——`return`、`break` 和 `continue`——会显著地使编写控制抽象的机制变得更加复杂。大多数 TC39 成员和 `es-discuss` 订阅者似乎主要对简洁的函数语法更感兴趣，而非对 Tennent 一致性感兴趣。
 
 在这之后的 30 个月里，这方面都没有出现什么重大进展，直到 Brendan Eich [[2011f](./references.md#Eich:arrow1); [2011g](./references.md#Eich:blockrevival)] 撰写了两份替代性的稻草人提案为止。这两份提案之中，有一份设计的是「箭头函数」，它参照了 CoffeeScript 中的类似特性。这份提案中有 `->` 和 `=>` 两种函数，它们具备各种语法和语义上的差异和选项。而另一份提案设计的，则是以 Smalltalk 和 Ruby 的块为模型的「块级 lambda」，它还支持 Tennent 一致性。在随后的 9 个月里，这两项提案及其备选方案在 `es-discuss` 和 TC39 会议上得到了广泛的讨论。有人担心如果要支持解析箭头函数，现有的 JavaScript 实现是否易于更新。这里的问题是箭头符号出现在整个结构的中间，而且它前面还有一个形参列表，因此可能会被有歧义地解析为括号表达式。对于块级 lambda 提案，有人担心 [[Wirfs-Brock 2012a](./references.md#allen:brkcnt)] 它所创建出的用户定义控制结构，并不能充分而完整地与内置的语法控制结构相集成。Brendan Eich 总体倾向于块级 lambda 提案，但随着 2012 年 3 月 TC39 会议的临近，他认为箭头函数更有可能被委员会接受。在会议上 [[TC39 2012a](./references.md#TC39:2012:020:r2)]，他向委员会介绍了一套关于箭头函数最终设计基本特征的共识性决定 [[Eich 2012b](./references.md#Eich:arrow2)]。
 
@@ -1254,7 +1254,7 @@ TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精
 * 支持嵌入领域特定语言（domain specific language）的模板字面量。
 * 作为属性键使用的 `Symbol` 值。
 * 二进制和八进制数字字面量。
-* 正确的尾调用。
+* 对尾调用的适当处理<sup>[100](./notes.md#100)</sup>。
 
 语言内置库的增强包括：
 
