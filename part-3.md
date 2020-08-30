@@ -333,10 +333,10 @@ Allen Wirfs-Brock 回忆说，当 Adobe 宣布退出新版 ES4 时，他感到�
 > 这并不是让步，也不是对立斗争——这（新版 ES4）确实是个很好的尝试，它试着把事情统一起来，回到 Waldemar Horwat 的规范（也许甚至是 Common Lisp）去尝试命名空间和包，然后认识到它们不适合 Web。
 
 
-## 插曲：认真对待 JavaScript
+# 插曲：认真对待 JavaScript
 从 20 世纪 90 年代末开始，TC39 成员试图将 JavaScript 作为一种面向专业程序员的语言进行重新设计。到 2000 年代末，浏览器和其他相关平台的开发者们终于意识到，JavaScript 是他们平台中需要认真对待的工程部分。
 
-### JavaScript 性能革命
+## JavaScript 性能革命
 当 Brendan Eich 在 1995 年 5 月构建 Mocha 时，性能既不是个关注点，也不是个目标。当时还没有任何 JavaScript 程序，为其预期的程序只要能对「基于其他更高效的语言实现的对象」做简单组合就够了。在当时的设想中，JavaScript 并不是用来编写哪怕稍复杂点的算法的。早期的 JavaScript 引擎使用简单的字节码解释器或解析树求值器来直接解释 JavaScript 函数，并使用简单的内存管理方案。它们没有利用 20 世纪 80 年代和 90 年代初为 Lisp、Smalltalk、Self 和其他动态语言开发的复杂的高性能实现技术。对 Netscape / Mozilla 的 SpiderMonkey 和微软的 JScript 引擎而言，其基本架构在十年来基本没有变化。在十年间，新的 ES3 级语言特性得以加入，安全问题也得到了解决。但无论这期间有什么性能提升，它们都可以归功于摩尔定律 [[Moore 1975](./references.md#moore1975)] 下的硬件性能进步。在这一时期的大部分时间里，维护浏览器的 JavaScript 引擎不过是一位软件开发者的兼职工作。
 
 在 2000 年代的前半段，AJAX 式大型 Web 应用的出现，开始严重突破了第一代引擎的性能限制。到 2006 与 2007 年，Web 开发者对性能问题的呼声越来越高，浏览器厂商也开始派出团队来解决其 JavaScript 引擎的性能限制。对性能的度量是提高性能的重要起点，苹果的 *WebKit* 团队为此创建了 SunSpider JavaScript 基准测试套件（benchmark suite）[[Stachowiak 2007a](./references.md#sunspider)]。SunSpider 远非完美，由相对较小的测试用例组成，但它来自于实际的 Web 应用代码。在它发布后不久，Web 应用开发者社区就开始经常使用 SunSpider 来比较浏览器的 JavaScript 性能，并对结果进行讨论。浏览器博弈论基本上阻止了浏览器厂商以 JavaScript 特性为基础进行竞争，但他们「可以并且确实」开始在 JavaScript 性能上进行竞争。
@@ -347,7 +347,7 @@ Mozilla 最初使用的路线称为 TraceMonkey [[Gal et al. 2009](./references.
 
 所有这些努力仅仅是优化 JavaScript 性能的起点。今天，每一个主流浏览器的开发都需要一个实质性的 JavaScript 团队，专注于性能、安全性和 ECMAScript 标准的新语言特性。这些团队所开发的每个引擎都是在兼容的开源许可下发布的。因此这些团队能在彼此的工作基础上分享想法，有时还可以分享完整的子系统。最快的 JavaScript 实现就是这样在他们的竞争中产生的。
 
-### CommonJS 和 Node.js
+## CommonJS 和 Node.js
 从诞生之初起，JavaScript 也会部署在服务端平台上，提供基本的脚本功能。然而每个平台都有所不同，提供了自己特有的 JavaScript API。在 JavaScript 诞生的前 15 年里，并没有一个通用的、领域独立的、可互操作的非浏览器 JavaScript 应用环境。2009 年 1 月，曾在 Adobe 和 Mozilla 工作过的 Khan Academy 开发者 Kevin Dangoor 决定改变这种状况。他写了一篇博客文章 [[Dangoor 2009](./references.md#Dangoor1)] 描述了这些问题，并邀请服务端 JavaScript 社区通过在线讨论组和 Wiki 参与到解决问题中来。一年后，他在一篇后续的博文 [[Dangoor 2010](./references.md#Dangoor2)] 中，将自己最初希望创造的东西总结为如下：
 
 * 一个模块系统（module system）
@@ -394,7 +394,7 @@ CommonJS 模块的早期使用者之一，就是 2009 年初由 Ryan Dahl 开发
 
 Node.js 最早被设想为一种用于构建服务端应用的技术。但它已经成为了一个平台，使 JavaScript 能作为通用编程语言，应用在包括小型嵌入式设备在内的各种平台上。Node.js 的 I/O 模块与高性能的 V8 引擎相结合，在能力上足以与 Python 和 Ruby 等其他动态应用语言相媲美，在性能上也往往更胜一筹，成为了编写命令行 JavaScript 应用时的事实标准。Node.js 使掌握了 JavaScript 的 Web 程序员能将其技能转移到其他类型的应用和非浏览器环境中。最初许多客户端 Web 应用的开发者们之所以使用 JavaScript 编程，是因为他们别无选择。而许多 Node.js 开发者选择使用它，反而是因为他们更喜欢用 JavaScript 编程。
 
-### 成为浏览器通用运行时的 JavaScript
+## 成为浏览器通用运行时的 JavaScript
 JavaScript 这门语言属于一系列 Web 标准套件中的一部分，这些标准定义出了可互操作的浏览器平台。它是仅有的一门网页开发者们可以预期在每个浏览器中都能使用<sup>[79](./notes.md#79)</sup>的语言。如 Java、Adobe Flash 和微软 *Silverlight* 等其他语言环境，都不属于这个标准平台的一部分，必须使用特定于浏览器的扩展机制来集成到浏览器中——前提是这门语言支持这个浏览器。通常情况下，语言引擎必须由浏览器用户单独安装，并且可能无法完全集成到浏览器的标准服务中，比如基于 DOM 的图形模型。
 
 浏览器博弈论预测，任何「通过增加另一种编程语言来扩展标准浏览器平台」的尝试，其成功的可能性都极低。浏览器厂商需要大量投入来设计、实现和推广一种新的 Web 语言，却不能保证它能在 Web 开发者中流行。要想让这门语言获得接纳，需要所有的主流浏览器都同意支持一种由竞争对手设计，且用户群很小甚至根本不存在的语言。而且这种语言还将成为长期的维护负担。例如在 2011 年，Google 推出了 *Dart* 语言，将其作为一种更好的 Web 编程语言进行推广 [[Krill 2011](./references.md#infoworld:dart)]。Google 分发了一个实验性的 *Chromium* 版本 [[Google 2012a](./references.md#chromium2012)]（这是他们的 Chrome 浏览器的开源基础），其中包含了一个 Dart 虚拟机 [[Google 2012b](./references.md#dartium)]，但这个虚拟机从未被纳入 Chrome 浏览器的生产版本或任何其他浏览器中。

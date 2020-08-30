@@ -127,7 +127,7 @@ ES5 严格模式直接源于 Douglas Crockford 在 JavaScript 的设计中「纠
 
 在 Douglas Crockford [[2007d](./references.md#crock:2007c)] 列出的错误和不便清单上，还有许多关于严格模式的特性，但它们都没有纳入 ES5 中。对于这些特性，要么是 TC39 无法就其是否不受欢迎达成一致，要么是发现该改动不符合减法原则。例如，尽管 Crockford 和其他许多人都不喜欢 JavaScript 的自动分号插入，但许多开发者都更喜欢在没有显式分号的情况下编码。再比如，将 `typeof null` 更改为返回非 `"object"` 的其他值，也不符合减法原则。
 
-#### Getters，Setters 和对象元操作
+#### Getter，Setter 和对象元操作
 从最早的 JavaScript 实现开始，内置对象和宿主对象中的某些属性就已具备一些特殊性质。而通过 JavaScript 代码所创建的对象，是无法应用它们的。例如某些属性具有只读的值，或无法使用 `delete` 运算符删除；内置对象和宿主对象的方法属性在由 `for-in` 语句枚举时会被跳过。在 ES1 中这些特殊语义的确定，是通过将 ReadOnly，DontDelete 和 DontEnum 这些标记（attribute）与规范中的对象模型相关联的方式来实现的。这些标记会通过伪代码来测试，伪代码中定义了它们所涉及的语言标记的语义。这些标记没有被具体化（reified）——在 JavaScript 中，并不存在能为「新创建或已有的」属性设置这些标记的语言特性。ES3 中添加了一个 `Object.prototype.propertyIsEnumerable` 方法，用于测试 DontEnum 标记是否存在。但规范中仍然没有对 ReadOnly 或 DontDelete 标记执行非破坏性测试的相应方法。类似地，有许多由浏览器 DOM 提供的宿主对象也暴露了一些属性，它们通常叫做「getter / setter 属性」。在 ES5 中，这些属性被命名为访问器属性（accessor properties），会在存取属性值时执行计算。由于缺少对这些特性的标准化支持，JavaScript 程序员既无法定义「遵守与内置或宿主对象相同约定」的库，也无法实现 polyfill 来可靠地模拟这类对象。
 
 对这些问题的统一解决方案，构成了新版 ES5 特性中最大的一部分。这部分特性没有正式名称，它们被非正式地称为「静态对象函数<sup>[82](./notes.md#82)</sup>」（Static Object Functions）或「对象反射函数」（Object Reflection Functions）。Allen Wirfs-Brock [[2008](./references.md#awb:objectfunctions)] 为这个特性集编写了设计原理文档，其中包含了用例与以下设计准则：
@@ -367,7 +367,7 @@ var objectWithSecret = {
 
 ES5 只能使 JavaScript 在安全方面前进一小步。当 ES5 的工作正在进行时，Douglas Crockford 建议在 TC39 内成立一个安全 ECMAScript（SES）工作组，其目的 [[Crockford 2008d](./references.md#TC39:2008:086:sesintro); [TC39 2008b](./references.md#TC39:2008:079)] 是探索开发一种新 ECMAScript 安全方言的可能性，这种方言不受后向兼容性的约束。SES 工作组在 2008 到 2009 年举行了四次会议，并评估了一些现有的 JavaScript 解决方案 [[TC39 2008e](./references.md#TC39:2008:086)]，以实现对不可信代码的安全求值。最后，TC39 放弃了对单独的新方言做标准化的想法，但诸如对象能力模型一类的 SES 概念则极大地影响了 Harmony 的研发。Ankur Taly [[2011](./references.md#taly2011automated)] 等人基于形式化手段，展示了严格模式和其他 ES5 特性是如何支持「对 mashup 友好的安全 ECMAScript 子集」的。
 
-#### 活动对象（Activation Objects）的移除
+#### 活动对象（Activation Object）的移除
 在 ES5 之前，ECMAScript 规范已经明确要求使用 ECMAScript 对象来定义 ECMAScript 语言的作用域语义。每个*作用域轮廓*（scope contour）都由一个活动对象（AO）表示。活动对象也是普通的 ECMAScript 对象，其属性提供了变量和函数绑定，这些绑定是由与当前轮廓相对应的代码创建的。嵌套作用域被定义为一份活动对象的列表，可在其中依次搜索对某个引用的绑定。语言特点在于，引用绑定在访问「活动对象」和访问「用户程序定义出的对象属性」时，都会使用相同的属性访问语义运算符。ES1 及其后续规范指出，活动对象的概念仅用于纯粹的语言规范化，对 ECMAScript 程序而言是透明的。然而如果引擎完全符合规范，这种属性访问语义会导致出现一些边界情况下意料之外的行为。对于这些边界情况下的语义，实际实现则各有不同。
 
 例如有一种意外情况，就是活动对象可能继承自 `Object.prototype`，而这是新创建对象的默认原型。这意味着 `Object.prototype` 的属性会被所有活动对象继承，并将作为每个活动对象的本地绑定。这会导致外部作用域中所有名称相同的绑定都被遮盖住。
@@ -735,7 +735,7 @@ if x > y { f() else if x > z { g() }
 
 倡导者们往往会较为狭隘地关注自己的提案所定义的特性。好的提案会考虑到该特性如何与语言的现有特性交互。然而即使是最熟练的倡导者，也很难考虑他们的特性和「其他倡导者同时开发的其他提案」之间所有的潜在交互。所有特性都必须通过编辑，才能成为实际规范的一部分。所以 Wirfs-Brock 对于原有语言和所有 Harmony 提案如何结合在一起形成 ES6，有着最完整的看法。他特别关注跨越多个特性提案的交叉问题，并确保提案之间在语法和语义上的一致性。当整合已批准的提案时，他会试图将它们转化为一组可组合的正交特性 [[Linsey 1993](./references.md#Lindsey:1993:HA:154766.155365)]。有时，这需要改变提案的语法或语义细节，甚至增加或删除重要特性。然后这些改变必须提交给倡导者，而且往往还要提交给整个委员会批准。
 
-#### 重新组织规范
+#### 重组规范结构
 从 1997 年的第一版初稿（图 13）到 ES5.1 为止，ECMAScript 规范的组织结构基本没有变化。在编写 ES5 规范时，Allen Wirfs-Brook 发现规范中材料的基本排序令人困惑。他逐渐认识到规范实际上定义了三个独立的部分：
 
 * 一个 ECMAScript 虚拟机，包括各种运行时实体及其语义。

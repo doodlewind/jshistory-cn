@@ -553,10 +553,10 @@ Waldemar Horwat 担心闭包创建的开销，并认为这个改动将可以让�
 
 1999 年 12 月 16 日，Ecma GA 大会 [[Ecma International 1999](./references.md#GA:1999:137)] 通过了该规范，是为《ECMA-262 第 3 版》[[Cowlishaw 1999a](./references.md#ES3)]。自 2000 年 3 月起，Waldemar Horwat [[2003b](./references.md#es3:errata)] 维护了一份非正式的 ES3 勘误表。主流浏览器陆续在 2000 年发布了与 ES3 兼容的版本。微软的 JScript 5.5 作为 IE 5.5 的一部分于 2000 年 7 月发布，而 Netscape 的 JavaScript 1.5 则作为 Netscape 6 的一部分于 2000 年 11 月发布。直到 2009 年 12 月为止，《ECMA-262 第 3 版》都没有被更新的版本替代。在此期间，浏览器并不能自动更新，并且许多用户只有在拥有新计算机或新版操作系统时，才会更新浏览器。等到 Web 开发者可以假设所有用户都使用支持 ES3 的浏览器时，已经过去了将近十年。
 
-## 插曲：JavaScript 不需要 Java
+# 插曲：JavaScript 不需要 Java
 最初，JavaScript 被认为是 Java 的辅助脚本语言，所有复杂的编程任务都将使用 Java 来完成。但是随着对 JavaScript 的熟悉，Web 开发者们开始意识到他们其实只要有 JavaScript 就够了。
 
-### 布道师
+## 布道师
 随着浏览器中 JavaScript 的使用量增加，JavaScript 教育者和布道师应运而生。这其中最具影响力的人物之一，就是 Douglas Crockford。从一篇简短的线上文章《JavaScript：世界上最容易被误解的编程语言》[[Crockford 2001a](./references.md#crock:misunderstood)] 开始，他就承担起了改变软件开发社区对 JavaScript 态度的任务。Crockford 在他的另一篇文章中解释说：
 
 > 当 JavaScript 刚出现时，我认为它不值得关注。很久之后我重新审视了它，发现隐藏在浏览器中的是一门出色的编程语言。我最早的态度来源于 Sun 和 Netscape 对 JavaScript 的最初定位。为了避免将 JavaScript 定位为 Java 的竞争对手，他们对 JavaScript 做了许多错误的陈述。这些虚假宣传一直在针对（友善度）和业余爱好者市场的大量不良 JavaScript 书籍中流传。
@@ -565,7 +565,7 @@ Douglas Crockford [[2001d](./references.md#crock:private); [2002a](./references.
 
 Crockford 倡导简单性，他意识到可以通过使用 JavaScript 对象和数组字面量语法子集的形式，实现独立于语言的数据交换格式，从而避免 XML 的复杂性。他将这种被广泛使用的格式命名为「JavaScript Object Notation」或「JSON」[[Crockford 2002b](./references.md#crock:json0), [c](./references.md#crock:jsonjs); [Crockford 2019a](./references.md#crock:jsontoday)]。这种简单的格式可以很容易地在任何语言中解析，但在 JavaScript 中尤其容易处理，因为有 `eval` 函数可以将 JSON 数据转换为 JavaScript 对象<sup>[44](./notes.md#44)</sup>。
 
-### 富互联网应用与 AJAX
+## 富互联网应用与 AJAX
 早期的交互式 Web 应用主要是基于表单的。用户会将数据输入 HTML 表单，然后由浏览器传输回 Web 服务器，在服务端处理数据并更新数据库，最后将更新的 HTML 文稿传输回浏览器显示。JavaScript 在浏览器端用于基本的输入数据验证，以及对服务端生成的 HTML 做简单的动态更改。这种 Web 应用的形式后来被表述为 Web 1.0<sup>[45](./notes.md#45)</sup>。
 
 一些应用程序具有高度的交互性，需要丰富的低延迟用户界面。于是不可避免地，有些开发者想要开发具备这些特性的 Web 应用。当 Netscape 在 1995 年将 Java 和 JavaScript 引入 Web 浏览器时，其计划是 Java 将成为实现复杂交互式 Web 应用的主要语言，而 JavaScript 将主要用于基于表单的应用中 [[Shah 1996](./references.md#brendan96)]。在 1990 年代末和 2000 年代初，许多「富互联网应用」[[Allaire 2002](./references.md#allaire:2002)] 被构建为 Java Applets。
@@ -613,7 +613,7 @@ console.log(Services.jobCount()); // 显示 1
 
 通常认为 Douglas Crockford 普及了模块模式，但它很可能是由许多 JavaScript 程序员独立发现的。
 
-### 浏览器博弈论
+## 浏览器博弈论
 在浏览器大战 [[Borland 2003](./references.md#browserwars)] 期间，Netscape 和微软都尝试在引入新网站能力上实现超越式的创新。他们都试图说服开发者使用其独有的特性，并开展了「在『XXX』上效果最佳」的营销活动。但如果网站无法在用户首选的浏览器下正常工作，浏览器用户会很不高兴。而且 Web 开发者也不喜欢为不同浏览器维护网站的多个版本。
 
 即使微软为了赢得 Netscape 的市场份额，在技术和非技术方面都进行了大量投资，人们仍然意识到 JavaScript 的发展除了竞争外还需要合作。1997 年 7 月，在第一版 ECMA-262 的工作即将完成前的 TC39 会议上，微软的 Scott Wiltamuth 提出了关于未来 ECMAScript 开发的合作承诺（图 23）。

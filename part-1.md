@@ -662,7 +662,7 @@ alert(a.p1); // 显示 2
 
 JavaScript 1.1 删除了对方括号的这种特殊处理。
 
-#### 原始值（primitive values）的属性
+#### 原始值的属性
 在 JavaScript 1.0 中，数字和布尔值没有属性。并且在尝试访问它们或为其分配属性时，会产生错误消息。字符串值的行为则类似于具有属性的对象，但它们除了只读的 `length` 属性之外，都共享一组相同的属性和值。例如：
 
 ``` js
@@ -836,7 +836,7 @@ alert(origin.distance(new Point(5, 5));
 JavaScript 1.2 希望通过 `<script>` 标签的 `version` 属性，来应对 JavaScript 1.0 和 1.1 的语义更改。但是到 JavaScript 1.2 生产版本发布时，这种形式的版本管理对 Web 开发者来说已变得难以维护 [[Rein 1997](./references.md#js1.2evol)]，对于需要工作在非 Netscape 浏览器上的网页来说尤其是这样。这些浏览器都维护了自己的 JavaScript 实现。
 
 
-## 插曲：风评被害
+# 插曲：风评被害
 从诞生之初，JavaScript 一直受到舆论的激烈批评。一些批评针对的是这门语言基本的设计决策，例如动态类型或隐式类型转换等设计细节。其他批评者对于它与 HTML 的集成方式，或对于它暴露浏览器安全漏洞的风险 [[Fair 1998](./references.md#Fair98)]，也存在着巨大的反对意见。Robert Cailliau [[Wikinews 2007](./references.md#wikinews:cailliau)] 称 JavaScript 为「计算史上最可怕的糟粕」，并说：「我只知道一种比 C 更糟糕的编程语言，那就是 Javascript（原文如此）。」Bret Bos 在 W3C 研讨会上 [[2005](./references.md#bos05)] 将 JavaScript 描述为「有史以来最糟糕的发明」。
 
 对许多新手程序员而言，浏览器中的 JavaScript 让他们首次接触到了常见的编程问题，例如浮点运算的挑战等。他们通常认为这些问题是 JavaScript 特有的。许多经验丰富的程序员将 JavaScript 与熟悉的编程语言（或由于名称混淆而与 Java）进行比较，并发现 JavaScript 的不足。介绍 JavaScript 怪癖的文章 [[Cardy 2011](./references.md#gotchas)] 以及相关网站（例如 `wtfjs.com` [[Leroux 2010](./references.md#wtfjs)]）一度在 Web 上十分流行。
