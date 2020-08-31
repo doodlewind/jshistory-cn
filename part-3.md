@@ -186,7 +186,7 @@ Dave Herman 和 Cormac Flanagan 早期提出的建议，是使用契约模型（
 > 在我们选择了确定性的解释器后，委员会的互动方式就发生了很大变化，从每月一天半的讨论型会议转为了为期 3 天的 hackathon。这中途也会进行技术讨论，涉及语言设计和实现时的各种极端情况。这些问题都被逐一发现和解决。
 
 ### 阻力
-微软几乎没有参与重启新版 ES4。虽然 DevDiv（开发者部门）在组织上远离了负责 IE 的微软 Windows 团队，但 JScript 的开发始终由 DevDiv 负责。在 2000 年初，DevDiv 为支持 .NET 计划进行了重组，其中的 C# 产品部门同时负责 JScript .NET 和 IE 中更传统的 JScript 引擎。这也包括了参加 ECMAScript 标准化活动的责任。但由于客户对 JScript .NET 的接受程度较弱，而且 Windows 团队对于增强 IE 的兴趣不大，因此与 JScript 和 ECMAScript 相关的工作，在 C# 团队中属于低优先级的事项。
+微软几乎没有参与重启新版 ES4。虽然 DevDiv 在组织上远离了负责 IE 的微软 Windows 团队，但 JScript 的开发始终由 DevDiv 负责。在 2000 年初，DevDiv 为支持 .NET 计划进行了重组，其中的 C# 产品部门同时负责 JScript .NET 和 IE 中更传统的 JScript 引擎。这也包括了参加 ECMAScript 标准化活动的责任。但由于客户对 JScript .NET 的接受程度较弱，而且 Windows 团队对于增强 IE 的兴趣不大，因此与 JScript 和 ECMAScript 相关的工作，在 C# 团队中属于低优先级的事项。
 
 在 2000 年代，微软通常将战略上重要的开发工作放在华盛顿州 Redmond 市的总部里，并经常将更多的战术项目分配到世界各地的其他分部中。在 2006 财年（2005 年 7 月至 2006 年 6 月）里，微软 DevDiv 决定将所有与 JScript 和 ECMAScript 相关工作的职责交接给位于印度 Hyderabad 市的印度研发中心（IDC）。DevDiv 之前已经将类似 Java 的 J# .NET 产品交接给了 IDC [[Prasanna 2002](./references.md#VJ.net)]。到 2006 年春季，交接工作得以基本完成。在 TG1 上代表微软的任务，则交给了曾经在 J# 团队工作过，并参与过 Ecma C# 标准工作组 TC39-TG3 的 Pratap Lakshman。Lakshman 在 2006 年 4 月第一次远程参加了 TG1 会议，并开始参加电话会议和一些面对面的会议。但在此期间，他并不是新版 ES4 开发工作的重要贡献者。
 

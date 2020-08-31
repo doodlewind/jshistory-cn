@@ -2,7 +2,7 @@
 
 ## 术语表
 * <a id="ActionScript">**ActionScript**</a> *n.* 由 Adobe Flash 所使用的 ECMAScript 方言。
-* <a id="attribute">**attribute**</a> *n.* 1. 在 ECMAScript 规范中，一种对属性的可配置标记。2. HTML 开放标签中的行为修饰符。
+* <a id="attribute">**attribute**</a> *n.* 1. 标记，在 ECMAScript 规范中，一种对属性的可配置特质。2. 属性，HTML 开放标签中的行为修饰符。
 * <a id="AWK">**AWK**</a> *n.* 一种领域特定的文本处理语言 [[Aho et al. 1988](./references.md#aho1988awk)]，最早为 Unix 而设计。
 * <a id="binding">**binding**</a> *n.* 绑定，一种将名称映射到变量或常量值的关联。
 * <a id="breaking-change">**breaking-change**</a> *n.* 破坏性变更，一种对编程语言或平台的变更，这种变更会导致现有的程序无法运行或发生故障。
@@ -15,15 +15,15 @@
 * <a id="CommonJS">**CommonJS**</a> *n.* 一个由 Kevin Dangoor 发起的项目，其目标是在非浏览器环境下开发 JavaScript 技术。
 * <a id="compiler">**compiler**</a> *n.* 编译器，一种（在典型情况下）将程序翻译到机器语言，以便供处理器直接执行的引擎。
 * <a id="constructor">**constructor**</a> *n.* 参见 *constructor function*。
-* <a id="constructor-function">**constructor function**</a> *n.* 构造器函数，一种会分配并初始化对象的 JavaScript 函数，可能用 `new` 操作符触发。
+* <a id="constructor-function">**constructor function**</a> *n.* 构造器函数，一种会分配并初始化对象的 JavaScript 函数，可能用 `new` 运算符触发。
 * <a id="cyclic-garbage-collection">**cyclic garbage collection**</a> *n.* 循环垃圾回收，一种内存管理流程，可以回收为孤立的循环引用结构所分配的内存空间。
 * <a id="Dart">**Dart**</a> *n.* 一门基于类的面向对象语言。它由 Google 开发，其初始设计目标是在 Web 浏览器中取代 JavaScript。
 * <a id="declarative">**declarative**</a> *adj.* 声明式，表示一种以「对所需结果特质进行描述」为基础的计算方式。
-* <a id="delegation">**delegation**</a> *n.* 代理，一种使对象从其他对象中获取部分状态和行为（而非从类定义中获取）的机制。
+* <a id="delegation">**delegation**</a> *n.* 委托，一种使对象从其他对象中获取部分状态和行为（而非从类定义中获取）的机制。
 * <a id="discriminated-union">**discriminated union**</a> *n.* 一种带有多种可选内部结构的数据记录，其实际结构由显式的 tag 标签值确定。
 * <a id="destructuring">**destructuring**</a> *n.* 解构，用类似数组或对象字面量的语法，来引用数组或对象的某些属性。
 * <a id="desugar">**desugar**</a> *v.* 去糖化，将一种编程语言中的语句或操作，分解为更为基础的语句或操作。
-* <a id="DevDiv">**DevDiv**</a> *n.* 即 Developer Tools Division，微软的开发者工具部门。
+* <a id="DevDiv">**DevDiv**</a> *n.* 微软的开发者工具部门，即 Developer Tools Division。
 * <a id="dynamic-language">**dynamic language**</a> *n.* 动态语言，一种在程序执行前仅需进行少量分析（或不进行分析）的编程语言。动态语言中，多数强制性的错误检查在程序执行时发生，并且其典型程序也可能在执行时被构建和修改。参见 *static language*。
 * <a id="dynamically-typed">**dynamically typed**</a> *adj.* 动态类型，表示一类编程语言，其中与数据类型安全相关的约束检查，主要在程序运行时实行。
 * <a id="es-discuss">**`es-discuss`**</a> *n.* 用于讨论 ECMAScript 演化的公开邮件论坛。
@@ -97,6 +97,6 @@
 * <a id="URL">**URL**</a> *n.* 万维网网页的地址（统一资源定位符）。
 * <a id="value">**value**</a> *n.* 值，一个由程序操作的信息单位。在类型化的编程语言中，值被分类为不同的类型。
 * <a id="V8">**V8**</a> *n.* 一款由 Chrome 浏览器所使用的 JavaScript 引擎。
-* <a id="WebKit">**WebKit**</a> *n.* 一款由 Apple Safari 和一些其他浏览器所使用的开源浏览器内核。
+* <a id="WebKit">**WebKit**</a> *n.* 一款由 Apple Safari 和其他一些浏览器所使用的开源浏览器内核。
 * <a id="Web-20">**Web 2.0**</a> *n.* 一种 Web 应用风格，它关注用户原创内容（UGC），一般具备高度的可交互性，并使用 AJAX 技术构建。
 * <a id="Web-Reality">**Web Reality**</a> *n.* 由于万维网被现存网页与应用而使用，所导致的一种万维网的技术形态和特质。对 Web 基础设施的扩展，通常必须能允许现存的形态与特质保持不变。

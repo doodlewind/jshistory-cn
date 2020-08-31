@@ -8,9 +8,9 @@ NCSA Mosaic 是不仅易装易用，而且带有图形界面的 Web 客户端。
 Tim Berners-Lee 的 Web 技术的核心，是使用*声明式的*<sup>[g](./appendices.md#declarative)</sup> HTML 标记语言来描述文档，将它们呈现为网页。但业界对于能方便最终用户编排应用操作的*脚本语言*<sup>[g](./appendices.md#scripting-language)</sup> [[Ousterhout 1997](./references.md#ousterhout)]，也展示出了相当大的兴趣。这些语言诸如微软 Office 中的 Visual Basic 和苹果 AppleScript [[Cook 2007](./references.md#applescript)] 之类，其设计目标并非用于实现应用核心的复杂数据结构和算法组件。相反地，它们为用户提供了将此类应用组件「粘合」在一起的新方式。在 Netscape 扩大万维网受众范围的途中，一个重要的问题就是脚本语言「是否应该」与「如何」集成到网页中。
 
 ### Brendan Eich 加入网景
-Brendan Eich<sup>[4](./notes.md#4)</sup> 于 1985 年在伊利诺伊大学香槟分校硕士毕业，然后立即入职了 SGI 公司，主要从事 Unix 内核和网络层的工作。1992 年，他在离开 SGI 后加盟了 MicroUnity。这是一家资金雄厚的新兴公司，致力于开发视频媒体处理器。在这两家公司，他都实现了用于支持内核与网络编程任务的小型专用语言。在 MicroUnity，他还在 GCC 编译器上做了些工作。
+Brendan Eich<sup>[4](./notes.md#4)</sup> 于 1985 年在伊利诺伊大学香槟分校硕士毕业，然后立即入职了 SGI 公司，主要从事 Unix 内核和网络层的工作。1992 年，他在离开 SGI 后加盟了 MicroUnity。这是一家资金雄厚的新兴公司，致力于开发视频媒体处理器。在这两家公司，他都实现了用于支持内核与网络编程任务的小型专用语言。在 MicroUnity，他还在 GCC *编译器*<sup>[g](./appendices.md#compiler)</sup>上做了些工作。
 
-1995 年初，Brendan Eich 被 Netscape 以「在浏览器里写 Scheme」<sup>[5](./notes.md#5)</sup>为诱饵打动而跳槽了。但当 Eich 于 1995 年 4 月 3 日加入 Netscape 时，他发现公司在产品营销与编程语言上的现状都很复杂。Netscape 在 1994 年底拒绝了微软的低价收购要约。此后 Netscape 管理层预计自己将直面微软「拥抱，扩展，灭绝」战略 [[Wikipedia 2019](./references.md#wikip:EEE)] 的攻击。在盖茨的直接领导下，微软已经迅速意识到它们即将推出的封闭生态信息应用 Blackbird 项目 [[Anderson 2007](./references.md#msft:blackbird)]，在跨平台 Web 的兴起之下将无足轻重。因此，盖茨的「互联网浪潮」备忘录 [[Gates 1995](./references.md#gates:tidalwave)] 将微软的战略从 Blackbird 重新引导到了 Internet Explorer 与一整套服务器产品上，以应对 Netscape 的攻城略地。
+1995 年初，Brendan Eich 被 Netscape 以「在浏览器里写 Scheme」<sup>[5](./notes.md#5)</sup>为诱饵打动而跳槽了。但当 Eich 于 1995 年 4 月 3 日加入 Netscape 时，他发现公司在产品营销与编程语言上的现状都很复杂。Netscape 在 1994 年底拒绝了微软的低价收购要约。此后 Netscape 管理层预计自己将直面微软「拥抱，扩展，灭绝」战略 [[Wikipedia 2019](./references.md#wikip:EEE)] 的攻击。在盖茨的直接领导下，微软已经迅速意识到它们即将推出的封闭生态信息应用 Blackbird 项目 [[Anderson 2007](./references.md#msft:blackbird)]，在跨平台 Web 的兴起之下将无足轻重。因此，盖茨的「互联网浪潮」备忘录 [[Gates 1995](./references.md#gates:tidalwave)] 将微软的战略从 Blackbird 重新引导到了 *Internet Explorer*<sup>[g](./appendices.md#Internet-Explorer)</sup> 与一整套服务器产品上，以应对 Netscape 的攻城略地。
 
 网页脚本语言的备选项，包括 Scheme 这样的研究型语言，Perl / Python / Tcl 这样基于 Unix 的实用型语言，以及微软 Visual Basic 这样的专有语言。Brendan Eich 希望的是在浏览器中实现 Scheme。但在 1995 年初，Sun（太阳微系统公司）开始为当时尚未发布的<sup>[6](./notes.md#6)</sup> Java 发起了游击营销活动 [[Byous 1998](./references.md#javahist)]。Sun 和 Netscape 迅速达成协议，决定将 Java 集成到 Netscape 2 中。Eich 回忆说，Marc Andreessen 在 Netscape 会议上的口号是「Netscape 加 Java 干掉 Windows」。在 1995 年 5 月 23 日 Sun 的 Java 发布会上，Netscape 宣布了他们授权 Sun 的 Java 技术 [[Netscape 1995a](./references.md#netscape:press:java)] 在浏览器中使用的意向。
 
@@ -18,7 +18,7 @@ Netscape 内部的这项快速决策，使得对 Scheme / Perl / Python / Tcl / 
 
 对这一决策的怀疑者在 Sun 占支配地位，在 Netscape 也占多数。他们质疑是否需要这样一门更简单的脚本语言：Java 是否不适合脚本编写？如何解释为什么两种语言比一种更好？Netscape 是否具备创建新语言的专业能力？
 
-第一个反对意见很容易反驳。1995 年春季的 Java 并不适合初学者使用，人们必须将 Java 主程序的代码体放在包内部*类*（class）声明下名为 `main` 的静态*方法*中，还必须为所有参数、返回值和变量声明静态*类型*。从 Visual Basic 与 Visual C++ 互补，以及许多 Unix 语言与原生代码组件互补的经验来看，Java 明显对于「胶水」脚本编写者来说还不够简单。
+第一个反对意见很容易反驳。1995 年春季的 Java 并不适合初学者使用，人们必须将 Java 主程序的代码体放在包内部*类*<sup>[g](./appendices.md#class)</sup>声明下名为 `main` 的静态*方法*<sup>[g](./appendices.md#method)</sup>中，还必须为所有参数、返回值和变量声明静态*类型*<sup>[g](./appendices.md#type)</sup>。从 Visual Basic 与 Visual C++ 互补，以及许多 Unix 语言与原生代码组件互补的经验来看，Java 明显对于「胶水」脚本编写者来说还不够简单。
 
 克服第二个反对意见的依据，则是对微软产品的参考。对于专业的 Windows 应用程序员，微软向他们出售 Visual C++。而对于业余爱好者、兼职程序员、设计师、会计师和其他人员，微软提供了 Visual Basic 作为脚本语言。这样那些经验不足的兼职程序员就可以「胶合」定制使用由 Visual C++ 构建的组件了。名为「Visual Basic for Applications」（VBA）的 Visual Basic 版本已经集成到了微软 Office 中，以支持这些应用的用户扩展和脚本需求。
 
@@ -27,19 +27,19 @@ Netscape 内部的这项快速决策，使得对 Scheme / Perl / Python / Tcl / 
 只剩下最后一个反对意见了：Netscape 是否具备创建有效脚本语言的专业知识，并应用到 1995 年 9 月的 Netscape 2 beta 上？Brendan Eich 的任务就是通过创建 Mocha 来证明这一点。
 
 ### Mocha 的故事
-随着 Java 发布的临近，Brendan Eich 认为时间至关重要。双鸟在林不如一鸟在手，因此他在 1995 年 5 月<sup>[8](./notes.md#8)</sup>花了连续十天进行第一个 *Mocha* 实现的原型设计。这项工作赶在了可行性论证的最后期限之前完成。这个 Demo 包括语言的最小实现，并最小化地集成到了 Netscape 2 浏览器的 pre-alpha 版本中。
+随着 Java 发布的临近，Brendan Eich 认为时间至关重要。双鸟在林不如一鸟在手，因此他在 1995 年 5 月<sup>[8](./notes.md#8)</sup>花了连续十天进行第一个 *Mocha*<sup>[g](./appendices.md#Mocha)</sup> 实现的原型设计。这项工作赶在了可行性论证的最后期限之前完成。这个 Demo 包括语言的最小实现，并最小化地集成到了 Netscape 2 浏览器的 pre-alpha 版本中。
 
-Eich 的原型是在 SGI Indy Unix 工作站 [[Netfreak 2019](./references.md#sgiIndy)] 上开发的，使用了一个手写的词法分析器和递归下降解析器（parser）。这个解析器发出（emit）的是字节码指令，而不是语法分析树（parse tree）。字节码*解释器*简单而缓慢<sup>[9](./notes.md#9)</sup>。
+Eich 的原型是在 SGI Indy Unix 工作站 [[Netfreak 2019](./references.md#sgiIndy)] 上开发的，使用了一个手写的词法分析器和递归下降解析器（parser）。这个解析器发出（emit）的是字节码指令，而不是语法分析树（parse tree）。字节码*解释器*<sup>[g](./appendices.md#interpreter)</sup>简单而缓慢<sup>[9](./notes.md#9)</sup>。
 
 字节码特性源于 Netscape LiveWire 服务器<sup>[10](./notes.md#10)</sup>的需求，其开发人员甚至在将 Mocha 原型化之前就希望将其嵌入。这支团队的前 Borland 管理和工程人员都坚信动态脚本语言的未来，但他们希望使用字节码而非源码解析的方式，加快服务器应用的加载速度。
 
-Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直接在 HTML 文档中编写几行。Sun 和 Netscape 的高层管理人员则重申了 Mocha 应该「看起来像 Java」的要求，明确排除了 BASIC 式的东西。但这种 Java 式的外表也带来了对 Java 式行为的期望，这种期望影响了语言*对象*模型的设计，以及原始类型（如 `boolean` / `int` / `double` / `string` 等）的语义。
+Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直接在 HTML 文档中编写几行。Sun 和 Netscape 的高层管理人员则重申了 Mocha 应该「看起来像 Java」的要求，明确排除了 BASIC 式的东西。但这种 Java 式的外表也带来了对 Java 式行为的期望，这种期望影响了语言*对象*<sup>[g](./appendices.md#object)</sup>模型的设计，以及原始类型（如 `boolean` / `int` / `double` / `string` 等）的语义。
 
-在外表接近 Java 的要求之外，Brendan Eich 可以自由选择大多数语言设计细节。加入 Netscape 后，他探索了一些「易于使用」与「教育用途」的语言，包括 HyperTalk 语言 [[Apple Computer 1988](./references.md#apple1988hypercard)]，Logo 语言 [[Papert 1980](./references.md#logo)] 和 Self 语言 [[Ungar and Smith 1987](./references.md#self)]。所有人都认可 Mocha 将会「基于对象」但没有类。因为支持类将花费很长时间，并有与 Java 竞争的风险。出于对 Self 的认可，Eich 选择使用带有单个原型链接的*委托*机制，来创建动态的对象模型。他认为这样可以节省实现成本，但最后还是没有足够时间在 Mocha 原型中暴露该机制。
+在外表接近 Java 的要求之外，Brendan Eich 可以自由选择大多数语言设计细节。加入 Netscape 后，他探索了一些「易于使用」与「教育用途」的语言，包括 HyperTalk 语言 [[Apple Computer 1988](./references.md#apple1988hypercard)]，Logo 语言 [[Papert 1980](./references.md#logo)] 和 Self 语言 [[Ungar and Smith 1987](./references.md#self)]。所有人都认可 Mocha 将会「基于对象」但没有类。因为支持类将花费很长时间，并有与 Java 竞争的风险。出于对 Self 的认可，Eich 选择使用带有单个原型链接的*委托*<sup>[g](./appendices.md#delegation)</sup>机制，来创建动态的对象模型。他认为这样可以节省实现成本，但最后还是没有足够时间在 Mocha 原型中暴露该机制。
 
-对象是通过为*构造函数*应用 `new` 运算符的方式创建的。名为 `Object` 的「默认对象构造函数」与其他内建对象一起内置在环境中。每个对象由零个或多个属性组成。每个*属性*（property）都有一个名称（也叫*属性键*）和一个值，该值可以是*函数*、对象或其他几种内建数据类型之一。可以通过「为未使用的属性键赋值」的方式来创建属性。属性没有可见性或赋值限制，构造函数还可以提供一组初始属性。创建对象后，也可以将其他属性添加上去。LiveWire 团队特别喜欢这种非常动态的手法。
+对象是通过为*构造函数*<sup>[g](./appendices.md#constructor-function)</sup>应用 `new` 运算符的方式创建的。名为 `Object` 的「默认对象构造函数」与其他内建对象一起内置在环境中。每个对象由零个或多个属性组成。每个*属性*<sup>[g](./appendices.md#property)</sup>都有一个名称（也叫*属性键*<sup>[g](./appendices.md#property-key)</sup>）和一个值，该值可以是*函数*<sup>[g](./appendices.md#function)</sup>、对象或其他几种内建数据类型之一。可以通过「为未使用的属性键赋值」的方式来创建属性。属性没有可见性或赋值限制，构造函数还可以提供一组初始属性。创建对象后，也可以将其他属性添加上去。LiveWire 团队特别喜欢这种非常动态的手法。
 
-尽管 Scheme 的诱惑已经不再，Brendan Eich 仍然发现 Lisp 式的函数一等公民概念很有吸引力。函数一等公民对应的这套工具深受 Scheme 习惯用法的启发，方法不必被包含在类中。这包括支持顶层的子程序、将函数作为参数传递、对象上的方法，以及事件处理器（event handler）。由于时间限制，函数表达式（也叫 *lambda 表达式*，或简称 lambda）被延期，但在语法中得以保留。事件处理器和对象方法通过向 Java（在 C++ 之后）借鉴的 `this` 关键字得以统一。在所有函数中，它都用于表示该函数「在作为方法被调用时」的上下文对象。
+尽管 Scheme 的诱惑已经不再，Brendan Eich 仍然发现 Lisp 式的函数*一等公民*<sup>[g](./appendices.md#first-class)</sup>概念很有吸引力。函数一等公民对应的这套工具深受 Scheme 习惯用法的启发，方法不必被包含在类中。这包括支持顶层的子程序、将函数作为参数传递、对象上的方法，以及事件处理器（event handler）。由于时间限制，函数表达式（也叫 *lambda 表达式*<sup>[g](./appendices.md#lambda-expression)</sup>，或简称 lambda）被延期，但在语法中得以保留。事件处理器和对象方法通过向 Java（在 C++ 之后）借鉴的 `this` 关键字得以统一。在所有函数中，它都用于表示该函数「在作为方法被调用时」的上下文对象。
 
 在与 Marc Andreessen 以及一些早期的 Netscape 工程师<sup>[11](./notes.md#11)</sup>做非正式讨论的激励之下，这个原型支持了 `eval` 函数。它可以解析执行包含程序的字符串。直觉上，这种动态的「字符串到程序」编程对 Web 浏览器和服务器上的某些应用很重要<sup>[12](./notes.md#12)</sup>。不过，支持 `eval` 的决策立刻带来了相应的后果。一些场景需要函数通过类似 Java 的 `toString` 方法，将其源码反编译为字符串。为此 Eich 选择在十天冲刺<sup>[13](./notes.md#13)</sup>内实现字节码反编译器，因为不论将源码放在主存储器（RAM 或 ROM）还是从辅助存储器（硬盘等）中恢复，对某些需支持的目标体系结构而言，代价都可能过于昂贵。对于受 Intel 8086 16 位分段内存模型约束的 Windows 3.1 计算机而言，情况尤其如此。因为对于内存中无边界或大型的结构体，需要覆盖并手动管理内存中的多个段。
 
@@ -60,7 +60,7 @@ JavaScript 只是 Netscape Navigator 中一个相对较小的功能，因此其�
 
 > BE（Brendan Eich）：我希望它（JavaScript）可以由其他厂商基于我和 Bill Joy 正在起草的规范来实现。我希望看到它保持小巧，但能在 Web 上随处可见，成为把对 HTML 元素的操作与 Java applet 等其他组件粘合在一起时的首选方式。
 > 
-> BE：……据我所知，最常见的用途是使页面更智能，更生动。比如可以根据一天中的时间，在单击链接时加载不同的 URL。
+> BE：……据我所知，最常见的用途是使页面更智能，更生动。比如可以根据一天中的时间，在单击链接时加载不同的 *URL*<sup>[g](./appendices.md#URL)</sup>。
 > 
 > ……
 > 
@@ -68,45 +68,64 @@ JavaScript 只是 Netscape Navigator 中一个相对较小的功能，因此其�
 > 
 > 我将继续通过修正错误、添加新特性，并尝试使 JavaScript 在所有平台上保持一致的方式，来完成 2.1 版本。我不知道 2.1 版本具体何时交付，但可以保证它会在明年秋天前发布——我们这里前进得很快。
 
-JavaScript 1.0 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)] 是一种简单的*动态类型*语言，它支持数字、字符串与布尔值、一等公民函数，以及对象数据类型。从语法上看，JavaScript 与 Java 一样属于 C 家族，其控制流语句借鉴了 C，其表达式语法也包括了大多数 C 的数字运算符。JavaScript 1.0 有一个小的内置函数库，其源码通常直接嵌入 HTML 文件中，但其内置库包含一个 `eval` 函数，可以解析并求值编码到字符串中的 JavaScript 源码。整个 JavaScript 1.0 是一门非常精简的语言。图 3 总结了一些缺失的特性。对于现代 JavaScript 程序员而言，这些特性的遗漏可能令人惊讶。
+JavaScript 1.0 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)] 是一种简单的*动态类型*<sup>[g](./appendices.md#dynamically-typed)</sup>语言，它支持数字、字符串与布尔值、一等公民函数，以及对象数据类型。从语法上看，JavaScript 与 Java 一样属于 C 家族，其控制流语句借鉴了 C，其表达式语法也包括了大多数 C 的数字运算符。JavaScript 1.0 有一个小的内置函数库，其源码通常直接嵌入 HTML 文件中，但其内置库包含一个 `eval` 函数，可以解析并求值编码到字符串中的 JavaScript 源码。整个 JavaScript 1.0 是一门非常精简的语言。图 3 总结了一些缺失的特性。对于现代 JavaScript 程序员而言，这些特性的遗漏可能令人惊讶。
 
-```
-* 独立的 Array 对象类型
-* 数组字面量
-* 正则表达式
-* 对象字面量
-* 对 undefined 的全局绑定
-* === 运算符
-* typeof, void, delete 运算符
-* in, instanceof 运算符
-* do-while 语句
-* switch 语句
-* try-catch-finally 语句
-* break/continue 语句
-* 嵌套函数声明
-* 函数表达式
-* 函数的 call 和 apply 方法
-* 函数的 prototype 属性
-* 基于原型的继承
-* 对内置原型对象的访问
-* 循环垃圾收集
-* HTML <script> 标签的 src 属性
-```
+<table>
+  <tr>
+    <td>独立的 <code>Array</code> 对象类型</td>
+    <td><code>Array</code> 字面量</td></tr>
+  <tr>
+    <td>正则表达式</td>
+    <td>对象字面量</td>
+  </tr>
+  <tr>
+    <td>对 <code>undefined</code> 的全局绑定</td>
+    <td><code>===</code> 运算符</td>
+  </tr>
+  <tr>
+    <td><code>typeof</code>, <code>void</code>, <code>delete</code> 运算符</td>
+    <td><code>in</code>, <code>instanceof</code> 运算符</td>
+  </tr>
+  <tr>
+    <td><code>do-while</code> 语句</td>
+    <td><code>switch</code> 语句</td>
+  </tr>
+  <tr>
+    <td><code>try-catch-finally</code> 语句</td>
+    <td><code>break</code>/<code>continue</code> 到标签</td>
+  </tr>
+  <tr>
+    <td>嵌套函数声明</td>
+    <td>函数表达式</td>
+  </tr>
+  <tr>
+    <td>函数的 <code>call</code> 和 <code>apply</code> 方法</td>
+    <td>函数的 <code>prototype</code> 属性</td>
+  </tr>
+  <tr>
+    <td>基于原型的继承</td>
+    <td>对内置原型对象的访问</td>
+  </tr>
+  <tr>
+    <td>循环垃圾回收<sup><a href="./appendices.md#cyclic-garbage-collection">g</a></sup></td>
+    <td>HTML <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性</td>
+  </tr>
+</table>
 
 图 3. JavaScript 1.0 中未涉及的 JavaScript 常用特性（约 2010 年时）。
 
 1996 年初，代号「Atlas」的 Netscape Navigator 3.0 开发工作启动 [[Netscape 1996g](./references.md#netscape:nav:3.0b3:releasenotes)]，并于 1996 年 8 月发布。Brendan Eich 在此期间得以继续开发那些当 1995 年 8 月的 2.0 版本特性冻结时，还不够完整或缺失的特性。直到 Navigator 3.0 中发布 JavaScript 1.1 [[Netscape 1996a](./references.md#netscape:js1.1:newfeatures), [e](./references.md#netscape:js1.1:handbook)] 时，JavaScript 的初始定义和开发才算完成。以下各节概述了 JavaScript 1.0 / 1.1 语言的设计。
 
 ### JavaScript 语法
-JavaScript 1.0 的语法直接以 C 语言 [[ANSI X3 1989](./references.md#c89)] 为基础，有一些地方受到了 AWK 语言 [[Aho et al. 1988](./references.md#aho1988awk)] 的启发。一个脚本（script）就是一系列的语句（statement）和声明（declaration）。与 C 不同的是，JavaScript 的语句并不限于在函数体内出现。在 JavaScript 1.0 中，脚本源码嵌入在由 `<script></script>` 标签包围的 HTML 文档中。
+JavaScript 1.0 的语法直接以 C 语言 [[ANSI X3 1989](./references.md#c89)] 为基础，有一些地方受到了 *AWK*<sup>[g](./appendices.md#AWK)</sup> 语言 [[Aho et al. 1988](./references.md#aho1988awk)] 的启发。一个脚本（script）就是一系列的语句（statement）和声明（declaration）。与 C 不同的是，JavaScript 的语句并不限于在函数体内出现。在 JavaScript 1.0 中，脚本源码嵌入在由 `<script></script>` 标签包围的 HTML 文档中。
 
 JavaScript 1.0 中受 C 启发的语句包括：表达式语句；`if` 条件语句；`for` 和 `while` 循环语句；非顺序控制流的 `break`、`continue` 和 `return` 语句；以及语句块（支持使用由 `{}` 分隔的语句序列，就像使用单条语句一样）。`if`，`for` 和 `while` 语句都是复合语句<sup>[14](./notes.md#14)</sup>。JavaScript 1.0 并未包含 C 的 `do-while` 语句，`switch` 语句，语句标签与 `goto` 语句。
 
-在基本的 C 语句全家桶基础上，JavaScript 1.0 添加了两个复合语句，用于访问其对象数据类型的属性。受 AWK 启发的 `for-in` 语句可以遍历对象的*属性键*。而在 `with` 语句<sup>[15](./notes.md#15)</sup>的语句体内，可以把某个对象的属性名称当作变量来访问。由于属性可能被动态添加（在更高版本的语言中还可以被删除），因此可见变量的*绑定*（binding）可能会随 `with` 语句体中的执行过程而发生变化。
+在基本的 C 语句全家桶基础上，JavaScript 1.0 添加了两个复合语句，用于访问其对象数据类型的属性。受 AWK 启发的 `for-in` 语句可以遍历对象的*属性键*<sup>[g](./appendices.md#property-key)</sup>。而在 `with` 语句<sup>[15](./notes.md#15)</sup>的语句体内，可以把某个对象的属性名称当作变量来访问。由于属性可能被动态添加（在更高版本的语言中还可以被删除），因此可见变量的*绑定*<sup>[g](./appendices.md#binding)</sup>可能会随 `with` 语句体中的执行过程而发生变化。
 
 JavaScript 中的声明（declaration）并未遵循 C 或 Java 的风格。JavaScript 是动态类型的，没有语言层面的类型名称作为识别声明的语法前缀。相反地，JavaScript 的声明使用关键字作为前缀。JavaScript 1.0 有两种形式的声明，即 `function` 声明和 `var` 声明。`function` 声明<sup>[16](./notes.md#16)</sup>的语法是直接从 AWK 借鉴的，定义了单个可调用函数的名称、形参和语句主体。`var` 声明可以引入一个或多个变量绑定，并能选择性地为变量赋值。所有的 `var` 声明都被视为语句，并可在任何语句上下文中出现，包括语句块中。在 JavaScript 1.0 / 1.1 中，函数声明则只能在脚本的顶层出现，并且不支持嵌套。`var` 声明也可以出现在函数体内。由这类声明定义的变量，属于函数的局部变量。
 
-与 C 不同的是，JavaScript 1.0 的语句块并未引入声明作用域的概念。在函数体内的语句块中，`var` 声明对这整个函数体均局部可见。位于函数外部块中的 `var` 声明则具备全局*作用域*。如果向「作用域内不存在 `function` 或 `var` 声明」的变量名赋值，则会隐式创建具有该名称的全局变量。事实证明这种行为是导致错误的重要原因，因为如果拼写错了已声明的变量，也会静默地创建名称错误的新变量。
+与 C 不同的是，JavaScript 1.0 的语句块并未引入声明作用域的概念。在函数体内的语句块中，`var` 声明对这整个函数体均局部可见。位于函数外部块中的 `var` 声明则具备全局*作用域*<sup>[g](./appendices.md#scope)</sup>。如果向「作用域内不存在 `function` 或 `var` 声明」的变量名赋值，则会隐式创建具有该名称的全局变量。事实证明这种行为是导致错误的重要原因，因为如果拼写错了已声明的变量，也会静默地创建名称错误的新变量。
 
 JavaScript 与传统 C 语法还有一个重要区别，那就是它对语句末尾分号的处理。C 将分号视为强制性的语句终止符，而 JavaScript 则允许在分号是行中最后一个有效字符时，省略这个用于终止语句的分号。这种行为的确切规则并未包含在 JavaScript 1.0 文档中。《Netscape 2.0 手册》在描述各种 JavaScript 语句形式时也并未展示分号，它只说明「一条语句可能跨越多行。如果每条语句之间用分号分隔，则可能在一行上出现多条语句 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)]。」手册的 JavaScript 代码示例使用了无分号的编码风格，如下所示：
 
@@ -131,7 +150,7 @@ JavaScript 1.0 有两个特殊值，用于表示「缺少有用的数据值」�
 
 JavaScript 1.0 的表达式语法基本上复制自 C，使用了一组相同的运算符（operator）与优先级规则。这里主要省略的部分是 C 的指针和与类型相关的运算符，以及一元的 `+` 运算符。二元的 `+` 运算符被重载，以执行数字加法与字符串连接。移位和按位逻辑运算符可以对「有符号 32 位二进制补码整数」进行位级的操作。如有必要，操作数将被截断为整数，并取模减少到 32 位的值。`>>` 运算符可以对 32 位整数值执行符号扩展的算术右移。JavaScript 还添加了从 Java 借鉴的 `>>>` 运算符，用于执行无符号的右移运算。
 
-JavaScript 1.1 添加了 `delete`，`typeof` 和 `void` 运算符。在 JavaScript 1.1 中，`delete` 运算符仅会将其对应的变量或对象属性操作数设为 `null` 值。`typeof` 运算符会返回一个字符串，该字符串标识其操作数的原始类型。可能的字符串值包括 `"undefined"`、`"object"`、`"function"`、`"boolean"`、`"string"`、`"number"`，或一个「由实现环境决定的字符串值」来标示宿主对象的种类。令人困惑的是，`typeof null` 会返回字符串值 `"object"` 而不是 `"null"`。其实也可以说这与 Java 保持了一致，因为 Java 的所有值都是对象，而 `null` 本质上是表达「没有对象」的对象。但是，Java 缺少与 `typeof` 运算符等效的特性，并使用 `null` 作为未初始化变量的默认值。根据 Brendan Eich 的回忆，`typeof null` 的值是原始 Mocha 实现中*抽象泄漏*（leaky abstraction）的结果。`null` 的运行时值使用了与对象值相同的内部标记值进行编码，因此 `typeof` 运算符的实现就直接返回了 `"object"`，而无需任何额外的特殊处理。实践表明，这种选择对 JavaScript 程序员带来了很大的麻烦。他们通常想在尝试访问某个值的属性之前，先测试这个值是否确实是一个对象。但光是测试值的类型是否为 `"object"` 并不足以保护属性访问，因为尝试访问 `null` 的属性也会产生运行时错误。
+JavaScript 1.1 添加了 `delete`，`typeof` 和 `void` 运算符。在 JavaScript 1.1 中，`delete` 运算符仅会将其对应的变量或对象属性操作数设为 `null` 值。`typeof` 运算符会返回一个字符串，该字符串标识其操作数的原始类型。可能的字符串值包括 `"undefined"`、`"object"`、`"function"`、`"boolean"`、`"string"`、`"number"`，或一个「由实现环境决定的字符串值」来标示宿主对象的种类。令人困惑的是，`typeof null` 会返回字符串值 `"object"` 而不是 `"null"`。其实也可以说这与 Java 保持了一致，因为 Java 的所有值都是对象，而 `null` 本质上是表达「没有对象」的对象。但是，Java 缺少与 `typeof` 运算符等效的特性，并使用 `null` 作为未初始化变量的默认值。根据 Brendan Eich 的回忆，`typeof null` 的值是原始 Mocha 实现中*抽象泄漏*<sup>[g](./appendices.md#leaky-abstraction)</sup>的结果。`null` 的运行时值使用了与对象值相同的内部标记值进行编码，因此 `typeof` 运算符的实现就直接返回了 `"object"`，而无需任何额外的特殊处理。实践表明，这种选择对 JavaScript 程序员带来了很大的麻烦。他们通常想在尝试访问某个值的属性之前，先测试这个值是否确实是一个对象。但光是测试值的类型是否为 `"object"` 并不足以保护属性访问，因为尝试访问 `null` 的属性也会产生运行时错误。
 
 `void` 运算符仅求值其操作数，然后返回 *undefined*。访问 *undefined* 的一种常见手法是 `void 0`。引入 `void` 运算符，是为了在定义「单击时执行 JavaScript 代码的 HTML 超链接」时作为辅助。例如：
 
@@ -141,7 +160,7 @@ JavaScript 1.1 添加了 `delete`，`typeof` 和 `void` 运算符。在 JavaScri
 </a>
 ```
 
-这里 `href` *属性*（attribute）的值应为一个 URL，而 `javascript:` 是浏览器可识别的特殊 URL 协议。这意味着要对后面的 JavaScript 代码求值，并使用将其转换为字符串的结果，就像使用由常规  `href` URL 获取的响应文档那样。除非获得 *undefined*，否则 `<a>` 元素将尝试继续处理该响应文档。通常 Web 开发者想要的只是在单击链接时对 JavaScript 表达式求值而已。给表达式加上前缀 `void` 即可允许以这种方式使用该表达式，避免 `<a>` 元素的进一步处理。
+这里 `href` *属性*<sup>[g](./appendices.md#attribute)</sup>的值应为一个 URL，而 `javascript:` 是浏览器可识别的特殊 URL 协议。这意味着要对后面的 JavaScript 代码求值，并使用将其转换为字符串的结果，就像使用由常规  `href` URL 获取的响应文档那样。除非获得 *undefined*，否则 `<a>` 元素将尝试继续处理该响应文档。通常 Web 开发者想要的只是在单击链接时对 JavaScript 表达式求值而已。给表达式加上前缀 `void` 即可允许以这种方式使用该表达式，避免 `<a>` 元素的进一步处理。
 
 C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自动将其操作数隐式转换为运算符领域内的数据类型。JavaScript 1.1 添加了一种可配置的机制，用于将任意对象转换为数字或字符串值。图 4 总结了 JavaScript 1.1 的隐式类型转换（coercion）规则。
 
@@ -277,7 +296,7 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
 图 4. Eich 和 McKinney 在 JavaScript 1.1 初始规范中提出的隐式类型转换规则 [[1996](./references.md#TC39:1996:002), page 23]，最终标准化的规则与此略有不同。这是对原始表格的复制，存在一些排版上的细微差别。脚注 3 并未出现在原文中。
 
 ### 对象
-JavaScript 1.0 的对象是关联数组，其元素称为属性（property）。每个属性都有一个字符串键和一个值，该值可以是任何 JavaScript 数据类型。属性可以被动态添加。JavaScript 1.0 / 1.1 不支持从对象中删除属性。
+JavaScript 1.0 的对象是关联数组，其元素称为属性。每个属性都有一个字符串键和一个值，该值可以是任何 JavaScript 数据类型。属性可以被动态添加。JavaScript 1.0 / 1.1 不支持从对象中删除属性。
 
 只要某个属性的键字符串符合标识符的语法规则，就可以用形如 `obj.prop0` 的点符号（dot notation）来访问它。所有属性都可以使用方括号表示法（bracket notation）来访问，包括那些键不符合标识符规则的属性。其中用方括号括起来的表达式将被求值，并转换为用作属性键的字符串。例如当 `n` 的值为 `0` 时，`obj["prop" + n]` 等效于 `obj.prop0`。赋值给不存在的属性会创建一个新属性，访问不存在的属性通常会返回 *undefined*。但是在 JavaScript 1.0 / 1.1 中，如果使用方括号表示法访问不存在的属性值，并且属性键是「非负整数的字符串表示形式」，则会返回 `null` 值。
 
@@ -313,7 +332,7 @@ a[2] = "two";
 a.length = 3;
 ```
 
-JavaScript 1.0 没有对象*继承*（inheritance）的概念。程序必须分别将所有属性添加到每个新对象，这通常是通过为程序使用的每个「类对象」（class object）定义一个构造函数来实现的。图 6 展示了基于 JavaScript 1.0 定义的简单 Point 抽象。
+JavaScript 1.0 中没有对象*继承*<sup>[g](./appendices.md#inheritance)</sup>的概念。程序必须分别将所有属性添加到每个新对象，这通常是通过为程序使用的每个「类对象」（class object）定义一个构造函数来实现的。图 6 展示了基于 JavaScript 1.0 定义的简单 Point 抽象。
 
 ``` js
 // 定义出作为方法被使用的函数
@@ -343,13 +362,13 @@ var origin = new Point(0,0); // 创建 Point 对象
 * 构造对象时，必须为每个方法创建一个对象属性，并将其值初始化为相应的全局函数。
 * 方法是通过属性名称（`origin.distance`）而非声明的全局名称（`ptDistance`）被调用的。
 
-JavaScript 1.1 不再需要直接在每个新实例上创建方法属性。它通过函数对象名为 `prototype` 的属性，将*原型*对象与构造函数关联起来。《JavaScript 1.1 指南》[[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 将 `prototype` 描述为「由所有该类型对象共享的属性」。这是个模糊的描述，更好的表述可能是这样的：一个自身属性与所有「由构造函数创建的对象」共享的对象。
+JavaScript 1.1 不再需要直接在每个新实例上创建方法属性。它通过函数对象名为 `prototype` 的属性，将*原型*<sup>[g](./appendices.md#prototype)</sup>对象与构造函数关联起来。《JavaScript 1.1 指南》[[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 将 `prototype` 描述为「由所有该类型对象共享的属性」。这是个模糊的描述，更好的表述可能是这样的：一个自身属性与所有「由构造函数创建的对象」共享的对象。
 
 对这种共享机制没有更进一步的说明，但可以发现原型对象具备如下特征：
 
 * 访问对象属性时，如果这个属性的名称在「与对象构造函数相关联的原型」上已被定义，那么将返回原型对象的属性值。
 * 对原型对象属性的添加或修改，对于通过「与原型相关联的构造函数」创建的现有对象，是立即可见的。
-* 为对象属性赋值时，会遮盖（shadow）<sup>[18](./notes.md#18)</sup>在「与对象构造函数相关联的原型」上定义的同名属性值。
+* 为对象属性赋值时，会*遮盖*<sup>[g](./appendices.md#shadow)</sup><sup>[18](./notes.md#18)</sup>在「与对象构造函数相关联的原型」上定义的同名属性值。
 
 对于语言内置的 `Object.prototype` 对象，其所有属性都可以通过对任何对象的属性访问来获取到，除非该属性已被对象或其原型遮盖。
 
@@ -378,11 +397,11 @@ var origin = new Point(0,0); // 创建 Point 对象
 
 图 7. 使用 JavaScript 1.1 定义的 Point 抽象。实例对象从 `Point.ptototype` 对象上继承方法，而不是在每个实例上定义方法属性。
 
-这里的不同之处在于，方法仅在原型对象上挂载了一次，而不是在构造每个实例对象时重复挂载。由原型对象提供给某个对象的属性称为*继承属性*（inherited property），而直接在对象上定义的属性则称为*自有属性*（own property）。自有属性会遮盖同名的继承属性。
+这里的不同之处在于，方法仅在原型对象上挂载了一次，而不是在构造每个实例对象时重复挂载。由原型对象提供给某个对象的属性称为*继承属性*<sup>[g](./appendices.md#inherited-property)</sup>，而直接在对象上定义的属性则称为*自有属性*<sup>[g](./appendices.md#own-property)</sup>。自有属性会遮盖同名的继承属性。
 
 原型对象的属性通常是方法。在这种情况下，构造函数提供的原型发挥的是与 C++ 中的虚函数表（vtable）或 Smalltalk 中的 MethodDictionary 相同的作用，也就是将通用的行为与一组对象相关联。构造函数实际上充当的是类对象（class object）的角色，其原型相当于「与类的实例共享方法」的容器。这是一种对 JavaScript 1.1 对象模型的合理解释，当然也不是唯一的解释。
 
-对「构造函数原型属性」的命名，清楚地表明 Brendan Eich 考虑了另一种对象模型。该模型的灵感来自于 Self 编程语言 [[Ungar and Smith 1987](./references.md#self)]。在 Self 中，新对象是通过「部分克隆某些种类的原型对象」来创建的。每个克隆体都有一个指回其原型的 `parent` 链接，这样原型就可以提供「想在其所有克隆体之间共享」的功能了。JavaScript 1.1 的对象模型可以看作是 Self 模型的一种变体。在原型中，原型对象可以通过构造函数被间接访问到，而 `new` 运算符将从原型中克隆出新实例。这些克隆出的实例，会*继承*那些在原型对象属性上通用共享的功能。一些 JavaScript 程序员将此机制称为*原型继承*（prototypal inheritance）。这是一种代理（delegation）的形式。一些 JavaScript 程序员还使用带引号的「经典继承」概念，来指代 Java 和许多其他面向对象语言中使用的继承风格。
+对「构造函数原型属性」的命名，清楚地表明 Brendan Eich 考虑了另一种对象模型。该模型的灵感来自于 Self 编程语言 [[Ungar and Smith 1987](./references.md#self)]。在 Self 中，新对象是通过「部分克隆某些种类的原型对象」来创建的。每个克隆体都有一个指回其原型的 `parent` 链接，这样原型就可以提供「想在其所有克隆体之间共享」的功能了。JavaScript 1.1 的对象模型可以看作是 Self 模型的一种变体。在原型中，原型对象可以通过构造函数被间接访问到，而 `new` 运算符将从原型中克隆出新实例。这些克隆出的实例，会*继承*<sup>[g](./appendices.md#inherit)</sup>那些在原型对象属性上通用共享的功能。一些 JavaScript 程序员将此机制称为「原型继承<sup>[g](./appendices.md#prototypal-inheritance)</sup>」。这是一种委托机制的形式。一些 JavaScript 程序员还使用带引号的「经典继承<sup>[g](./appendices.md#classical-inheritance)</sup>」概念，来指代 Java 和许多其他面向对象语言中使用的继承风格。
 
 JavaScript 1.1 的文档 [[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 并未完全描述这两个对象模型。它维护的是一个与 1995 年 12 月 Netscape / Sun 新闻稿一致的营销故事。JavaScript 被定位为一种「脚本式编写对象交互」的语言，而对象抽象的实际定义（类定义）将用 Java 编写。此时原生 JavaScript 的对象抽象能力尚且限于次要特性。这些次要特性仅引起了微小的关注，有很多并未被文档化。
 
@@ -402,7 +421,7 @@ alert(countedHello.callCount); // 显示 5
 函数需要用形式参数列表（formal parameter list）来声明。但参数列表的大小，并不会限制调用函数时可传递的参数数量。如果调用函数时传递的实参（实际参数，argument）数量少于其声明的形参（形式参数，parameter）数量，那么多余的形参将被设置为 *undefined*。而如果传递的实参数量超过形参数量，则会对额外的实参求值，但无法通过形参名称获得这些值。不过在执行函数体期间，还可以使用类似数组的实参对象（arguments object）作为函数对象 `arguments` 属性的值。调用函数时传递的所有实参，都可以用作 `arguments` 对象的整数键（integer-keyed）属性。这样一来，就可以编写出「支持处理可变长度参数列表」的函数了。
 
 ### 内置库
-JavaScript 1.0 附带了具备内置函数、对象和构造函数的库（library）。在这个库定义的通用对象<sup>[19](./notes.md#19)</sup>和函数之中，有少量属于通用，而有大量则是宿主特定（host-specific）的。在 Netscape Navigator 中，*宿主对象*（host object）提供的模型表达了当前 HTML 文档的一部分。这些 API 最终被称为级别 0 的文档对象模型（DOM）[[Koch 2003](./references.md#dom0); [Netscape 1996b](./references.md#navdom0)]。而对于 Netscape Enterprise Server，宿主对象支持客户端与服务端之间的通信，管理客户端与服务端之间的会话（session）状态，以及对文件与数据库的访问。这种服务端宿主对象的设计，并没有在 Netscape 服务器产品以外的地方被采用。
+JavaScript 1.0 附带了具备内置函数、对象和构造函数的库（library）。在这个库定义的通用对象<sup>[19](./notes.md#19)</sup>和函数之中，有少量属于通用，而有大量则是宿主特定（host-specific）的。在 Netscape Navigator 中，*宿主对象*<sup>[g](./appendices.md#host-object)</sup>提供的模型表达了当前 HTML 文档的一部分。这些 API 最终被称为级别 0 的文档对象模型（DOM）[[Koch 2003](./references.md#dom0); [Netscape 1996b](./references.md#navdom0)]。而对于 Netscape Enterprise Server，宿主对象支持客户端与服务端之间的通信，管理客户端与服务端之间的会话（session）状态，以及对文件与数据库的访问。这种服务端宿主对象的设计，并没有在 Netscape 服务器产品以外的地方被采用。
 
 JavaScript 的早期设计，很大程度上受到了浏览器平台需求的驱动。在早期 JavaScript 版本对应的 Netscape 文档中，并没有明确区分库中的元素是意图「独立于宿主环境」还是「依赖宿主」。不过，DOM 和其他浏览器平台 API 的设计、演变和标准化，已经足够构成它们自己的重要故事了。本文仅在与 JavaScript 的总体设计相关时，才会提及与浏览器相关的问题。
 
@@ -501,7 +520,7 @@ JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的�
 
 `String` 类提供了 `length` 属性和 6 个对不可变字符串值进行操作的通用方法，它们会在适当的时候返回新的字符串值。JavaScript 1.0 的 `String` 类还包括 13 种方法，用于使用各种 HTML 标签来包装字符串值。这个例子说明了 JavaScript 1.0 / 1.1 中「与宿主相关的特性」和「通用特性」之间的模糊界限。JavaScript 1.0 没有提供全局 `String` 构造函数，所有字符串值都是使用字符串字面量、运算符或内置函数创建的。JavaScript 1.1 添加了全局 `String` 构造函数和 `split` 方法。
 
-`Date` 类用于表示日历日期和时间。JavaScript 1.0 的 `Date` 是直接照着 Java 1.0 [[Gosling et al. 1996](./references.md#jls)] 中 `java.util.Date` 类搬运来的，连 bug 都没落下。这里包括了一些编码细节，如使用以 GMT 时间 1970 年 1 月 1 日 00:00:00 为中心的毫秒级分辨率时间值，在外部以 0-11 编号的月份，以及 Java 设计中存在的 2000 年歧义。这个设计决策的理由，是与 Java 互操作性方面的需求。唯一被排除的 Java 方法是 `equal`，`before` 和 `after`。这里并没有使用它们的必要，因为 JavaScript 具备隐式类型转换（automatic coercion）转换能力，可以将数字关系运算符直接与 Date 对象一起使用。
+`Date` 类用于表示日历日期和时间。JavaScript 1.0 的 `Date` 是直接按照 Java 1.0 [[Gosling et al. 1996](./references.md#jls)] 中的 `java.util.Date` 类而实现的，连 bug 都保持了一致。这里包括了一些编码细节，如使用以 GMT 时间 1970 年 1 月 1 日 00:00:00 为中心的毫秒级分辨率时间值，在外部以 0-11 编号的月份，以及 Java 设计中存在的 2000 年歧义。这个设计决策的理由，是与 Java 互操作性方面的需求。唯一被排除的 Java 方法是 `equal`，`before` 和 `after`。这里并没有使用它们的必要，因为 JavaScript 具备隐式类型转换（automatic coercion）转换能力，可以将数字关系运算符直接与 Date 对象一起使用。
 
 除了 `Object` 之外，`Date` 是 JavaScript 1.0 中唯一可用的内置构造函数。另外除了类的实例方法之外，`Date` 也是唯一在构造函数对象上暴露方法的类。那些浏览器特定（broswer-specific）的类则都没有暴露出构造函数。
 
@@ -710,7 +729,7 @@ Netscape 1 和 Mosaic 浏览器在遇到 HTML `<script>` 元素时所做的操�
 </script>
 ```
 
-尽管 `<!--` 注释并未记录为正式的 JavaScript 语法，但 Web 开发者已使用了它们，并且其他浏览器的 JavaScript 实现也支持它。结果 `<!--` 成为了事实上的 *Web Reality*。二十年后的 2015 年，它终于被添加到了 ECMAScript 标准中——笑到最后的总是 Web Reality。
+尽管 `<!--` 注释并未记录为正式的 JavaScript 语法，但 Web 开发者已使用了它们，并且其他浏览器的 JavaScript 实现也支持它。结果 `<!--` 成为了事实上的 *Web Reality*<sup>[g](./appendices.md#Web-Reality)</sup>。二十年后的 2015 年，它终于被添加到了 ECMAScript 标准中——笑到最后的总是 Web Reality。
 
 ## 微软 JScript<sup>[22](./notes.md#22)</sup>
 在 Netscape 和 Sun 公开发布 JavaScript 的同一周，微软宣布它准备令 Visual Basic 成为「用 Visual Basic Script 来创建万维网应用的标准」[[Wingfield 1995](./references.md#infoworld:1995:12:11)]。微软在 1996 年 5 月 29 日的 Internet Explorer 3.0 Beta 新闻稿 [[Microsoft 1996](./references.md#microsoft:pressIE3beta)] 中，正式宣布了对 JavaScript 的支持：
@@ -719,7 +738,7 @@ Netscape 1 和 Mosaic 浏览器在遇到 HTML `<script>` 元素时所做的操�
 
 自 1995 年 10 月 Robert Welland 加入微软 Internet Explorer（IE）团队开始，JScript 的开发工作就启动了。Welland 之前曾为苹果的 Newton 掌上电脑和 NewtonScript 编程语言 [[Smith 1995](./references.md#Smith:1995:UPL:217838.217844)] 工作。NewtonScript 是基于原型的面向对象语言，其设计受 Self 语言的影响。Welland 与 NewtonScript 的首席设计师 Walter Smith 以及该项目的顾问 David Ungar 密切合作，因此 Welland 非常熟悉 Self 和 Ungar 关于基于原型的语言的想法。在离开苹果后，Welland 一直在考虑该如何将脚本添加到浏览器，这也使得他最后被招来实现 Internet Explorer 的脚本能力。
 
-当 Robert Welland 来到微软时，他被告知的是应该将 Visual Basic 放入 IE 中，但当他与微软开发者工具部门（DevDiv）的 Visual Basic 团队讨论时，他们说这需要花费两年时间。因此他和 Sam McKelvie 快速尝试了使 VBA<sup>[23](./notes.md#23)</sup> 在 IE 2 中运行的工作，但发现它太过于复杂而无法与浏览器的对象模型集成。Welland 在 Netscape 2 公开测试版中研究了 LiveScript / JavaScript，并开始尝试实现一个针对 JavaScript 的简单字节码解释器，而后 McKelvie 对其进行了改进。Welland 发现，DevDiv 部门的 Peter Kukol 已经编写了一个 JavaScript 解析器<sup>[24](./notes.md#24)</sup>，可以用来生成字节码。于是 Welland 和 McKelvie 将他们的解释器、Kukol 的解析器和 Patrick Dussud 编写的垃圾收集器连接了起来，构成了 JScript 的基础。
+当 Robert Welland 来到微软时，他被告知的是应该将 Visual Basic 放入 IE 中，但当他与微软 DevDiv 开发者工具部门<sup>[g](./appendices.md#DevDiv)</sup>的 Visual Basic 团队讨论时，对方表示这需要花费两年时间。因此他和 Sam McKelvie 快速尝试了使 VBA<sup>[23](./notes.md#23)</sup> 在 IE 2 中运行的工作，但发现它太过于复杂而无法与浏览器的对象模型集成。Welland 在 Netscape 2 公开测试版中研究了 LiveScript / JavaScript，并开始尝试实现一个针对 JavaScript 的简单字节码解释器，而后 McKelvie 对其进行了改进。Welland 发现，DevDiv 部门的 Peter Kukol 已经编写了一个 JavaScript 解析器<sup>[24](./notes.md#24)</sup>，可以用来生成字节码。于是 Welland 和 McKelvie 将他们的解释器、Kukol 的解析器和 Patrick Dussud 编写的垃圾收集器连接了起来，构成了 JScript 的基础。
 
 微软的 DevDiv 部门负责微软所有编程语言和开发者工具的开发。因此，在 Windows 部门 IE 团队工作的 Robert Welland 和 Sam McKelvie 要想参与新语言实现的开发，在政治上是敏感的。而对于 IE 是否应该支持 JavaScript 的问题，也存在着内部争议。DevDiv 希望集中精力将 Visual Basic 用于脚本，并将 Java 用于应用程序。但 IE 团队的目标是使 IE 3 与 Netscape 3 兼容，这就涉及了对 JavaScript 的支持。微软对于不得不支持 JavaScript 并不满意，但为时已晚，已经无法忽略它了。最后的折衷方案是，IE 和微软整体上将同时支持 JavaScript 和 Visual Basic 用于脚本编写，而脚本语言部分的职责属于 DevDiv。IE 和 Windows 团队的职责，则是把脚本能力集成到浏览器和其他产品中。
 
@@ -732,11 +751,11 @@ IE 团队非常重视与 Netscape 的竞争。他们希望当时作为 Active Sc
 在整个 JScript 的开发过程中，适当语言规范的缺乏一直是个问题。Welland 回忆说在整个开发历程里，领导 IE3 开发的 Thomas Reardon 会抓住一切机会，就 JavaScript 语言规范的缺失而斥责 Netscape 同行。
 
 ## 从 Mocha 到 SpiderMonkey
-在 1995 年全年和 1996 年的大部分时间里，Brendan Eich 都是唯一全职从事 *JavaScript 引擎*<sup>[25](./notes.md#25)</sup>开发工作的 Netscape 开发者。在 1996 年 8 月发布的 Netscape 3.0 版本中，JavaScript 1.1 仍然主要包含 1995 年 5 月的 10 天原型代码。在发布这个版本后，Eich 认为是时候偿还*引擎*的技术债<sup>[26](./notes.md#26)</sup>，并努力使 JavaScript「成为一门更干净的语言」了。但 Netscape 管理层则希望他研究语言规范。他们对微软针对 JavaScript 规范缺失的批评很敏感，并认为即将开始的语言标准化进程需要这样一份规范作为输入。Eich 拒绝了，他想把重新实现 Mocha 作为开始。要想编写规范，他需要的是仔细检查 Mocha 的实现。他认为在检查 Mocha 时重写 Mocha 是最有效率的方法，这也能让他在初始的设计错误被纳入规范前纠正它们。
+在 1995 年全年和 1996 年的大部分时间里，Brendan Eich 都是唯一全职从事 *JavaScript 引擎*<sup>[g](./appendices.md#JavaScript-engine)</sup><sup>[25](./notes.md#25)</sup>开发工作的 Netscape 开发者。在 1996 年 8 月发布的 Netscape 3.0 版本中，JavaScript 1.1 仍然主要包含 1995 年 5 月的 10 天原型代码。在发布这个版本后，Eich 认为是时候偿还*引擎*<sup>[g](./appendices.md#engine)</sup>的技术债<sup>[26](./notes.md#26)</sup>，并努力使 JavaScript「成为一门更干净的语言」了。但 Netscape 管理层则希望他研究语言规范。他们对微软针对 JavaScript 规范缺失的批评很敏感，并认为即将开始的语言标准化进程需要这样一份规范作为输入。Eich 拒绝了，他想把重新实现 Mocha 作为开始。要想编写规范，他需要的是仔细检查 Mocha 的实现。他认为在检查 Mocha 时重写 Mocha 是最有效率的方法，这也能让他在初始的设计错误被纳入规范前纠正它们。
 
-由于对辩论感到沮丧，Brendan Eich 离开办公室，在家工作了两个星期。在此期间，他重新设计实现了 JavaScript 引擎的核心。此举的收获是一个更快、更可靠和更灵活的运行引擎。他舍弃了将 JavaScript 值表示为 *discriminated union* 的实践，改为使用包含即时原始值的标记指针（tagged pointer）。他还实现了诸如嵌套函数、函数表达式和 `switch` 语句之类的特性，这些特性从未在原始引擎中实现过。基于引用计数的内存管理器也被替换成了基于标记 / 清除算法的垃圾收集器。
+由于对辩论感到沮丧，Brendan Eich 离开办公室，在家工作了两个星期。在此期间，他重新设计实现了 JavaScript 引擎的核心。此举的收获是一个更快、更可靠和更灵活的运行引擎。他舍弃了将 JavaScript 值表示为 *discriminated union*<sup>[g](./appendices.md#discriminated-union)</sup> 的实践，改为使用包含即时原始值的标记指针（tagged pointer）。他还实现了诸如嵌套函数、函数表达式和 `switch` 语句之类的特性，这些特性从未在原始引擎中实现过。基于引用计数的内存管理器也被替换成了基于标记 / 清除算法的垃圾收集器。
 
-当 Eich 返回办公室时，新引擎已经取代了 Mocha。Chris Houck 这位早期的 Netscape 开发者也参与了进来，成为了 JavaScript 团队的第二位专职成员。Houck 根据电影《Beavis and Butt-Head Do America》[[Judge et al. 1996](./references.md#beavis)] 中的桥段，将新引擎命名为「SpiderMonkey」<sup>[27](./notes.md#27)</sup>。Clayton Lewis 加入团队担任经理，并聘请来了 Norris Boyd。技术作家 Rand McKinny 被派来协助 Eich 编写规范。
+当 Eich 返回办公室时，新引擎已经取代了 Mocha。Chris Houck 这位早期的 Netscape 开发者也参与了进来，成为了 JavaScript 团队的第二位专职成员。Houck 根据电影《Beavis and Butt-Head Do America》[[Judge et al. 1996](./references.md#beavis)] 中的桥段，将新引擎命名为「*SpiderMonkey*<sup>[g](./appendices.md#SpiderMonkey)</sup>」<sup>[27](./notes.md#27)</sup>。Clayton Lewis 加入团队担任经理，并聘请来了 Norris Boyd。技术作家 Rand McKinny 被派来协助 Eich 编写规范。
 
 Brendan Eich 继续将语言增强为 JavaScript 1.2，以使其成为 Netscape 4.0 的一部分。它于 1996 年 12 月发布了第一个 beta 版本，而正则表达式则添加到了 1997 年 4 月的 beta 版本中。各平台上的 Netscape 4 生产版本于 6 月起开始释出，并于 1997 年下半年进行了分发。
 

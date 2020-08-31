@@ -5,7 +5,7 @@
 * <a id="6">[6]</a> Java 的秘密 alpha 版本是 1995 年 3 月或 4 月发布的。
 * <a id="7">[7]</a> Jon Bentley [[1986](./references.md#littlelangs)] 引入了「小语言」（little language）术语，以表示那些小而易于学习的语言。它们专注于解决特定领域的问题，并不包含许多传统语言中的特性。
 * <a id="8">[8]</a> Mocha 的诞生日期没有已知的确切记录，但 Brendan Eich 相信这一时间是 5 月 6 日到 15 日。
-* <a id="9">[9]</a> 最早的 Mocha 实现使用了大型的 *discriminated union* 来表达不同的数据值，并基于引用计数来做内存管理。
+* <a id="9">[9]</a> 最早的 Mocha 实现使用了大型的 *discriminated union*<sup>[g](./appendices.md#discriminated-union)</sup> 来表达不同的数据*值*<sup>[g](./appendices.md#value)</sup>，并基于引用计数来做内存管理。
 * <a id="10">[10]</a> 在 Brendan Eich 进入 Netscape 的第一个月里，他在服务器团队工作。
 * <a id="11">[11]</a> Eich 的讨论对象包括曾在 General Magic 公司工作过的 John Giannandrea，他在那里实现了两门可以同时在客户端与服务端使用的编程语言。
 * <a id="12">[12]</a> `eval` 的设计，可以支持某种形式上对代码的部分求值，或者将提供给客户端的代码在服务端执行，和 Telescript [[General Magic 1995](./references.md#telescript)] 代理类似。
@@ -17,7 +17,7 @@
 * <a id="18">[18]</a> 所谓遮盖，指创建一个新属性，以此覆盖掉对原型属性的访问。
 * <a id="19">[19]</a> 由于 JavaScript 的对象抽象机制缺乏正式的命名，因此很难讨论 JavaScript 库所支持的特定种类的对象。JavaScript 文档中使用了包括「类型」、「对象」、「构造函数」和「类」在内的各种术语来讨论这种抽象。在本文的余下部分，对于一组具备共同的表示和方法的 JavaScript 对象，我们使用「类」这个词汇来讨论对它们的定义，而不管具体的定义形式如何。
 * <a id="20">[20]</a> 最早的 HTML `<frame>` 标签已经被废弃，并由 `<iframe>` 标签所取代。但本节中所讨论的语义，对于这两种元素来说是相同的。
-* <a id="21">[21]</a> 只要脚本体中不出现任何 `>` 或 `--` 这样在 HTML 注释中非法的操作符，就属于有效的 HTML 注释。
+* <a id="21">[21]</a> 只要脚本体中不出现任何 `>` 或 `--` 这样在 HTML 注释中非法的运算符，就属于有效的 HTML 注释。
 * <a id="22">[22]</a> 本节中的大部分材料，均基于 Allen Wirfs-Brock 在 2018 年 3 月 22 日对 Robert Welland、Shon Katzenberger 和 Peter Kukol 进行的采访录音 [[Welland et al. 2018](./references.md#jscript:interview)]。
 * <a id="23">[23]</a> VBA 即 Visual Basic for Application，属于在 Microsoft Office 应用中嵌入的一种 Visual Basic 6 的变体。
 * <a id="24">[24]</a> 在 2018 年接受采访时，Kukol 说他最近访问了微软的 JavaScript 团队，发现他最初的解析器仍然（在扩展后）被微软当时的 JavaScript 实现所使用。
@@ -71,7 +71,7 @@
 * <a id="72">[72]</a> Lambda the Ultimate 是一个在编程语言研究者和实现者中很受欢迎的网络博客，又称 LtU。
 * <a id="73">[73]</a> M0 是 Milestone 0 的缩写。
 * <a id="74">[74]</a> 在对象能力语言中，会将对象作为「基于能力（capability）的访问控制系统」的基础。
-* <a id="75">[75]</a> 在新版 ES4 中，`wrap` 操作符会对一个值进行动态的结构化类型检查。如果类型检查成功，就创建一个可用于代替该值的包装器（wrapper）对象。在包装器将操作代理到原始值上之前，它会逐个重新验证应用在其之上的操作。这样通过包装器，即使在静态类型声明的上下文中，也能使用属性可被删除或修改的对象。
+* <a id="75">[75]</a> 在新版 ES4 中，`wrap` 运算符会对一个值进行动态的结构化类型检查。如果类型检查成功，就创建一个可用于代替该值的包装器（wrapper）对象。在包装器将操作代理到原始值上之前，它会逐个重新验证应用在其之上的操作。这样通过包装器，即使在静态类型声明的上下文中，也能使用属性可被删除或修改的对象。
 * <a id="76">[76]</a> 由于缺乏书面记录，人们对于 Adobe 当时是由 Smith、McAllister 还是两人一同作为代表，其记忆是模糊的。
 * <a id="77">[77]</a> 2018 年 8 月，本文作者之一在 2011 年的老款 iMac 上使用当时的 V8 版本，在浏览器中运行了同样的基准测试。测试结果相比 Hobbs 在 2008 年对 V8 的测试结果，快了大约 20 倍。
 * <a id="78">[78]</a> 只有对特定模块的第一次 `require`，才会执行完整的加载过程。相应的 `exports` 值由加载器保留，并在后续 `require` 同一模块时立即返回。
