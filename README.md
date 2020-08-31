@@ -1,10 +1,10 @@
-# 《JavaScript 20 年》中文版
+# JavaScript 20 年
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3710954.svg)](https://doi.org/10.5281/zenodo.3710954)
 
 ![](./images/2.png)
 
-《JavaScript: The First 20 Years》以上百页的篇幅，详细记述了 JavaScript 自 1995 至 2015 年间的演化故事。本项目将尝试搬运其内容到中文社区，方便更多同学接触这份兼有收藏与研究价值的史料。
+《JavaScript: The First 20 Years》以上百页的篇幅，详细记述了 JavaScript 自 1995 至 2015 年间的演化故事。本项目将翻译其内容到中文社区，方便更多同学接触这份兼有收藏与研究价值的史料。
 
 ## 原文简介
 2020 年的 JavaScript，几乎可以算是世界上使用最广泛的编程语言了。这样一个在十天内仓促完成的产物，是如何一步步走到今天的呢？这份文献的两位重量级作者分别是 JS 之父 Brendan Eich 和主持 ES6 规范制定的 Allen Wirfs-Brock，他们整理出了这个自 1995 年语言诞生到 2015 年确定 ES6 标准为止，共计横跨了 20 年的历史。整份资料介绍的并不仅是技术细节层面的考证，更是个讲述人类如何在商业与技术上的竞争合作中促进产业发展的故事。
@@ -109,7 +109,7 @@
     * 第二部分
     * 第三部分
     * 第四部分
-  * 1995 年 12 月 4 日的 JavaScript 发布通告
+  * 1995 年 12 月 4 日的 JavaScript 发布公告
 * [备注](./notes.md)
 * [参考文献](./references.md)
 
