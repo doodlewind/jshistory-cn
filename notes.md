@@ -46,7 +46,7 @@
 * <a id="47">[47]</a> Firefox 是 Netscape 的 Mozilla 项目的产物，Brendan Eich 是该项目的首席架构师。
 * <a id="48">[48]</a> 该观点来自 2019 年与 Douglas Crockford 的个人交流。
 * <a id="49">[49]</a> 立即执行的函数表达式，属于块级作用域的替代品。这种技术为 Scheme 程序员所熟知，并从 2000 年代中期开始被 JavaScript 程序员广泛使用。Ben Alman [[2010](./references.md#iife)] 创造了 IIFE 这个术语。
-* <a id="50">[50]</a> 所谓数值单位，指的是用米和公斤等计量单位来对数值做标注。对于网页中的像素和点等单位，这一特性很有意义。
+* <a id="50">[50]</a> 所谓数值单位，指的是用米和公斤等计量单位来对数值做注解。对于网页中的像素和点等单位，这一特性很有意义。
 * <a id="51">[51]</a> Chris Dollin 和 Steve Leach 仍然继续开发不再基于 JavaScript 的 Spice 语言 [[Dollin 2002](./references.md#spicelang)]，后来 Leach 将其演化成了 Ginger 编程语言 [[Leach et al. 2018](./references.md#gingerlang)]。
 * <a id="52">[52]</a> 对于动态添加的属性，微软将其称为「expando properties」。
 * <a id="53">[53]</a> 在 Mozilla 的代码仓库 [[Horwat et al. 2005](./references.md#js2:mozsrc)] 中，包含了 Netscape 的试验性项目 *Epimetheus* [[Horwat et al. 2003](./references.md#js2:Epimetheus)]，它是 JavaScript 2 的实现。
@@ -96,4 +96,4 @@
 * <a id="97">[97]</a> CommonJS 模块通常导出一个单一的对象，将其作为命名空间使用。
 * <a id="98">[98]</a> Mozilla 的实现，是基于一份新版 ES4 提案的 [[TC39 ES4 2006c](./references.md#es4:expressionclosures)]。
 * <a id="99">[99]</a> Tennent 一致性原则认为，在某个函数中，如果将某段代码移到另一个函数中并立刻调用该函数，应该产生与直接执行原有代码段相同的效果。
-* <a id="100">[100]</a> 对尾调用的适当处理（PTC）已被证明是一个有争议的特性。它已由至少一个主流浏览器引擎成功实现，但其他引擎却拒绝支持它。
+* <a id="100">[100]</a> 消栈的尾调用已被证明是一个有争议的特性。它已由至少一个主流浏览器引擎成功实现，但其他引擎却拒绝支持它。

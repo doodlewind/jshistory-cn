@@ -99,6 +99,17 @@
     * [Harmony 转译器](./part-4.md#harmony-转译器)
     * [完成 ECMAScript 2015](./part-4.md#完成-ecmascript-2015)
 * [总结](./part-4.md#总结)
+* [附录](./appendices.md)
+  * 登场人物
+  * 登场组织
+  * [术语表](./appendices.md#术语表)
+  * 缩略语和首字母缩写词
+  * 时间线
+    * 第一部分
+    * 第二部分
+    * 第三部分
+    * 第四部分
+  * 1995 年 12 月 4 日的 JavaScript 发布通告
 * [备注](./notes.md)
 * [参考文献](./references.md)
 

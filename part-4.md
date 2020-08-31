@@ -827,7 +827,7 @@ Harmony 的目标之一，在于使外来对象不分其为内置还是由宿主
 
 「Realm」[[Wirfs-Brock 2015a](./references.md#ES2015), pg. 72] 是一种新的规范抽象。引入它的目的，是为了支持在单个 ECMAScript 执行环境中描述多个全局命名空间的语义。Realm 能支持 HTML 页框的语义，这是 ECMAScript 自 ES1 以来一直忽略的浏览器特性。而「Job」[[Wirfs-Brock 2015a](./references.md#ES2015), pg. 76] 这种规范抽象的加入，是为了确定性地定义 ECMAScript 执行环境该如何将多个脚本依次执行到完成（run-to-completion）。基于 Job 所提供的方法，能解释由浏览器和其他 JavaScript 宿主所提供的「事件派发」和「延迟回调」的语义。它们还为定义 ES2015 中 Promise 的语义建立了基础。
 
-ES1 所提供的内部方法，基本上是个残缺的元对象协议。在对各种内置对象和宿主提供的对象做属性访问时，会有各类可见的语义区别。基于内部方法，可以将这些区别解释为它们在内部方法规范上的差异。但在 ES2015 之前，内部方法的语义还不够完整和规范，其使用也不够一致。为了「驯服」宿主对象，实现外来对象的自托管，并支持对象能力的*膜*（membrane）[[Van Cutsem and Miller 2013](./references.md#VanCutsem:2013:TPV:2524984.2524994)]。ES1 到 ES5 中所设计的内部方法，被转换成了一种完全确定好的元对象编程（MOP）。
+ES1 所提供的内部方法，基本上是个残缺的元对象协议。在对各种内置对象和宿主提供的对象做属性访问时，会有各类可见的语义区别。基于内部方法，可以将这些区别解释为它们在内部方法规范上的差异。但在 ES2015 之前，内部方法的语义还不够完整和规范，其使用也不够一致。为了「驯服」宿主对象，实现外来对象的自托管，并支持对象能力的隔离层 [[Van Cutsem and Miller 2013](./references.md#VanCutsem:2013:TPV:2524984.2524994)]。ES1 到 ES5 中所设计的内部方法，被转换成了一种明确的元对象编程（MOP）。
 
 JavaScript 代码要想定义外来对象，就必须能为这些对象所用的内部方法提供相应的实现。这个特性是由 ES2015 中的 `Proxy` 对象 [[Wirfs-Brock 2015a](./references.md#ES2015), pg. 495] 提供的。新版 ES4 提出了一种名为「catchalls」[[TC39 ES4 2006a](./references.md#es4:catchalls)] 的机制，从而让 JavaScript 代码能逐对象地覆盖当「试图访问某个属性，或调用某个不存在的方法」时发生的默认动作。这个「catchalls」机制的目的，是改进 JavaScript 1.5 的非标准 `__noSuchMethod__` 机制 [[Mozilla 2008a](./references.md#moz:nosuchmethod)]。在 Harmony 中，Brendan Eich [[2009b](./references.md#Eich:catchallesdiscuss); [2009d](./references.md#Eich:catchallstrawman)] 引入了所谓的「动作方法」（action method）概念，使其能动态附加到对象上，从而令新版 ES4 的 catchalls 更进一步通用化。在对某个对象执行某些语言操作时，如果该对象上已定义了相应的动作方法，则会调用该方法。可用的动作集与 ES5 的内部方法集类似，但不是它们的直接映射。这里有个悬而未决的问题，即这些动作是在执行所有属性访问时触发，还是仅当访问不存在的属性时触发。Eich 所设计的用于将动作附加到对象上的 API，是以 ES5 对象反射函数为基础的：
 
@@ -852,7 +852,7 @@ Object.defineCatchAll(obj, {
 
 在这个例子中，属性 `has`、`get`、`set` 和 `add` 提供了动态附加到 `obj` 对象上的所有动作。各动作函数可在词法上共享对 `peer` 对象的访问，这就在 `obj` 和 `peer` 之间建立了一对一的关联。这些处理函数共同使用 `peer` 来支持对 `obj` 自有属性的存储。它们还会动态更新 `peer` 对象的 `length` 属性值，因此该值总比用作属性名的最大整数大 1。
 
-在 Brendan Eich 的 catchall 提案之后不久，Tom Van Cutsem 和 Mark Miller [[2010a](./references.md#proxystrawman); [2010b](./references.md#VanCutsem:2010:PDP:1869631.1869638)] 又提出了另一种设计。这就是「基于代理的 catchall 提案」[[Van Cutsem 2009](./references.md#proxyannounce)]，它定义了一套分层的对象交互 API。Proxy 提案的目的是支持对虚拟对象的定义，例如在安全的「基于对象能力」式系统中，定义出用于实现隔离的膜对象（membrane object）。TC39 基本认可了 Proxy 稻草人，并很快将其作为 Harmony 提案接受。
+在 Brendan Eich 的 catchall 提案之后不久，Tom Van Cutsem 和 Mark Miller [[2010a](./references.md#proxystrawman); [2010b](./references.md#VanCutsem:2010:PDP:1869631.1869638)] 又提出了另一种设计。这就是「基于代理的 catchall 提案」[[Van Cutsem 2009](./references.md#proxyannounce)]，它定义了一套分层的对象交互 API。Proxy 提案的目的是支持对虚拟对象的定义，例如在安全的「基于对象能力」式系统中，定义出用于实现隔离的隔离层对象。TC39 基本认可了 Proxy 稻草人，并很快将其作为 Harmony 提案接受。
 
 这份提案引入了 Proxy 对象的概念。提案没有扩展出具侵入性动作方法的基础对象，而是选择创建一个与处理器对象（handler object）相关联的 Proxy 对象，其中的方法称之为「trap」。Trap 会由语言操作而触发。通过处理器函数，可以完全定义出语言操作所用的对象行为。Trap 既可能是自包含的，也可能通过词法捕获的形式，与「对处理器函数可见的已有对象」一起使用。如下所示 [[Van Cutsem and Miller 2010c](./references.md#proxypres)]：
 
@@ -924,9 +924,9 @@ var Proxy(o,{
 
 图 44. ES6/ES2015 的元对象协议由规范级内部方法定义，并通过 `Proxy` 的 trap 和 `Reflect` 方法进行验证。
 
-在直接代理的设计中，使用了一个封装过的目标对象。但它的设计目的并非提供目标对象的简易透明封装。与其表象相反，代理并不是一种用来记录属性访问或处理「方法未找到」问题的简单方式。为了支持这些用例而朴素实现的 Proxy 对象，通常是不可靠或有错误的。直接代理的核心使用场景，是对象的虚拟化和安全膜的创建。正如 Mark Miller [[2018](./references.md#msm:proxiesForMembranes)] 所解释的那样：
+在直接代理的设计中，使用了一个封装过的目标对象。但它的设计目的并非提供目标对象的简易透明封装。与其表象相反，代理并不是一种用来记录属性访问或处理「方法未找到」问题的简单方式。为了支持这些用例而朴素实现的 Proxy 对象，通常是不可靠或有错误的。直接代理的核心使用场景，是对象的虚拟化和安全隔离层的创建。正如 Mark Miller [[2018](./references.md#msm:proxiesForMembranes)] 所解释的那样：
 
-> Proxy 和 WeakMap 的最初设计动机，是支持膜的创建。单独使用的 proxy 不可能是透明的，也不能合理地达到接近透明的程度。膜能合理且几乎透明地模拟 realm 的边界。对于具备私有成员的类而言，这种模拟基本上是完美的。
+> Proxy 和 WeakMap 的最初设计动机，是支持隔离层的创建。单独使用的 proxy 不可能是透明的，也不能合理地达到接近透明的程度。隔离层能合理且几乎透明地模拟 realm 的边界。对于具备私有成员的类而言，这种模拟基本上是完美的。
 
 #### 块级声明作用域
 从初版 ES4 起，就有对加入块级声明作用域的诉求。具有类 C 式语言语法经验的程序员，会希望位于 `{}` 块中的声明属于该块中的局部变量。最早 JavaScript 1.0 中的 `var` 作用域规则令人惊讶，有时会掩盖严重的错误。其中的一个常见 bug 就是循环中闭包的问题：
@@ -1154,7 +1154,7 @@ Leggett 的帖子在三天内收到了 119 个以正面为主的回复。它列�
 2014 年发现的问题在于，`@@create` 方法创建的对象是未初始化的。某个错误或恶意的类构造函数，可能会在未初始化的对象上调用内置的父类方法（很可能由 C++ 实现）——这可能导致灾难性的后果。Wirfs-Brock 曾假设所有这类对象都会在内部跟踪它们的初始化状态，并且需要相应的内置方法，来检查它们是否被应用了到一个未初始化的对象上。Mozilla 的 Boris Zbarsky [[2014](./references.md#zbarsky:subclassing)] 指出，浏览器中有数千种这样的方法，而在区分两阶段的设计中，需要为每个方法更新每个浏览器的 DOM 规范和实现。这促使了单阶段分配 / 初始化设计 [[Wirfs-Brock et al. 2014c](./references.md#TC39:2014:032), [d](./references.md#TC39:2014:046)] 和另一份提案 [[Herman and Katz 2014](./references.md#TC39:2014:045)] 的发展。这份提案保留了两个阶段，但会将构造器参数传递给 `@@create` 方法和构造器。在 2014 年剩余的时间里，委员会对这些方案和其他替代方案进行了激烈的辩论。在某段时间，共识的缺乏一度可能推迟原定于 2015 年 6 月发布的 ES6，甚至迫使从该版本中完全移除类。然而在 2015 年 1 月，TC39 围绕单阶段设计的变体达成了共识 [[TC39 2015a](./references.md#TC39:notes:2015:01:27); [Wirfs-Brock 2015b](./references.md#awb:2015misc1)]。这一经验再次坚定了 TC39 的决心，要求更多、更早地由实现者对 ES6 后的新特性进行反馈。
 
 #### 模块
-ES4 设计的复杂部分之一，就是用于构建大型程序和库的「包和命名空间」结构。当新版 ES4 被放弃时，人们已经发现这些机制存在重大问题 [[Dyer 2008b](./references.md#pckmustgo); [Stachowiak 2008b](./references.md#namesAsSugar)]。它们显然不适合进入 Harmony。当时有影响力的 JavaScript 开发者们所使用的，还是基于模块模式而缺乏泛用性的模块化解决方案 [[Miraglia 2007](./references.md#yui2); [Yahoo! Developer Network 2008](./references.md#yui3)]。2009 年 1 月，Kris Kowal 和 Ihab Awad 向 TC39 [[2009c](./references.md#TC39:2009:008-Rev1)] 提交了一份受模块模式启发的设计 [[Awad and Kowal 2009](./references.md#tc39:2009:12); [Kowal and Awad 2009a](./references.md#tc39:2009:11)]。他们的设计最终演变成了 Node.js 中使用的 CommonJS 模块系统。
+ES4 设计的复杂部分之一，就是用于构建大型程序和库的「包和命名空间」结构。当新版 ES4 被放弃时，人们已经发现这些机制存在重大问题 [[Dyer 2008b](./references.md#pckmustgo); [Stachowiak 2008b](./references.md#namesAsSugar)]，它们显然不适合进入 Harmony。而当时有影响力的 JavaScript 开发者们所使用的，还是基于模块模式而缺乏泛用性的模块化解决方案 [[Miraglia 2007](./references.md#yui2); [Yahoo! Developer Network 2008](./references.md#yui3)]。2009 年 1 月，Kris Kowal 和 Ihab Awad 向 TC39 [[2009c](./references.md#TC39:2009:008-Rev1)] 提交了一份受模块模式启发的设计 [[Awad and Kowal 2009](./references.md#tc39:2009:12); [Kowal and Awad 2009a](./references.md#tc39:2009:11)]。他们的设计最终演变成了 Node.js 中使用的 CommonJS 模块系统。
 
 Kris Kowal 和 Ihab Awad 在他们最初的提案和随后的修订版 [[Kowal 2009b](./references.md#esd:20sep09); [Kowal and Awad 2009b](./references.md#kowal-mod2)] 中，纳入了一些语法糖式的替代方案。这些方案可能会覆盖他们的模块设计，而不会改变提案的动态语义。Awad [[2010a](./references.md#tc39:2010:04); [2010c](./references.md#emakermods)] 随后开发了一份不同的提案，这份提案借鉴了 CommonJS 上的工作，以及 E 语言 [[Miller et al. 2019](./references.md#elang)] 的 Emaker 模块。这些 Emaker 模块正被与安全 ECMAScript 相关的 Caja 项目 [[2012](./references.md#caja:project)] 所使用。在 TC39 内部，这些提案被称为「一等公民式模块系统」，因为它们将模块表现为动态构造出的一等公民式运行时实体，这提供了一种新的计算抽象机制。例如在 Awad 的提案中，一个模块的多个实例可能同时存在，每个实例用不同的参数值初始化。
 
@@ -1238,7 +1238,7 @@ x => x /* 一个 identity 函数 */
 
 设计箭头函数的主要动机，在于开发者经常需要编写冗长的函数表达式，以此作为平台和库 API 函数的回调参数。在 JavaScript 1.8 中，Mozilla [[2008b](./references.md#moz:new1.8)] 实现了<sup>[98](./notes.md#98)</sup>「表达式闭包」，它保留了对`function` 关键字的使用，允许使用无括号的单个表达式体。TC39 讨论了一些类似但较短小的表示法，用诸如 𝜆、*f*、\ 或 # 等符号 [[Eich 2010b](./references.md#eich:bikeshed); [TC39 Harmony 2010c](./references.md#Harmony:shorterfuncs)] 来代替函数，但未能就其中任何一种方法达成共识。
 
-TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精简语义的「lambda 函数」感兴趣，比如支持*对尾调用的适当处理*（proper tail call）和 Tennent [[1981](./references.md#tennent1981principles)] 一致性原则<sup>[99](./notes.md#99)</sup>。其支持者们认为，这样的函数将会在实现由语言或库所定义的控制抽象时有所用处。在 Harmony 进程早期，Brendan Eich [[2008a](./references.md#Eich:allenslambda)] 在 `es-discuss` 上的一篇讨论贴中， 提出了一个最初由 Allen Wirfs-Brook 所提出的建议，即基于 Smalltalk 块语法的启发，采用一种简洁的 lambda 函数语法。例如 `{|a，b| a+b}` 就相当于 Herman 的 `lambda(a,b){a+b}`。Eich 的帖子引发了一场大规模但没有结论的线上讨论，话题涉及与（某种可能的）简明函数特性所相关的方方面面。作为关键总结，可以认为其中许多语法的灵感会带来解析或可用性上的问题，而且 JavaScript 的非本地控制转移语句——`return`、`break` 和 `continue`——会显著地使编写控制抽象的机制变得更加复杂。大多数 TC39 成员和 `es-discuss` 订阅者似乎主要对简洁的函数语法更感兴趣，而非对 Tennent 一致性感兴趣。
+TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精简语义的「lambda 函数」感兴趣，比如支持*消栈的尾调用*（proper tail call）和 Tennent [[1981](./references.md#tennent1981principles)] 一致性原则<sup>[99](./notes.md#99)</sup>。其支持者们认为，这样的函数将会在实现由语言或库所定义的控制抽象时有所用处。在 Harmony 进程早期，Brendan Eich [[2008a](./references.md#Eich:allenslambda)] 在 `es-discuss` 上的一篇讨论贴中， 提出了一个最初由 Allen Wirfs-Brook 所提出的建议，即基于 Smalltalk 块语法的启发，采用一种简洁的 lambda 函数语法。例如 `{|a，b| a+b}` 就相当于 Herman 的 `lambda(a,b){a+b}`。Eich 的帖子引发了一场大规模但没有结论的线上讨论，话题涉及与（某种可能的）简明函数特性所相关的方方面面。作为关键总结，可以认为其中许多语法的灵感会带来解析或可用性上的问题，而且 JavaScript 的非本地控制转移语句——`return`、`break` 和 `continue`——会显著地使编写控制抽象的机制变得更加复杂。大多数 TC39 成员和 `es-discuss` 订阅者似乎主要对简洁的函数语法更感兴趣，而非对 Tennent 一致性感兴趣。
 
 在这之后的 30 个月里，这方面都没有出现什么重大进展，直到 Brendan Eich [[2011f](./references.md#Eich:arrow1); [2011g](./references.md#Eich:blockrevival)] 撰写了两份替代性的稻草人提案为止。这两份提案之中，有一份设计的是「箭头函数」，它参照了 CoffeeScript 中的类似特性。这份提案中有 `->` 和 `=>` 两种函数，它们具备各种语法和语义上的差异和选项。而另一份提案设计的，则是以 Smalltalk 和 Ruby 的块为模型的「块级 lambda」，它还支持 Tennent 一致性。在随后的 9 个月里，这两项提案及其备选方案在 `es-discuss` 和 TC39 会议上得到了广泛的讨论。有人担心如果要支持解析箭头函数，现有的 JavaScript 实现是否易于更新。这里的问题是箭头符号出现在整个结构的中间，而且它前面还有一个形参列表，因此可能会被有歧义地解析为括号表达式。对于块级 lambda 提案，有人担心 [[Wirfs-Brock 2012a](./references.md#allen:brkcnt)] 它所创建出的用户定义控制结构，并不能充分而完整地与内置的语法控制结构相集成。Brendan Eich 总体倾向于块级 lambda 提案，但随着 2012 年 3 月 TC39 会议的临近，他认为箭头函数更有可能被委员会接受。在会议上 [[TC39 2012a](./references.md#TC39:2012:020:r2)]，他向委员会介绍了一套关于箭头函数最终设计基本特征的共识性决定 [[Eich 2012b](./references.md#Eich:arrow2)]。
 
@@ -1254,7 +1254,7 @@ TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精
 * 支持嵌入领域特定语言（domain specific language）的模板字面量。
 * 作为属性键使用的 `Symbol` 值。
 * 二进制和八进制数字字面量。
-* 对尾调用的适当处理<sup>[100](./notes.md#100)</sup>。
+* 消栈的尾调用<sup>[100](./notes.md#100)</sup>。
 
 语言内置库的增强包括：
 
