@@ -1,8 +1,15 @@
 # JavaScript 20 年
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3710954.svg)](https://doi.org/10.5281/zenodo.3710954)
+<p>
+  <a href="https://doi.org/10.5281/zenodo.3710954">
+    <img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.3710954.svg"/>
+  </a>
+  <a href="https://github.com/doodlewind/jshistory-cn">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/doodlewind/jshistory-cn?style=social"/>
+  </a>
+</p>
 
-![](./images/2.png)
+![The Mocha Console](./images/2.png)
 
 《JavaScript: The First 20 Years》以上百页的篇幅，详细记述了 JavaScript 自 1995 至 2015 年间的演化故事。本项目将翻译其内容到中文社区，方便更多同学接触这份兼有收藏与研究价值的史料。
 
