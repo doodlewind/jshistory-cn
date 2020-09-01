@@ -10,7 +10,7 @@
 * <a id="Chrome">**Chrome**</a> *n.* 一款由 Google 开发并分发的浏览器。
 * <a id="Chromium">**Chromium**</a> *n.* Chrome 浏览器的开源核心。
 * <a id="class">**class**</a> *n.* 类，指一个编程语言概念。对于一组对象，可以基于这种机制定义出它们所共享的通用接口和实现。
-* <a id="classical-inheritance">**classical inheritance**</a> *n.* 经典继承，一种继承机制。它通过链式的类定义，使对象获取其状态与行为。
+* <a id="classical-inheritance">**classical inheritance**</a> *n.* 类式继承，一种继承机制。它通过链式的类定义，使对象获取其状态与行为。
 * <a id="CoffeeScript">**CoffeeScript**</a> *n.* 一种编译到 JavaScript 的编程语言，由 Jeremy Ashkenas 所创建。
 * <a id="CommonJS">**CommonJS**</a> *n.* 一个由 Kevin Dangoor 发起的项目，其目标是在非浏览器环境下开发 JavaScript 技术。
 * <a id="compiler">**compiler**</a> *n.* 编译器，一种（在典型情况下）将程序翻译到机器语言，以便供处理器直接执行的引擎。

@@ -401,7 +401,7 @@ var origin = new Point(0,0); // 创建 Point 对象
 
 原型对象的属性通常是方法。在这种情况下，构造函数提供的原型发挥的是与 C++ 中的虚函数表（vtable）或 Smalltalk 中的 MethodDictionary 相同的作用，也就是将通用的行为与一组对象相关联。构造函数实际上充当的是类对象（class object）的角色，其原型相当于「与类的实例共享方法」的容器。这是一种对 JavaScript 1.1 对象模型的合理解释，当然也不是唯一的解释。
 
-对「构造函数原型属性」的命名，清楚地表明 Brendan Eich 考虑了另一种对象模型。该模型的灵感来自于 Self 编程语言 [[Ungar and Smith 1987](./references.md#self)]。在 Self 中，新对象是通过「部分克隆某些种类的原型对象」来创建的。每个克隆体都有一个指回其原型的 `parent` 链接，这样原型就可以提供「想在其所有克隆体之间共享」的功能了。JavaScript 1.1 的对象模型可以看作是 Self 模型的一种变体。在原型中，原型对象可以通过构造函数被间接访问到，而 `new` 运算符将从原型中克隆出新实例。这些克隆出的实例，会*继承*<sup>[g](./appendices.md#inherit)</sup>那些在原型对象属性上通用共享的功能。一些 JavaScript 程序员将此机制称为「原型继承<sup>[g](./appendices.md#prototypal-inheritance)</sup>」。这是一种委托机制的形式。一些 JavaScript 程序员还使用带引号的「经典继承<sup>[g](./appendices.md#classical-inheritance)</sup>」概念，来指代 Java 和许多其他面向对象语言中使用的继承风格。
+对「构造函数原型属性」的命名，清楚地表明 Brendan Eich 考虑了另一种对象模型。该模型的灵感来自于 Self 编程语言 [[Ungar and Smith 1987](./references.md#self)]。在 Self 中，新对象是通过「部分克隆某些种类的原型对象」来创建的。每个克隆体都有一个指回其原型的 `parent` 链接，这样原型就可以提供「想在其所有克隆体之间共享」的功能了。JavaScript 1.1 的对象模型可以看作是 Self 模型的一种变体。在原型中，原型对象可以通过构造函数被间接访问到，而 `new` 运算符将从原型中克隆出新实例。这些克隆出的实例，会*继承*<sup>[g](./appendices.md#inherit)</sup>那些在原型对象属性上通用共享的功能。一些 JavaScript 程序员将此机制称为「原型继承<sup>[g](./appendices.md#prototypal-inheritance)</sup>」。这是一种委托机制的形式。一些 JavaScript 程序员还使用带引号的「类式继承<sup>[g](./appendices.md#classical-inheritance)</sup>」概念，来指代 Java 和许多其他面向对象语言中使用的继承风格。
 
 JavaScript 1.1 的文档 [[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 并未完全描述这两个对象模型。它维护的是一个与 1995 年 12 月 Netscape / Sun 新闻稿一致的营销故事。JavaScript 被定位为一种「脚本式编写对象交互」的语言，而对象抽象的实际定义（类定义）将用 Java 编写。此时原生 JavaScript 的对象抽象能力尚且限于次要特性。这些次要特性仅引起了微小的关注，有很多并未被文档化。
 
