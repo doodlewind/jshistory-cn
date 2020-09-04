@@ -67,7 +67,7 @@
 * <a id="Nodejs">**Node.js**</a> *n.* 一款基于 JavaScript 的服务端平台，最早在 2009 年由 Ryan Dahl 开发。
 * <a id="nominal-type-system">**nominal type system**</a> *n.* 名义化类型系统，其中的每个类型定义都会引入唯一的数据类型。在一些面向对象语言中，类定义即被当作名义化的类型定义。
 * <a id="non-normative">**non-normative**</a> *adj.* 非规范的，表示在标准文件中未定义具体要求的部分。
-* <a id="no-op">**no-op**</a> *n.* 一种不做任何事的操作。
+* <a id="no-op">**no-op**</a> *n.* 空操作，一种不做任何事的操作。
 * <a id="normative">**normative**</a> *adj.* 规范的，表示在标准文件中定义了具体要求的部分。
 * <a id="object">**object**</a> *n.* 对象，一种将数据与行为组合为一等公民级复合实体的计算装置。定义和操作对象的机制，在不同的编程语言中各不相同。
 * <a id="Opera">**Opera**</a> *n.* 一款由 Opera Software 开发并分发的浏览器。
