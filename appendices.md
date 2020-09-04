@@ -30,7 +30,7 @@
 * <a id="ECMA-262">**ECMA-262**</a> *n.* ECMAScript 的语言规范。
 * <a id="ECMA-402">**ECMA-402**</a> *n.* ECMAScript 的国际化 API 规范。
 * <a id="engine">**engine**</a> *n.* 引擎，指代某种用于执行程序的结构。
-* <a id="es4-dicuss">**`es4-discuss`**</a> *n.* `es-discuss` 邮件论坛的初始名称。
+* <a id="es4-discuss">**`es4-discuss`**</a> *n.* `es-discuss` 邮件论坛的初始名称。
 * <a id="ESnext">**ES.next**</a> *n.* 有时在 TC39 内部用于指代下一个 ECMA-262 版本。
 * <a id="exotic-object">**exotic object**</a> *n.* 外来对象，一种 JavaScript 对象。对于所有对象都必须支持的基本内部方法，它缺少其中一种或多种方法所对应的默认行为。参见 *ordinary object*。
 * <a id="expando-property">**expando property**</a> *n.* 在对象创建后添加到其上的属性。
