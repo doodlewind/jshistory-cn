@@ -104,7 +104,7 @@ Robert Welland 返回 Redmond 后，将他的 JScript 0.1 规范交接给了 Sho
 
 这份草案试图将自动分号插入（ASI）规则精确地定义为用来「校正解析错误」的过程。语句的语法包括了显式的分号，用于终止所有非复合语句。如果没有 ASI，那么缺失分号将会产生解析错误。ASI 规范定义了 JavaScript 解析器何时必须通过「假设存在分号」并重新解析的方式，来尝试纠正此类解析错误。第一版草案中的 ASI 规则并不完整，这在后来的 ECMAScript 规范草案和发行版中进行了完善。
 
-1 月 10 日的草案中包含了 Shon Katzenberger 的伪代码算法（例如图 14），用于定义各种语言结构的语义。算法由「顺序编号的步骤」和「步骤之间的简单条件控制流」组成。每个步骤都包含一些*命令式*（imperative）的叙述。步骤的叙述用英语编写，并结合了规范中针对常见动作所定义的基本词汇。可以在规范内的其他算法中命名和「调用」这些算法。
+1 月 10 日的草案中包含了 Shon Katzenberger 的伪代码算法（例如图 14），用于定义各种语言结构的语义。算法由「顺序编号的步骤」和「步骤之间的简单条件控制流」组成。每个步骤都包含一些*命令式*<sup>[g](./appendices.md#imperative)</sup>的叙述。步骤的叙述用英语编写，并结合了规范中针对常见动作所定义的基本词汇。可以在规范内的其他算法中命名和「调用」这些算法。
 
 ```
 4.4.7 GetValue(V)
@@ -120,9 +120,9 @@ Robert Welland 返回 Redmond 后，将他的 JScript 0.1 规范交接给了 Sho
 
 草案还定义了算法中使用的数据类型。ECMAScript 程序中可见值的类型包括 Number、Boolean、String、Object、Undefined 和 Null。另外还有 Reference、Completion 和 List 类型的值用于定义语言语义，ECMAScript 程序无法直接接触到它们。
 
-对象类型的规范引入了属性*标记*（attribute）的概念，用于控制如何访问或修改各个属性。规范共定义了七种不同的标记：ReadOnly、ErrorOnWrite、DontEnum、NotImplicit、NotExplicit、Permanent 和 Internal。最后，ErrorOnWrite、NotImplicit 和 NotExplicit 被移除，而 Permanent 则被重命名为 DontDelete。具有 Internal 标记的属性会保留与对象相关联的内部状态，但这对 ECMAScript 程序并不直接可见。这种*内部属性*（internal properties）的用途是保存状态，这些状态对于实现「对象语义」或「内置对象与宿主对象的唯一行为」是必需的。
+对象类型的规范引入了属性*标记*<sup>[g](./appendices.md#attribute)</sup>的概念，用于控制如何访问或修改各个属性。规范共定义了七种不同的标记：ReadOnly、ErrorOnWrite、DontEnum、NotImplicit、NotExplicit、Permanent 和 Internal。最后，ErrorOnWrite、NotImplicit 和 NotExplicit 被移除，而 Permanent 则被重命名为 DontDelete。具有 Internal 标记的属性会保留与对象相关联的内部状态，但这对 ECMAScript 程序并不直接可见。这种*内部属性*<sup>[g](./appendices.md#internal-property)</sup>的用途是保存状态，这些状态对于实现「对象语义」或「内置对象与宿主对象的唯一行为」是必需的。
 
-一并引入的概念还包括*内部方法*（internal methods），这是用于定义对象基本行为的算法。对于某些内部方法，可以用替代性的定义来指定不同种类的对象（例如 Array 对象），从而支持它们在行为上的变化。内部方法的接口，实质上是简单*元对象协议*（metaobject protocol）的规范 [[Kiczales et al. 1991](./references.md#Kiczales:1991:AMP:574212)]。
+一并引入的概念还包括*内部方法*<sup>[g](./appendices.md#internal-method)</sup>，这是用于定义对象基本行为的算法。对于某些内部方法，可以用替代性的定义来指定不同种类的对象（例如 Array 对象），从而支持它们在行为上的变化。内部方法的接口，实质上是简单*元对象协议*<sup>[g](./appendices.md#metaobject-protocol)</sup>的规范 [[Kiczales et al. 1991](./references.md#Kiczales:1991:AMP:574212)]。
 
 在规范中，内部方法和内部属性的名称被括在双括号中，形如 `[[Foo]]`。1 月 10 日的草案定义了内部方法 `[[Get]]`、`[[Put]]`、`[[HasProperty]]`、`[[Construct]]`、`[[Call]]` 和内部属性 `[[Prototype]]`。在第一次形式化表达对象属性访问、原型继承和函数调用的语义时，用到的就是这些内部方法。到 ES1 完成时，又添加了 `[[CanPut]]` 和 `[[Delete]]` 内部方法。
 
@@ -176,7 +176,7 @@ TC39 的第三次会议是 1997 年 3 月 18 日至 19 日举行的。这是 6 �
 
 在 3 月 12 日，标准的 0.12 版本草案 [[TC39 1997a](./references.md#TC39:1997:017B)] 分发给了全体委员会，并在 3 月 14 日的工作组会议上进行了讨论 [[TC39 1997f](./references.md#TC39:1997:018)]。这份草案在技术上已经接近完成，只是 Date 对象的复杂定义仍然只是简单的一组标题。Shon Katzenberger 提出了关于规范质量的完整提案。经过讨论和审查，这份提案也可以被纳入规范。从 1 月 10 日草案完成的两个月以来，这份文档包含的实质性页面已从 41 页增加到了 96 页。0.12 版草案中除了缺少 Date 规范外，其问题跟踪附录中还有 8 个内部「问题」标签和 6 个重要条目。工作组会议还讨论了大约 12 个需要在规范中解决的其他问题。
 
-由于 Scott Wiltamuth 保证所有问题都不会遗留下争议，并且完整的草案可以在 3 月底完成，因此 TC39 一致同意将草案交给 Ecma GA 大会，以进行 6 月的赞成投票。工作组被赋予的职责是收尾规范，并与 Ecma 秘书处的工作人员一起制定出符合其时间表和格式要求的最终草案。草案的完成比 Wiltamuth 的估计多花了一个月的时间。在 1997 年 5 月 2 日完成最终草案 [[TC39 1997b](./references.md#TC39:1997:028)] 前，工作组内部又分发了三份中间草案。最终草案于 5 月 5 日分发给了 GA 大会成员。最终草案符合 Ecma 的文档约定，并包含了 Richard Gabriel 对语言的*非规范性*（non-normative）概述。GA 大会在 1997 年 6 月的会议上同意在稍作编辑更改后，将草案发布为《Ecma 标准 ECMA-262 第 1 版》，并将其提交到了 ISO 快速通道流程中。编辑更改完成后，草案于 1997 年 9 月 10 日分发给了 TC39。《ECMA-262 第 1 版》[[Steele 1997](./references.md#ES1)] 在 9 月 16 日至 17 日的 TC39 会议上 [[1997h](./references.md#TC39:1997:039)] 正式发布。
+由于 Scott Wiltamuth 保证所有问题都不会遗留下争议，并且完整的草案可以在 3 月底完成，因此 TC39 一致同意将草案交给 Ecma GA 大会，以进行 6 月的赞成投票。工作组被赋予的职责是收尾规范，并与 Ecma 秘书处的工作人员一起制定出符合其时间表和格式要求的最终草案。草案的完成比 Wiltamuth 的估计多花了一个月的时间。在 1997 年 5 月 2 日完成最终草案 [[TC39 1997b](./references.md#TC39:1997:028)] 前，工作组内部又分发了三份中间草案。最终草案于 5 月 5 日分发给了 GA 大会成员。最终草案符合 Ecma 的文档约定，并包含了 Richard Gabriel 对语言的*非规范性*<sup>[g](./appendices.md#non-normative)</sup>概述。GA 大会在 1997 年 6 月的会议上同意在稍作编辑更改后，将草案发布为《Ecma 标准 ECMA-262 第 1 版》，并将其提交到了 ISO 快速通道流程中。编辑更改完成后，草案于 1997 年 9 月 10 日分发给了 TC39。《ECMA-262 第 1 版》[[Steele 1997](./references.md#ES1)] 在 9 月 16 日至 17 日的 TC39 会议上 [[1997h](./references.md#TC39:1997:039)] 正式发布。
 
 ## 命名标准
 自标准化过程开始起，语言命名上的隐患就已经埋下了。Netscape 起的最初名称「LiveScript」基于它和 Sun 的战略合作伙伴关系而替换成了「JavaScript」。Sun 将「JavaScript」注册成了商标，并将其许可给了 Netscape。尽管 Sun 支持 Netscape 脚本语言的标准化工作，但他们也积极保护与 Java 有关的商标。Sun 似乎不太可能将对「JavaScript」商标的控制权交给标准组织。
@@ -414,7 +414,7 @@ TC39 的正式会议已经改由代表成员公司的小组与项目经理参加
 
 Bill Gibbons 是新规范工作草案的编辑。每次会议都有一个介绍和讨论各种提案和未解决问题的议程。提案被提出的形式，则通常是提交新的或修订后的算法规范文本。会议还进行了一般状态审核，由与会人员讨论自上次会议以来确定的问题。当就提案或问题解决方案达成协议时，Gibbons 会将其纳入工作草案。V2 版本的第一份完整草案 [[Cowlishaw et al. 1998](./references.md#Gibbons:es2-9804)] 发布于 1998 年 4 月，基于 ECMA-262 第一版，其中没有包含任何为 ECMA-262 第二版（ISO 版本）同时开发的更改。工作草案的标题页指出，这里包含的是 Netscape 和微软提交的拟议更改。在 9 月 ISO 版本完成后，Gibbons 将 ES2 更改合并到了当前的 V2 工作草案中。
 
-当时 Unicode 仍然是一种新技术，语言设计人员还在探索将其集成到编程语言中的最佳实践。有个需要特别关注的问题，即如何处理 Unicode 的各种正规化（normalization）形式，这些形式允许对行为等效的字符序列进行替代编码。ES1 对 Unicode 的支持很少。惠普的 Tom McFarland 参加 1998 年 5 月的会议后提交了一份备忘录 [[McFarland 1998](./references.md#HP-I18N:a)]，指出了他认为与国际化（I18N）有关的许多问题，以及如何将 Unicode 更好地集成到 ECMAScript 中。经过几次会议的讨论，TC39 在 1998 年 11 月建立了一个由 IBM 的 Richard Gillam [[1998](./references.md#Gillam:i18n9811)] 主持的「I18N 工作组」。I18N 小组很快决定将重点放在针对核心语言的少量基本 I18N 特性上 [[Gillam et al. 1999b](./references.md#Gillam:i18n9904)]，并将关于国际化和本地化更复杂的内容推迟，将它们纳入单独定义的可选库中 [[Gillam et al. 1999a](./references.md#Gillam:i18n9901), [b](./references.md#Gillam:i18n9904)]。但直到 2012 年，这些类库的规范 [[Lindenberg 2012](./references.md#ecma402-1)] 才得以完成。除了为核心语言添加了少量区域特定（locale-specific）特性外，I18N 小组还解决了如何将非拉丁字符合并到标识符中的问题。它推荐 ECMAScript 规范假定「提供给实现的源代码」都采用 Unicode 正规形式 C（Normal Form C）来编写，从而很大程度上避免了正规化问题。它还选择不对核心语言中的 Unicode 正规化提供任何支持，并把对正规化的编程支持推迟纳入可选库中。
+当时 Unicode 仍然是一种新技术，语言设计人员还在探索将其集成到编程语言中的最佳实践。有个需要特别关注的问题，即如何处理 Unicode 的各种正规化（normalization）形式，这些形式允许对行为等效的字符序列进行替代编码。ES1 对 Unicode 的支持很少。惠普的 Tom McFarland 参加 1998 年 5 月的会议后提交了一份备忘录 [[McFarland 1998](./references.md#HP-I18N:a)]，指出了他认为与*国际化*<sup>[g](./appendices.md#internationalization)</sup>（I18N）有关的许多问题，以及如何将 Unicode 更好地集成到 ECMAScript 中。经过几次会议的讨论，TC39 在 1998 年 11 月建立了一个由 IBM 的 Richard Gillam [[1998](./references.md#Gillam:i18n9811)] 主持的「I18N 工作组」。I18N 小组很快决定将重点放在针对核心语言的少量基本 I18N 特性上 [[Gillam et al. 1999b](./references.md#Gillam:i18n9904)]，并将关于国际化和本地化更复杂的内容推迟，将它们纳入单独定义的可选库中 [[Gillam et al. 1999a](./references.md#Gillam:i18n9901), [b](./references.md#Gillam:i18n9904)]。但直到 2012 年，这些类库的规范 [[Lindenberg 2012](./references.md#ecma402-1)] 才得以完成。除了为核心语言添加了少量区域特定（locale-specific）特性外，I18N 小组还解决了如何将非拉丁字符合并到标识符中的问题。它推荐 ECMAScript 规范假定「提供给实现的源代码」都采用 Unicode 正规形式 C（Normal Form C）来编写，从而很大程度上避免了正规化问题。它还选择不对核心语言中的 Unicode 正规化提供任何支持，并把对正规化的编程支持推迟纳入可选库中。
 
 V2 的主要任务，是为语言设计异常处理机制。1998 年 2 月 [[TC39 1998c](./references.md#ES3:feb08)]，微软的 Herman Venter 和 Netscape 的 Waldemar Horwat 均提出了设计草案。两种设计都多少参考了 Java 的 try-catch-finally 语句语法，但它们和 Java 在语法和语义上都存在着显著的差异。
 
@@ -480,7 +480,7 @@ try {
 
 直到 1999 年 9 月对标准草案进行最终技术审查 [[TC39 1999b](./references.md#ES3:sept09)] 前，语言是否应支持多个 `catch` 子句的问题一直没有得到解决。这个特性最终推迟留待未来考虑。同样在最后的审查中，委员会才就标准将定义的内置异常类达成了共识。
 
-委员会在将 Java 和其他*静态类型* class-based 语言的特性适配到使用动态类型和原型继承的 JavaScript 时，遇到了一些困难。像 `catch` 子句的守卫表达式（guard expression）就是这其中的一个例子。在 Java 中，要由哪个 `catch` 子句处理抛出的异常，是通过无副作用的「子类型包含测试」来确定的。这种测试完全依赖静态声明的类层次结构，可以在实际恢复调用栈现场（call stack unwinding）之前执行。但是 JavaScript 则既没有正式的类概念，也没有静态的类层次结构。由于委员会已经决定支持抛出任何类型的值作为异常，故而要想在 JavaScript 的 `catch` 子句中区分出任意的值，就需要求值任意的守卫表达式，这其中可能包含赋值和函数调用。但是，对表达式的求值需要建立适当的词法和动态环境，并且每次对守卫表达式的求值都可能产生副作用，这些副作用可能会改变后续守卫表达式的求值结果。在一份中立提案中，Waldemar Horwat [[1998](./references.md#980930-horwat:12)] 提出了一种复杂的叙述性规范，它允许实现者决定「何时」以及「以何种顺序」来对 `catch` 到的守卫表达式求值，甚至还允许多次对单个守卫表达式求值。Horwat 希望使调试器在恢复现场前，能够确定是否还有「未被处理的抛出异常」。幸好这个设计未被接受，因为随后的经验表明，这种实现方式上的差异，是网页在兼容多个浏览器时互操作性问题的重要来源。
+在将 Java 和其他*静态类型*<sup>[g](./appendices.md#statically-typed)</sup>基于类的语言中的特性，适配到使用动态类型和原型继承的 JavaScript 时，委员会遇到了一些困难。像 `catch` 子句的守卫表达式（guard expression）就是这其中的一个例子。在 Java 中，要由哪个 `catch` 子句处理抛出的异常，是通过无副作用的「子类型包含测试」来确定的。这种测试完全依赖静态声明的类层次结构，可以在实际恢复调用栈现场（call stack unwinding）之前执行。但是 JavaScript 则既没有正式的类概念，也没有静态的类层次结构。由于委员会已经决定支持抛出任何类型的值作为异常，故而要想在 JavaScript 的 `catch` 子句中区分出任意的值，就需要求值任意的守卫表达式，这其中可能包含赋值和函数调用。但是，对表达式的求值需要建立适当的词法和动态环境，并且每次对守卫表达式的求值都可能产生副作用，这些副作用可能会改变后续守卫表达式的求值结果。在一份中立提案中，Waldemar Horwat [[1998](./references.md#980930-horwat:12)] 提出了一种复杂的叙述性规范，它允许实现者决定「何时」以及「以何种顺序」来对 `catch` 到的守卫表达式求值，甚至还允许多次对单个守卫表达式求值。Horwat 希望使调试器在恢复现场前，能够确定是否还有「未被处理的抛出异常」。幸好这个设计未被接受，因为随后的经验表明，这种实现方式上的差异，是网页在兼容多个浏览器时互操作性问题的重要来源。
 
 另一个 TC39 难以将语言的概念和构造从 Java 转换为 JavaScript 的例子，则是 `instanceof` 运算符。在 Java 中，`instanceof` 是一个二元运算符，用于测试其左操作数的对象是否为右操作数的「类实例」或「子类实例」。Herman Venter [[1998a](./references.md#Venter:980305-instance.pdf)] 最初提出的 `instanceof` 提案限制了右操作数仅限标识符，这样就完全模仿了 Java 的语法。但是 JavaScript 本质上没有类的概念，并且还有多种创建新对象的方法。Venter 的提案假定使用构造函数模式作为测试 `instanceof` 的基础。这样一来，右操作数就可以动态地求值到构造函数对象，而这是个一等的函数值。由于这样的右操作数是一等的值而非类型引用，因此提案不久就泛化支持了在该位置上出现表达式。`instanceof` 的运行时语义被定义为：遍历左操作数的原型继承链，搜索值为右操作数 `prototype` 属性当前值的对象。对于许多简单的构造函数，这将会匹配到那些将 `new` 运算符应用到它们上面而创建的对象。
 
@@ -529,7 +529,7 @@ console.log(firstTime === secondTime); // 是否是相同对象？
 
 Waldemar Horwat 担心闭包创建的开销，并认为这个改动将可以让实现在某些常见情况下复用闭包。Herman Venter 表示了一些担忧，但在会议结束时同意支持这个改动。这本可能造成一个重大的设计错误，因为随后 Web 浏览器上的经验表明，这种特性所允许的某种「可观察到的实现差异」，可能会妨碍网站在不同浏览器上的正常工作。幸运的是，并没有浏览器实现函数联合特性，它在 2009 年也从 ES5 规范中删除。
 
-由于在字符串字面量中，对八进制常量（以 `0` 开头的数字写法）和八进制转义序列的使用不被提倡，它们从 *规范的*（normative）标准中移到了非规范性的附录 B<sup>[41](./notes.md#41)</sup>（Annex B）中。一并移至附录 B 的内容包括：与 Y2K 不兼容的 Date 方法、`escape` 和 `unescape` 字符串函数，以及字符串方法 `substr`。这些特性都已被认定为过时，但仍被网站使用。此举背后的设想，在于特性一旦在标准的非规范性附录 B 中列出，即表明它们已被废弃而不应继续使用，各实现均有权最终删除它们。这是个幼稚的期望。TC39 成员尚未意识到，浏览器实现者们非常不愿意删除网页上实际可能用到的任何特性（不论是否标准化）——某些网页永远不会消失。
+由于在字符串字面量中，对八进制常量（以 `0` 开头的数字写法）和八进制转义序列的使用不被提倡，它们从 *规范的*<sup>[g](./appendices.md#normative)</sup>标准中移到了非规范性的附录 B<sup>[41](./notes.md#41)</sup>（Annex B）中。一并移至附录 B 的内容包括：与 Y2K 不兼容的 Date 方法、`escape` 和 `unescape` 字符串函数，以及字符串方法 `substr`。这些特性都已被认定为过时，但仍被网站使用。此举背后的设想，在于特性一旦在标准的非规范性附录 B 中列出，即表明它们已被废弃而不应继续使用，各实现均有权最终删除它们。这是个幼稚的期望。TC39 成员尚未意识到，浏览器实现者们非常不愿意删除网页上实际可能用到的任何特性（不论是否标准化）——某些网页永远不会消失。
 
 在审查并解决了所有未解决的问题后，TC39 一致接受规范，认为它已经完备，遵从并纳入了会议中所提出的更改要求。Waldemar Horwat 和 Herman Venter 准备了最终文档 [[TC39 1999e](./references.md#TC39:1999:015)]，并于 1999 年 10 月 13 日将其交给了 Ecma 秘书处。最终草案中有一张表，其中列出了 ECMA-262 前三个版本的所有贡献者（图 21），包括内容创作、技术会议参与，以及通过电子邮件的贡献。
 
@@ -572,11 +572,11 @@ Crockford 倡导简单性，他意识到可以通过使用 JavaScript 对象和�
 
 在 1997 年，微软发布了其企业电子邮件客户端的 Web 版本，这就是被实现为 Web 1.0 风格的 Outlook Web Access（OWA）[[Bilic 2007](./references.md#Bilic07), [Van Eaton 2005](./references.md#VanEaton05)] 应用。而后，OWA 1.0 被交互更丰富的版本所接替。这个新版本使用了动态 HTML（Dynamic HTML<sup>[46](./notes.md#46)</sup>）和一个名为 XMLHTTP [[Hopmann 2006](./references.md#xmlhttp)] 的新浏览器 API。XMLHTTP 使得网页上的 JavaScript 代码能与服务端来回异步传输数据，而无需完全重新加载网页。DHTML 和 XMLHTTP 的组合，使得 Web 页面在每个会话中只需加载一次，然后即可作为支持远程访问数据和服务的交互式应用而运行。
 
-在 2000 年代上半叶，许多组织都使用过类似的技术来构建 Web 应用。但直到 Google 用它来实现 GMail、Google Maps 和其他应用后，这种 Web 应用风格才广为人知。Jesse James Garrett [[2005](./references.md#ajax)] 创造了「AJAX」一词来形容它。AJAX 和使用它构建的社交媒体应用，成为了 Web 2.0 时代的标志。
+在 2000 年代上半叶，许多组织都使用过类似的技术来构建 Web 应用。但直到 Google 用它来实现 GMail、Google Maps 和其他应用后，这种 Web 应用风格才广为人知。Jesse James Garrett [[2005](./references.md#ajax)] 创造了「AJAX」一词来形容它。AJAX 和使用它构建的社交媒体应用，成为了 *Web 2.0*<sup>[g](./appendices.md#Web-20)</sup> 时代的标志。
 
 Web 2.0 和 AJAX 的出现，是 JavaScript 在 Web 开发中用途的主要转折点。JavaScript 的角色逐渐由一门用来将动态元素添加到静态页面的语言，变为了一门用来对复杂的富互联网应用（RIA）进行编码的语言。
 
-同时，浏览器的生态系统正变得越来越复杂，总有各式各样市场份额很低的新浏览器出现。Netscape（在被 AOL 收购后）和微软（在获得市场主导地位后）逐渐放弃了对浏览器的活跃开发，这为新浏览器的出现创造了机会。*Firefox*<sup>[47](./notes.md#47)</sup> [[Mozilla 2004](./references.md#moz:ff1)]、*Opera* [[Opera 2013](./references.md#opera:history)]、苹果 *Safari* [[Melton 2003](./references.md#safari:history)]，以及最后的谷歌 *Chrome* [[Kennedy 2008](./references.md#chrome:history)] 逐渐占据了有意义的市场份额。
+同时，浏览器的生态系统正变得越来越复杂，总有各式各样市场份额很低的新浏览器出现。Netscape（在被 AOL 收购后）和微软（在获得市场主导地位后）逐渐放弃了对浏览器的活跃开发，这为新浏览器的出现创造了机会。*Firefox*<sup>[g](./appendices.md#Firefox)</sup><sup>[47](./notes.md#47)</sup> [[Mozilla 2004](./references.md#moz:ff1)]、*Opera*<sup>[g](./appendices.md#Opera)</sup> [[Opera 2013](./references.md#opera:history)]、苹果 *Safari*<sup>[g](./appendices.md#Safari)</sup> [[Melton 2003](./references.md#safari:history)]，以及最后的谷歌 *Chrome*<sup>[g](./appendices.md#Chrome)</sup> [[Kennedy 2008](./references.md#chrome:history)] 逐渐占据了有意义的市场份额。
 
 新的浏览器都实现了对 JavaScript ES3 规范的支持，也支持被 W3C 部分指定的浏览器平台 API。但由于平台规范并不够完整和精确，大多数新浏览器都以各种方式扩展或修改了平台的 API。并且尽管这些新浏览器不断涌现，许多用户仍在使用过时的 Internet Explorer 和 Netscape 版本。这些版本有很多 bug，并缺乏对最新语言特性和平台 API 的支持。
 
@@ -588,7 +588,7 @@ Web 2.0 和 AJAX 的出现，是 JavaScript 在 Web 开发中用途的主要转�
 
 在 AJAX 应用复杂性与浏览器兼容问题的背景下，用于简化 Web 应用构建的框架和库应运而生。早期的框架包括 Prototype [[Stephenson et al. 2007](./references.md#prototype)]、MooTools [[Proietti 2006](./references.md#mootools)] 和 Dojo [[Russell et al. 2005](./references.md#dojo)]，而其中最受欢迎 [[W<sup>3</sup>Techs 2010](./references.md#frameworkadoption)] 的是 jQuery [[Resig 2006](./references.md#jquery)]。这些早期的框架与库通常为 AJAX 应用提供了基础结构支撑，并为简化编码实现常见任务提供了高层面的抽象。它们还通过内部处理和隐藏许多浏览器特性变体的方式，解决了许多兼容问题。
 
-这样一种特殊的库，已经重要到了要创造新词汇来表示它的程度。Remy Sharp [[2010](./references.md#polyfill)] 提出了「polyfill」一词，它所描述的库提供了「应由浏览器提供但仍然缺失」的 API 支持。设计良好的 polyfill 会动态检查它所提供的特性是否在环境中已经可用。只有在缺少内置支持或不兼容的情况下，polyfill 才会自行将其置入环境。早期的 polyfill 库专注于使浏览器更具互操作性，其手段主要是隐藏早期浏览器竞争中留下的遗留特性变体，或在旧浏览器中支持新的浏览器特性。如果一个特性在某种流行的浏览器中存在，但在其他流行的浏览器中却不存在，那么 polyfill 可以使 Web 应用使用相同的代码在所有浏览器上运行。随着浏览器兼容性的改善，polyfill 则成为了一种常见手法，用来尽早用上浏览器和 JavaScript 的新特性。在 Web 新特性的设计过程中，polyfill 库的创建变得十分普遍。除了对开发者有用外，通过 polyfill 还能收集到宝贵的开发者反馈，从而支持新特性和 API 的设计。
+这样一种特殊的库，已经重要到了要创造新词汇来表示它的程度。Remy Sharp [[2010](./references.md#polyfill)] 提出了「polyfill<sup>[g](./appendices.md#polyfill)</sup>」一词，它所描述的库提供了「应由浏览器提供但仍然缺失」的 API 支持。设计良好的 polyfill 会动态检查它所提供的特性是否在环境中已经可用。只有在缺少内置支持或不兼容的情况下，polyfill 才会自行将其置入环境。早期的 polyfill 库专注于使浏览器更具互操作性，其手段主要是隐藏早期浏览器竞争中留下的遗留特性变体，或在旧浏览器中支持新的浏览器特性。如果一个特性在某种流行的浏览器中存在，但在其他流行的浏览器中却不存在，那么 polyfill 可以使 Web 应用使用相同的代码在所有浏览器上运行。随着浏览器兼容性的改善，polyfill 则成为了一种常见手法，用来尽早用上浏览器和 JavaScript 的新特性。在 Web 新特性的设计过程中，polyfill 库的创建变得十分普遍。除了对开发者有用外，通过 polyfill 还能收集到宝贵的开发者反馈，从而支持新特性和 API 的设计。
 
 当 JavaScript 应用是朴素地将独立创建的几个部分组合而成时，命名冲突十分常见。许多框架和库提供了某种模块化机制，这通常是通过使用命名空间对象（namespace objects）和立即执行的函数表达式（IIFE<sup>[49](./notes.md#49)</sup>）来实现的。命名空间对象只是个单例对象，其主要用途是提供对函数或变量的限定（qualified）名称访问。JavaScript 1.0 的内置 Math 对象就是命名空间对象。命名空间对象的限制之一在于，它之中的所有名称都是公共的。这个限制可以通过在模块模式中「将命名空间对象与 IIFE 相结合」的方式来克服，如图 22 所示。
 
@@ -614,7 +614,7 @@ console.log(Services.jobCount()); // 显示 1
 通常认为 Douglas Crockford 普及了模块模式，但它很可能是由许多 JavaScript 程序员独立发现的。
 
 ## 浏览器博弈论
-在浏览器大战 [[Borland 2003](./references.md#browserwars)] 期间，Netscape 和微软都尝试在引入新网站能力上实现超越式的创新。他们都试图说服开发者使用其独有的特性，并开展了「在『XXX』上效果最佳」的营销活动。但如果网站无法在用户首选的浏览器下正常工作，浏览器用户会很不高兴。而且 Web 开发者也不喜欢为不同浏览器维护网站的多个版本。
+在*浏览器大战*<sup>[g](./appendices.md#browser-wars)</sup> [[Borland 2003](./references.md#browserwars)] 期间，Netscape 和微软都尝试在引入新网站能力上实现超越式的创新。他们都试图说服开发者使用其独有的特性，并开展了「在『XXX』上效果最佳」的营销活动。但如果网站无法在用户首选的浏览器下正常工作，浏览器用户会很不高兴。而且 Web 开发者也不喜欢为不同浏览器维护网站的多个版本。
 
 即使微软为了赢得 Netscape 的市场份额，在技术和非技术方面都进行了大量投资，人们仍然意识到 JavaScript 的发展除了竞争外还需要合作。1997 年 7 月，在第一版 ECMA-262 的工作即将完成前的 TC39 会议上，微软的 Scott Wiltamuth 提出了关于未来 ECMAScript 开发的合作承诺（图 23）。
 
@@ -641,7 +641,7 @@ Brendan Eich 回忆说在某个时候，他意识到市场的务实性严重限�
 
 Eich 意识到这种情况很可能属于纳什均衡 [[Nash 1950](./references.md#nash1950equilibrium)]，因此创造了「浏览器博弈论」一词，用以描述浏览器实现者所受到的约束。
 
-第一个约束有时会用「不要破坏 Web！」的口号来表述。网页通常以 HTML 和 JavaScript 源码的形式存储在服务器上。每次用户访问页面时，浏览器都会对其进行重新解释。这些页面中有很多并非由其原始创建者维护，但仍在活跃使用中，其中还包括一些具有持续效用或历史重要性的文档。一旦浏览器解释源代码的方式发生*破坏性变更*（breaking-change），就可能导致某个页面变得难以辨认或无法正常工作。如果变化仅在单个浏览器上发生，那么用户可以切换到使用其他浏览器。如果这种变化在浏览器中普遍存在，那么这部分失去维护的 Web 就会永久损坏。这个事实也限制了 Web 标准的开发。如果浏览器实现者认为一旦某个标准所「引入的特性或授权做出的改动」会使得现存的大量 Web 内容失效，那么这个标准就将被忽略。
+第一个约束有时会用「不要破坏 Web！」的口号来表述。网页通常以 HTML 和 JavaScript 源码的形式存储在服务器上。每次用户访问页面时，浏览器都会对其进行重新解释。这些页面中有很多并非由其原始创建者维护，但仍在活跃使用中，其中还包括一些具有持续效用或历史重要性的文档。一旦浏览器解释源代码的方式发生*破坏性变更*<sup>[g](./appendices.md#breaking-change)</sup>，就可能导致某个页面变得难以辨认或无法正常工作。如果变化仅在单个浏览器上发生，那么用户可以切换到使用其他浏览器。如果这种变化在浏览器中普遍存在，那么这部分失去维护的 Web 就会永久损坏。这个事实也限制了 Web 标准的开发。如果浏览器实现者认为一旦某个标准所「引入的特性或授权做出的改动」会使得现存的大量 Web 内容失效，那么这个标准就将被忽略。
 
 如今，浏览器开发者普遍认识到作为 Web 及其开放标准基础的兼容要求，限制了他们通过单方面平台创新进行竞争的能力。浏览器「可以并且确实」会在实现的质量（如性能、安全性、可靠性和可用性）上进行竞争。但要想提高浏览器作为应用平台的基本技术能力，通常需要所有主流浏览器之间的合作。
 

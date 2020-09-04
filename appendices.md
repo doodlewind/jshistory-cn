@@ -66,6 +66,7 @@
 * <a id="Mosaic">**Mosaic**</a> *n.* 一款由 Marc Andreessen 和 Eric Bina 在 NCSA 开发的浏览器。
 * <a id="Nodejs">**Node.js**</a> *n.* 一款基于 JavaScript 的服务端平台，最早在 2009 年由 Ryan Dahl 开发。
 * <a id="nominal-type-system">**nominal type system**</a> *n.* 名义化类型系统，其中的每个类型定义都会引入唯一的数据类型。在一些面向对象语言中，类定义即被当作名义化的类型定义。
+* <a id="non-normative">**non-normative**</a> *adj.* 非规范的，表示在标准文件中未定义具体要求的部分。
 * <a id="no-op">**no-op**</a> *n.* 一种不做任何事的操作。
 * <a id="normative">**normative**</a> *adj.* 规范的，表示在标准文件中定义了具体要求的部分。
 * <a id="object">**object**</a> *n.* 对象，一种将数据与行为组合为一等公民级复合实体的计算装置。定义和操作对象的机制，在不同的编程语言中各不相同。
@@ -73,6 +74,7 @@
 * <a id="own-property">**own property**</a> *n.* 自有属性，在 JavaScript 对象中作为内置部分（而非继承而来）的属性。
 * <a id="ordinary-object">**ordinary object**</a> *n.* 标准对象，一种 JavaScript 对象。对于所有对象都必须支持的基本内部方法，它具备这些方法所对应的默认行为。参见 *exotic object*。
 * <a id="profile">**profile**</a> *n.* 模式，一组为特定设备、平台或应用而裁剪出的能力集。
+* <a id="polyfill">**polyfill**</a> *n.* 一种库，提供原应在浏览器中可用但却缺失的 API。
 * <a id="proper-tail-call">**proper tail call**</a> *n.* 消栈的尾调用，一种从不返回控制权到调用者函数的尾调用。
 * <a id="property">**property**</a> *n.* 属性，指 JavaScript 对象的组成部分。
 * <a id="property-key">**property key**</a> *n.* 属性键，用于标识对象中某个特定属性的字符串或符号（symbol）。
