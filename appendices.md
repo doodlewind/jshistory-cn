@@ -265,33 +265,33 @@
 （按首字母排序）
 
 <table>
-  <tr><th>AJAX</th><td><u>A</u>synchronous <u>J</u>avaScript <u>A</u>nd <u>X</u>ML</td>
-  <tr><th>API</th><td><u>A</u>pplication <u>P</u>rogram <u>I</u>nterface</td>
-  <tr><th>CC</th><td><u>C</u>o-Ordinating <u>C</u>ommittee - Ecma 国际的管理委员会</td>
-  <tr><th>CLR</th><td>微软 .NET 的 <u>C</u>ommon <u>L</u>anguage <u>R</u>untime 组件</td>
-  <tr><th>CSP</th><td><u>C</u>ontent <u>S</u>ecurity <u>P</u>olicy</td>
-  <tr><th>CSS</th><td><u>C</u>ascading <u>S</u>tyle <u>S</u>heets</td>
-  <tr><th>DHTML</th><td><u>D</u>ynamic <u>HTML</u></td>
-  <tr><th>DOM</th><td><u>D</u>ocument <u>O</u>bject <u>M</u>odel</td>
-  <tr><th>GA</th><td><u>G</u>eneral <u>A</u>ssembly - Ecma 会员的半年度会议</td>
-  <tr><th>GCC</th><td><u>G</u>NU <u>C</u> <u>C</u>ompiler</td>
-  <tr><th>GWT</th><td><u>G</u>oogle <u>W</u>eb <u>T</u>oolkit</td>
-  <tr><th>HTML</th><td><u>H</u>ypertext <u>M</u>arkup <u>L</u>anguage</td>
-  <tr><th>IE</th><td>微软的 <u>I</u>nternet <u>E</u>xplorer 浏览器</td>
-  <tr><th>IIFE</th><td><u>I</u>mmediately <u>I</u>nvoked <u>F</u>unction <u>E</u>xpression</td>
-  <tr><th>I18N</th><td><u>I</u>nternationalizatio<u>n</u> - 在「I」和「n」之间有 18 个字母</td>
-  <tr><th>JIT</th><td><u>J</u>ust <u>I</u>n <u>T</u>ime 编译器</td>
-  <tr><th>JVM</th><td><u>J</u>ava <u>V</u>irtual <u>M</u>achine</td>
-  <tr><th>MOP</th><td><u>M</u>eta<u>o</u>bject <u>P</u>rotocol</td>
-  <tr><th>NCSA</th><td><u>N</u>ational <u>C</u>enter for <u>S</u>upercomputing <u>A</u>pplications</td>
-  <tr><th>OCAP</th><td><u>O</u>bject <u>Cap</u>ability</td>
-  <tr><th>OMG</th><td><u>O</u>bject <u>M</u>anagement <u>G</u>roup</td>
-  <tr><th>POSIX</th><td><u>P</u>ortable <u>O</u>perating <u>S</u>ystem <u>I</u>nterface modeled on UNI<u>X</u></td>
-  <tr><th>RFP</th><td><u>R</u>equest <u>F</u>or <u>P</u>roposal</td>
-  <tr><th>SES</th><td><u>S</u>ecure <u>E</u>CMA<u>S</u>cript</td>
-  <tr><th>TC</th><td>Ecma 国际的 <u>T</u>echnical <u>C</u>ommittee</td>
-  <tr><th>TDZ</th><td><u>T</u>emporal <u>D</u>ead <u>Z</u>one</td>
-  <tr><th>TG</th><td>Ecma 国际 TC 中的 <u>T</u>ask <u>G</u>roup</td>
-  <tr><th>VM</th><td><u>V</u>irtual <u>M</u>achine</td>
-  <tr><th>WG</th><td><u>W</u>orking <u>G</u>roup - 在 Ecma TC 或 TG 内部的特设组</td>
+  <tr><th>AJAX</th><td><b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML</td>
+  <tr><th>API</th><td><b>A</b>pplication <b>P</b>rogram <b>I</b>nterface</td>
+  <tr><th>CC</th><td><b>C</b>o-Ordinating <b>C</b>ommittee - Ecma 国际的管理委员会</td>
+  <tr><th>CLR</th><td>微软 .NET 的 <b>C</b>ommon <b>L</b>anguage <b>R</b>untime 组件</td>
+  <tr><th>CSP</th><td><b>C</b>ontent <b>S</b>ecurity <b>P</b>olicy</td>
+  <tr><th>CSS</th><td><b>C</b>ascading <b>S</b>tyle <b>S</b>heets</td>
+  <tr><th>DHTML</th><td><b>D</b>ynamic <b>HTML</b></td>
+  <tr><th>DOM</th><td><b>D</b>ocument <b>O</b>bject <b>M</b>odel</td>
+  <tr><th>GA</th><td><b>G</b>eneral <b>A</b>ssembly - Ecma 会员的半年度会议</td>
+  <tr><th>GCC</th><td><b>G</b>NU <b>C</b> <b>C</b>ompiler</td>
+  <tr><th>GWT</th><td><b>G</b>oogle <b>W</b>eb <b>T</b>oolkit</td>
+  <tr><th>HTML</th><td><b>H</b>ypertext <b>M</b>arkup <b>L</b>anguage</td>
+  <tr><th>IE</th><td>微软的 <b>I</b>nternet <b>E</b>xplorer 浏览器</td>
+  <tr><th>IIFE</th><td><b>I</b>mmediately <b>I</b>nvoked <b>F</b>unction <b>E</b>xpression</td>
+  <tr><th>I18N</th><td><b>I</b>nternationalizatio<b>n</b> - 在「I」和「n」之间有 18 个字母</td>
+  <tr><th>JIT</th><td><b>J</b>ust <b>I</b>n <b>T</b>ime 编译器</td>
+  <tr><th>JVM</th><td><b>J</b>ava <b>V</b>irtual <b>M</b>achine</td>
+  <tr><th>MOP</th><td><b>M</b>eta<b>o</b>bject <b>P</b>rotocol</td>
+  <tr><th>NCSA</th><td><b>N</b>ational <b>C</b>enter for <b>S</b>upercomputing <b>A</b>pplications</td>
+  <tr><th>OCAP</th><td><b>O</b>bject <b>Cap</b>ability</td>
+  <tr><th>OMG</th><td><b>O</b>bject <b>M</b>anagement <b>G</b>roup</td>
+  <tr><th>POSIX</th><td><b>P</b>ortable <b>O</b>perating <b>S</b>ystem <b>I</b>nterface modeled on UNI<b>X</b></td>
+  <tr><th>RFP</th><td><b>R</b>equest <b>F</b>or <b>P</b>roposal</td>
+  <tr><th>SES</th><td><b>S</b>ecure <b>E</b>CMA<b>S</b>cript</td>
+  <tr><th>TC</th><td>Ecma 国际的 <b>T</b>echnical <b>C</b>ommittee</td>
+  <tr><th>TDZ</th><td><b>T</b>emporal <b>D</b>ead <b>Z</b>one</td>
+  <tr><th>TG</th><td>Ecma 国际 TC 中的 <b>T</b>ask <b>G</b>roup</td>
+  <tr><th>VM</th><td><b>V</b>irtual <b>M</b>achine</td>
+  <tr><th>WG</th><td><b>W</b>orking <b>G</b>roup - 在 Ecma TC 或 TG 内部的特设组</td>
 </table>
