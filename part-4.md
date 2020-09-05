@@ -1,6 +1,6 @@
 # 继往开来
 
-## 开发 ES3.1 / ES5
+## 开发 ES3.1/ES5
 在 2007 年的大多数时间里，新版 ES4 工作组都认为对 ES3.1 的投入不过是企图阻挠新版 ES4 的竞争，其中并没有实质性的技术。但是，Douglas Crockford、Pratap Lakshman 和 Allen Wirfs-Brock 仍然致力于对 ES3 规范进行增量修改，从而保证规范与时俱进，并修复各种导致互操作性问题的隐患。在发布 ES3.1 的初始目标和设计原则，并提出语言特性级的改动 [[Lakshman et al. 2007](./references.md#es3.1:wd0)] 后，他们走出了工作的第一步，即全面了解当时 Web 浏览器中 JavaScript 的现状，以及真实的 Web 与 ES3 规范之间有何不同之处。
 
 ES3.1 工作组有一个直接的关注点，那就是微软为 Internet Explorer 实现的 JScript 以不符合 Web 标准而闻名。为了验证这些 ECMAScript 相关问题的有效性与影响范围，Allen Wirfs-Brock 请 Pratap Lakshman 进行分析，以确定 IE 的 JScript 与 ES3 规范之间一共有哪些出入。这次分析于 2007 年 9 月完成，其成果是一份长达 87 页的报告，名为《JScript 到 ES3 的偏差》[[Lakshman 2007c](./references.md#jscriptdeviations)]。这份报告分为三个主要部分。在第一部分里，报告逐个确定了「当时的 JScript 实现」与「ES3 规范的明确要求」之间存在偏差的具体位置。对每个偏差，报告都提供了 ES3 中相应被违反之处的描述、用于观察偏差的测试用例，以及在当时最新版的 IE、Mozilla Firefox、Opera 和苹果 Safari 上执行测试的结果。这些浏览器是当时公认的「前四大」浏览器。如图 29 中的示例，就展示了一个被确定出的此类偏差。其中有些偏差为 IE 所特有，有些偏差在所有受测浏览器中均存在，还有些偏差在 IE 和其他若干浏览器中存在。

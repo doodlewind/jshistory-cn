@@ -75,7 +75,7 @@
   * [CommonJS 和 Node.js](./part-3.md#commonjs-和-nodejs)
   * [成为浏览器通用运行时的 JavaScript](./part-3.md#成为浏览器通用运行时的-javascript)
 * [继往开来](./part-4.md)
-  * [开发 ES3.1 / ES5](./part-4.md#开发-es31--es5)
+  * [开发 ES3.1/ES5](./part-4.md#开发-es31es5)
     * [ES5 技术设计](./part-4.md#es5-技术设计)
       * [严格模式](./part-4.md#严格模式)
       * [Getter，Setter 和对象元操作](./part-4.md#gettersetter-和对象元操作)
@@ -107,7 +107,7 @@
     * [完成 ECMAScript 2015](./part-4.md#完成-ecmascript-2015)
 * [总结](./part-4.md#总结)
 * [附录](./appendices.md)
-  * 登场人物
+  * [登场人物](./appendices.md#登场人物)
   * 登场组织
   * [术语表](./appendices.md#术语表)
   * 缩略语和首字母缩写词

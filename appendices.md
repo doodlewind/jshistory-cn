@@ -1,5 +1,118 @@
 # 附录
 
+## 登场人物
+（按姓氏首字母排序）
+
+<table>
+  <thead><tr><th>姓名</th><th>所属机构</th><th>角色 / 贡献</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2">Marc Andreessen</td><td>NCSA</td><td>Mosaic 浏览器开发者</td></tr>
+    <tr><td>Netscape</td><td>Netscape 联合创始人，Mocha 倡导者</td></tr>
+    <tr><td>Jeremy Ashkenas</td><td></td><td>发明了 CoffeeScript 编程语言</td></tr>
+    <tr><td>Ihab Awad</td><td>Google</td><td>贡献了 CommonJS 模块系统设计</td></tr>
+    <tr><td>Jan van den Beld</td><td>Ecma</td><td>1992-2007 年任秘书长</td></tr>
+    <tr><td>Tim Berners-Lee</td><td>CERN, W3G</td><td>万维网的发明者</td></tr>
+    <tr><td rowspan="2">Eric Bina</td><td>NCSA</td><td>Mosaic 浏览器开发者</td></tr>
+    <tr><td>Netscape</td><td>Netscape 联合创始人</td></tr>
+    <tr><td>Leo Balter</td><td>Bocoup</td><td>在 ES6 完成后领导了 Test262 的开发</td></tr>
+    <tr><td>Norris Boyd</td><td>Netscape</td><td>早期 SpiderMonkey 开发者</td></tr>
+    <tr><td>Robert Cailliau</td><td>CERN</td><td>HTML 脚本的倡导者，JavaScript 的批评者</td></tr>
+    <tr><td>Carl Cargill</td><td>Netscape</td><td>标准化专家，1997 年任 TC39 副主席</td></tr>
+    <tr><td>Jim Clark</td><td>Netscape</td><td>Silicon Graphics 和 Netscape 的创始人</td></tr>
+    <tr><td>Andrew Clinick</td><td>Microsoft</td><td>1998-1999 年任 TC39 副主席，提出了条件编译</td></tr>
+    <tr><td>Donna Converse</td><td>Netscape</td><td>贡献了第一份 ES1 规范草案</td></tr>
+    <tr><td>Mike Cowlishaw</td><td>IBM</td><td>ES2 和 ES3 的项目编辑，十进制小数支持者</td></tr>
+    <tr><td>Douglas Crockford</td><td>Yahoo!, PayPal</td><td>JavaScript 布道师，新版 ES4 反对者，「发现了」JSON</td></tr>
+    <tr><td>Kevin Dangoor</td><td>Khan Academy</td><td>启动了 ServerJS/CommonJS 项目</td></tr>
+    <tr><td>Ryan Dahl</td><td>Joyent</td><td>Node.js 的初始开发者</td></tr>
+    <tr><td>Chris Dollin</td><td>HP</td><td>Spice 语言设计者</td></tr>
+    <tr><td>Patrick Dussud</td><td>Microsoft</td><td>「数字卫生工程师」，JScript 垃圾回收器作者</td></tr>
+    <tr><td rowspan="2">Jeff Dyer</td><td>Nombas/self</td><td>ES4 提议者，ES3 和初版 ES4 贡献者</td></tr>
+    <tr><td>Macromedia/Adobe</td><td>开发了 ActionScript 3 编译器，首任新版 ES4 编辑</td></tr>
+    <tr><td rowspan="2">Brendan Eich</td><td>Netscape</td><td>JavaScript 的初始设计者与实现者</td></tr>
+    <tr><td>Mozilla</td><td>Mozilla CTO，重启了 ES4 进程，Harmony 贡献者</td></tr>
+    <tr><td>Cormac Flanagan</td><td>Univ Cal Santa Cruz</td><td>混合类型系统专家，新版 ES4 设计团队成员</td></tr>
+    <tr><td>David Fugate</td><td>Microsoft</td><td>领导了最早 ES5 阶段时的 Test262 开发</td></tr>
+    <tr><td>Richard P. Gabriel</td><td>Sun</td><td>Lisp 玩家，诗人，撰写了 ECMA-262 的语言概述部分</td></tr>
+    <tr><td>Andreas Gal</td><td>Mozilla</td><td>将 TraceMonkey 优化器加入了 SpiderMonkey</td></tr>
+    <tr><td>Michael Gardner</td><td>Borland</td><td>首份 ES1 工作草案的联合编辑</td></tr>
+    <tr><td>Jonathan Gay</td><td>Macromedia</td><td>发明了 Flash</td></tr>
+    <tr><td>Bill Gibbons</td><td>Netscape</td><td>ES3 工作草案编辑</td></tr>
+    <tr><td>Richard Gillam</td><td>IBM</td><td>1998-2000 年任 I18N 工作组主席</td></tr>
+    <tr><td>Gary Grossman</td><td>Macromedia/Adobe</td><td>ActionScript 设计者</td></tr>
+    <tr><td>Peter Hallam</td><td>Google</td><td>Traceur 转译器开发者</td></tr>
+    <tr><td>Lars Thomas Hansen</td><td>Opera, Adobe</td><td>新版 ES4 编辑</td></tr>
+    <tr><td rowspan="2">Dave Herman</td><td>Northeastern Univ</td><td>博士生，编程语言语义学家，新版 ES4 设计团队成员</td></tr>
+    <tr><td>Mozilla</td><td>许多 ES6 提案（包括模块在内）的倡导者</td></tr>
+    <tr><td>Graydon Hoare</td><td>Mozilla</td><td>新版 ES4 设计团队成员</td></tr>
+    <tr><td>Luke Hoban</td><td>Microsoft</td><td>从 2011 年起领导了微软的 TC39 代表团</td></tr>
+    <tr><td rowspan="2">Waldemar Horwat</td><td>Netscape</td><td>JS2 与初版 ES4 的设计者兼编辑</td></tr>
+    <tr><td>Google</td><td>ES5 与 ES6 的贡献者</td></tr>
+    <tr><td>Chris Houck</td><td>Netscape</td><td>JavaScript 团队的第二名成员，命名了 SpiderMonkey</td></tr>
+    <tr><td>Mr. Huffadone</td><td>Callscan</td><td>缺席了首次 TC39 会议</td></tr>
+    <tr><td>Oliver Hunt</td><td>Apple</td><td>ES5 与 ES6 的贡献者</td></tr>
+    <tr><td>Scott Isaacs</td><td>Microsoft</td><td>DHTML 开发者，微软 Live 框架架构师</td></tr>
+    <tr><td>Bill Joy</td><td>Sun</td><td>黑客，Sun 联合创始人，与 Netscape 合作投入 JavaScript 时的实权支持者</td></tr>
+    <tr><td>Yahuda Katz</td><td>jQuery Fdn/Tilde</td><td>模块特性倡导者，影响了 ES6 中类的设计</td></tr>
+    <tr><td>Shon Katzenberger</td><td>Microsoft</td><td>开发了许多 ES1 中的伪代码算法</td></tr>
+    <tr><td>Kris Kowal</td><td></td><td>CommonJS 模块系统设计者</td></tr>
+    <tr><td>Peter Kukol</td><td>Microsoft</td><td>编写了 JScript 解析器</td></tr>
+    <tr><td>Pratap Lakshman</td><td>Microsoft</td><td>新版 ES4 反对者，ES5 编辑，创造了最早的 ES5conform 测试套件</td></tr>
+    <tr><td>Russell Leggett</td><td>&lt;<code>es-discuss</code>&gt;</td><td>为类提出了一种「安全语法」</td></tr>
+    <tr><td>Norbert Lindenberg</td><td>Mozilla</td><td>ECMA-402 第一版的编辑</td></tr>
+    <tr><td>Julia Liuson</td><td>Microsoft</td><td>Vasic Basic 产品组经理，Wirfs-Brock 的上级</td></tr>
+    <tr><td>Steve Leach</td><td>HP</td><td>Spice 语言设计者</td></tr>
+    <tr><td>Clayton Lewis</td><td>Netscape</td><td>Netscape JavaScript 团队的首位经理</td></tr>
+    <tr><td>David McAllister</td><td>Adobe</td><td>标准化专家，2008-2011 年任 Ecma 协调委员会成员</td></tr>
+    <tr><td>Tom McFarland</td><td>HP</td><td>国际化专家</td></tr>
+    <tr><td>Sam McKelvie</td><td>Microsoft</td><td>早期 JavaScript 解释器开发者</td></tr>
+    <tr><td>Sebastian McKenzie</td><td>Emmerich Manual HS</td><td>高中学生，开发了 Babel 转译器</td></tr>
+    <tr><td>C. Rand McKinny</td><td>Netscape</td><td>技术作家，受命编写首份 JavaScript 规范</td></tr>
+    <tr><td>Mark S. Miller</td><td>Google</td><td>OCAP 专家，ES5 与 ES6 的贡献者，Proxy 的联合倡导者</td></tr>
+    <tr><td>Neil Mix</td><td>&lt;<code>es-discuss</code>&gt;</td><td>命名了 ES5 中的新属性标记名</td></tr>
+    <tr><td>Anup Murarka</td><td>Spyglass</td><td>在首次 TC39 会议上被暂时任命为助理编辑</td></tr>
+    <tr><td>John Neumann</td><td>Ecma</td><td>标准化专家，2008-2015 年任 TC39 主席</td></tr>
+    <tr><td>Anh Nguyen</td><td>Netscape</td><td>在首次 TC39 会议上代表 Netscape</td></tr>
+    <tr><td>Brent Noorda</td><td>Nombas</td><td>开发了面向嵌入式系统的 ECMAScript 方言</td></tr>
+    <tr><td>Bob Nystrom</td><td>Google</td><td>Traceur 转译器的开发者</td></tr>
+    <tr><td>Jason Orendorff</td><td>Mozilla</td><td>实现了 ES6 模块加载器的原型</td></tr>
+    <tr><td>Adam Peller</td><td>IBM</td><td>ES5 贡献者</td></tr>
+    <tr><td>Dave Raggett</td><td>HP/W3C</td><td>Spice 发明者</td></tr>
+    <tr><td>Thomas Reardon</td><td>Microsoft</td><td>Internet Explorer 开发负责人</td></tr>
+    <tr><td>Sam Ruby</td><td>IBM</td><td>ES5 与 ES6 贡献者，实现了十进制小数的原型</td></tr>
+    <tr><td rowspan="2">Alex Russell</td><td>Dojo Foundation</td><td>ES5 贡献者</td></tr>
+    <tr><td>Google</td><td>Google Chrome Web 标准负责人，ES6 贡献者</td></tr>
+    <tr><td>William Schulze</td><td>Macromedia</td><td>2004-2005 年任 TC39-TG1 主持人</td></tr>
+    <tr><td>István Sebestyén</td><td>Ecma</td><td>2007-2019 年任秘书长</td></tr>
+    <tr><td>Dan Smith</td><td>Macromedia/Adobe</td><td>Flash 运行时工程总监</td></tr>
+    <tr><td>Edwin Smith</td><td>Macromedia/Adobe</td><td>为 ActionScript 2 和 3 开发了 AVM2 虚拟机</td></tr>
+    <tr><td>Walter Smith</td><td>Microsoft</td><td>苹果 NewtonScript 老手，通宵起草了 JScript 规范</td></tr>
+    <tr><td>Randy Solton</td><td>Borland</td><td>首份 ES1 工作草案的联合编辑</td></tr>
+    <tr><td>Maciej Stachkowiak</td><td>Apple</td><td>Safari/WebKit 开发者</td></tr>
+    <tr><td>Guy L. Steele Jr.</td><td>Sun</td><td>Scheme 原作者，ES1 项目编辑</td></tr>
+    <tr><td>David Stryker</td><td>Netscape</td><td>核心技术副总裁</td></tr>
+    <tr><td>Brian Terlson</td><td>Microsoft</td><td>为 ES6 领导了 Test262 的开发，2015 年 7 月起任 ECMA-262 编辑</td></tr>
+    <tr><td>Lee Thornason</td><td>Macromedia</td><td>开发了以 JVM 为宿主的 Flash 原型</td></tr>
+    <tr><td>Sam Tobin-Hochstadt</td><td>Northeastern Univ</td><td>ES6 模块联合倡导者</td></tr>
+    <tr><td>Jim Tressa</td><td>Oracle</td><td>向 TC39 介绍了组件模型</td></tr>
+    <tr><td>Isabelle Valet-Harper</td><td>Microsoft</td><td>标准化专家，Ecma 协调委员会成员</td></tr>
+    <tr><td>Tom Van Cutsen</td><td>Vrije Universiteit</td><td>ES6 贡献者，Proxy 联合倡导者</td></tr>
+    <tr><td>Herman Venter</td><td>Microsoft</td><td>ES3 与初版 ES4 贡献者，JScript.NET 开发者</td></tr>
+    <tr><td>Richard Wagner</td><td>NetObjects</td><td>在 TC39 内启动了 JavaScript 组件项目</td></tr>
+    <tr><td>Rafael Weinstein</td><td>Google</td><td>提出了四阶段的 TC39 开发进程</td></tr>
+    <tr><td>Rick Waldron</td><td>jQuery Fdn/Bocoup</td><td>系统化地整理了 TC39 的备忘，ECMA-402 第二版的编辑</td></tr>
+    <tr><td>Robert Welland</td><td>Microsoft</td><td>IE 平台架构师</td></tr>
+    <tr><td>Chris Wilson</td><td>Microsoft</td><td>首位 JScript 开发者，通宵起草了 JScript 规范</td></tr>
+    <tr><td>Scott Wiltamuth</td><td>Microsoft</td><td>TC39 副主席，ES1 技术工作组记录员</td></tr>
+    <tr><td rowspan="2">Allen Wirfs-Brock</td><td>Microsoft</td><td>新版 ES4 反对者，ES5/5.1 编辑</td></tr>
+    <tr><td>Mozilla</td><td>ES6 编辑</td></tr>
+    <tr><td>Rok Yu</td><td>Microsoft</td><td>JScript 项目经理，2004 年任 TC39-TG1 主持人</td></tr>
+    <tr><td>Alon Zakai</td><td>Mozilla</td><td>开发了 Emscripten</td></tr>
+    <tr><td>Boris Zbarsky</td><td>Mozilla</td><td>DOM 绑定与浏览器标准工程师</td></tr>
+    <tr><td>Kris Zyp</td><td>Dojo Foundation</td><td>ES5 贡献者</td></tr>
+  </tbody>
+</table>
+
 ## 术语表
 * <a id="ActionScript">**ActionScript**</a> *n.* 由 Adobe Flash 所使用的 ECMAScript 方言。
 * <a id="attribute">**attribute**</a> *n.* 1. 标记，在 ECMAScript 规范中，一种对属性的可配置特质。2. 属性，HTML 开放标签中的行为修饰符。
