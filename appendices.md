@@ -113,7 +113,52 @@
   </tbody>
 </table>
 
+## 登场组织
+（按名称首字母排序）
+
+<table>
+  <thead><tr><th>名称</th><th>角色</th></tr></thead>
+  <tbody>
+    <tr><td>Adobe</td><td>图形工具软件公司，于 2005 年收购了 Macromedia。</td>
+    <tr><td>America Online (AOL)</td><td>于 1998 年收购了 Netscape。</td>
+    <tr><td>Apple</td><td>计算机与移动设备制造商，开发了 Safari 浏览器。</td>
+    <tr><td>Borland International</td><td>在软件开发工具和编译器领域领先的开发商。</td>
+    <tr><td>CERN</td><td>创建万维网的物理研究中心。</td>
+    <tr><td>Dojo Foundation</td><td>推广开源 Dojo Toolkit 的非盈利组织。</td>
+    <tr><td>Ecma International</td><td>总部设在瑞士的计算相关标准组织。</td>
+    <tr><td>General Magic</td><td>创新但未获商业成功的移动设备软件平台开发商。</td>
+    <tr><td>Google</td><td>互联网搜索与广告巨头，开发了 Chrome 浏览器。</td>
+    <tr><td>Hewlett-Packard (HP)</td><td>PC、工作站、服务器和打印机的制造巨头。</td>
+    <tr><td>IEFT</td><td>互联网工程任务组，制定互联网标准。</td>
+    <tr><td>IBM</td><td>软件服务和传统大型机巨头。</td>
+    <tr><td>ISO/IEC</td><td>国际标准组织。</td>
+    <tr><td>Joyent</td><td>最早主持 Node.js 开发的企业。</td>
+    <tr><td>Macromedia</td><td>Flash 开发商，2006 年被 Adobe 收购。</td>
+    <tr><td>Microsoft Corporation</td><td>占支配地位的个人计算机系统和应用软件公司。</td>
+    <tr><td>MicroUnity</td><td>1990 年代早期一家资金充裕的创业公司，开发视频媒体处理器。</td>
+    <tr><td>Mozilla Foundation</td><td>Firefox 浏览器的开源开发商，从 Netscape 分拆而出。</td>
+    <tr><td>NCSA</td><td>UIUC 的国家超级计算应用中心。</td>
+    <tr><td>Nombas</td><td>开发脚本语言，支持了嵌入式的 JavaScript。</td>
+    <tr><td>Netscape Communications Corp</td><td>Netscape 浏览器的开发商，1998 年被 AOL 收购。</td>
+    <tr><td>Object Management Group (OMG)</td><td>为制定分布式对象系统的标准而成立的联盟。</td>
+    <tr><td>Opera Software</td><td>Opera 系列浏览器的开发商。</td>
+    <tr><td>PayPal</td><td>开发电子支付系统，在 2002-2014 年是 eBay 的子公司。</td>
+    <tr><td>Silicon Graphics Inc. (SGI)</td><td>高性能图形工作站制造商。</td>
+    <tr><td>Spyglass</td><td>位于伊利诺伊州的软件公司，经 NCSA 授权将 Mosaic 商业化。</td>
+    <tr><td>Sun Microsystems Inc.</td><td>计算机制造商，Java 的开发商，2009 年被 Oracle 收购。</td>
+    <tr><td>SunSoft</td><td>Sun Microsystems 公司的一个部门。</td>
+    <tr><td>TC39</td><td>负责 JavaScript 标准化的 Ecma 国际技术委员会。</td>
+    <tr><td>UIUC</td><td>伊利诺伊大学厄巴纳-香槟分校。</td>
+    <tr><td>Yahoo!</td><td>早期获广泛使用的网络门户与搜索引擎的开发商。</td>
+    <tr><td>WHATWG</td><td>网络超文本应用技术工作组，这是一个制定 HTML 相关标准的特设小组。</td>
+    <tr><td>W3C</td><td>万维网联盟（World Wide Web Consortium），Tim Berners-Lee 领导的万维网标准化组织。</td>
+  </tbody>
+</table>
+
+
 ## 术语表
+（按单词首字母排序）
+
 * <a id="ActionScript">**ActionScript**</a> *n.* 由 Adobe Flash 所使用的 ECMAScript 方言。
 * <a id="attribute">**attribute**</a> *n.* 1. 标记，在 ECMAScript 规范中，一种对属性的可配置特质。2. 属性，HTML 开放标签中的行为修饰符。
 * <a id="AWK">**AWK**</a> *n.* 一种领域特定的文本处理语言 [[Aho et al. 1988](./references.md#aho1988awk)]，最早为 Unix 而设计。
@@ -215,3 +260,38 @@
 * <a id="WebKit">**WebKit**</a> *n.* 一款由 Apple Safari 和其他一些浏览器所使用的开源浏览器内核。
 * <a id="Web-20">**Web 2.0**</a> *n.* 一种 Web 应用风格，它关注用户原创内容（UGC），一般具备高度的可交互性，并使用 AJAX 技术构建。
 * <a id="Web-Reality">**Web Reality**</a> *n.* 由于万维网被现存网页与应用而使用，所导致的一种万维网的技术形态和特质。对 Web 基础设施的扩展，通常必须能允许现存的形态与特质保持不变。
+
+## 缩略语和首字母缩写词
+（按首字母排序）
+
+<table>
+  <tr><th>AJAX</th><td><u>A</u>synchronous <u>J</u>avaScript <u>A</u>nd <u>X</u>ML</td>
+  <tr><th>API</th><td><u>A</u>pplication <u>P</u>rogram <u>I</u>nterface</td>
+  <tr><th>CC</th><td><u>C</u>o-Ordinating <u>C</u>ommittee - Ecma 国际的管理委员会</td>
+  <tr><th>CLR</th><td>微软 .NET 的 <u>C</u>ommon <u>L</u>anguage <u>R</u>untime 组件</td>
+  <tr><th>CSP</th><td><u>C</u>ontent <u>S</u>ecurity <u>P</u>olicy</td>
+  <tr><th>CSS</th><td><u>C</u>ascading <u>S</u>tyle <u>S</u>heets</td>
+  <tr><th>DHTML</th><td><u>D</u>ynamic <u>HTML</u></td>
+  <tr><th>DOM</th><td><u>D</u>ocument <u>O</u>bject <u>M</u>odel</td>
+  <tr><th>GA</th><td><u>G</u>eneral <u>A</u>ssembly - Ecma 会员的半年度会议</td>
+  <tr><th>GCC</th><td><u>G</u>NU <u>C</u> <u>C</u>ompiler</td>
+  <tr><th>GWT</th><td><u>G</u>oogle <u>W</u>eb <u>T</u>oolkit</td>
+  <tr><th>HTML</th><td><u>H</u>ypertext <u>M</u>arkup <u>L</u>anguage</td>
+  <tr><th>IE</th><td>微软的 <u>I</u>nternet <u>E</u>xplorer 浏览器</td>
+  <tr><th>IIFE</th><td><u>I</u>mmediately <u>I</u>nvoked <u>F</u>unction <u>E</u>xpression</td>
+  <tr><th>I18N</th><td><u>I</u>nternationalizatio<u>n</u> - 在「I」和「n」之间有 18 个字母</td>
+  <tr><th>JIT</th><td><u>J</u>ust <u>I</u>n <u>T</u>ime 编译器</td>
+  <tr><th>JVM</th><td><u>J</u>ava <u>V</u>irtual <u>M</u>achine</td>
+  <tr><th>MOP</th><td><u>M</u>eta<u>o</u>bject <u>P</u>rotocol</td>
+  <tr><th>NCSA</th><td><u>N</u>ational <u>C</u>enter for <u>S</u>upercomputing <u>A</u>pplications</td>
+  <tr><th>OCAP</th><td><u>O</u>bject <u>Cap</u>ability</td>
+  <tr><th>OMG</th><td><u>O</u>bject <u>M</u>anagement <u>G</u>roup</td>
+  <tr><th>POSIX</th><td><u>P</u>ortable <u>O</u>perating <u>S</u>ystem <u>I</u>nterface modeled on UNI<u>X</u></td>
+  <tr><th>RFP</th><td><u>R</u>equest <u>F</u>or <u>P</u>roposal</td>
+  <tr><th>SES</th><td><u>S</u>ecure <u>E</u>CMA<u>S</u>cript</td>
+  <tr><th>TC</th><td>Ecma 国际的 <u>T</u>echnical <u>C</u>ommittee</td>
+  <tr><th>TDZ</th><td><u>T</u>emporal <u>D</u>ead <u>Z</u>one</td>
+  <tr><th>TG</th><td>Ecma 国际 TC 中的 <u>T</u>ask <u>G</u>roup</td>
+  <tr><th>VM</th><td><u>V</u>irtual <u>M</u>achine</td>
+  <tr><th>WG</th><td><u>W</u>orking <u>G</u>roup - 在 Ecma TC 或 TG 内部的特设组</td>
+</table>
