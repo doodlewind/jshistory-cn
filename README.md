@@ -1,9 +1,6 @@
 # JavaScript 20 年
 
 <p>
-  <a href="https://doi.org/10.5281/zenodo.3710954">
-    <img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.3710954.svg"/>
-  </a>
   <a href="https://github.com/doodlewind/jshistory-cn">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/doodlewind/jshistory-cn?style=social"/>
   </a>
@@ -122,3 +119,5 @@
 
 ## 许可
 本文基于 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 许可，不限制非商用转载。
+
+Allen Wirfs-Brock and Brendan Eich. 2020. JavaScript: the first 20 years. Proc. ACM Program. Lang. 4, HOPL, Article 77 (June 2020), 189 pages. DOI:https://doi.org/10.1145/3386327
