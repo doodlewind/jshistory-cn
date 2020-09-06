@@ -295,3 +295,60 @@
   <tr><th>VM</th><td><b>V</b>irtual <b>M</b>achine</td>
   <tr><th>WG</th><td><b>W</b>orking <b>G</b>roup - 在 Ecma TC 或 TG 内部的特设组</td>
 </table>
+
+## 时间线
+
+### 第一部分
+
+<table>
+  <tr><td>1989</td><td></td><td>Tim Berners-Lee 开始在 CERN 投入超文本项目</td></tr>
+  <tr><td>1990</td><td>12 月 25 日</td><td>Tim Berners-Lee 实现了第一个 Web 浏览器</td></tr>
+  <tr><td>1991</td><td>8 月 6 日</td><td>Tim Berners-Lee 公开发布「万维网」</td></tr>
+  <tr><td rowspan="2">1992</td><td></td><td>Brendan Eich 离开 Silicon Graphics，加盟 MicroUnity</td></tr>
+  <tr><td>12 月</td><td>Marc Andreessen 与 Eric Bina 开始开发 NCSA Mosaic 浏览器</td></tr>
+  <tr><td rowspan="2">1993</td><td>6 月</td><td>Mosaic for Unix 的 alpha 版本发布</td></tr>
+  <tr><td>11 月 11 日</td><td>Mosaic 发布 Windows 版本</td></tr>
+  <tr><td rowspan="3">1994</td><td>4 月</td><td>Jim Clark 和 Marc Andreessen 建立后来的网景</td></tr>
+  <tr><td>9 月</td><td>首个 Netscape 浏览器的公开 beta 版发布</td></tr>
+  <tr><td>12 月</td><td>Netscape 浏览器（Navigator 1.0）的生产版本发布</td></tr>
+  <tr><td rowspan="19">1995</td><td>Q1</td><td>Brendan Eich 被 Netscape 招募来「在浏览器里写 Scheme」</td></tr>
+  <tr><td>4 月</td><td>Sun 的 Java alpha 1.0 版本发布</td></tr>
+  <tr><td>4 月 3 日</td><td>Brendan Eich 开始在 Netscape 工作，被分配到了服务器团队</td></tr>
+  <tr><td>4 月 - 5 月</td><td>Netscape 公司内部关于浏览器脚本语言的战略制定和辩论</td></tr>
+  <tr><td>5 月 6 日 - 15 日 (?)</td><td>Brendan Eich 实现「Mocha」的 10 天冲刺</td></tr>
+  <tr><td>5 月 16 日 (?)</td><td>面向 Netscape 工程团队的 Mocha demo</td></tr>
+  <tr><td>5 月 16 日 - 31 日 (?)</td><td>决定在 Netscape 2.0 中加入 Mocha</td></tr>
+  <tr><td>5 月 23 日</td><td>Sun 宣布推出 Java，Netscape 宣布授权将 Java 纳入其浏览器</td></tr>
+  <tr><td>5 月 26 日</td><td>比尔·盖茨发布「互联网浪潮」备忘录</td></tr>
+  <tr><td>夏季</td><td>Eich 投入 Mocha 与浏览器的集成，并处理 JavaScript 的特性和 bug</td></tr>
+  <tr><td>8 月 9 日</td><td>Netscape IPO 上市</td></tr>
+  <tr><td rowspan="2">8 月 16 日</td><td>微软 Internet Explorer 1.0 发布</td></tr>
+  <tr><td>Netscape 2.0 特性冻结</td></tr>
+  <tr><td>9 月 18 日</td><td>Netscape 2.0 beta 1 发布，加入了 LiveScript 和 Java 1.0</td></tr>
+  <tr><td>10 月</td><td>Robert Welland 被微软招募来「为 IE 添加脚本支持」</td></tr>
+  <tr><td>Q4</td><td>在微软，Robert Welland，Sam McKelvie 和 Peer Kukol 对 beta 版 LiveScript 做了逆向工程，逐渐实现了可运行它的解释器</td></tr>
+  <tr><td>11 月 22 日</td><td>微软 Internet Explorer 2.0 为 Windows 95 和 NT 发布</td></tr>
+  <tr><td>12 月 4 日</td><td>Netscape 和 Sun 正式发布 JavaScript</td></tr>
+  <tr><td>12 月 5 日</td><td>微软表示计划将 Visual Basic 作为 Web 应用的标准</td></tr>
+  <tr><td rowspan="11">1996</td><td>Q1</td><td>Shon Katzenberger 接管了 JScript 解释器，并添加了 VBScript 支持</td></tr>
+  <tr><td rowspan="2">3 月 18 日</td><td>JavaScript 1.0 随 Netscape 2.0 发布</td></tr>
+  <tr><td>JavaScript 1.0 随 Netscape LiveWire Server 发布</td></tr>
+  <tr><td>5 月 29 日</td><td>JScript 与 VBScript 随 Internet Explorer 3.0 beta 1 发布</td></tr>
+  <tr><td>8 月 13 日</td><td>JScript 1.0 随 Internet Explorer 3.0 发布</td></tr>
+  <tr><td>8 月 19 日</td><td>JavaScript 1.1 随 Netscape 3.0 发布</td></tr>
+  <tr><td rowspan="2">Q3</td><td>Brendan Eich 构建 SpiderMonkey 引擎来替代 Mocha，并开始设计 JavaScript 1.2</td></tr>
+  <tr><td>Clayton Lewis 负责管理 Netscape JavaScript，并扩张团队</td></tr>
+  <tr><td>11 月 21 日 - 22 日</td><td>Ecma TC39 开始会议</td></tr>
+  <tr><td rowspan="2">12 月</td><td>SpiderMonkey 与最早的 JavaScript 1.2 特性随 Netscape 4 beta 1 发布</td></tr>
+  <tr><td>JScript 与 VBScript 随微软 Active Server Pages（ASP 1.0）发布</td></tr>
+  <tr><td rowspan="5">1997</td><td>1 月</td><td>Internet Explorer 3 的 JScript 2.0 更新发布</td></tr>
+  <tr><td>4 月</td><td>Netscape 4 beta 3 发布，为 JavaScript 1.2 添加了正则表达式支持</td></tr>
+  <tr><td>6 月</td><td>JavaScript 1.2 随 Netscape 4.0 发布</td></tr>
+  <tr><td>9 月</td><td> 第一版 ECMAScript 标准完成并发布</td></tr>
+  <tr><td>10 月</td><td>JScript 3.0 随 Internet Explorer 4.0 发布</td></tr>
+</table>
+
+<!--
+  <tr><td rowspan="N">YEAR</td><td>DATE</td><td>EVENT</td></tr>
+  <tr><td>DATE</td><td>EVENT</td></tr>
+-->
