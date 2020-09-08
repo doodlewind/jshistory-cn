@@ -119,39 +119,39 @@
 <table>
   <thead><tr><th>名称</th><th>角色</th></tr></thead>
   <tbody>
-    <tr><td>Adobe</td><td>图形工具软件公司，于 2005 年收购了 Macromedia。</td>
-    <tr><td>America Online (AOL)</td><td>于 1998 年收购了 Netscape。</td>
-    <tr><td>Apple</td><td>计算机与移动设备制造商，开发了 Safari 浏览器。</td>
-    <tr><td>Borland International</td><td>在软件开发工具和编译器领域领先的开发商。</td>
-    <tr><td>CERN</td><td>创建万维网的物理研究中心。</td>
-    <tr><td>Dojo Foundation</td><td>推广开源 Dojo Toolkit 的非盈利组织。</td>
-    <tr><td>Ecma International</td><td>总部设在瑞士的计算相关标准组织。</td>
-    <tr><td>General Magic</td><td>创新但未获商业成功的移动设备软件平台开发商。</td>
-    <tr><td>Google</td><td>互联网搜索与广告巨头，开发了 Chrome 浏览器。</td>
-    <tr><td>Hewlett-Packard (HP)</td><td>PC、工作站、服务器和打印机的制造巨头。</td>
-    <tr><td>IEFT</td><td>互联网工程任务组，制定互联网标准。</td>
-    <tr><td>IBM</td><td>软件服务和传统大型机巨头。</td>
-    <tr><td>ISO/IEC</td><td>国际标准组织。</td>
-    <tr><td>Joyent</td><td>最早主持 Node.js 开发的企业。</td>
-    <tr><td>Macromedia</td><td>Flash 开发商，2006 年被 Adobe 收购。</td>
-    <tr><td>Microsoft Corporation</td><td>占支配地位的个人计算机系统和应用软件公司。</td>
-    <tr><td>MicroUnity</td><td>1990 年代早期一家资金充裕的创业公司，开发视频媒体处理器。</td>
-    <tr><td>Mozilla Foundation</td><td>Firefox 浏览器的开源开发商，从 Netscape 分拆而出。</td>
-    <tr><td>NCSA</td><td>UIUC 的国家超级计算应用中心。</td>
-    <tr><td>Nombas</td><td>开发脚本语言，支持了嵌入式的 JavaScript。</td>
-    <tr><td>Netscape Communications Corp</td><td>Netscape 浏览器的开发商，1998 年被 AOL 收购。</td>
-    <tr><td>Object Management Group (OMG)</td><td>为制定分布式对象系统的标准而成立的联盟。</td>
-    <tr><td>Opera Software</td><td>Opera 系列浏览器的开发商。</td>
-    <tr><td>PayPal</td><td>开发电子支付系统，在 2002-2014 年是 eBay 的子公司。</td>
-    <tr><td>Silicon Graphics Inc. (SGI)</td><td>高性能图形工作站制造商。</td>
-    <tr><td>Spyglass</td><td>位于伊利诺伊州的软件公司，经 NCSA 授权将 Mosaic 商业化。</td>
-    <tr><td>Sun Microsystems Inc.</td><td>计算机制造商，Java 的开发商，2009 年被 Oracle 收购。</td>
-    <tr><td>SunSoft</td><td>Sun Microsystems 公司的一个部门。</td>
-    <tr><td>TC39</td><td>负责 JavaScript 标准化的 Ecma 国际技术委员会。</td>
-    <tr><td>UIUC</td><td>伊利诺伊大学厄巴纳-香槟分校。</td>
-    <tr><td>Yahoo!</td><td>早期获广泛使用的网络门户与搜索引擎的开发商。</td>
-    <tr><td>WHATWG</td><td>网络超文本应用技术工作组，这是一个制定 HTML 相关标准的特设小组。</td>
-    <tr><td>W3C</td><td>万维网联盟（World Wide Web Consortium），Tim Berners-Lee 领导的万维网标准化组织。</td>
+    <tr><td>Adobe</td><td>图形工具软件公司，于 2005 年收购了 Macromedia。</td></tr>
+    <tr><td>America Online (AOL)</td><td>于 1998 年收购了 Netscape。</td></tr>
+    <tr><td>Apple</td><td>计算机与移动设备制造商，开发了 Safari 浏览器。</td></tr>
+    <tr><td>Borland International</td><td>在软件开发工具和编译器领域领先的开发商。</td></tr>
+    <tr><td>CERN</td><td>创建万维网的物理研究中心。</td></tr>
+    <tr><td>Dojo Foundation</td><td>推广开源 Dojo Toolkit 的非盈利组织。</td></tr>
+    <tr><td>Ecma International</td><td>总部设在瑞士的计算相关标准组织。</td></tr>
+    <tr><td>General Magic</td><td>创新但未获商业成功的移动设备软件平台开发商。</td></tr>
+    <tr><td>Google</td><td>互联网搜索与广告巨头，开发了 Chrome 浏览器。</td></tr>
+    <tr><td>Hewlett-Packard (HP)</td><td>PC、工作站、服务器和打印机的制造巨头。</td></tr>
+    <tr><td>IEFT</td><td>互联网工程任务组，制定互联网标准。</td></tr>
+    <tr><td>IBM</td><td>软件服务和传统大型机巨头。</td></tr>
+    <tr><td>ISO/IEC</td><td>国际标准组织。</td></tr>
+    <tr><td>Joyent</td><td>最早主持 Node.js 开发的企业。</td></tr>
+    <tr><td>Macromedia</td><td>Flash 开发商，2006 年被 Adobe 收购。</td></tr>
+    <tr><td>Microsoft Corporation</td><td>占支配地位的个人计算机系统和应用软件公司。</td></tr>
+    <tr><td>MicroUnity</td><td>1990 年代早期一家资金充裕的创业公司，开发视频媒体处理器。</td></tr>
+    <tr><td>Mozilla Foundation</td><td>Firefox 浏览器的开源开发商，从 Netscape 分拆而出。</td></tr>
+    <tr><td>NCSA</td><td>UIUC 的国家超级计算应用中心。</td></tr>
+    <tr><td>Nombas</td><td>开发脚本语言，支持了嵌入式的 JavaScript。</td></tr>
+    <tr><td>Netscape Communications Corp</td><td>Netscape 浏览器的开发商，1998 年被 AOL 收购。</td></tr>
+    <tr><td>Object Management Group (OMG)</td><td>为制定分布式对象系统的标准而成立的联盟。</td></tr>
+    <tr><td>Opera Software</td><td>Opera 系列浏览器的开发商。</td></tr>
+    <tr><td>PayPal</td><td>开发电子支付系统，在 2002-2014 年是 eBay 的子公司。</td></tr>
+    <tr><td>Silicon Graphics Inc. (SGI)</td><td>高性能图形工作站制造商。</td></tr>
+    <tr><td>Spyglass</td><td>位于伊利诺伊州的软件公司，经 NCSA 授权将 Mosaic 商业化。</td></tr>
+    <tr><td>Sun Microsystems Inc.</td><td>计算机制造商，Java 的开发商，2009 年被 Oracle 收购。</td></tr>
+    <tr><td>SunSoft</td><td>Sun Microsystems 公司的一个部门。</td></tr>
+    <tr><td>TC39</td><td>负责 JavaScript 标准化的 Ecma 国际技术委员会。</td></tr>
+    <tr><td>UIUC</td><td>伊利诺伊大学厄巴纳-香槟分校。</td></tr>
+    <tr><td>Yahoo!</td><td>早期获广泛使用的网络门户与搜索引擎的开发商。</td></tr>
+    <tr><td>WHATWG</td><td>网络超文本应用技术工作组，这是一个制定 HTML 相关标准的特设小组。</td></tr>
+    <tr><td>W3C</td><td>万维网联盟（World Wide Web Consortium），Tim Berners-Lee 领导的万维网标准化组织。</td></tr>
   </tbody>
 </table>
 
@@ -265,35 +265,35 @@
 （按首字母排序）
 
 <table>
-  <tr><th>AJAX</th><td><b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML</td>
-  <tr><th>API</th><td><b>A</b>pplication <b>P</b>rogram <b>I</b>nterface</td>
-  <tr><th>CC</th><td><b>C</b>o-Ordinating <b>C</b>ommittee - Ecma 国际的管理委员会</td>
-  <tr><th>CLR</th><td>微软 .NET 的 <b>C</b>ommon <b>L</b>anguage <b>R</b>untime 组件</td>
-  <tr><th>CSP</th><td><b>C</b>ontent <b>S</b>ecurity <b>P</b>olicy</td>
-  <tr><th>CSS</th><td><b>C</b>ascading <b>S</b>tyle <b>S</b>heets</td>
-  <tr><th>DHTML</th><td><b>D</b>ynamic <b>HTML</b></td>
-  <tr><th>DOM</th><td><b>D</b>ocument <b>O</b>bject <b>M</b>odel</td>
-  <tr><th>GA</th><td><b>G</b>eneral <b>A</b>ssembly - Ecma 会员的半年度会议</td>
-  <tr><th>GCC</th><td><b>G</b>NU <b>C</b> <b>C</b>ompiler</td>
-  <tr><th>GWT</th><td><b>G</b>oogle <b>W</b>eb <b>T</b>oolkit</td>
-  <tr><th>HTML</th><td><b>H</b>ypertext <b>M</b>arkup <b>L</b>anguage</td>
-  <tr><th>IE</th><td>微软的 <b>I</b>nternet <b>E</b>xplorer 浏览器</td>
-  <tr><th>IIFE</th><td><b>I</b>mmediately <b>I</b>nvoked <b>F</b>unction <b>E</b>xpression</td>
-  <tr><th>I18N</th><td><b>I</b>nternationalizatio<b>n</b> - 在「I」和「n」之间有 18 个字母</td>
-  <tr><th>JIT</th><td><b>J</b>ust <b>I</b>n <b>T</b>ime 编译器</td>
-  <tr><th>JVM</th><td><b>J</b>ava <b>V</b>irtual <b>M</b>achine</td>
-  <tr><th>MOP</th><td><b>M</b>eta<b>o</b>bject <b>P</b>rotocol</td>
-  <tr><th>NCSA</th><td><b>N</b>ational <b>C</b>enter for <b>S</b>upercomputing <b>A</b>pplications</td>
-  <tr><th>OCAP</th><td><b>O</b>bject <b>Cap</b>ability</td>
-  <tr><th>OMG</th><td><b>O</b>bject <b>M</b>anagement <b>G</b>roup</td>
-  <tr><th>POSIX</th><td><b>P</b>ortable <b>O</b>perating <b>S</b>ystem <b>I</b>nterface modeled on UNI<b>X</b></td>
-  <tr><th>RFP</th><td><b>R</b>equest <b>F</b>or <b>P</b>roposal</td>
-  <tr><th>SES</th><td><b>S</b>ecure <b>E</b>CMA<b>S</b>cript</td>
-  <tr><th>TC</th><td>Ecma 国际的 <b>T</b>echnical <b>C</b>ommittee</td>
-  <tr><th>TDZ</th><td><b>T</b>emporal <b>D</b>ead <b>Z</b>one</td>
-  <tr><th>TG</th><td>Ecma 国际 TC 中的 <b>T</b>ask <b>G</b>roup</td>
-  <tr><th>VM</th><td><b>V</b>irtual <b>M</b>achine</td>
-  <tr><th>WG</th><td><b>W</b>orking <b>G</b>roup - 在 Ecma TC 或 TG 内部的特设组</td>
+  <tr><th>AJAX</th><td><b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML</td></tr>
+  <tr><th>API</th><td><b>A</b>pplication <b>P</b>rogram <b>I</b>nterface</td></tr>
+  <tr><th>CC</th><td><b>C</b>o-Ordinating <b>C</b>ommittee - Ecma 国际的管理委员会</td></tr>
+  <tr><th>CLR</th><td>微软 .NET 的 <b>C</b>ommon <b>L</b>anguage <b>R</b>untime 组件</td></tr>
+  <tr><th>CSP</th><td><b>C</b>ontent <b>S</b>ecurity <b>P</b>olicy</td></tr>
+  <tr><th>CSS</th><td><b>C</b>ascading <b>S</b>tyle <b>S</b>heets</td></tr>
+  <tr><th>DHTML</th><td><b>D</b>ynamic <b>HTML</b></td></tr>
+  <tr><th>DOM</th><td><b>D</b>ocument <b>O</b>bject <b>M</b>odel</td></tr>
+  <tr><th>GA</th><td><b>G</b>eneral <b>A</b>ssembly - Ecma 会员的半年度会议</td></tr>
+  <tr><th>GCC</th><td><b>G</b>NU <b>C</b> <b>C</b>ompiler</td></tr>
+  <tr><th>GWT</th><td><b>G</b>oogle <b>W</b>eb <b>T</b>oolkit</td></tr>
+  <tr><th>HTML</th><td><b>H</b>ypertext <b>M</b>arkup <b>L</b>anguage</td></tr>
+  <tr><th>IE</th><td>微软的 <b>I</b>nternet <b>E</b>xplorer 浏览器</td></tr>
+  <tr><th>IIFE</th><td><b>I</b>mmediately <b>I</b>nvoked <b>F</b>unction <b>E</b>xpression</td></tr>
+  <tr><th>I18N</th><td><b>I</b>nternationalizatio<b>n</b> - 在「I」和「n」之间有 18 个字母</td></tr>
+  <tr><th>JIT</th><td><b>J</b>ust <b>I</b>n <b>T</b>ime 编译器</td></tr>
+  <tr><th>JVM</th><td><b>J</b>ava <b>V</b>irtual <b>M</b>achine</td></tr>
+  <tr><th>MOP</th><td><b>M</b>eta<b>o</b>bject <b>P</b>rotocol</td></tr>
+  <tr><th>NCSA</th><td><b>N</b>ational <b>C</b>enter for <b>S</b>upercomputing <b>A</b>pplications</td></tr>
+  <tr><th>OCAP</th><td><b>O</b>bject <b>Cap</b>ability</td></tr>
+  <tr><th>OMG</th><td><b>O</b>bject <b>M</b>anagement <b>G</b>roup</td></tr>
+  <tr><th>POSIX</th><td><b>P</b>ortable <b>O</b>perating <b>S</b>ystem <b>I</b>nterface modeled on UNI<b>X</b></td></tr>
+  <tr><th>RFP</th><td><b>R</b>equest <b>F</b>or <b>P</b>roposal</td></tr>
+  <tr><th>SES</th><td><b>S</b>ecure <b>E</b>CMA<b>S</b>cript</td></tr>
+  <tr><th>TC</th><td>Ecma 国际的 <b>T</b>echnical <b>C</b>ommittee</td></tr>
+  <tr><th>TDZ</th><td><b>T</b>emporal <b>D</b>ead <b>Z</b>one</td></tr>
+  <tr><th>TG</th><td>Ecma 国际 TC 中的 <b>T</b>ask <b>G</b>roup</td></tr>
+  <tr><th>VM</th><td><b>V</b>irtual <b>M</b>achine</td></tr>
+  <tr><th>WG</th><td><b>W</b>orking <b>G</b>roup - 在 Ecma TC 或 TG 内部的特设组</td></tr>
 </table>
 
 ## 时间线
@@ -302,7 +302,7 @@
 
 <table>
   <tr><td>1989</td><td></td><td>Tim Berners-Lee 开始在 CERN 投入超文本项目</td></tr>
-  <tr><td>1990</td><td>12 月 25 日</td><td>Tim Berners-Lee 实现了第一个 Web 浏览器</td></tr>
+  <tr><td>1990</td><td>12 月 25 日</td><td>Tim Berners-Lee 实现第一个 Web 浏览器</td></tr>
   <tr><td>1991</td><td>8 月 6 日</td><td>Tim Berners-Lee 公开发布「万维网」</td></tr>
   <tr><td rowspan="2">1992</td><td></td><td>Brendan Eich 离开 Silicon Graphics，加盟 MicroUnity</td></tr>
   <tr><td>12 月</td><td>Marc Andreessen 与 Eric Bina 开始开发 NCSA Mosaic 浏览器</td></tr>
