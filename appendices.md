@@ -298,7 +298,7 @@
 
 ## 时间线
 
-### 第一部分
+### 第一部分：语言诞生
 
 <table>
   <tr><td>1989</td><td></td><td>Tim Berners-Lee 开始在 CERN 投入超文本项目</td></tr>
@@ -346,6 +346,106 @@
   <tr><td>6 月</td><td>JavaScript 1.2 随 Netscape 4.0 发布</td></tr>
   <tr><td>9 月</td><td> 第一版 ECMAScript 标准完成并发布</td></tr>
   <tr><td>10 月</td><td>JScript 3.0 随 Internet Explorer 4.0 发布</td></tr>
+</table>
+
+### 第二部分：创立标准
+
+<table>
+  <tr><td>1995</td><td>12 月 4 日</td><td>Netscape 和 Sun 宣布希望将 JavaScript 推荐为 W3C 和 IETF 开放标准</td></tr>
+  <tr><td rowspan="15">1996</td><td>3 月</td><td>JavaScript 1.0 随 Netscape 2.0 发布</td></tr>
+  <tr><td>Q1-Q2</td><td>Netscape 与 Ecma 秘书长进行非正式接触</td></tr>
+  <tr><td rowspan="2">8 月</td><td>JavaScript 1.1 随 Netscape 3.0 发布</td></tr>
+  <tr><td>JScript 1.0 随 Internet Explorer 3.0 发布</td></tr>
+  <tr><td>Q3</td><td>Brendan Eich 开始实现 JavaScript 1.2</td></tr>
+  <tr><td>9 月</td><td>Ecma 协调委员会批准 JavaScript 标准启动会议</td></tr>
+  <tr><td>10 月 10 日</td><td>Netscape 申请成为 Ecma 准会员</td></tr>
+  <tr><td>10 月 30 日</td><td>Ecma 开放对「Java Script 项目启动会议」的邀请</td></tr>
+  <tr><td rowspan="3">11 月 21 日 - 23 日</td><td>Ecma TC39 启动会议，将「ECMAScript」作为占位名</td></tr>
+  <tr><td>Netscape 和微软贡献初步的 JavaScript 规范</td></tr>
+  <tr><td>Borland 的 Michael Gardner 被任命为 TC39 临时编辑</td></tr>
+  <tr><td rowspan="2">12 月</td><td>SpiderMonkey 与最早的 JavaScript 1.2 特性随 Netscape 4 beta 1 发布</td></tr>
+  <tr><td>Gardner 和 Eich、Katzenberger 等人共同开发首份规范草案</td></tr>
+  <tr><td>12 月 18 日</td><td>微软申请成为 Ecma 标准会员</td></tr>
+  <tr><td>12 月 19 日 - 20 日</td><td>Ecma GA 大会设立 TC39 作为网络语言技术委员会，并批准其工作计划</td></tr>
+  <tr><td rowspan="26">1997</td><td>1 月</td><td>IE 3.0 的 JScript 2.0（对应 JavaScript 1.1 特性）更新发布</td></tr>
+  <tr><td>1 月 10 日</td><td>首份 JavaScript 规范草案向 TC39 成员发布</td></tr>
+  <tr><td rowspan="2">1 月 14 日 - 15 日</td><td>第二次 TC39 会议，Scott Wiltamuth 列出了可能的语言名称</td></tr>
+  <tr><td>技术工作组（WG）成立，每周举行会议（或电话会议）</td></tr>
+  <tr><td rowspan="2">1 月 15 日</td><td>首次技术工作组会议</td></tr>
+  <tr><td>委员会同意，标准将不包含 JavaScript 1.1 后的特性和宿主 API</td></tr>
+  <tr><td>1 月 15 日 - 22 日 (?)</td><td>Borland 将不加入 Ecma，Gardner 不再担任编辑</td></tr>
+  <tr><td>1 月 31 日</td><td>Guy Steele 成为 TC39 编辑</td></tr>
+  <tr><td>Q1</td><td>每周举行技术工作组会议</td></tr>
+  <tr><td>3 月 12 日</td><td>第 12 份规范草案发布</td></tr>
+  <tr><td rowspan="2">3 月 18 日 - 19 日</td><td>第三次 TC39 会议，技术工作组获得授权完成规范，并提交供 GA 大会通过</td></tr>
+  <tr><td>委员会仍在寻找语言名称，Netscape 表面上认可了 LiveScript 的可用性</td></tr>
+  <tr><td>5 月 5 日</td><td>第 18 份规范草案提交到 Ecma 秘书处，供 GA 大会评审</td></tr>
+  <tr><td>6 月</td><td>JavaScript 1.2 随 Netscape 4.0 发布</td></tr>
+  <tr><td rowspan="2">6 月 26 日 - 27 日</td><td>Ecma GA 大会通过 JavaScript 规范为 <i>ECMA-262</i></td></tr>
+  <tr><td>规范推迟发布，以进行编辑更正并解决命名问题</td></tr>
+  <tr><td rowspan="2">7 月 15 日 - 16 日</td><td>第四次 TC39 会议，由于无法使用 LiveScript 命名语言，名称仍然未定</td></tr>
+  <tr><td>初步讨论「第 2 版」的目标、进程和特点</td></tr>
+  <tr><td rowspan="2">9 月 16 日 - 17 日</td><td>TC39 同意使用 ECMAScript 名称，并公开发布 <i>ECMA-262</i></td></tr>
+  <tr><td>委员会同意「第 2 版」规范将向后兼容第 1 版</td></tr>
+  <tr><td>9 月 23 日 - 24 日</td><td>Ecma 将 <i>ECMA-262</i> 提交进入 ISO/IEC 快速通道流程</td></tr>
+  <tr><td rowspan="3">10 月</td><td>兼容了 <i>ECMA-262</i> 的 JScript 3.0 随 Internet Explorer 4.0 发布</td></tr>
+  <tr><td>Guy Steele 辞任 TC39 编辑，由 Mike Cowlishaw 接替</td></tr>
+  <tr><td>技术工作组开始每月举行会议</td></tr>
+  <tr><td>10 月 9 日</td><td>为期 6 个月的 ISO/IEC 投票期开始</td></tr>
+  <tr><td>10 月 10 日</td><td>技术工作组草拟出首份「V2」特性列表</td></tr>
+  <tr><td rowspan="28">1998</td><td rowspan="2">Q1</td><td>TC39 技术贡献者的更替基本完成</td></tr>
+  <tr><td>Brendan Eich 加入 Netscape 浏览器开源项目</td></tr>
+  <tr><td>2 月 18 日</td><td>TC39 会议将 1999 年 6 月作为「V2」的发布目标</td></tr>
+  <tr><td rowspan="3">2 月 19 日</td><td>技术工作组会议</td></tr>
+  <tr><td>Brendan Eich 最后一次参会，Mozilla 的 Waldemar Horwat 和微软的 Herman Venter、Rok Yu 首次参会</td></tr>
+  <tr><td>讨论 Netscape 和微软的异常处理提案</td></tr>
+  <tr><td>3 月 31 日</td><td>Netscape 在 mozilla.org 开放浏览器源码</td></tr>
+  <tr><td>4 月 9 日</td><td>ISO/IEC 投票期结束，共提交 27 页评论</td></tr>
+  <tr><td>4 月 22 日</td><td>基于 ES1 规范的首份「V2」规范出炉</td></tr>
+  <tr><td rowspan="3">5 月</td><td>Bill Gobbons 成为「V2」工作草案编辑</td></tr>
+  <tr><td>技术工作组开始使用「状态文档」追踪进展</td></tr>
+  <tr><td>HP 提交关于国际化支持需求的评论</td></tr>
+  <tr><td>5 月 18 日</td><td>美国司法部对微软提起关于浏览器的反垄断诉讼</td></tr>
+  <tr><td>6 月 15 日</td><td>所有投票问题在 ISO 处置意见会议上得以解决</td></tr>
+  <tr><td>7 月</td><td>最新规范提交至 ISO，以作为 ISO/IEC 16262:1998 发布</td></tr>
+  <tr><td rowspan="2">8 月</td><td>Ecma 发布《ECMA-262 第 2 版》</td></tr>
+  <tr><td>兼容了 <i>ECMA-262</i> 的 JavaScript 1.3 随 Netscape 4.06 发布</td></tr>
+  <tr><td>9 月</td><td>ES2 变更合并入「V2」工作草案</td></tr>
+  <tr><td>9 月 16 日</td><td>国际化工作组成立</td></tr>
+  <tr><td rowspan="3">11 月 18 日</td><td>国际化相关会议举行，IBM 的 Richard Gillam 成为国际化工作组主席</td></tr>
+  <tr><td>确定下一份 ECMA-262 规范只计划加入最低限度的本地化钩子</td></tr>
+  <tr><td>确定大部分国际化特性应置于单独的库或规范中</td></tr>
+  <tr><td rowspan="5">11 月 19 日</td><td>技术工作组会议</td></tr>
+  <tr><td>IBM 提议加入十进制小数</td></tr>
+  <tr><td>《未来特性展望表》被评审和更新，许多条目推迟到「V2」后处理</td></tr>
+  <tr><td>加入对 <code>undefined</code> 的全局绑定</td></tr>
+  <tr><td>委员会担心浏览器可能会在「V2」前提供不同的异常层次结构</td></tr>
+  <tr><td>11 月 28 日</td><td>AOL 发布协议收购 Netcape</td></tr>
+  <tr><td rowspan="22">1999</td><td rowspan="4">Q1</td><td>开展许多关于嵌套函数和闭包的工作</td></tr>
+  <tr><td>考虑 Netscape 和微软实现的作用域差异</td></tr>
+  <tr><td>考虑正则表达式是否应该加入 Perl 5 的特性</td></tr>
+  <tr><td>TC39 将下一份规范改称「E3」而非「V2」</td></tr>
+  <tr><td>2 月 19 日</td><td>Waldemar Horwat 透露 JavaScript 2.0 新特性</td></tr>
+  <tr><td>3 月 17 日</td><td>AOL 完成对 Netscape 的收购</td></tr>
+  <tr><td>3 月 29 日</td><td>TC39 会议将进度表定为 6 个月，新目标是 1999 年 12 月</td></tr>
+  <tr><td>3 月 30 日</td><td>技术工作组设定另一份「E3」特性集</td></tr>
+  <tr><td>Q2</td><td>投入密集工作，以解决问题并完成规范</td></tr>
+  <tr><td>7 月 12 日 - 13 日</td><td>技术工作组逐节详细评审工作草案</td></tr>
+  <tr><td>8 月 8 日</td><td>E3 状态文件显示，所有条目要么已达到「内容已同意」状态，要么未发生改变</td></tr>
+  <tr><td>8 月 20 日</td><td>Bill Gibbons 完成「第 3 版最终候选草案」</td></tr>
+  <tr><td rowspan="5">9 月 23 日 - 24 日</td><td>最后一次技术工作组的「E3」会议，Bill Gibbons 离任开始新工作</td></tr>
+  <tr><td>将由 Herman Venter 和 Waldemar Horwat 完成规范</td></tr>
+  <tr><td>「合并函数」加入规范</td></tr>
+  <tr><td>就异常达成最终一致</td></tr>
+  <tr><td>就具名 <i>FunctionExpression</i> 中标识符的作用域达成一致</td></tr>
+  <tr><td>9 月 24 日</td><td>TC39 投票通过将 ECMA-262 第三版提交给 Ecma GA 大会</td></tr>
+  <tr><td>10 月 13 日</td><td>最终草案发送至 Ecma 秘书处</td></tr>
+  <tr><td rowspan="2">11 月 15 日 - 16 日</td><td>对最终草案进行少量修订</td></tr>
+  <tr><td>微软发现规范中的 <code>String.replace</code> 会破坏网站。最终草案被修改，以适应微软的原有行为</td></tr>
+  <tr><td>12 月 16 日 - 17 日</td><td>Ecma GA 大会通过《ECMA-262 第三版》</td></tr>
+  <tr><td rowspan="3">2000</td><td>3 月 25 日</td><td>Waldemar Horwat 创建公开的 ES3 勘误表网页</td></tr>
+  <tr><td>7 月</td><td>微软随 IE 5.5 发布兼容 ES3 的 JScript 5.5</td></tr>
+  <tr><td>11 月</td><td>Netscape 随 Netscape 6 发布兼容 ES3 的 JavaScript 1.5</td></tr>
 </table>
 
 <!--

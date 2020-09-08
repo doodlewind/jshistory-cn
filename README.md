@@ -109,10 +109,10 @@
   * [术语表](./appendices.md#术语表)
   * [缩略语和首字母缩写词](./appendices.md#缩略语和首字母缩写词)
   * [时间线](./appendices.md#时间线)
-    * [第一部分](./appendices.md#第一部分)
-    * 第二部分
-    * 第三部分
-    * 第四部分
+    * [第一部分：语言诞生](./appendices.md#第一部分语言诞生)
+    * [第二部分：创立标准](./appendices.md#第二部分创立标准)
+    * 第三部分：改革失败
+    * 第四部分：继往开来
   * 1995 年 12 月 4 日的 JavaScript 发布公告
 * [备注](./notes.md)
 * [参考文献](./references.md)
