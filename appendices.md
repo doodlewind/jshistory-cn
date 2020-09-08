@@ -82,7 +82,7 @@
     <tr><td>Sam Ruby</td><td>IBM</td><td>ES5 与 ES6 贡献者，实现了十进制小数的原型</td></tr>
     <tr><td rowspan="2">Alex Russell</td><td>Dojo Foundation</td><td>ES5 贡献者</td></tr>
     <tr><td>Google</td><td>Google Chrome Web 标准负责人，ES6 贡献者</td></tr>
-    <tr><td>William Schulze</td><td>Macromedia</td><td>2004-2005 年任 TC39-TG1 主持人</td></tr>
+    <tr><td>William Schulze</td><td>Macromedia</td><td>2004-2005 年任 TC39-TG1 召集人</td></tr>
     <tr><td>István Sebestyén</td><td>Ecma</td><td>2007-2019 年任秘书长</td></tr>
     <tr><td>Dan Smith</td><td>Macromedia/Adobe</td><td>Flash 运行时工程总监</td></tr>
     <tr><td>Edwin Smith</td><td>Macromedia/Adobe</td><td>为 ActionScript 2 和 3 开发了 AVM2 虚拟机</td></tr>
@@ -106,7 +106,7 @@
     <tr><td>Scott Wiltamuth</td><td>Microsoft</td><td>TC39 副主席，ES1 技术工作组记录员</td></tr>
     <tr><td rowspan="2">Allen Wirfs-Brock</td><td>Microsoft</td><td>新版 ES4 反对者，ES5/5.1 编辑</td></tr>
     <tr><td>Mozilla</td><td>ES6 编辑</td></tr>
-    <tr><td>Rok Yu</td><td>Microsoft</td><td>JScript 项目经理，2004 年任 TC39-TG1 主持人</td></tr>
+    <tr><td>Rok Yu</td><td>Microsoft</td><td>JScript 项目经理，2004 年任 TC39-TG1 召集人</td></tr>
     <tr><td>Alon Zakai</td><td>Mozilla</td><td>开发了 Emscripten</td></tr>
     <tr><td>Boris Zbarsky</td><td>Mozilla</td><td>DOM 绑定与浏览器标准工程师</td></tr>
     <tr><td>Kris Zyp</td><td>Dojo Foundation</td><td>ES5 贡献者</td></tr>
@@ -124,7 +124,7 @@
     <tr><td>Apple</td><td>计算机与移动设备制造商，开发了 Safari 浏览器。</td></tr>
     <tr><td>Borland International</td><td>在软件开发工具和编译器领域领先的开发商。</td></tr>
     <tr><td>CERN</td><td>创建万维网的物理研究中心。</td></tr>
-    <tr><td>Dojo Foundation</td><td>推广开源 Dojo Toolkit 的非盈利组织。</td></tr>
+    <tr><td>Dojo Foundation</td><td>推广开源 Dojo Toolkit 的非营利组织。</td></tr>
     <tr><td>Ecma International</td><td>总部设在瑞士的计算相关标准组织。</td></tr>
     <tr><td>General Magic</td><td>创新但未获商业成功的移动设备软件平台开发商。</td></tr>
     <tr><td>Google</td><td>互联网搜索与广告巨头，开发了 Chrome 浏览器。</td></tr>
@@ -372,13 +372,13 @@
   <tr><td rowspan="2">1 月 14 日 - 15 日</td><td>第二次 TC39 会议，Scott Wiltamuth 列出了可能的语言名称</td></tr>
   <tr><td>技术工作组（WG）成立，每周举行会议（或电话会议）</td></tr>
   <tr><td rowspan="2">1 月 15 日</td><td>首次技术工作组会议</td></tr>
-  <tr><td>委员会同意，标准将不包含 JavaScript 1.1 后的特性和宿主 API</td></tr>
-  <tr><td>1 月 15 日 - 22 日 (?)</td><td>Borland 将不加入 Ecma，Gardner 不再担任编辑</td></tr>
-  <tr><td>1 月 31 日</td><td>Guy Steele 成为 TC39 编辑</td></tr>
+  <tr><td>工作组同意，标准将不包含 JavaScript 1.1 后的特性和宿主 API</td></tr>
+  <tr><td>1 月 15 日 - 22 日 (?)</td><td>Borland 将不加入 Ecma，Gardner 辞任编辑</td></tr>
+  <tr><td>1 月 31 日</td><td>Guy Steele 担任 TC39 编辑</td></tr>
   <tr><td>Q1</td><td>每周举行技术工作组会议</td></tr>
   <tr><td>3 月 12 日</td><td>第 12 份规范草案发布</td></tr>
   <tr><td rowspan="2">3 月 18 日 - 19 日</td><td>第三次 TC39 会议，技术工作组获得授权完成规范，并提交供 GA 大会通过</td></tr>
-  <tr><td>委员会仍在寻找语言名称，Netscape 表面上认可了 LiveScript 的可用性</td></tr>
+  <tr><td>工作组仍在寻找语言名称，Netscape 表面上认可了 LiveScript 的可用性</td></tr>
   <tr><td>5 月 5 日</td><td>第 18 份规范草案提交到 Ecma 秘书处，供 GA 大会评审</td></tr>
   <tr><td>6 月</td><td>JavaScript 1.2 随 Netscape 4.0 发布</td></tr>
   <tr><td rowspan="2">6 月 26 日 - 27 日</td><td>Ecma GA 大会通过 JavaScript 规范为 <i>ECMA-262</i></td></tr>
@@ -386,7 +386,7 @@
   <tr><td rowspan="2">7 月 15 日 - 16 日</td><td>第四次 TC39 会议，由于无法使用 LiveScript 命名语言，名称仍然未定</td></tr>
   <tr><td>初步讨论「第 2 版」的目标、进程和特点</td></tr>
   <tr><td rowspan="2">9 月 16 日 - 17 日</td><td>TC39 同意使用 ECMAScript 名称，并公开发布 <i>ECMA-262</i></td></tr>
-  <tr><td>委员会同意「第 2 版」规范将向后兼容第 1 版</td></tr>
+  <tr><td>工作组同意「第 2 版」规范将向后兼容第 1 版</td></tr>
   <tr><td>9 月 23 日 - 24 日</td><td>Ecma 将 <i>ECMA-262</i> 提交进入 ISO/IEC 快速通道流程</td></tr>
   <tr><td rowspan="3">10 月</td><td>兼容了 <i>ECMA-262</i> 的 JScript 3.0 随 Internet Explorer 4.0 发布</td></tr>
   <tr><td>Guy Steele 辞任 TC39 编辑，由 Mike Cowlishaw 接替</td></tr>
@@ -402,7 +402,7 @@
   <tr><td>3 月 31 日</td><td>Netscape 在 mozilla.org 开放浏览器源码</td></tr>
   <tr><td>4 月 9 日</td><td>ISO/IEC 投票期结束，共提交 27 页评论</td></tr>
   <tr><td>4 月 22 日</td><td>基于 ES1 规范的首份「V2」规范出炉</td></tr>
-  <tr><td rowspan="3">5 月</td><td>Bill Gobbons 成为「V2」工作草案编辑</td></tr>
+  <tr><td rowspan="3">5 月</td><td>Bill Gobbons 担任「V2」工作草案编辑</td></tr>
   <tr><td>技术工作组开始使用「状态文档」追踪进展</td></tr>
   <tr><td>HP 提交关于国际化支持需求的评论</td></tr>
   <tr><td>5 月 18 日</td><td>美国司法部对微软提起关于浏览器的反垄断诉讼</td></tr>
@@ -412,15 +412,15 @@
   <tr><td>兼容了 <i>ECMA-262</i> 的 JavaScript 1.3 随 Netscape 4.06 发布</td></tr>
   <tr><td>9 月</td><td>ES2 变更合并入「V2」工作草案</td></tr>
   <tr><td>9 月 16 日</td><td>国际化工作组成立</td></tr>
-  <tr><td rowspan="3">11 月 18 日</td><td>国际化相关会议举行，IBM 的 Richard Gillam 成为国际化工作组主席</td></tr>
+  <tr><td rowspan="3">11 月 18 日</td><td>国际化相关会议举行，IBM 的 Richard Gillam 担任国际化工作组主席</td></tr>
   <tr><td>确定下一份 ECMA-262 规范只计划加入最低限度的本地化钩子</td></tr>
   <tr><td>确定大部分国际化特性应置于单独的库或规范中</td></tr>
   <tr><td rowspan="5">11 月 19 日</td><td>技术工作组会议</td></tr>
   <tr><td>IBM 提议加入十进制小数</td></tr>
   <tr><td>《未来特性展望表》被评审和更新，许多条目推迟到「V2」后处理</td></tr>
   <tr><td>加入对 <code>undefined</code> 的全局绑定</td></tr>
-  <tr><td>委员会担心浏览器可能会在「V2」前提供不同的异常层次结构</td></tr>
-  <tr><td>11 月 28 日</td><td>AOL 发布协议收购 Netcape</td></tr>
+  <tr><td>工作组担心浏览器可能会在「V2」前提供不同的异常层次结构</td></tr>
+  <tr><td>11 月 28 日</td><td>AOL 宣布与 Netscape 达成收购协议</td></tr>
   <tr><td rowspan="22">1999</td><td rowspan="4">Q1</td><td>开展许多关于嵌套函数和闭包的工作</td></tr>
   <tr><td>考虑 Netscape 和微软实现的作用域差异</td></tr>
   <tr><td>考虑正则表达式是否应该加入 Perl 5 的特性</td></tr>
@@ -446,6 +446,161 @@
   <tr><td rowspan="3">2000</td><td>3 月 25 日</td><td>Waldemar Horwat 创建公开的 ES3 勘误表网页</td></tr>
   <tr><td>7 月</td><td>微软随 IE 5.5 发布兼容 ES3 的 JScript 5.5</td></tr>
   <tr><td>11 月</td><td>Netscape 随 Netscape 6 发布兼容 ES3 的 JavaScript 1.5</td></tr>
+</table>
+
+### 第三部分：改革失败
+
+<table>
+  <tr><td>1997</td><td>7 月</td><td>Oracle 介绍将 ECMAScript 作为组件脚本语言</td></tr>
+  <tr><td rowspan="10">1998</td><td>Q1</td><td>Waldemar Horwat 和 Herman Venter 开始参与 TC39</td></tr>
+  <tr><td>2 月</td><td>Dave Raggett 将 Spice 提案提交到 TC39</td></tr>
+  <tr><td rowspan="2">5 月 4 日 - 5 日</td><td>Dave Raggett 担任 W3C「塑造 HTML 的未来」研讨会联合主席</td></tr>
+  <tr><td>W3C 决定冻结 HTML，并「以一套 XML 标签集为基础，重新打造下一代 HTML」</td></tr>
+  <tr><td>5 月 15 日</td><td>Jeff Dyer 首次参加 TC39 会议</td></tr>
+  <tr><td>6 月</td><td>NetObjects 提出首份 ECMAScript 组件规范草案</td></tr>
+  <tr><td rowspan="3">11 月</td><td>Dave Raggett 向 TC39 提交修订后的 Spice 提案</td></tr>
+  <tr><td>TC39 感兴趣于类、数值单位、元组和模块等特性</td></tr>
+  <tr><td>TC39 Spice 工作组成立</td></tr>
+  <tr><td>12 月</td><td>Spice 工作组举行电话会议后，Raggett 提出新提案</td></tr>
+  <tr><td rowspan="10">1999</td><td>Q1</td><td>Spice 工作组关于静态与动态手段的讨论与分歧</td></tr>
+  <tr><td>2 月 19 日</td><td>Waldemar Horwat 透露 JavaScript 2.0 新特性</td></tr>
+  <tr><td>3 月</td><td>Spice 工作组成为模块化子组</td></tr>
+  <tr><td>3 月 30 日</td><td>TC39 创建第四版及其之后的《未来特性展望表》</td></tr>
+  <tr><td>5 月</td><td>Macromedia Flash 中加入 JavaScript 式的脚本语言</td></tr>
+  <tr><td>6 月</td><td>Ecma GA 大会通过《ECMA-290 ECMAScript 组件规范》</td></tr>
+  <tr><td>Q4</td><td>TC39 的注意力转向初版 ES4</td></tr>
+  <tr><td>10 月 14 日</td><td>模块化子组的会议在英国布里斯托尔的 HP 实验室举行</td></tr>
+  <tr><td>11 月</td><td>TC39 起草初版 ES4 的临时特性列表</td></tr>
+  <tr><td>12 月 16 日 - 17 日</td><td>Ecma GA 大会通过《ECMA-262 第 3 版》</td></tr>
+  <tr><td rowspan="8">2000</td><td rowspan="2">1 月</td><td>微软希望「第 4 版」规范在 12 月前完成，并削减特性</td></tr>
+  <tr><td>微软发布 ES3 规范修改建议，对类型注释进行修改</td></tr>
+  <tr><td>6 月 22 日</td><td>微软发布 .NET 框架</td></tr>
+  <tr><td>7 月 11 日</td><td>微软发布 .NET 预览版，包含 JScript.NET 早期版本</td></tr>
+  <tr><td>7 月 13 日</td><td>Herman Venter 在 TC39 会议上讨论 JScript.NET 设计</td></tr>
+  <tr><td>8 月</td><td>Macromedia Flash 5 发布，附带 ActionScript 这一 ECMAScript 方言</td></tr>
+  <tr><td>8 月 17 日</td><td>Netscape 的初版 ES4 提案从 JavaScript 2.0 提案中分离</td></tr>
+  <tr><td>8 月 22 日</td><td>Herman Venter 与 Waldemar Horwat 会面，试图对齐 JavaScript 2 与 JScript.NET，共讨论 43 点分歧</td></tr>
+  <tr><td rowspan="5">2001</td><td></td><td>Douglas Crockford 开始为 JavaScript 布道</td></tr>
+  <tr><td>1 月</td><td>TC39 职责扩大并包含 .NET，ECMAScript 工作移到 TC39-TG1</td></tr>
+  <tr><td>6 月</td><td>Ecma GA 大会通过《ECMA-327 ECMAScript 第 3 版精简模式》</td></tr>
+  <tr><td>8 月 27 日</td><td>Internet Explorer 6 发布</td></tr>
+  <tr><td>11 月 17 日</td><td>Waldemar Hormat 的 JS2.0 论文在 MIT 轻量语言研讨会上发表</td></tr>
+  <tr><td rowspan="6">2002</td><td>3 月</td><td>初版 ES4 目标日期移至 2003 年 12 月</td></tr>
+  <tr><td rowspan="2">6 月</td><td>BEA 提议为 ECMAScript 加入 XML 扩展（E4X）</td></tr>
+  <tr><td>Herman Venter 最后一次参加 TC39-TG1 会议</td></tr>
+  <tr><td>8 月</td><td>E4X 规范工作启动</td></tr>
+  <tr><td>9 月 22 日</td><td>Phoenix 0.1（Firefox 的原型）浏览器发布</td></tr>
+  <tr><td>12 月</td><td>Douglas Crockford 搭建 json.org 网站，向世人介绍 JSON</td></tr>
+  <tr><td rowspan="10">2003</td><td>1 月</td><td>苹果发布 WebKit 与 Safari 浏览器</td></tr>
+  <tr><td>3 月</td><td>TG1 讨论延期初版 ES4 以聚焦 E4X，但未实行</td></tr>
+  <tr><td>5 月</td><td>Jeff Dyer 加入 Macromedia，开始开发 ActionScript 3</td></tr>
+  <tr><td rowspan="4">7 月 15 日</td><td>AOL 终止 Netspace 运营，解雇大多数员工</td></tr>
+  <tr><td>Waldemar Horwat 辞任新版 ES4 编辑</td></tr>
+  <tr><td>TG1 暂停新版 ES4 工作，聚焦 E4X</td></tr>
+  <tr><td>独立的 Mozilla 基金会启动</td></tr>
+  <tr><td>9 月</td><td>Macromedia 发布大体基于新版 ES4 语法的 ActionScript 2</td></tr>
+  <tr><td>11 月</td><td>Macromedia 加入 Ecma 以参与 TC39-TG1</td></tr>
+  <tr><td>12 月</td><td>Ecma GA 大会通过《ECMA-357 ECMAScript for XML》规范</td></tr>
+  <tr><td rowspan="7">2004</td><td>5 月</td><td>Mozilla 基金会作为非营利会员加入 Ecma</td></tr>
+  <tr><td rowspan="4">6 月</td><td>Brendan Eich 帮助建立 WHATWG</td></tr>
+  <tr><td>Brendan Eich 自 1998 年 2 月以来首次参加 TC39（TG1）会议</td></tr>
+  <tr><td>TG1 决定放弃初版 ES4 规范，转向「不那么复杂的东西」</td></tr>
+  <tr><td>Jeff Dyer 担任 ES4 编辑</td></tr>
+  <tr><td>Q3-Q4</td><td>TG1 主要从事 E4X 第二版的工作</td></tr>
+  <tr><td>11 月 9 日</td><td>Firefox 1.0 浏览器发布</td></tr>
+  <tr><td rowspan="16">2005</td><td></td><td>Dojo 框架发布</td></tr>
+  <tr><td>Q1-Q3</td><td>TG1 主要从事 E4X 第二版的工作</td></tr>
+  <tr><td>2 月</td><td>Jesse James Garrett 发明「AJAX」术语</td></tr>
+  <tr><td>Q2-Q4</td><td>Brendan Eich 发布博客，讨论新版 ES4 问题与目标</td></tr>
+  <tr><td>4 月</td><td>Adobe 宣布与 Macromedia 达成收购协议</td></tr>
+  <tr><td rowspan="4">9 月</td><td>Brendan Eich 担任 TC39-TG1 召集人</td></tr>
+  <tr><td>Eich 将 TG1 的工作重点放在开发新版 ES4 上</td></tr>
+  <tr><td>目标设定为 6 个月内就特性达成一致，一年内发布草案</td></tr>
+  <tr><td>新版 ES4 规范标记将使用「操作语义语言」</td></tr>
+  <tr><td>9 月 26 日</td><td>Brendan Eich 在 ICFP 发表《JavaScript 十周年》演讲</td></tr>
+  <tr><td>10 月</td><td>Brendan Eich 在博客中感兴趣于一种形式化的「可检查的规范」</td></tr>
+  <tr><td rowspan="2">11 月</td><td>Macromedia 向 TG1 贡献 ActionScript 3 规范</td></tr>
+  <tr><td>Graydon Hoare 首次代表 Mozilla 参与 TG1 会议</td></tr>
+  <tr><td>11 月 30 日</td><td>JavaScript 1.6 随 Firefox 1.5 发布</td></tr>
+  <tr><td rowspan="2">12 月</td><td>Ecma GA 大会通过《ECMA-357 E4X 第二版》</td></tr>
+  <tr><td>Adobe 完成对 Macromedia 的收购</td></tr>
+  <tr><td rowspan="29">2006</td><td rowspan="2"></td><td>jQuery 与 MooTools 框架发布</td></tr>
+  <tr><td>TG1 使用内部 Wiki 收集并讨论新版 ES4 提案</td></tr>
+  <tr><td>1 月</td><td>Adobe 贡献基于 AS3 的《Ecmascript 4 语言规范》草案</td></tr>
+  <tr><td rowspan="4">2 月</td><td>Lars Hansen 首次代表 Opera 参加 TG1 会议</td></tr>
+  <tr><td>Dave Herman 首次参加 TG1 会议</td></tr>
+  <tr><td>Dave Herman 在 TG1 介绍形式化规范技术</td></tr>
+  <tr><td>Maciej Stachowiak 首次代表苹果参加 TG1 会议</td></tr>
+  <tr><td>3 月</td><td>Cormac Flanagan 首次参加 TG1 会议</td></tr>
+  <tr><td>Q2-Q3</td><td>Dave Herman 探索多种可用的形式化规范语言</td></tr>
+  <tr><td rowspan="2">4 月</td><td>Pratap Lakshman 首次代表微软参加 TG1 会议</td></tr>
+  <tr><td>TG1 目标设为在 2007 年 Q1 完成对新版 ES4 的验证，并准备好将其提交给 GA 大会</td></tr>
+  <tr><td rowspan="5">6 月</td><td>Adobe 发布 Flash ActionScript 3</td></tr>
+  <tr><td>公共的 ES4 Wiki 出口和 <code>es4-discuss</code> 邮件列表开放</td></tr>
+  <tr><td>Douglas Crockford 首次代表雅虎参加 TG1 会议</td></tr>
+  <tr><td>Crockford 提出关于新版 ES4 与 ES3 的兼容性问题</td></tr>
+  <tr><td>Pratap Lakshman 表示微软计划在 IE7 后实现 ES4</td></tr>
+  <tr><td rowspan="2">7 月 27 日 - 28 日</td><td>TG1 会议上，Douglas Crockford 强调后向兼容的重要性</td></tr>
+  <tr><td>Pratap Lakshman 表示后向兼容性属于微软的最高优先级</td></tr>
+  <tr><td>10 月 18 日</td><td>Internet Explorer 7 发布</td></tr>
+  <tr><td>10 月 19 日 - 20 日</td><td>TG1 决定使用基于 ML 的参考实现来定义新版 ES4</td></tr>
+  <tr><td>Q4 剩余时间</td><td>使用 SML 开发参考实现的初始工作</td></tr>
+  <tr><td>10 月 24 日</td><td>JavaScript 1.7 随 Firefox 2.0 发布，包含多种受 Python 和新版 ES4 启发的试验性特性</td></tr>
+  <tr><td>11 月 6 日</td><td>Adobe 将 AS3VM 以 Tamarin 之名（开源）贡献给 Mozilla</td></tr>
+  <tr><td>11 月 15 日</td><td>Douglas Crockford 在雅虎举行浏览器安全峰会</td></tr>
+  <tr><td>11 月 16 日</td><td>Mick Cowlishaw 参加 TG1，IBM 希望在新版 ES4 中加入十进制小数</td></tr>
+  <tr><td rowspan="4">12 月</td><td>Jeff Dyer 尝试将 ML 代码与规范文本相集成</td></tr>
+  <tr><td>TG1 的新版 ES4 工作组每周举行电话会议，每月举行会议或 hackathon</td></tr>
+  <tr><td>进行关于混合结构类型系统和其他新语义的工作</td></tr>
+  <tr><td>进行关于建立新版 ES4 的 ML 参考实现的工作</td></tr>
+  <tr><td rowspan="36">2007</td><td rowspan="2">1 月</td><td>Pratap Lakshman 发邮件就新版 ES4 向微软 DevDiv 各经理询问方向</td></tr>
+  <tr><td>Allen Wirfs-Brock 建议微软反对新版 ES4</td></tr>
+  <tr><td rowspan="2">2 月</td><td>TG1 会议上，Pratap Lakshman 宣布微软反对新版 ES4</td></tr>
+  <tr><td>Wirfs-Brock 和 Crockford 同意联合开发维护 ES3 的提案</td></tr>
+  <tr><td>3 月 15 日</td><td>雅虎与微软发布联合提案，要求 TG1 重新聚焦对 ES3 的维护</td></tr>
+  <tr><td rowspan="3">3 月 21 日 - 23 日</td><td>TG1 会议在微软举行，Allen Wirfs-Brock 首次参加</td></tr>
+  <tr><td>持续讨论新版 ES4 与 TG1 的目标</td></tr>
+  <tr><td>工作组就微软与雅虎启动 ES3.1 项目达成一致</td></tr>
+  <tr><td>3 月 29 日</td><td>Crockford 与 Wirfs-Brock 会面，起草 ES3.1 目标与设计准则</td></tr>
+  <tr><td>4 月</td><td>Lars Hansen 进入 Adobe 工作，继续投入新版 ES4</td></tr>
+  <tr><td>4 月 4 日</td><td>Douglas Crockford 更新他对 ECMAScript 的修改建议</td></tr>
+  <tr><td>4 月 15 日</td><td>初始 ES3.1 Wiki 提案基本由 Crockford 的建议而衍生</td></tr>
+  <tr><td rowspan="2">4 月 18 日 - 20 日</td><td>TG1 会议上，ES3.1 工作组抵制以 ML 参考实现开发 3.1</td></tr>
+  <tr><td>Adam Peller 首次代表 IBM 参加 TG1 会议</td></tr>
+  <tr><td>夏季</td><td>Pratap Lakshman 分析 JavaScript 在主流浏览器之间的可互操作性</td></tr>
+  <tr><td>6 月 8 日</td><td>新版 ES4 参考实现发布「M0」版本</td></tr>
+  <tr><td>6 月 21 日</td><td>Alex Russel 首次代表 Dojo 基金会参加 TG1 会议</td></tr>
+  <tr><td>6 月 22 日</td><td>工作组呼吁开始编写新版 ES4 规范，并在 9 月前完成</td></tr>
+  <tr><td>Q3-Q4</td><td>在博客文章和会议讨论组中，出现关于 ES3.1 和新版 ES4 的公开争议</td></tr>
+  <tr><td rowspan="2">9 月 7 日</td><td>新版 ES4 规范完成目标重置为 2008 年 9 月</td></tr>
+  <tr><td>Lars Hansen 担任新版 ES4 编辑</td></tr>
+  <tr><td>9 月 26 日</td><td>Pratap Lakshman 发布《JScript 到 ES3 的偏差》报告</td></tr>
+  <tr><td rowspan="5">9 月 27 日 - 28 日</td><td>TG1 举行会议以精简新版 ES4 Wiki 提案</td></tr>
+  <tr><td>54 份提案获得批准，另有 26 份提案被拒绝或推迟</td></tr>
+  <tr><td>Jeff Dyer 力推拒绝《对 ES3 的维护》提案</td></tr>
+  <tr><td>工作组决定不再将 ES3.1 作为新版 ES4 提案，为其分配独立的 Wiki 命名空间</td></tr>
+  <tr><td>Waldemar Horwat 自 2003 年以来首次参加 TG1 会议（作为召集人嘉宾）</td></tr>
+  <tr><td>10 月 16 日</td><td>谷歌成为 Ecma 标准会员，Waldemar Horwat 代表谷歌</td></tr>
+  <tr><td>10 月 21 日</td><td>Lars Hansen 完成 40 页的《ECMAScript 4 语言概述》</td></tr>
+  <tr><td>10 月 23 日 - 24 日</td><td>Ecma 协调委员会会议中表示了对分歧的担忧</td></tr>
+  <tr><td>11 月</td><td>Lars Hansen 发布 3 份针对新版 ES4 不同维度的报告</td></tr>
+  <tr><td rowspan="4">11 月 8 日 - 9 日</td><td>Ecma 主席 John Neumann 参加 TG1 会议</td></tr>
+  <tr><td>Neumann 推荐将 TG1 演化为完整的技术委员会，增强 Ecma 的监管</td></tr>
+  <tr><td>Douglas Crockford 提出新的「安全 ECMAScript（SES）」项目</td></tr>
+  <tr><td>投票调查显示，TG1 对 ES3.1、新版 ES4 和 SES 的兴趣都很大</td></tr>
+  <tr><td>12 月</td><td>Adobe 和微软一致同意支持 John Neumann 担任 TC39 新主席</td></tr>
+  <tr><td rowspan="10">2008</td><td></td><td>TC39-TG1 重新成为 TC39，其余 TC39 的 TG 转为 TG49</td></tr>
+  <tr><td>Q1-Q2</td><td>ES3.1 工作组组织起来，开始基于 ES3 制定新规范</td></tr>
+  <tr><td rowspan="2">2 月</td><td>Jeff Dyer 发布新版 ES4 工作计划</td></tr>
+  <tr><td>Dyer 与 Hansen 提议延迟「奇怪、未经证实或高耗的」新版 ES4 特性</td></tr>
+  <tr><td>5 月</td><td>Douglas Crockford 发表《JavaScript 语言精粹》</td></tr>
+  <tr><td>5 月 29 日 - 30 日</td><td>TC39 会议起草 ES3.1 和新版 ES4 草案</td></tr>
+  <tr><td>6 月</td><td>Adobe 放弃新版 ES4 项目</td></tr>
+  <tr><td>6 月 17 日</td><td>JavaScript 1.8 随 Firefox 3.0 发布</td></tr>
+  <tr><td>6 月 23 日 - 25 日</td><td>在奥斯陆举行的 TC39 会议终止了新版 ES4，TC39 聚焦 ES3.1 和「Harmony」</td></tr>
+  <tr><td>8 月</td><td>Ecma 公开宣布终止新版 ES4，并启动 Harmony 项目</td></tr>
+  <tr><td>2009</td><td>12 月 3 日</td><td>Ecma 标准《ECMA-290 ECMAScript 组件规范》被撤回</td></tr>
+  <tr><td>2015</td><td>6 月 17 日</td><td>Ecma 标准《ECMA-327 ECMAScript 第 3 版精简模式》和《ECMA-357 E4X》被撤回</td></tr>
 </table>
 
 <!--
