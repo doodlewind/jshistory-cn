@@ -103,6 +103,7 @@
     * [Harmony 转译器](./part-4.md#harmony-转译器)
     * [完成 ECMAScript 2015](./part-4.md#完成-ecmascript-2015)
 * [总结](./part-4.md#总结)
+* [致谢](./part-4.md#致谢)
 * [附录](./appendices.md)
   * [登场人物](./appendices.md#登场人物)
   * [登场组织](./appendices.md#登场组织)
