@@ -743,3 +743,44 @@
   <tr><td>7 月</td><td>Brian Terlson 接替 Allen Wirfs-Brock 为 ECMA-262 项目编辑</td></tr>
   <tr><td>2016</td><td>6 月 14 日</td><td>《ECMA-262 第 7 版 ECMAScript 2016 语言规范》与《ECMA-402 第 3 版 ECMAScript 国际化 API》被批准为 Ecma 标准</td></tr>
 </table>
+
+### 1995 年 12 月 4 日的 JavaScript 发布公告
+
+[[Netscape and Sun 1995](./references.md#netscape:press:javascript), Page 1-2]
+
+#### 网景公司和太阳公司宣布推出 JavaScript：面向企业网络和互联网的开放跨平台对象脚本语言
+
+##### 28 家行业领先企业支持将 JavaScript 作为 Java 的补充，实现便捷的在线应用开发
+
+---
+
+加利福尼亚州山景城（1995 年 12 月 4 日）- 网景通讯公司（NASDAQ: NSCP）和太阳微系统公司（NASDAQ: SUNW）今天宣布推出 JavaScript。这是一种开放的、跨平台的对象脚本语言，可用于创建和定制企业网络和互联网上的应用程序。JavaScript 语言是对太阳公司业界领先的跨平台面向对象编程语言 Java 的补充。JavaScript 的初始版本现已作为 Netscape Navigator 2.0 测试版的一部分而提供，现在即可从网景的网站上下载。
+
+此外，28 家行业领先的公司，包括美国在线公司、苹果电脑公司、Architext 软件公司、Attachmate 公司、AT&T 公司、Borland 国际公司、Brio 科技公司、CA 科技公司、DEC 公司、惠普公司、Iconovex 公司、Illustra 信息技术公司、Informix 软件公司、Intuit 公司、Macromedia 公司、Metrowerks 公司、Novell 公司、甲骨文公司、Paper 软件公司、Precept 软件公司、RAD 科技公司、圣克鲁兹作业公司和硅谷图形公司、Spider 科技公司、Sybase 公司、东芝公司、Verity 公司和 Vermeer 科技公司在内，均支持将 JavaScript 作为一种开放标准的对象脚本语言，并计划在未来的产品中提供它。JavaScript 的规范草案以及 Java 的最终规范草案，计划于本月公布并提交给有关标准机构，供业界审查和评论。
+
+JavaScript 是一种易于使用的对象脚本语言。它的设计用途是创建实时的在线应用，从而将客户端和服务器上的对象和资源连接在一起。相比起已被程序员用于创建新对象和 applet 小应用的 Java，JavaScript 则是为 HTML 页面作者与企业应用开发者而设计的，用于对客户端或服务器上所运行对象的行为进行动态的脚本化。JavaScript 可被那些缺乏（甚至不具备）编程经验的人用来快速构建复杂的应用，在这一点上它类似于 Visual Basic。JavaScript 的设计代表了专为互联网设计的下一代软件，它具备如下特点：
+
+* 为创建以网络为中心的应用而设计
+* 能与 Java 互补并互相整合
+* 能与 HTML 互补并互相整合
+* 开放、跨平台
+
+Java 由太阳公司开发，是一种面向对象的编程语言，其运行可独立于任何操作系统或微处理器。被称为 applet 小应用的 Java 程序可以通过网络传输，并能在任何客户端上运行，以此在企业网络和互联网上提供像 CD-ROM 一样丰富的多媒体功能。Java 省去了移植应用的必要，因此已受到了来自程序员的广泛欢迎。它还有潜力降低在网络上分发和维护应用的成本，因此也受到了信息系统管理者们的广泛欢迎。
+
+有了 JavaScript，就有可能在 HTML 页面中加入智能的表单。它可以根据用户的输入，在客户端执行贷款支付或货币兑换等计算。而某个用 Java 编写的多媒体天气预报 applet 小应用，也可以通过 JavaScript 脚本，根据某地区当前的天气读数来显示适当的图像和声音。服务端的 JavaScript 脚本可以做到从关系型数据库中提取数据，并飞快地将其格式化为 HTML。在页面中，还可能包含有在客户端和服务器上均可运行的 JavaScript 脚本。在服务器上，脚本可以根据存储在关系型数据库中的用户偏好，来动态地组合与格式化出 HTML 内容；在客户端上，脚本能将各种 Java applet 小应用和 HTML 表格元素粘合在一起，形成一个可实时交互的用户界面，以进行全网范围内的信息搜索。
+
+Java 程序和 JavaScript 脚本都已被设计成在客户端和服务器上均可运行，其中 JavaScript 脚本可用于修改 Java 对象的属性和行为。因此，对于通过企业网络或互联网来向用户动态呈现信息，并与用户交互的实时在线应用，其边界几乎是无限的。网景公司将在客户端和服务器产品中支持 Java 和 JavaScript，以及相应的编程工具和应用，以实现这一愿景。
+
+太阳公司联合创始人兼研究副总裁 Bill Joy 说：「程序员们对 Java 的热情非常高涨，因为它从一开始就是为互联网而设计的。JavaScript 和它堪称天作之合，因为 JavaScript 也是为互联网而设计的，也是为基于 Unicode 的全球性使用而设计的。在把基于 HTML 的内容连接到 Java applet 小应用时，JavaScript 将成为最有效的手段。」
+
+网景公司的创作和应用开发工具 - Netscape Navigator Gold 2.0、Netscape LiveWire 和 Netscape LiveWire Pro - 都是专为快速开发和部署 JavaScript 应用而设计的。Netscape Navigator Gold 2.0 使开发者能创建和编辑 JavaScript 脚本，而 Netscape LiveWire 则使 JavaScript 程序能在企业内部和互联网上的网景服务器上安装、运行和管理。Netscape LiveWire Pro 增加了对 JavaScript 连接到 Illustra、Informix、微软、甲骨文和 Sybase 的高性能关系型数据库时的支持。所有网景产品都内置了对 Java 和 JavaScript 的支持，为构建和部署实时在线应用，提供了一个统一的、从前到后的「客户端 / 服务器 / 工具」环境。
+
+开发者可以免费使用 Java。对于 Java 编译器、Java 开发工具包、HotJava 浏览器和相关文档，可以从太阳公司的网站 [http://java.sun.com](http://java.sun.com) 获得。此外，Java 源代码还可以付费获得许可。有关授权的详细信息也可以通过 [java.sun.com](http://java.sun.com) 网页了解。到目前为止，太阳公司已经将 Java 授权给了一些领先的技术公司，包括 Borland、Macromedia、三菱、网景、甲骨文、硅谷图形公司、Spyglass 和东芝。太阳公司的 Workshop for Java 工具箱计划于 1996 年春季发布。太阳公司的 NEO 产品系列是首个面向对象网络应用的完整开发、操作和管理环境，它也将用支持 Java 的浏览器作为 NEO 环境的前端。
+
+网景公司和太阳公司计划向万维网联盟（W3C）和互联网工程任务组（IETF）提议，将 JavaScript 作为开放的互联网脚本语言标准。JavaScript 将是一个开放的、免费授权的拟议标准，可供整个互联网社区使用。现有的太阳公司 Java 授权用户也将获得 JavaScript 的授权。此外，太阳公司和网景公司还计划为买断式授权提供 JavaScript 的源代码参考实现，以此进一步鼓励在各类产品中采用 JavaScript 作为标准。
+
+网景通讯公司是首屈一指的开放软件供应商。它通过企业网络和互联网，将人和信息联系起来。公司提供全系列的 Netscape Navigator 客户端、Netscape 服务器、开发工具和 Netscape 互联网应用程序，为下一代实时在线应用创建完整的平台。网景通讯公司在纳斯达克上市，股票代码为「NSCP」，总部位于加利福尼亚州山景城。
+
+太阳微系统公司的年收入为 60 亿美元，它提供解决方案，使客户能建立和维护开放的网络计算环境。作为公认的开放标准倡导者，该公司从事商业和技术计算产品、技术和服务的设计、制造和销售。太阳公司的 SPARC™ 工作站、多处理器服务器、SPARC 微处理器、Solaris 操作系统软件和经 ISO 认证的服务机构，在 UNIX‎® 产业中均排名第一。太阳微系统公司成立于 1982 年，总部位于加利福尼亚州山景城，在全球拥有 14000 多名员工。
+
+有关网景通讯公司的更多信息可在互联网上获得，亦可发送电子邮件至 info@netscape.com，或致电 415-528-2555。有关太阳微系统公司的更多信息可在互联网上获得，网址为 [http://www.sun.com](http://www.sun.com)，另有 [http://java.sun.com](http://java.sun.com) 网址可供查询 Java 的信息。Netscape Communications、Netscape Communications 标志、Netscape 和 Netscape Navigator 是网景通讯公司的商标。JavaScript 和 Java 是太阳微系统公司的商标。所有其他产品名称，则是其各自公司的商标。

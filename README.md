@@ -113,7 +113,7 @@
     * [第二部分：创立标准](./appendices.md#第二部分创立标准)
     * [第三部分：改革失败](./appendices.md#第三部分改革失败)
     * [第四部分：继往开来](./appendices.md#第四部分继往开来)
-  * 1995 年 12 月 4 日的 JavaScript 发布公告
+  * [1995 年 12 月 4 日的 JavaScript 发布公告](./appendices.md#1995-年-12-月-4-日的-javascript-发布公告)
 * [备注](./notes.md)
 * [参考文献](./references.md)
 
