@@ -93,9 +93,9 @@ ES3.1 的开发在 2008 年 1 月的 TC39 会议上正式启动。这次会议�
 
 由于微软将 JavaScript 的开发职责转移给了位于 Redmond 的新小组，并且 Pratap Lakshman 拒绝了调迁的机会，因此他在 2009 年 3 月 25 日至 26 日的会议 [[TC39 2009d](./references.md#TC39:2009:022)] 上宣布辞去 ECMA-262 编辑的职务。委员会任命 Allen Wirfs-Brock 接任他的编辑职位。
 
-Wirfs-Brock 回忆说，在 TC39 会议期间的某个休息时间，他找到了 Brendan Eich，建议将 ES3.1 重命名为整数级的版本。关于新名称的说法是，ES3.1 已经成长为 ECMA-262 的全面修订，与之前的三个版本一样重要。而新版 ES4 虽然已经终止，但其相关作品已经广为宣传。因此如果将 ES3.1 指定为第 4 版，会对 JavaScript 开发者社区和 Web 搜索引擎造成混乱。作为替代，Wirfs-Brock 建议 Ecma 永久停用 ECMA-262 第 4 版，并发布 ES3.1 作为第 5 版。对此 Eich 表示同意。在会议恢复后，他们向委员会提出了这个想法，并获得了接受。在认可了对版本号的更新后，会上委员会还同意接受以当时最新的草案作为最终草案。2009 年 4 月 7 日，「最终草案」以第 5 版的名义发布 [[Lakshman et al. 2009](./references.md#TC39:2009:025)]。该草案发布后，还有五个发行候选（release-candidate）草案发布，其中包含了一些较小的技术和编辑更改。在 2009 年 8 月苹果发现 [[Hunt 2009](./references.md#breakNasa)]，使 `arguments` 对象继承自 `Array.prototype` 的决定，会与 Prototype 框架产生意外的交互，从而破坏多个苹果网站和 NASA 网站。于是这一改动从最终规范中删除。
+Wirfs-Brock 回忆说，在 TC39 会议期间的某个休息时间，他找到了 Brendan Eich，建议将 ES3.1 重命名为整数级的版本。关于新名称的说法是，ES3.1 已经成长为 ECMA-262 的全面修订，与之前的三个版本一样重要。而新版 ES4 虽然已经终止，但其相关作品已经广为宣传。因此如果将 ES3.1 指定为第 4 版，会对 JavaScript 开发者社区和 Web 搜索引擎造成混乱。作为替代，Wirfs-Brock 建议 Ecma 永久停用 ECMA-262 第 4 版，并发布 ES3.1 作为第 5 版。对此 Eich 表示同意。在会议恢复后，他们向委员会提出了这个想法，并获得了接受。在认可了对版本号的更新后，会上委员会还同意接受以当时最新的草案作为最终草案。2009 年 4 月 7 日，「最终草案」以第 5 版的名义发布 [[Lakshman et al. 2009](./references.md#TC39:2009:025)]。该草案发布后，还有五份发行候选（release-candidate）草案发布，其中包含了一些较小的技术和编辑更改。在 2009 年 8 月苹果发现 [[Hunt 2009](./references.md#breakNasa)]，使 `arguments` 对象继承自 `Array.prototype` 的决定，会与 Prototype 框架产生意外的交互，从而破坏多个苹果网站和 NASA 网站。于是这一改动从最终规范中删除。
 
-2009 年 9 月 23 日，TC39 [[2009b](./references.md#TC39:2009:045)] 投票确认了 ES5 的完成，并将其提交给 Ecma GA 大会供批准。Ecma GA 大会审核通过的最终草案于 2009 年 10 月 28 日发布。在第 3 版获得批准十年后，《ECMA-262 第 5 版》于 2009 年 12 月 3 日由 GA 大会通过 [[Ecma International 2009a](./references.md#ES5:PR)]。GA 大会投票收到 19 票赞成和 2 票反对。IBM 之所以投反对票，是因为标准未包含对十进制小数运算的支持。Intel 则表示他们投反对票，只是因为他们缺乏足够的时间对规范进行完整的知识产权审查。
+2009 年 9 月 23 日，TC39 [[2009b](./references.md#TC39:2009:045)] 投票确认了 ES5 的完成，并将其提交给 Ecma GA 大会供批准。Ecma GA 大会审核批准的最终草案于 2009 年 10 月 28 日发布。在第 3 版获得批准十年后，《ECMA-262 第 5 版》于 2009 年 12 月 3 日由 GA 大会批准 [[Ecma International 2009a](./references.md#ES5:PR)]。GA 大会投票收到 19 票赞成和 2 票反对。IBM 之所以投反对票，是因为标准未包含对十进制小数运算的支持。Intel 则表示他们投反对票，只是因为他们缺乏足够的时间对规范进行完整的知识产权审查。
 
 《ECMA-262 第 5 版》是 ISO/IEC ECMAScript 标准的快速通道修订版，它经历了 ISO 国家机构的审核过程。Allen Wirfs-Brock 根据审核过程中的反馈，将许多编辑上的修订纳入了规范。这份修订版于 2011 年 6 月作为《ECMA-262 第 5.1 版》和《ISO/IEC 16262 第 3 版》发布。
 
@@ -522,7 +522,7 @@ Dave Herman 向委员会建议，认为委员会应该采用一种名为「倡�
 委员会接受了 Herman 对倡导者模型的提案，并总体上有效地使用了这一模型。但这种机制也有崩溃的时候。这一时期的核心会员群体相对较小，技术能力也很强。他们有时根本抵挡不住「由委员会做一些设计」的诱惑，有时这其实是在提案上取得进展的最有效方式。有时会出现多位倡导者，他们会对某一特定特性或设计问题提出不同的解法和提案。在这种情况下，如果相互竞争的倡导者们不能就一份共同的提案达成一致，委员会就必须选择一个提案，或在某些情况下拒绝所有相互竞争的提案。
 
 #### 选择特性集
-在 2009 年、2010 年和 2011 年上半年的大部分时间里，TC39 的倡导者们都在致力于开发稻草人提案。他们与委员会一起审查这些提案，并试图获得必要的共识，以便将其推进到获得接受的状态。到 2009 年 8 月，稻草人页面 [[TC39 Harmony 2009](./references.md#Harmony:strawman2)] 上的提案数量已从最初的 7 个发展到了 21 个。到 2010 年初，Harmony 特性集的大致形态开始出现。Brendan Eich [[2010a](./references.md#Harmony:themes)] 将它们组织成了一系列主题（见图 39），并添加到了介绍 Harmony 目标的页面。到 2010 年 12 月，稻草人页面 [[TC39 Harmony 2010b](./references.md#Harmony:strawman3)] 上的提案已经增加到了 66 个，另有 17 份提案 [[TC39 Harmony 2010a](./references.md#Harmony:deferred)] 已确认被推迟或放弃。到 2011 年 5 月初，稻草人页面 [[TC39 Harmony 2011c](./references.md#Harmony:proposals3); Appendix N] 有超过 100 个条目，而「已通过提案」的页面 [[TC39 Harmony 2011a](./references.md#Harmony:proposals3)] 有 17 个条目。
+在 2009 年、2010 年和 2011 年上半年的大部分时间里，TC39 的倡导者们都在致力于开发稻草人提案。他们与委员会一起审查这些提案，并试图获得必要的共识，以便将其推进到获得接受的状态。到 2009 年 8 月，稻草人页面 [[TC39 Harmony 2009](./references.md#Harmony:strawman2)] 上的提案数量已从最初的 7 个发展到了 21 个。到 2010 年初，Harmony 特性集的大致形态开始出现。Brendan Eich [[2010a](./references.md#Harmony:themes)] 将它们组织成了一系列主题（见图 39），并添加到了介绍 Harmony 目标的页面。到 2010 年 12 月，稻草人页面 [[TC39 Harmony 2010b](./references.md#Harmony:strawman3)] 上的提案已经增加到了 66 个，另有 17 份提案 [[TC39 Harmony 2010a](./references.md#Harmony:deferred)] 已确认被推迟或放弃。到 2011 年 5 月初，稻草人页面 [[TC39 Harmony 2011c](./references.md#Harmony:proposals3); Appendix N] 有超过 100 个条目，而「已批准提案」的页面 [[TC39 Harmony 2011a](./references.md#Harmony:proposals3)] 有 17 个条目。
 
 ```
 主题
@@ -785,7 +785,7 @@ ES6 为澄清和更新规范中使用的一些术语提供了机会。其中需�
 
 ES6 的一个目标，是使大多数标准库和宿主对象能使用 JavaScript 代码进行「自托管的实现」。有了自托管的可能性，对象是由宿主提供、由引擎提供还是由程序提供，其中的区别就显得越来越不重要了。对象之间的语义差异，相比于「谁来提供它们」或「实现它们的技术」更为重要。
 
-对此在术语上的基本需求，是区分具有正常语义的对象和具有反常（即不寻常）语义的对象。Douglas Crockford [[TC39 2012b](./references.md#TC39:2012:034)] 根据 Ecma 最高会员等级的名称，建议用「标准对象<sup>[g](./appendices.md#ordinary-object)</sup>」来表示那些语义上使用 JavaScript 对象字面量或 `new Object()` 来创建的对象。凡是在语义上与普通对象语义有任何偏离的对象，都被称为「外来对象<sup>[g](./appendices.md#exotic-object)</sup>」。标准对象和外来对象都可能由宿主、引擎或应用程序员提供，也可能用 JavaScript 或其他语言来实现。
+对此在术语上的基本需求，是区分具有正常语义的对象和具有反常（即不寻常）语义的对象。Douglas Crockford [[TC39 2012b](./references.md#TC39:2012:034)] 根据 Ecma 最高会员等级的名称，建议用「标准对象<sup>[g](./appendices.md#ordinary-object)</sup>」来表示那些语义上使用 JavaScript 对象字面量或 `new Object()` 来创建的对象。凡是在语义上与普通对象语义有任何偏离的对象，都被称为「异质对象<sup>[g](./appendices.md#exotic-object)</sup>」。标准对象和异质对象都可能由宿主、引擎或应用程序员提供，也可能用 JavaScript 或其他语言来实现。
 
 #### 新的语义种类
 在 ES6 之前，除了那些定义标准库函数的算法之外，大多数伪代码算法都与语法产生式相关联，并指定了相应产生式的运行时求值语义。并没有必要对这些算法进行命名，因为它们是唯一与语法产生式相关联的语义。此外还有一些算法（如类型转换的算法和定义对象语义的内部方法）则没有直接与语法相关联。这些算法被赋予了名称，以便于从求值算法中引用。
@@ -823,13 +823,13 @@ Harmony 提案 Wiki 页面 [[TC39 Harmony 2014](./references.md#Harmony:proposal
 以下各节将深入探讨几项重要提案的发展历史，并总结其他重要特性的细节。
 
 #### Realms、Jobs、Proxies 和元对象编程（MOP）
-Harmony 的目标之一，在于使外来对象不分其为内置还是由宿主定义，均能实现自托管，并完全确定其由 Web 浏览器所实现的语义扩展机制。为支持这一目标，需要完善某些 ECMAScript「虚拟机」中现有的抽象，并进一步增加新的抽象，以确定新的（或不够明确的）语言特性。
+Harmony 的目标之一，在于使异质对象不分其为内置还是由宿主定义，均能实现自托管，并完全确定其由 Web 浏览器所实现的语义扩展机制。为支持这一目标，需要完善某些 ECMAScript「虚拟机」中现有的抽象，并进一步增加新的抽象，以确定新的（或不够明确的）语言特性。
 
 「Realm」[[Wirfs-Brock 2015a](./references.md#ES2015), pg. 72] 是一种新的规范抽象。引入它的目的，是为了支持在单个 ECMAScript 执行环境中描述多个全局命名空间的语义。Realm 能支持 HTML 页框的语义，这是 ECMAScript 自 ES1 以来一直忽略的浏览器特性。而「Job」[[Wirfs-Brock 2015a](./references.md#ES2015), pg. 76] 这种规范抽象的加入，是为了确定性地定义 ECMAScript 执行环境该如何将多个脚本依次执行到完成（run-to-completion）。基于 Job 所提供的方法，能解释由浏览器和其他 JavaScript 宿主所提供的「事件派发」和「延迟回调」的语义。它们还为定义 ES2015 中 Promise 的语义建立了基础。
 
-ES1 所提供的内部方法，基本上是个残缺的元对象协议。在对各种内置对象和宿主提供的对象做属性访问时，会有各类可见的语义区别。基于内部方法，可以将这些区别解释为它们在内部方法规范上的差异。但在 ES2015 之前，内部方法的语义还不够完整和规范，其使用也不够一致。为了「驯服」宿主对象，实现外来对象的自托管，并支持对象能力的*隔离层*<sup>[g](./appendices.md#membrane)</sup> [[Van Cutsem and Miller 2013](./references.md#VanCutsem:2013:TPV:2524984.2524994)]。ES1 到 ES5 中所设计的内部方法，被转换成了一种明确的元对象编程（MOP）。
+ES1 所提供的内部方法，基本上是个残缺的元对象协议。在对各种内置对象和宿主提供的对象做属性访问时，会有各类可见的语义区别。基于内部方法，可以将这些区别解释为它们在内部方法规范上的差异。但在 ES2015 之前，内部方法的语义还不够完整和规范，其使用也不够一致。为了「驯服」宿主对象，实现异质对象的自托管，并支持对象能力的*隔离层*<sup>[g](./appendices.md#membrane)</sup> [[Van Cutsem and Miller 2013](./references.md#VanCutsem:2013:TPV:2524984.2524994)]。ES1 到 ES5 中所设计的内部方法，被转换成了一种明确的元对象编程（MOP）。
 
-JavaScript 代码要想定义外来对象，就必须能为这些对象所用的内部方法提供相应的实现。这个特性是由 ES2015 中的 `Proxy` 对象 [[Wirfs-Brock 2015a](./references.md#ES2015), pg. 495] 提供的。新版 ES4 提出了一种名为「catchalls」[[TC39 ES4 2006a](./references.md#es4:catchalls)] 的机制，从而让 JavaScript 代码能逐对象地覆盖当「试图访问某个属性，或调用某个不存在的方法」时发生的默认动作。这个「catchalls」机制的目的，是改进 JavaScript 1.5 的非标准 `__noSuchMethod__` 机制 [[Mozilla 2008a](./references.md#moz:nosuchmethod)]。在 Harmony 中，Brendan Eich [[2009b](./references.md#Eich:catchallesdiscuss); [2009d](./references.md#Eich:catchallstrawman)] 引入了所谓的「动作方法」（action method）概念，使其能动态附加到对象上，从而令新版 ES4 的 catchalls 更进一步通用化。在对某个对象执行某些语言操作时，如果该对象上已定义了相应的动作方法，则会调用该方法。可用的动作集与 ES5 的内部方法集类似，但不是它们的直接映射。这里有个悬而未决的问题，即这些动作是在执行所有属性访问时触发，还是仅当访问不存在的属性时触发。Eich 所设计的用于将动作附加到对象上的 API，是以 ES5 对象反射函数为基础的：
+JavaScript 代码要想定义异质对象，就必须能为这些对象所用的内部方法提供相应的实现。这个特性是由 ES2015 中的 `Proxy` 对象 [[Wirfs-Brock 2015a](./references.md#ES2015), pg. 495] 提供的。新版 ES4 提出了一种名为「catchalls」[[TC39 ES4 2006a](./references.md#es4:catchalls)] 的机制，从而让 JavaScript 代码能逐对象地覆盖当「试图访问某个属性，或调用某个不存在的方法」时发生的默认动作。这个「catchalls」机制的目的，是改进 JavaScript 1.5 的非标准 `__noSuchMethod__` 机制 [[Mozilla 2008a](./references.md#moz:nosuchmethod)]。在 Harmony 中，Brendan Eich [[2009b](./references.md#Eich:catchallesdiscuss); [2009d](./references.md#Eich:catchallstrawman)] 引入了所谓的「动作方法」（action method）概念，使其能动态附加到对象上，从而令新版 ES4 的 catchalls 更进一步通用化。在对某个对象执行某些语言操作时，如果该对象上已定义了相应的动作方法，则会调用该方法。可用的动作集与 ES5 的内部方法集类似，但不是它们的直接映射。这里有个悬而未决的问题，即这些动作是在执行所有属性访问时触发，还是仅当访问不存在的属性时触发。Eich 所设计的用于将动作附加到对象上的 API，是以 ES5 对象反射函数为基础的：
 
 ``` js
 // Harmony Catchall 提案
@@ -895,7 +895,7 @@ var Proxy(o,{
 });
 ```
 
-这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brook 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。其具体的实现手段是增加新的内部方法，以及将一些不可截取的操作，重新定义为基础级、可捕获的常规方法调用。此外提案还定义了每个内部方法的关键一致性规则。ECMAScript 的实现和宿主都必须确保符合这些一致性规则，而 `Proxy` 可以对自托管的外来对象实行<sup>[91](./notes.md#91)</sup>这些规则。图 44 是对 ES2015 中元对象编程的概述：
+这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brook 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。其具体的实现手段是增加新的内部方法，以及将一些不可截取的操作，重新定义为基础级、可捕获的常规方法调用。此外提案还定义了每个内部方法的关键一致性规则。ECMAScript 的实现和宿主都必须确保符合这些一致性规则，而 `Proxy` 可以对自托管的异质对象实行<sup>[91](./notes.md#91)</sup>这些规则。图 44 是对 ES2015 中元对象编程的概述：
 
 <table>
   <thead>
@@ -1095,7 +1095,7 @@ function tripleFactory(a,b,c) {
 
 在一组相关提案中，Wirfs-Brock [[2011c](./references.md#awb:straw:propmods); [2011d](./references.md#awb:straw:objlitext)] 展示了如何扩展对象字面量，使其更为声明式，并消除在定义常规对象时使用 ES5 对象反射 API 的需求。例如，图 45 显示了在基于扩展对象字面量的*工厂函数*<sup>[g](./appendices.md#factory-function)</sup>时，该如何定义具有显式原型、方法和私有属性的类。
 
-Allen Wirfs-Brock 的提案还展示了对于扩展对象字面量的语法，该如何将其用作类定义的主体。在 2011 年 3 月的 TC39 演讲中 Wirfs-Brock [[2011a](./references.md#awb:declobjs)] 提出，类定义应该能生成 ECMAScript 规范第 15 条<sup>[94](./notes.md#94)</sup>里内置库 Class 所使用的「构造函数、原型对象和实例对象」基本三要素，这在所有 ECMA-262 已有版本中都是通用的。与其将类定义去糖化为 lambda 表达式（糖化类）或一种新的运行时实体（受 Java 启发的类），不如将其去糖化为 JavaScript 程序员和框架作者们已经使用且熟悉的构造函数和原型继承对象。在会议上，大家对扩展对象字面量语法的许多细节有很大的意见分歧，但达成了一个宽松的共识，即核心类定义的语义，应该符合规范第 15 条中的构造函数 / 原型 / 实例三要素。
+Allen Wirfs-Brock 的提案还展示了对于扩展对象字面量的语法，该如何将其用作类定义的主体。在 2011 年 3 月的 TC39 演讲中 Wirfs-Brock [[2011a](./references.md#awb:declobjs)] 提出，类定义应该能生成 ECMAScript 规范第 15 条<sup>[94](./notes.md#94)</sup>里内置库 Class 所使用的「构造函数、原型对象和实例对象」基本三要素，这在所有 ECMA-262 已有版本中都是通用的。与其将类定义去糖化为 lambda 表达式（糖化类）或一种新的运行时实体（受 Java 启发的类），不如将其去糖化为 JavaScript 程序员和框架作者们已经使用且熟悉的构造函数和原型继承对象。在会议上，大家对扩展对象字面量语法的许多细节有很大的意见分歧，但达成了一个宽松的共识，即核心类定义的语义，应该符合规范第 15 条中的构造函数、原型、实例三要素。
 
 2011 年 5 月初，TC39 的 ES.next 特性冻结会议迅速临近，此时仍然有几个与类相关的稻草人提案在进行竞争。看起来委员会仍然未必有足够的共识，能使其中的某个提案被采纳。2011 年 5 月 10 日，Allen Wirfs-Brock 与 Mark Miller、Peter Hallam 和 Bob Nystrom 见了面。Hallam 和 Nystrom 是使用 Google 的 Traceur 转译器 [[Traceur Project 2011b](./references.md#traceurfeatures)]，对 JavaScript 类支持进行原型设计的团队成员。他们的原型融合了 Wirfs-Brock 和 Miller 提案中的想法。会议的目标是取得足够的一致意见，以便能提出一份统一的提案。Bob Nystrom [[2011](./references.md#Nystrom:classes)] 在其会议报告中列出了许多一致意见，包括：
 
@@ -1291,7 +1291,7 @@ TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精
 
 
 ### 完成 ECMAScript 2015
-在 2015 年 3 月的会议上，TC39 [[2015b](./references.md#TC39:2015:031)] 批准了当时的候选规范 [[Wirfs-Brock et al. 2015b](./references.md#ES6draft36), [c](./references.md#TC39:2015:030)]，将其提交给了 Ecma GA 大会进行最终批准。Ecma GA 在 2015 年 6 月的会议上投票通过了它 [[Ecma International 2015a](./references.md#ES2015:PR)]，并立即发布了 ECMA-262 第 6 版，是为《ECMAScript 2015 语言规范》[[Wirfs-Brock 2015a](./references.md#ES2015)]。
+在 2015 年 3 月的会议上，TC39 [[2015b](./references.md#TC39:2015:031)] 批准了当时的候选规范 [[Wirfs-Brock et al. 2015b](./references.md#ES6draft36), [c](./references.md#TC39:2015:030)]，将其提交给了 Ecma GA 大会进行最终批准。Ecma GA 在 2015 年 6 月的会议上投票批准了它 [[Ecma International 2015a](./references.md#ES2015:PR)]，并立即发布了 ECMA-262 第 6 版，是为《ECMAScript 2015 语言规范》[[Wirfs-Brock 2015a](./references.md#ES2015)]。
 
 ECMAScript 2015 的开发和发布历时近 7 年，数百人为其开发做出了贡献。从 2008 年 7 月的会议（Harmony 工作开始之处）开始，到 2015 年 3 月的会议（候选规范获得批准之处）为止，委员会共召开了 41 次 TC39 会议。有 145 人亲自或通过电话参加了这些会议，具体参与程度不一。ES2015 的开发与 ES5/ES5.1、《ECMA-402 ECMAScript 国际化 API》、《ECMA-404 JSON 数据交换格式》以及 Test262 测试验证套件的开发相重叠。一些与会者的主要兴趣是其中的一项或多项工作。在 145 名与会者中，有 62 人只参加了一次会议，他们通常以观察员身份列席。
 

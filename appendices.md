@@ -190,7 +190,7 @@
 * <a id="engine">**engine**</a> *n.* 引擎，指代某种用于执行程序的结构。
 * <a id="es4-discuss">**`es4-discuss`**</a> *n.* `es-discuss` 邮件论坛的初始名称。
 * <a id="ESnext">**ES.next**</a> *n.* 有时在 TC39 内部用于指代下一个 ECMA-262 版本。
-* <a id="exotic-object">**exotic object**</a> *n.* 外来对象，一种 JavaScript 对象。对于所有对象都必须支持的基本内部方法，它缺少其中一种或多种方法所对应的默认行为。参见 *ordinary object*。
+* <a id="exotic-object">**exotic object**</a> *n.* 异质对象，一种 JavaScript 对象。对于所有对象都必须支持的基本内部方法，它缺少其中一种或多种方法所对应的默认行为。参见 *ordinary object*。
 * <a id="expando-property">**expando property**</a> *n.* 在对象创建后添加到其上的属性。
 * <a id="factory-function">**factory function**</a> *n.* 工厂函数，一种返回新对象的函数。
 * <a id="Firefox">**Firefox**</a> *n.* 一款由 Mozilla 开发并分发的浏览器。
@@ -308,12 +308,12 @@
   <tr><td>12 月</td><td>Marc Andreessen 与 Eric Bina 开始开发 NCSA Mosaic 浏览器</td></tr>
   <tr><td rowspan="2">1993</td><td>6 月</td><td>Mosaic for Unix 的 alpha 版本发布</td></tr>
   <tr><td>11 月 11 日</td><td>Mosaic 发布 Windows 版本</td></tr>
-  <tr><td rowspan="3">1994</td><td>4 月</td><td>Jim Clark 和 Marc Andreessen 建立后来的网景</td></tr>
+  <tr><td rowspan="3">1994</td><td>4 月</td><td>Jim Clark 和 Marc Andreessen 建立后来的 Netscape</td></tr>
   <tr><td>9 月</td><td>首个 Netscape 浏览器的公开 beta 版发布</td></tr>
   <tr><td>12 月</td><td>Netscape 浏览器（Navigator 1.0）的生产版本发布</td></tr>
   <tr><td rowspan="19">1995</td><td>Q1</td><td>Brendan Eich 被 Netscape 招募来「在浏览器里写 Scheme」</td></tr>
   <tr><td>4 月</td><td>Sun 的 Java alpha 1.0 版本发布</td></tr>
-  <tr><td>4 月 3 日</td><td>Brendan Eich 开始在 Netscape 工作，被分配到了服务器团队</td></tr>
+  <tr><td>4 月 3 日</td><td>Brendan Eich 开始在 Netscape 工作，被分配到服务器团队</td></tr>
   <tr><td>4 月 - 5 月</td><td>Netscape 公司内部关于浏览器脚本语言的战略制定和辩论</td></tr>
   <tr><td>5 月 6 日 - 15 日 (?)</td><td>Brendan Eich 实现「Mocha」的 10 天冲刺</td></tr>
   <tr><td>5 月 16 日 (?)</td><td>面向 Netscape 工程团队的 Mocha demo</td></tr>
@@ -324,25 +324,25 @@
   <tr><td>8 月 9 日</td><td>Netscape IPO 上市</td></tr>
   <tr><td rowspan="2">8 月 16 日</td><td>微软 Internet Explorer 1.0 发布</td></tr>
   <tr><td>Netscape 2.0 特性冻结</td></tr>
-  <tr><td>9 月 18 日</td><td>Netscape 2.0 beta 1 发布，加入了 LiveScript 和 Java 1.0</td></tr>
+  <tr><td>9 月 18 日</td><td>Netscape 2.0 beta 1 发布，加入 LiveScript 和 Java 1.0</td></tr>
   <tr><td>10 月</td><td>Robert Welland 被微软招募来「为 IE 添加脚本支持」</td></tr>
-  <tr><td>Q4</td><td>在微软，Robert Welland，Sam McKelvie 和 Peer Kukol 对 beta 版 LiveScript 做了逆向工程，逐渐实现了可运行它的解释器</td></tr>
+  <tr><td>Q4</td><td>在微软，Robert Welland，Sam McKelvie 和 Peer Kukol 对 beta 版 LiveScript 做逆向工程，逐步实现可运行它的解释器</td></tr>
   <tr><td>11 月 22 日</td><td>微软 Internet Explorer 2.0 为 Windows 95 和 NT 发布</td></tr>
   <tr><td>12 月 4 日</td><td>Netscape 和 Sun 正式发布 JavaScript</td></tr>
   <tr><td>12 月 5 日</td><td>微软表示计划将 Visual Basic 作为 Web 应用的标准</td></tr>
-  <tr><td rowspan="11">1996</td><td>Q1</td><td>Shon Katzenberger 接管了 JScript 解释器，并添加了 VBScript 支持</td></tr>
+  <tr><td rowspan="11">1996</td><td>Q1</td><td>Shon Katzenberger 接管 JScript 解释器，并添加 VBScript 支持</td></tr>
   <tr><td rowspan="2">3 月 18 日</td><td>JavaScript 1.0 随 Netscape 2.0 发布</td></tr>
   <tr><td>JavaScript 1.0 随 Netscape LiveWire Server 发布</td></tr>
   <tr><td>5 月 29 日</td><td>JScript 与 VBScript 随 Internet Explorer 3.0 beta 1 发布</td></tr>
   <tr><td>8 月 13 日</td><td>JScript 1.0 随 Internet Explorer 3.0 发布</td></tr>
   <tr><td>8 月 19 日</td><td>JavaScript 1.1 随 Netscape 3.0 发布</td></tr>
-  <tr><td rowspan="2">Q3</td><td>Brendan Eich 构建 SpiderMonkey 引擎来替代 Mocha，并开始设计 JavaScript 1.2</td></tr>
+  <tr><td rowspan="2">Q3</td><td>Brendan Eich 构建 SpiderMonkey 引擎以替代 Mocha，并开始设计 JavaScript 1.2</td></tr>
   <tr><td>Clayton Lewis 负责管理 Netscape JavaScript，并扩张团队</td></tr>
   <tr><td>11 月 21 日 - 22 日</td><td>Ecma TC39 开始会议</td></tr>
   <tr><td rowspan="2">12 月</td><td>SpiderMonkey 与最早的 JavaScript 1.2 特性随 Netscape 4 beta 1 发布</td></tr>
   <tr><td>JScript 与 VBScript 随微软 Active Server Pages（ASP 1.0）发布</td></tr>
   <tr><td rowspan="5">1997</td><td>1 月</td><td>Internet Explorer 3 的 JScript 2.0 更新发布</td></tr>
-  <tr><td>4 月</td><td>Netscape 4 beta 3 发布，为 JavaScript 1.2 添加了正则表达式支持</td></tr>
+  <tr><td>4 月</td><td>Netscape 4 beta 3 发布，为 JavaScript 1.2 添加正则表达式支持</td></tr>
   <tr><td>6 月</td><td>JavaScript 1.2 随 Netscape 4.0 发布</td></tr>
   <tr><td>9 月</td><td> 第一版 ECMAScript 标准完成并发布</td></tr>
   <tr><td>10 月</td><td>JScript 3.0 随 Internet Explorer 4.0 发布</td></tr>
@@ -369,26 +369,26 @@
   <tr><td>12 月 19 日 - 20 日</td><td>Ecma GA 大会设立 TC39 作为网络语言技术委员会，并批准其工作计划</td></tr>
   <tr><td rowspan="26">1997</td><td>1 月</td><td>IE 3.0 的 JScript 2.0（对应 JavaScript 1.1 特性）更新发布</td></tr>
   <tr><td>1 月 10 日</td><td>首份 JavaScript 规范草案向 TC39 成员发布</td></tr>
-  <tr><td rowspan="2">1 月 14 日 - 15 日</td><td>第二次 TC39 会议，Scott Wiltamuth 列出了可能的语言名称</td></tr>
+  <tr><td rowspan="2">1 月 14 日 - 15 日</td><td>第二次 TC39 会议，Scott Wiltamuth 罗列可能的语言名称</td></tr>
   <tr><td>技术工作组（WG）成立，每周举行会议（或电话会议）</td></tr>
   <tr><td rowspan="2">1 月 15 日</td><td>首次技术工作组会议</td></tr>
-  <tr><td>工作组同意，标准将不包含 JavaScript 1.1 后的特性和宿主 API</td></tr>
+  <tr><td>工作组达成共识，标准将不包含 JavaScript 1.1 后的特性和宿主 API</td></tr>
   <tr><td>1 月 15 日 - 22 日 (?)</td><td>Borland 将不加入 Ecma，Gardner 辞任编辑</td></tr>
   <tr><td>1 月 31 日</td><td>Guy Steele 担任 TC39 编辑</td></tr>
   <tr><td>Q1</td><td>每周举行技术工作组会议</td></tr>
   <tr><td>3 月 12 日</td><td>第 12 份规范草案发布</td></tr>
-  <tr><td rowspan="2">3 月 18 日 - 19 日</td><td>第三次 TC39 会议，技术工作组获得授权完成规范，并提交供 GA 大会通过</td></tr>
+  <tr><td rowspan="2">3 月 18 日 - 19 日</td><td>第三次 TC39 会议，技术工作组获得授权完成规范，并提交供 GA 大会批准</td></tr>
   <tr><td>工作组仍在寻找语言名称，Netscape 表面上认可了 LiveScript 的可用性</td></tr>
   <tr><td>5 月 5 日</td><td>第 18 份规范草案提交到 Ecma 秘书处，供 GA 大会评审</td></tr>
   <tr><td>6 月</td><td>JavaScript 1.2 随 Netscape 4.0 发布</td></tr>
-  <tr><td rowspan="2">6 月 26 日 - 27 日</td><td>Ecma GA 大会通过 JavaScript 规范为 <i>ECMA-262</i></td></tr>
+  <tr><td rowspan="2">6 月 26 日 - 27 日</td><td>Ecma GA 大会批准 JavaScript 规范为《ECMA-262》</td></tr>
   <tr><td>规范推迟发布，以进行编辑更正并解决命名问题</td></tr>
   <tr><td rowspan="2">7 月 15 日 - 16 日</td><td>第四次 TC39 会议，由于无法使用 LiveScript 命名语言，名称仍然未定</td></tr>
   <tr><td>初步讨论「第 2 版」的目标、进程和特点</td></tr>
-  <tr><td rowspan="2">9 月 16 日 - 17 日</td><td>TC39 同意使用 ECMAScript 名称，并公开发布 <i>ECMA-262</i></td></tr>
+  <tr><td rowspan="2">9 月 16 日 - 17 日</td><td>TC39 同意使用 ECMAScript 名称，并公开发布《ECMA-262》</td></tr>
   <tr><td>工作组同意「第 2 版」规范将向后兼容第 1 版</td></tr>
-  <tr><td>9 月 23 日 - 24 日</td><td>Ecma 将 <i>ECMA-262</i> 提交进入 ISO/IEC 快速通道流程</td></tr>
-  <tr><td rowspan="3">10 月</td><td>兼容了 <i>ECMA-262</i> 的 JScript 3.0 随 Internet Explorer 4.0 发布</td></tr>
+  <tr><td>9 月 23 日 - 24 日</td><td>Ecma 将《ECMA-262》提交进入 ISO/IEC 快速通道流程</td></tr>
+  <tr><td rowspan="3">10 月</td><td>兼容《ECMA-262》的 JScript 3.0 随 Internet Explorer 4.0 发布</td></tr>
   <tr><td>Guy Steele 辞任 TC39 编辑，由 Mike Cowlishaw 接替</td></tr>
   <tr><td>技术工作组开始每月举行会议</td></tr>
   <tr><td>10 月 9 日</td><td>为期 6 个月的 ISO/IEC 投票期开始</td></tr>
@@ -409,7 +409,7 @@
   <tr><td>6 月 15 日</td><td>所有投票问题在 ISO 处置意见会议上得以解决</td></tr>
   <tr><td>7 月</td><td>最新规范提交至 ISO，以作为 ISO/IEC 16262:1998 发布</td></tr>
   <tr><td rowspan="2">8 月</td><td>Ecma 发布《ECMA-262 第 2 版》</td></tr>
-  <tr><td>兼容了 <i>ECMA-262</i> 的 JavaScript 1.3 随 Netscape 4.06 发布</td></tr>
+  <tr><td>兼容《ECMA-262》的 JavaScript 1.3 随 Netscape 4.06 发布</td></tr>
   <tr><td>9 月</td><td>ES2 变更合并入「V2」工作草案</td></tr>
   <tr><td>9 月 16 日</td><td>国际化工作组成立</td></tr>
   <tr><td rowspan="3">11 月 18 日</td><td>国际化相关会议举行，IBM 的 Richard Gillam 担任国际化工作组主席</td></tr>
@@ -422,7 +422,7 @@
   <tr><td>工作组担心浏览器可能会在「V2」前提供不同的异常层次结构</td></tr>
   <tr><td>11 月 28 日</td><td>AOL 宣布与 Netscape 达成收购协议</td></tr>
   <tr><td rowspan="22">1999</td><td rowspan="4">Q1</td><td>开展许多关于嵌套函数和闭包的工作</td></tr>
-  <tr><td>考虑 Netscape 和微软实现的作用域差异</td></tr>
+  <tr><td>考虑 Netscape 和微软实现中的作用域差异</td></tr>
   <tr><td>考虑正则表达式是否应该加入 Perl 5 的特性</td></tr>
   <tr><td>TC39 将下一份规范改称「E3」而非「V2」</td></tr>
   <tr><td>2 月 19 日</td><td>Waldemar Horwat 透露 JavaScript 2.0 新特性</td></tr>
@@ -438,11 +438,11 @@
   <tr><td>「合并函数」加入规范</td></tr>
   <tr><td>就异常达成最终一致</td></tr>
   <tr><td>就具名 <i>FunctionExpression</i> 中标识符的作用域达成一致</td></tr>
-  <tr><td>9 月 24 日</td><td>TC39 投票通过将 ECMA-262 第三版提交给 Ecma GA 大会</td></tr>
+  <tr><td>9 月 24 日</td><td>TC39 投票批准将 ECMA-262 第三版提交给 Ecma GA 大会</td></tr>
   <tr><td>10 月 13 日</td><td>最终草案发送至 Ecma 秘书处</td></tr>
   <tr><td rowspan="2">11 月 15 日 - 16 日</td><td>对最终草案进行少量修订</td></tr>
   <tr><td>微软发现规范中的 <code>String.replace</code> 会破坏网站。最终草案被修改，以适应微软的原有行为</td></tr>
-  <tr><td>12 月 16 日 - 17 日</td><td>Ecma GA 大会通过《ECMA-262 第三版》</td></tr>
+  <tr><td>12 月 16 日 - 17 日</td><td>Ecma GA 大会批准《ECMA-262 第三版》</td></tr>
   <tr><td rowspan="3">2000</td><td>3 月 25 日</td><td>Waldemar Horwat 创建公开的 ES3 勘误表网页</td></tr>
   <tr><td>7 月</td><td>微软随 IE 5.5 发布兼容 ES3 的 JScript 5.5</td></tr>
   <tr><td>11 月</td><td>Netscape 随 Netscape 6 发布兼容 ES3 的 JavaScript 1.5</td></tr>
@@ -467,11 +467,11 @@
   <tr><td>3 月</td><td>Spice 工作组成为模块化子组</td></tr>
   <tr><td>3 月 30 日</td><td>TC39 创建第四版及其之后的《未来特性展望表》</td></tr>
   <tr><td>5 月</td><td>Macromedia Flash 中加入 JavaScript 式的脚本语言</td></tr>
-  <tr><td>6 月</td><td>Ecma GA 大会通过《ECMA-290 ECMAScript 组件规范》</td></tr>
+  <tr><td>6 月</td><td>Ecma GA 大会批准《ECMA-290 ECMAScript 组件规范》</td></tr>
   <tr><td>Q4</td><td>TC39 的注意力转向初版 ES4</td></tr>
   <tr><td>10 月 14 日</td><td>模块化子组的会议在英国布里斯托尔的 HP 实验室举行</td></tr>
   <tr><td>11 月</td><td>TC39 起草初版 ES4 的临时特性列表</td></tr>
-  <tr><td>12 月 16 日 - 17 日</td><td>Ecma GA 大会通过《ECMA-262 第 3 版》</td></tr>
+  <tr><td>12 月 16 日 - 17 日</td><td>Ecma GA 大会批准《ECMA-262 第 3 版》</td></tr>
   <tr><td rowspan="8">2000</td><td rowspan="2">1 月</td><td>微软希望「第 4 版」规范在 12 月前完成，并削减特性</td></tr>
   <tr><td>微软发布 ES3 规范修改建议，对类型注释进行修改</td></tr>
   <tr><td>6 月 22 日</td><td>微软发布 .NET 框架</td></tr>
@@ -482,7 +482,7 @@
   <tr><td>8 月 22 日</td><td>Herman Venter 与 Waldemar Horwat 会面，试图对齐 JavaScript 2 与 JScript.NET，共讨论 43 点分歧</td></tr>
   <tr><td rowspan="5">2001</td><td></td><td>Douglas Crockford 开始为 JavaScript 布道</td></tr>
   <tr><td>1 月</td><td>TC39 职责扩大并包含 .NET，ECMAScript 工作移到 TC39-TG1</td></tr>
-  <tr><td>6 月</td><td>Ecma GA 大会通过《ECMA-327 ECMAScript 第 3 版精简模式》</td></tr>
+  <tr><td>6 月</td><td>Ecma GA 大会批准《ECMA-327 ECMAScript 第 3 版精简模式》</td></tr>
   <tr><td>8 月 27 日</td><td>Internet Explorer 6 发布</td></tr>
   <tr><td>11 月 17 日</td><td>Waldemar Hormat 的 JS2.0 论文在 MIT 轻量语言研讨会上发表</td></tr>
   <tr><td rowspan="6">2002</td><td>3 月</td><td>初版 ES4 目标日期移至 2003 年 12 月</td></tr>
@@ -500,7 +500,7 @@
   <tr><td>独立的 Mozilla 基金会启动</td></tr>
   <tr><td>9 月</td><td>Macromedia 发布大体基于新版 ES4 语法的 ActionScript 2</td></tr>
   <tr><td>11 月</td><td>Macromedia 加入 Ecma 以参与 TC39-TG1</td></tr>
-  <tr><td>12 月</td><td>Ecma GA 大会通过《ECMA-357 ECMAScript for XML》规范</td></tr>
+  <tr><td>12 月</td><td>Ecma GA 大会批准《ECMA-357 ECMAScript for XML》规范</td></tr>
   <tr><td rowspan="7">2004</td><td>5 月</td><td>Mozilla 基金会作为非营利会员加入 Ecma</td></tr>
   <tr><td rowspan="4">6 月</td><td>Brendan Eich 帮助建立 WHATWG</td></tr>
   <tr><td>Brendan Eich 自 1998 年 2 月以来首次参加 TC39（TG1）会议</td></tr>
@@ -522,7 +522,7 @@
   <tr><td rowspan="2">11 月</td><td>Macromedia 向 TG1 贡献 ActionScript 3 规范</td></tr>
   <tr><td>Graydon Hoare 首次代表 Mozilla 参与 TG1 会议</td></tr>
   <tr><td>11 月 30 日</td><td>JavaScript 1.6 随 Firefox 1.5 发布</td></tr>
-  <tr><td rowspan="2">12 月</td><td>Ecma GA 大会通过《ECMA-357 E4X 第二版》</td></tr>
+  <tr><td rowspan="2">12 月</td><td>Ecma GA 大会批准《ECMA-357 E4X 第二版》</td></tr>
   <tr><td>Adobe 完成对 Macromedia 的收购</td></tr>
   <tr><td rowspan="29">2006</td><td rowspan="2"></td><td>jQuery 与 MooTools 框架发布</td></tr>
   <tr><td>TG1 使用内部 Wiki 收集并讨论新版 ES4 提案</td></tr>
@@ -597,13 +597,149 @@
   <tr><td>5 月 29 日 - 30 日</td><td>TC39 会议起草 ES3.1 和新版 ES4 草案</td></tr>
   <tr><td>6 月</td><td>Adobe 放弃新版 ES4 项目</td></tr>
   <tr><td>6 月 17 日</td><td>JavaScript 1.8 随 Firefox 3.0 发布</td></tr>
-  <tr><td>6 月 23 日 - 25 日</td><td>在奥斯陆举行的 TC39 会议终止了新版 ES4，TC39 聚焦 ES3.1 和「Harmony」</td></tr>
+  <tr><td>6 月 23 日 - 25 日</td><td>在奥斯陆举行的 TC39 会议终止新版 ES4，TC39 聚焦 ES3.1 和「Harmony」</td></tr>
   <tr><td>8 月</td><td>Ecma 公开宣布终止新版 ES4，并启动 Harmony 项目</td></tr>
   <tr><td>2009</td><td>12 月 3 日</td><td>Ecma 标准《ECMA-290 ECMAScript 组件规范》被撤回</td></tr>
   <tr><td>2015</td><td>6 月 17 日</td><td>Ecma 标准《ECMA-327 ECMAScript 第 3 版精简模式》和《ECMA-357 E4X》被撤回</td></tr>
 </table>
 
-<!--
-  <tr><td rowspan="N">YEAR</td><td>DATE</td><td>EVENT</td></tr>
-  <tr><td>DATE</td><td>EVENT</td></tr>
--->
+### 第四部分：继往开来
+
+<table>
+  <tr><td>2006</td><td>5 月</td><td>谷歌发布 GWT（Java 到 JavaScript 的转译器）</td></tr>
+  <tr><td rowspan="2">2007</td><td>12 月</td><td>苹果发布 JavaScript 测试套件 SunSpider</td></tr>
+  <tr><td>10 月</td><td>谷歌 Caja 项目（安全 JavaScript）发布</td></tr>
+  <tr><td rowspan="32">2008</td><td rowspan="2">1 月 24 日</td><td>Mark Miller 首次代表谷歌参加 TC39 会议</td></tr>
+  <tr><td>Kris Zyp 首次代表 Dojo 基金会参加 TC39 会议</td></tr>
+  <tr><td>2 月 21 日</td><td>ES3.1 工作组双周电话会议启动</td></tr>
+  <tr><td>2 月 26 日</td><td>工作组以浏览器特性的「四人三票」原则修订 ES3.1 目标</td></tr>
+  <tr><td rowspan="3">3 月</td><td>Pratap Lakshman 担任 ES3.1 规范编辑</td></tr>
+  <tr><td>ES3.1 基础文档基于 ES3 规范及其勘误表而创建</td></tr>
+  <tr><td>编写任务分配给七位 ES3.1 工作组参与者</td></tr>
+  <tr><td rowspan="2">4 月 22 日</td><td><code>es3.1-discuss</code> 邮件论坛开放</td></tr>
+  <tr><td>Allen Wirfs-Brock 发布 <code>Object.defineProperty</code> 设计概述</td></tr>
+  <tr><td>4 月 24 日</td><td>工作组讨论严格模式概念与 <code>"use strict";</code> 指令</td></tr>
+  <tr><td>5 月 29 日 - 30 日</td><td>ES3.1 规范草案在 TC39 会议上展示，并发布到 Wiki</td></tr>
+  <tr><td>6 月</td><td>Adobe 放弃新版 ES4 项目</td></tr>
+  <tr><td>6 月 10 日</td><td>Mark Miller 更新 ES3.1 草案，以使用结构化的伪代码</td></tr>
+  <tr><td>6 月 17 日</td><td>支持「表达式闭包」的 JavaScript 1.8 随 Firefox 3.0 发布</td></tr>
+  <tr><td rowspan="2">7 月 4 日</td><td>ES3.1 草案中用词法环境概念替代活动对象</td></tr>
+  <tr><td>块级 <code>const</code> 声明</td></tr>
+  <tr><td>7 月 15 日</td><td>Allen Wirfs-Brock 发布《静态对象函数：使用场景与原理》</td></tr>
+  <tr><td rowspan="2">7 月 23 日 - 25 日</td><td>在奥斯陆举行的 TC39 会议终止新版 ES4，TC39 聚焦 ES3.1 和「Harmony」</td></tr>
+  <tr><td>Harmony 讨论中涉及将类去糖化为词法闭包</td></tr>
+  <tr><td rowspan="2">8 月</td><td>Ecma 公开宣布终止新版 ES4，并启动 Harmony 项目</td></tr>
+  <tr><td>TC39 Wiki 上建立 Harmony 稻草人页面</td></tr>
+  <tr><td>8 月 28 日</td><td>首次 TC39 安全 ECMAScript（SES）会议</td></tr>
+  <tr><td>9 月 1 日</td><td>ES3.1 加入对十进制小数的初始支持</td></tr>
+  <tr><td>9 月 2 日</td><td>谷歌发布带有 V8 JavaScript 引擎的 Chrome 浏览器预览版</td></tr>
+  <tr><td rowspan="2">10 月 13 日</td><td>Waldemar Horwat 在 <code>es-discuss</code> 上列出四种绑定「死区」的可选方案</td></tr>
+  <tr><td>Dave Herman 提出「Lambdas」的稻草人提案</td></tr>
+  <tr><td>11 月</td><td>Cormac Flanagan 发布首份与类相关的 Harmony 稻草人提案</td></tr>
+  <tr><td rowspan="2">11 月 19 日 - 20 日</td><td>TC39 会议上，进行 ES3.1 最终特性评审</td></tr>
+  <tr><td>十进制小数与 <code>const</code> 声明在 Harmony 中延期</td></tr>
+  <tr><td>11 月 21 日</td><td>Wiki 稻草人页面共有 7 个条目</td></tr>
+  <tr><td>11 月 29 日</td><td>Brendan Eich 为 Wirfs-Brock 的 Smalltalk 式「块级 Lambda」发布提案</td></tr>
+  <tr><td>12 月 11 日</td><td>Google Chrome 1.0 发布</td></tr>
+  <tr><td rowspan="27">2009</td><td rowspan="3">1 月</td><td>CommonJS 项目启动</td></tr>
+  <tr><td>Kris Kowal 与 Ihab Awad 向 TC39 介绍 CommonJS 模块的前身</td></tr>
+  <tr><td>Douglas Crockford 启动 ADsafe 项目</td></tr>
+  <tr><td>1 月 28 日</td><td>TC39 会议上，Pratap Lakshman 演示 IE 中的微软 ES3.1 原型</td></tr>
+  <tr><td>3 月 19 日</td><td>Internet Explorer 8 发布，加入部分 ES3.1 特性支持</td></tr>
+  <tr><td>3 月 24 日</td><td>SES 工作组的最后一次会议</td></tr>
+  <tr><td rowspan="2">3 月 25 日 - 26 日</td><td>Pratap Lakshman 辞任 ES3.1 编辑，由 Allen Wirfs-Brock 接替</td></tr>
+  <tr><td>ES3.1 重命名为 ES4，「ES4」名称被永久性放弃</td></tr>
+  <tr><td>4 月 7 日</td><td>ES5 的「最终草案」发布至 TC39 Wiki</td></tr>
+  <tr><td rowspan="3">5 月</td><td>Node.js 首个公开版本发布</td></tr>
+  <tr><td>Eric Arvidsson 首次代表谷歌参加 TC39 会议</td></tr>
+  <tr><td>Brendan Eich 发布「catchalls」Harmony 稻草人提案</td></tr>
+  <tr><td rowspan="2">6 月</td><td>微软向 Ecma 贡献 ES5 新特性测试套件</td></tr>
+  <tr><td>谷歌发布开源的 Sputnik ES3 测试套件</td></tr>
+  <tr><td>6 月 17 日</td><td>苹果 Safari 更新 Nitro JavaScript 引擎</td></tr>
+  <tr><td>6 月 24 日</td><td>以 TraceMonkey 优化 JavaScript 性能的 Firefox 3.5 发布</td></tr>
+  <tr><td>7 月</td><td>「Harmony 目标说明」在 TC39 Wiki 上发布</td></tr>
+  <tr><td>8 月</td><td>Harmony 稻草人 Wiki 页面共列出 21 份提案</td></tr>
+  <tr><td>8 月 17 日</td><td>苹果发现 ES5 对 <code>arguments</code> 对象的修改会破坏网站</td></tr>
+  <tr><td>8 月 27 日</td><td>ES5 首份发行候选版发布</td></tr>
+  <tr><td>9 月 23 日</td><td>TC39 投票决定将 ES5 提交给 Ecma GA 大会批准</td></tr>
+  <tr><td>10 月 28 日</td><td>ECMA-262 第 5 版提交给 Ecma GA 大会供评审</td></tr>
+  <tr><td rowspan="2">12 月</td><td>Jeremy Ashkenas 开始开发 CoffeeScript</td></tr>
+  <tr><td>Tom Van Cutsem 在 <code>es-discuss</code> 发布「基于代理的 catch-all 提案」</td></tr>
+  <tr><td>11 月 5 日</td><td>美国东北大学的 Sam Tobin-Hochstadt 首次参加 TC39 会议</td></tr>
+  <tr><td>11 月 7 日</td><td>Brendan Eich 表示 Harmony 需要二等公民的模块系统</td></tr>
+  <tr><td>12 月 3 日</td><td>Ecma GA 大会批准《ECMA-262 第 5 版》</td></tr>
+  <tr><td rowspan="14">2010</td><td rowspan="4">Q1</td><td>Remy Shary 发明「polyfill」术语</td></tr>
+  <tr><td>Ben Alman 发明「IIFE」术语</td></tr>
+  <tr><td>Dave Herman 加入 Mozilla</td></tr>
+  <tr><td>Dave Herman 与 Sam Tobin-Hochstadt 开发「简单模块」设计</td></tr>
+  <tr><td rowspan="2">1 月</td><td>ES5 进入 ISO 快速通道流程</td></tr>
+  <tr><td>阿姆斯特丹自由大学的 Tom Van Cutsen 首次参加 TC39 会议</td></tr>
+  <tr><td>2 月</td><td>Ihab Awad 发表「Emaker 风格」模块提案</td></tr>
+  <tr><td>4 月</td><td>Harmony 目标 Wiki 页面加入多种特性主题</td></tr>
+  <tr><td rowspan="2">5 月</td><td>TC39 联合微软 ES5conform 与谷歌 Sputnik，启动 Test262 项目</td></tr>
+  <tr><td>Ihab Awad 建议 TC39 关注简单模块提案</td></tr>
+  <tr><td rowspan="2">9 月</td><td>Alon Zakai 发布 Emscripten，可将 C 代码编译到 JavaScript</td></tr>
+  <tr><td>TC39 就类是否主要用于「高完整性抽象」产生不同看法</td></tr>
+  <tr><td rowspan="2">12 月</td><td>Allen Wirfs-Brock 离开微软，加入 Mozilla</td></tr>
+  <tr><td>Harmony 稻草人 Wiki 页面共列出 66 份提案</td></tr>
+  <tr><td rowspan="21">2011</td><td></td><td>全年共发布 4 份 ES6 规范草案</td></tr>
+  <tr><td>1 月</td><td>Brendan Eich 发布《我的 Harmony 梦想》博客</td></tr>
+  <tr><td rowspan="3">3 月</td><td>Wirfs-Brock 提出扩展对象字面量，以支持类式的抽象</td></tr>
+  <tr><td>委员会就类应当基于构造函数、原型、实例三要素达成初步共识</td></tr>
+  <tr><td>简化后的「简单模块」提案出炉</td></tr>
+  <tr><td>3 月 14 日</td><td>带有 Chakra JavaScript 引擎，且完全支持 ES5 的 Internet Explorer 9 发布</td></tr>
+  <tr><td>3 月 22 日</td><td>Firefox 4.0 与 JavaScript 1.8.5 发布，完全支持 ES5</td></tr>
+  <tr><td rowspan="2">5 月</td><td>Brendan Eich 就重新启用块级 Lambda 或使用箭头函数，提出替代性提案</td></tr>
+  <tr><td>谷歌 Traceur 转译器项目发布</td></tr>
+  <tr><td>5 月 6 日</td><td>Dave Herman 在 JSConf 上演示多语言的 Harmony 模块加载器</td></tr>
+  <tr><td>5 月 10 日</td><td>Allen Wirfs-Brock、Mark Miller 和其他人就联合类提案而会面</td></tr>
+  <tr><td rowspan="3">5 月 24 日 - 26 日</td><td>TC39 Harmony 进行「特性冻结」稻草人提案筛选</td></tr>
+  <tr><td>基于新联合类提案的 Harmony 类特性获得接受</td></tr>
+  <tr><td>根据会议 Wiki，共有约 45 份获得接受的 Harmony 提案</td></tr>
+  <tr><td>6 月</td><td>《ECMA-262 第 5.1 版》与相同的《ISO/IEC 16262:2011》出版</td></tr>
+  <tr><td>6 月 22 日</td><td>Allen Wirfs-Brock 将 ES5.1 规范复制并重命名为「第 6 版草案」</td></tr>
+  <tr><td>6 月 27 日</td><td>Dave Herman 表示 Miller 的类过于复杂，提议使用最小化的类设计</td></tr>
+  <tr><td>7 月 12 日</td><td>Allen Wirfs-Brock 发布首份 Harmony（ES6）规范工作草案</td></tr>
+  <tr><td>10 月</td><td>Tom Van Cutsem 和 Mark Miller 将代理演化为直接代理</td></tr>
+  <tr><td>11 月 11 日</td><td>Dave Herman 发布最小化类的稻草人提案</td></tr>
+  <tr><td>12 月</td><td>Dave Herman 在 <code>es-discuss</code> 上提议「ES6 不需要 opt-in」</td></tr>
+  <tr><td rowspan="13">2012</td><td></td><td>全年共发布 9 份 ES6 规范草案</td></tr>
+  <tr><td>1 月</td><td>Dave Herman 提出的「One JavaScript」陈述被 TC39 采纳</td></tr>
+  <tr><td>3 月 19 日</td><td>Russel Leggett 在 <code>es-discuss</code> 上号召为类找到一种「安全语法」</td></tr>
+  <tr><td>3 月 25 日</td><td>Allen Wirfs-Brock 受 Legget 启发，发表「最大化的最小类」</td></tr>
+  <tr><td>3 月 28 日 - 29 日</td><td>Brendan Eich 将 TC39 的工作重点放在采纳箭头函数上</td></tr>
+  <tr><td rowspan="4">5 月</td><td>标准与异质对象属于在 ES6 规范中采用</td></tr>
+  <tr><td>TC39 同意允许基于最大化的最小类来制定规范</td></tr>
+  <tr><td>Yahuda Katz 和 Rick Waldron 首次代表 jQuery 基金会参加 TC39 会议</td></tr>
+  <tr><td>Rick Waldron 做会议纪要，开始系统化采集技术会议记录</td></tr>
+  <tr><td>Q3-Q4</td><td>Jason Orendorff 和 Dave Herman 在 Firefox 中原型化 Harmony 模块与其加载器</td></tr>
+  <tr><td>9 月 27 日</td><td>包含最大化最小类的 ES6 规范草案发布</td></tr>
+  <tr><td>10 月</td><td>微软推出 TypeScript 转译器</td></tr>
+  <tr><td>12 月</td><td>《ECMA-402 第 1 版 ECMAScript 国际化 API》发布</td></tr>
+  <tr><td rowspan="6">2013</td><td></td><td>全年共发布 8 份 ES6 规范草案</td></tr>
+  <tr><td></td><td>TC39 主要处理已批准的提案特性与规范问题</td></tr>
+  <tr><td>9 月</td><td>Rafael Weinstein 与 Dmitry Lomov 提出新的 TC39 研发流程</td></tr>
+  <tr><td rowspan="2">10 月</td><td>《ECMA-404 JSON 数据交换格式》发布</td></tr>
+  <tr><td>ES6 中加入 Promise，以免其被归入 HTML 规范中</td></tr>
+  <tr><td>11 月</td><td>Dave Herman 发布首份 Realm API 草案</td></tr>
+  <tr><td rowspan="11">2014</td><td rowspan="3"></td><td>全年共发布 9 份 ES6 规范草案</td></tr>
+  <tr><td>Node.js 社区批评 TC39 未采纳 CommonJS 模块设计</td></tr>
+  <tr><td>TC39 开始使用新的多阶段流程来开发 ES6 后的特性</td></tr>
+  <tr><td>1 月</td><td>ES6 规范中加入模块与加载器的早期版本伪代码</td></tr>
+  <tr><td>4 月</td><td>Douglas Crockford 最后一次参加 TC39 会议</td></tr>
+  <tr><td>夏季</td><td>Yehuda Katz 创建 jsmodules.io 网站，向 Node.js 程序员介绍 ES6 模块</td></tr>
+  <tr><td>6 月</td><td>浏览器开发者对于 ES6 的类语义，提出其在子类化内置构造函数时的担忧</td></tr>
+  <tr><td>7 月</td><td>数组与生成器推导式从 ES6 规范草案中移除</td></tr>
+  <tr><td>9 月</td><td>模块加载器从 ES6 规范草案中移除</td></tr>
+  <tr><td>9 月 24 日</td><td>针对子类化内置构造函数问题，出现两种相互竞争的重新设计</td></tr>
+  <tr><td>10 月</td><td>ES6 规范草案中的模块规范（不含加载器）完成</td></tr>
+  <tr><td rowspan="8">2015</td><td></td><td>全年共发布 8 份 ES6 规范草案</td></tr>
+  <tr><td>1 月 27 日</td><td>TC39 就 ES6 中的突出问题（含子类化构造器问题在内）达成最终一致</td></tr>
+  <tr><td>2 月</td><td>Babel（又称 6to5）转译器推出</td></tr>
+  <tr><td>3 月</td><td>TC39 批准将 ECMAScript 2015 规范转交给 Ecma GA 大会</td></tr>
+  <tr><td>4 月 14 日</td><td>ES2015 最终草案发布至 TC39 Wiki</td></tr>
+  <tr><td>Q2-Q4</td><td>TC39 基于新流程，就 ES2016 和其他更长期的提案开展工作</td></tr>
+  <tr><td>6 月 17 日</td><td>《ECMA-262 第 6 版 ECMAScript 2015 语言规范》与《ECMA-402 第 2 版 ECMAScript 国际化 API》被批准为 Ecma 标准</td></tr>
+  <tr><td>7 月</td><td>Brian Terlson 接替 Allen Wirfs-Brock 为 ECMA-262 项目编辑</td></tr>
+  <tr><td>2016</td><td>6 月 14 日</td><td>《ECMA-262 第 7 版 ECMAScript 2016 语言规范》与《ECMA-402 第 3 版 ECMAScript 国际化 API》被批准为 Ecma 标准</td></tr>
+</table>
