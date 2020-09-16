@@ -17,10 +17,10 @@
 TC39 的组织会议于 1996 年 11 月 21 日至 22 日在加州山景城的 Netscape 办公室举行，根据记载 [[TC39 1996](./references.md#TC39:1996:004)] 共有 30 位与会者（图 11）。会议开始前，Netscape 核心技术副总裁 David Stryker 和代表 Ecma 的 Jan van den Beld 分别致了欢迎辞。Stryker 表达了对委员会所创建规范的愿景，希望规范与当前实现只有最小程度的偏差，并能将超出规范范畴的语言扩展留待未来考量。
 
 <table>
-  <tr><td><b>Acting Chairman</b></td><td>Mr. J. van den Beld</td></tr>
-  <tr><td><b>Secretary</b></td><td>Mr. J. van den Beld (SG ECMA)</td></tr>
-  <tr><td><b>Attending</b></td><td>Mr. Cargill (Netscape), Ms. Converse (Netscape), Mr. Eich (Netscape), Mr. Fisher (NIST), Mr. Gardner (Borland), Mr. Krull (Borland), Mr. Ksar (HP), Mr. Lenkov (HP), Mr. Lie (W3C), Mr. Luu (Mainsoft), Mr. Mathis (Pithecanthropus, JTC1/SC22), Mr. Matzke (Apple), Mr. Murarka (Spyglass), Ms. Nguyen (Netscape), Mr. Noorda (Nombas), Mr. Palay (Silicon Graphics), Mr. Reardon (Microsoft), Mr. Robinson (Sun), Mr. Singer (IBM), Mr. Smilonich (Unysis), Mr. Smith (Digital), Mr. Stryker (Netscape), Ms. Thompson (Unisys), Mr. Urquhart (Sun), Mr. Veale (Borland), Mr. Welland (Microsoft), Mr. White (AAC Group, Microsoft), Mr. Willingmyre (GTW Associates, Microsoft), Mr. Wiltamuth (Microsoft).</td></tr>
-  <tr><td><b>Excused</b></td><td>Mr. Huffadine (Callscan)</td></tr>
+  <tr><td><b>执行主席</b></td><td>Mr. J. van den Beld</td></tr>
+  <tr><td><b>秘书</b></td><td>Mr. J. van den Beld (SG ECMA)</td></tr>
+  <tr><td><b>参会者</b></td><td>Mr. Cargill (Netscape), Ms. Converse (Netscape), Mr. Eich (Netscape), Mr. Fisher (NIST), Mr. Gardner (Borland), Mr. Krull (Borland), Mr. Ksar (HP), Mr. Lenkov (HP), Mr. Lie (W3C), Mr. Luu (Mainsoft), Mr. Mathis (Pithecanthropus, JTC1/SC22), Mr. Matzke (Apple), Mr. Murarka (Spyglass), Ms. Nguyen (Netscape), Mr. Noorda (Nombas), Mr. Palay (Silicon Graphics), Mr. Reardon (Microsoft), Mr. Robinson (Sun), Mr. Singer (IBM), Mr. Smilonich (Unysis), Mr. Smith (Digital), Mr. Stryker (Netscape), Ms. Thompson (Unisys), Mr. Urquhart (Sun), Mr. Veale (Borland), Mr. Welland (Microsoft), Mr. White (AAC Group, Microsoft), Mr. Willingmyre (GTW Associates, Microsoft), Mr. Wiltamuth (Microsoft).</td></tr>
+  <tr><td><b>缺席</b></td><td>Mr. Huffadine (Callscan)</td></tr>
 </table>
 
 图 11. 首次 TC39 会议的参会者 [[TC39 1996](./references.md#TC39:1996:004)]。
@@ -48,11 +48,11 @@ Welland 和 Smith 根据当时的 JScript 实现，在文档中添加了语义�
 委员会选举出了最初的主席团成员（图 12），并设定了非常激进的目标：在 1997 年 1 月的下一次会议上准备出初稿，在 1997 年 4 月准备出最终稿，进而在 1997 年 6 月的 Ecma GA 大会上批准该标准。他们安排了后续约每六周一次的会议，并着手建立私人邮件列表和 FTP 服务器<sup>[34](./notes.md#34)</sup>。
 
 <table>
-  <tr><td>Chairman</td><td><b>Mr. G. Robinson</b> (Sun)</td></tr>
-  <tr><td>Vice-Chairman</td><td><b>Mr. C. Cargill</b> (Netscape)</td></tr>
-  <tr><td>Vice-Chairman</td><td><b>Mr. S. Wiltamuth</b> (Microsoft)</td></tr>
-  <tr><td>Principal editor</td><td><b>Mr. M. Gardner</b> (Borland) (to be confirmed)</td></tr>
-  <tr><td>Assistant editor</td><td><b>Mr. A. Murarka</b> (Spyglass) (to be confirmed)</td></tr>
+  <tr><td>主席</td><td><b>Mr. G. Robinson</b> (Sun)</td></tr>
+  <tr><td>副主席</td><td><b>Mr. C. Cargill</b> (Netscape)</td></tr>
+  <tr><td>副主席</td><td><b>Mr. S. Wiltamuth</b> (Microsoft)</td></tr>
+  <tr><td>主编</td><td><b>Mr. M. Gardner</b> (Borland) - 待确认</td></tr>
+  <tr><td>助理编辑</td><td><b>Mr. A. Murarka</b> (Spyglass) - 待确认</td></tr>
 </table>
 
 图 12. 首次 TC39 会议选举出的主席团成员 [[TC39 1996](./references.md#TC39:1996:004)]。
@@ -76,7 +76,7 @@ Robert Welland 返回 Redmond 后，将他的 JScript 0.1 规范交接给了 Sho
 
 <table>
   <thead>
-    <tr><th>January 10, 1997 Draft</th><th>ECMA-262, First Edition</th></tr>
+    <tr><th>1997 年 1 月 10 日的草案</th><th>ECMA-262 第 1 版</th></tr>
   </thead>
   <tbody>
     <tr><td></td><td>Scope</td></tr>
@@ -207,35 +207,35 @@ ISO/IEC 投票产生了来自丹麦、法国、日本、荷兰和美国的国家
 
 <table>
   <thead>
-    <tr><th>Feature</th><th>JavaScript 1.2</th><th>JScript 3.0</th><th>ECMA-262 3rd Edition</th></tr>
+    <tr><th>特性</th><th>JavaScript 1.2</th><th>JScript 3.0</th><th>ECMA-262 第 3 版</th></tr>
   </thead>
   <tbody>
-    <tr><td><code>do</code> statement</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td><code>break</code>/<code>continue</code> to label</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td><code>switch</code> statement</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td>Nested functions</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td>Functions in expressions</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td>Object literals</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td>Array literals</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td><code>===</code> and <code>!==</code></td><td></td><td>✓</td><td>✓</td></tr>
-    <tr><td>Regular Expression literals</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td><code>delete</code> operator</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td><code>__proto__</code> pseudo property of all objects</td><td>✓</td><td></td><td></td></tr>
-    <tr><td>Array methods: <code>concat</code>, <code>slice</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td>Array methods: <code>push</code>, <code>pop</code>, <code>shift</code>, <code>splice</code>, <code>unshift</code></td><td>✓</td><td></td><td>✓</td></tr>
-    <tr><td>Sparse arrays with inherited elements</td><td>✓</td><td></td><td>✓</td></tr>
-    <tr><td>String methods: <code>fromCharCode</code>, <code>match</code>, <code>replace</code>, <code>search</code>, <code>substr</code>, <code>split</code> using regular expressions</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td>String method: <code>charCodeAt</code></td><td>✓</td><td></td><td>✓</td></tr>
-    <tr><td>RegExp method: <code>compile</code>, <code>exec</code>, <code>test</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td>RegExp properties: <code>$1</code>...<code>$9</code>, <code>input</code></td><td>✓</td><td>✓</td><td></td></tr>
-    <tr><td>RegExp global properties: <code>lastMatch</code>, <code>lastParen</code>, <code>leftContext</code>, <code>rightContext</code></td><td>✓</td><td></td><td></td></tr>
-    <tr><td><code>arguments</code> object has local declaration properties</td><td>✓</td><td>✓</td><td></td></tr>
+    <tr><td><code>do</code> 语句</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>break</code>/<code>continue</code> 到标签</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>switch</code> 语句</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>嵌套函数</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>函数表达式</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>对象字面量</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>数组字面量</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>===</code> 和 <code>!==</code></td><td></td><td>✓</td><td>✓</td></tr>
+    <tr><td>正则表达式字面量</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>delete</code> 运算符</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>所有对象上的 <code>__proto__</code> 伪属性</td><td>✓</td><td></td><td></td></tr>
+    <tr><td>数组方法 <code>concat</code>, <code>slice</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>数组方法 <code>push</code>, <code>pop</code>, <code>shift</code>, <code>splice</code>, <code>unshift</code></td><td>✓</td><td></td><td>✓</td></tr>
+    <tr><td>带有继承元素的稀疏数组</td><td>✓</td><td></td><td>✓</td></tr>
+    <tr><td>使用正则表达式的字符串方法 <code>fromCharCode</code>, <code>match</code>, <code>replace</code>, <code>search</code>, <code>substr</code>, <code>split</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>字符串方法 <code>charCodeAt</code></td><td>✓</td><td></td><td>✓</td></tr>
+    <tr><td>正则表达式方法 <code>compile</code>, <code>exec</code>, <code>test</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>正则表达式属性 <code>$1</code>...<code>$9</code>, <code>input</code></td><td>✓</td><td>✓</td><td></td></tr>
+    <tr><td>正则表达式全局属性 <code>lastMatch</code>, <code>lastParen</code>, <code>leftContext</code>, <code>rightContext</code></td><td>✓</td><td></td><td></td></tr>
+    <tr><td>带有本地声明属性的 <code>arguments</code> 对象</td><td>✓</td><td>✓</td><td></td></tr>
     <tr><td><code>arguments.callee</code></td><td>✓</td><td></td><td>✓</td></tr>
     <tr><td><code>arguments.caller</code></td><td>✓</td><td>✓</td><td></td></tr>
-    <tr><td><code>watch</code>/<code>unwatch</code> functions</td><td>✓</td><td></td><td></td></tr>
-    <tr><td><code>import</code>/<code>export</code> statements and signed scripts</td><td>✓</td><td></td><td></td></tr>
-    <tr><td>Conditional compilation</td><td></td><td>✓</td><td></td></tr>
-    <tr><td><code>debugger</code> keyword</td><td></td><td>✓</td><td></td></tr>
+    <tr><td><code>watch</code>/<code>unwatch</code> 函数</td><td>✓</td><td></td><td></td></tr>
+    <tr><td><code>import</code>/<code>export</code> 语句与脚本签名</td><td>✓</td><td></td><td></td></tr>
+    <tr><td>条件编译</td><td></td><td>✓</td><td></td></tr>
+    <tr><td><code>debugger</code> 关键字</td><td></td><td>✓</td><td></td></tr>
   </tbody>
 </table>
 

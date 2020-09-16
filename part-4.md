@@ -746,7 +746,7 @@ if x > y { f() else if x > z { g() }
 
 <table>
   <thead>
-    <tr><th>Clause</th><th>ECMA-262, 5.1 Edition (245 pages)</th><th>ECMA-262, 6th Edition (545 pages)</th></tr>
+    <tr><th>条目</th><th>ECMA-262 第 5.1 版（245 页）</th><th>ECMA-262 第 6 版（545 页）</th></tr>
   </thead>
   <tbody>
     <tr><td>1</td><td>Scope</td><td>Scope</td></tr>
@@ -913,7 +913,7 @@ var Proxy(o, {
 
 <table>
   <thead>
-    <tr><th>ES5 Internal Method</th><th>ES6 Internal Methods</th><th>ES6 Proxy Traps & Reflect Methods</th></tr>
+    <tr><th>ES5 内部方法</th><th>ES6 内部方法</th><th>ES6 Proxy Traps 与反射方法</th></tr>
   </thead>
   <tbody>
     <tr><td>[[Canput]]</td><td></td><td></td></tr>

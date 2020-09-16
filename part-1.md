@@ -339,8 +339,8 @@ JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的�
 
 <table>
   <thead>
-    <tr><th colspan="2">Base Objects</th><th colspan="2">Properties</th></tr>
-    <tr><th>1.0</th><th>1.1</th><th>1.0</th><th>Added in 1.1</th></tr>
+    <tr><th colspan="2">基础对象</th><th colspan="2">属性</th></tr>
+    <tr><th>1.0</th><th>1.1</th><th>1.0</th><th>1.1 新增</th></tr>
   </thead>
   <tbody>
     <tr><td colspan="2">(global functions)</td><td>eval, isNaN<sup>1</sup>, parseFloat<sup>2</sup>, parseInt<sup>2</sup></td><td></td></tr>
