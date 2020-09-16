@@ -52,7 +52,7 @@ var x: float, y: int[], z; // z 的类型是 any
 
 图 24. 在初版 ES4 中，基于 C 和 Pascal 语法所衍生出的几种类型注解的可选形式。
 
-对类和接口所定义的语法大致遵循 Java，包括了对 `public`、`private`、`protected` 和默认（包级）可见性修饰符的完整补充。语言底层的元对象结构未涵盖在内，但这里的元对象模型已经必须与当时的 JavaScript 原型继承模型存在隐式区别了。这份文档提出了关于区分「使用声明出的静态类型信息的早期绑定（early binding）成员访问」和「没有静态类型信息的延迟绑定（late binding）成员访问」的问题。文档还探索了属性的动态添加<sup>[52](./notes.md#52)</sup>，认为可以在类中禁用这一能力。
+对类和接口所定义的语法大致遵循 Java，包括了对 `public`、`private`、`protected` 和默认（包级）可见性修饰符的完整补充。语言底层的元对象结构未涵盖在内，但这里的元对象模型已经必须与当时的 JavaScript 原型继承模型存在隐式区别了。这份文档提出了关于如何区分「使用声明出的静态类型信息的早期绑定（early binding）成员访问」和「没有静态类型信息的延迟绑定（late binding）成员访问」的问题。文档还探索了属性的动态添加<sup>[52](./notes.md#52)</sup>，认为可以在类中禁用这一能力。
 
 相关的设计讨论发生在 1999 年 1 月和 2 月 [[Raggeet 1999b](./references.md#TC39wg:tcn9901), [c](./references.md#TC39wg:tcn9902)]，主要与类、*类型注解*<sup>[g](./appendices.md#type-annotation)</sup>和作用域有关。Chris Dollin、Waldemar Horwat 和 Herman Venter 是首要的参与者。许多讨论都涉及用类所定义出的对象的性质，以及类成员访问的语义。Dollin 和 Venter 主要倾向于使用类似 Java 的语义，其中类实例的结构由类声明静态确定，并且成员的可访问性都能基于类型信息静态地决定，可以在文档网站上查找到。Horwat 则主要倾向于使用更具动态性的模型，其中即使存在类型注解，也会使用不可靠的动态查找来访问成员。要想满足现有 JavaScript 程序员的预期，并兼容那些使用了「基于原型的特设类（ad hoc class）」的已有代码，似乎都需要动态语义。这里涉及的特性包括可选的类型注解，以及 *expando properties*<sup>[g](./appendices.md#expando-property)</sup>。此外 Horwat 认为，动态语义与脚本的性质更加一致，脚本编程天生地涉及从多个来源动态组装出代码，并使用独立于引用方脚本做版本控制的库。Horwat [[1999b](./references.md#js2mbrlookup)] 在描述成员查找可选方案的文档中，总结了使用静态方案和动态方案之间的区别。
 
@@ -62,7 +62,7 @@ JavaScript 2.0 并未尝试与原始 JavaScript（甚至还有尚未完成的 EC
 
 在 1999 年剩下的时间中，TC39 的大部分注意力都集中在完成 ES3 上。但是在 3 月，它发布了《未来特性展望表》[[TC39 1999c](./references.md#ES3:ES4futures)]，介绍了可能在 ES3 之后发布的特性。Spice 工作组则转为了一个模块化子组，并继续时常举行关于初版 ES4 的会议 [[Raggett 1999a](./references.md#TC39wg:mod9910), [d](./references.md#TC39:1999:006); [TC39 1999a](./references.md#ES3:nov09)]。到 11 月，TC39 已经将主要注意力转移到了「第 4 版」上，并更新了 ES3 之后的未来特性展望表（见图 25），于是这一步伐加快了。TC39 主席 [[Lewis 1999a](./references.md#TC39:1999:016)] 在 1999 年 11 月的报告中描述了初版 ES4 的目标：
 
-> ECMAScript 2.0 是一个进取且大幅改进的 ECMAScript 语言规范，委员会希望在 2000 年实现标准化（当然这个野心可能过大）。ECMAScript 2.0 的主要目标是为「大型编程」提供支持——这也就是说，要支持开发由多人构建的程序，并可能是史上第一次要在用户的桌面上组装出这些程序。
+> ECMAScript 2.0 是一个进取且大幅改进的 ECMAScript 语言规范，委员会希望在 2000 年实现标准化（当然这个野心可能过大）。ECMAScript 2.0 的主要目标是为「大规模编程」提供支持——这也就是说，要支持开发由多人构建的程序，并可能是史上第一次要在用户的桌面上组装出这些程序。
 
 ```
 * 模块化增强: classes, types, modules, libraries, packages 等
@@ -115,7 +115,7 @@ Macromedia 公司的 *Flash*<sup>[g](./appendices.md#Flash)</sup>（后来被 Ad
 
 最初的 Flash 创作主要是偏视觉化的，但它的功能还包括编写简短的文本「动作」（action），以定义对各种时间轴事件的响应。在 1999 年 5 月发布的 Flash 4 中，Gary Grossman 将 Flash 动作演变成了一种简单的动态类型脚本语言，其语法与 JavaScript 相似。随着 2000 年 Flash 5 的发布，这门脚本语言成为了 ECMAScript 3 的方言，并被命名为「ActionScript」。*ActionScript*<sup>[g](./appendices.md#ActionScript)</sup> 1.0 支持大多数 ES3 语句和基于原型的对象，但缺乏对正则表达式的支持，具有非标准的 `eval` 函数，这种 `eval` 只能求值一组受限的变量访问表达式，此外还有各种其他细微的语义差异。由于 ActionScript 代码被编译为仅在 Flash Player 环境中运行，因此并不必严格遵守 ECMAScript 规范的语义。例如在 ActionScript 1.0 中，`var` 声明的作用域是最接近它的封闭块，而非整个封闭函数。
 
-在 2003 年，ActionScript 2.0 作为 Flash MX 开发环境和 Flash Player 6 的组件发布。它扩展了 ActionScript 1.0，支持类声明、接口声明、声明中的类型注解，以及用于访问其他脚本中定义的类的 import 语句。其中，类的类型注解、类声明和接口声明的语法大致遵循了初版 ES4 与 JS2 规范草案中使用的语法，但语义则大大简化。对类型注解的使用是可选的。类型检查属于「仅限编译期的特性」[[Macromedia 2003](./references.md#macromedia:types)]。如果提供了类型注解，语言会在编译时执行类似 Java 的名义化类型检查。但在生成代码前，类型信息会被擦除。ActionScript 2.0 使用了与 ActionScript 1.0 相同的虚拟机，并执行基本的运行时安全检查。程序可以按违反名义化类型系统规则的方式来动态修改对象，只要这些更改不会触发任何运行时安全检查即可。
+在 2003 年，ActionScript 2.0 作为 Flash MX 开发环境和 Flash Player 6 的组件发布。它扩展了 ActionScript 1.0，支持类声明、接口声明、声明中的类型注解，以及用于访问其他脚本中定义的类的 import 语句。其中，类的类型注解、类声明和接口声明的语法大致遵循了初版 ES4 与 JS2 规范草案中使用的语法，但语义则大大简化。对类型注解的使用是可选的。类型检查属于仅限编译期的特性 [[Macromedia 2003](./references.md#macromedia:types)]。如果提供了类型注解，语言会在编译时执行类似 Java 的名义化类型检查。但在生成代码前，类型信息会被擦除。ActionScript 2.0 使用了与 ActionScript 1.0 相同的虚拟机，并执行基本的运行时安全检查。程序可以按违反名义化类型系统规则的方式来动态修改对象，只要这些更改不会触发任何运行时安全检查即可。
 
 在 2003 年，Flash 在 Web 开发中获得了广泛的应用，这带来了复杂的大型 ActionScript 应用，其中有一些遇到了性能问题。与当时的大多数 ECMAScript 语言设计者和实现者一样，Macromedia 团队认为<sup>[61](./notes.md#61)</sup>动态类型（尤其是原始类型）导致了主要的性能瓶颈，并且正在探索向 ActionScript 运行时添加静态类型的方法。大约在同一时间，自 1998 年以来一直担任 TC39 代表的 Jeff Dyer 加入了 Macromedia。Dyer 确认了 TC39 对静态类型持有相同的观点。这种在基于虚拟机的语言中应用静态类型的观点广为流传，受到了对静态类型 Java 虚拟机（JVM）设计的强烈影响。Macromedia 的 Jonathan Gay 和 Lee Thornason 研发了实验性的 Maelstrom 项目，旨在研究 JVM 是否可以集成到 Flash 中，并用作静态类型版 ActionScript 的运行时。这个实验非常成功，以至于 Macromedia 向 Sun 就有关将 Java 2 Micro Edition（J2ME）版本 JVM 用于 Flash 的许可进行了洽谈。他们想使用 J2ME 的理由，是因为标准版 Java 运行时太大，无法嵌入 Flash Web 下载。但是 Macromedia 这项对使用 Java Micro Edition 技术的提议，与 Sun 的 Java 许可策略并不相符。于是 Edwin Smith 经过大量工作，创建了一系列概念验证性的虚拟机。这些虚拟机帮助 Macromedia 构建了自己的静态类型 JVM 式虚拟机 AVM2 [[Adobe 2007](./references.md#AVM2)]，并在其上运行了新版本的 ActionScript。这种新语言是由 Gary Grossman，Jeff Dyer 和 Edwin Smith 设计的，它受到了 Horwat 的初版 ES4 / JS2 规范草案的重度影响。但是与 JScript .NET 一样，ActionScript 3.0 是初版 ES4 设计的简化。它不像 JS2 那样动态，并且与 JScript .NET 不同的是，它不受 .NET 类型模型的约束。另外 ActionScript 3.0 与 JScript .NET 还有一点相似之处，那就是它们都不会重度受制于旧版的兼容性问题。Flash 会同时附带用于支持 ActionScript 3.0 的 AVM2，以及用于支持 ActionScript 1.0 和 2.0 的 AVM1。这项创建新版 ActionScript 和新虚拟机的工作耗时三年才得以完成，相应产物在 2006 年作为 Flash Player 9 的组件而发布，最终于 2007 年交付。在工作完成之际，Adobe 收购了 Macromedia，而 Flash 则成为了 Adobe Flash。
 
@@ -169,7 +169,7 @@ Brendan Eich 乐观地认为，在编程语言规范和类型系统领域的现�
 
 在 JS2 / ES4 的第一轮开发中，要想进行与现有 ECMAScript 程序不兼容的更改是非常容易的。它假定在浏览器中，HTML `<script>` 元素里的版本信息，可以用来选择语言的不同版本。在与新版 ES4 有关的新工作中，人们进一步地意识到了变更的潜在影响，但仍然希望能够通过版本控制的方式，来纠正委员眼中属于早期 JavaScript 设计错误的内容。Brendan Eich 曾经在他的博客文章和演讲中谈及这种可能性，但也有一些 TG1 成员提出了反对意见。Douglas Crockford 代表雅虎在 2006 年 7 月的 TG1 会议 [[TC39-TG1 2006c](./references.md#TC39-TG1:2006:032)] 上指出，「向后兼容是困难且重要的」。不过对于雅虎来说安全还是最大的问题。如果是为了解决与安全相关的问题，那么也可以忍受后向的不兼容性。微软的 Pratap Lakshman 则表示：「向后兼容属于最高优先级。除非为了修复安全性问题，否则向后兼容性不应该被破坏。」
 
-2005 年，Brendan Eich 在 ICFP（函数式编程的学术会议，译者注）发表了纪念 JavaScript 十周年的主题演讲。演讲后的问答环节中，他对 Python 做出了积极的评价 [[Danvy 2005](./references.md#brendan:icfp:QA)]。他甚至还推测对于较大规模的 Web 脚本来说，Python 可能比 JavaScript 更好。在接下来的一年里他都在做游说，希望在新版 ES4 中再加入一些根据等价的 Python 特性直接建模的特性，包括迭代器、生成器、*解构*<sup>[g](./appendices.md#destructuring)</sup>赋值和数组推导式。他还提倡使用具备块级作用域的 `let` 和 `const` 关键字来声明变量，从而替代函数级作用域的 `var` 声明。在很大程度上，它们与人们为新版 ES4 提出的其他（所谓）更复杂的「大型编程」特性并没有关系。这些特性被添加到了基于 SpiderMonkey 的 JavaScript 1.7 引擎 [[Mozilla 2006a](./references.md#moz:new1.7)] 中，相应的 Firefox 2 浏览器版本于 2006 年 10 月发布。但是这些特性未被其他浏览器接纳，因此并未在 XUL 之外的地方获得广泛的使用。
+2005 年，Brendan Eich 在 ICFP（函数式编程的学术会议，译者注）发表了纪念 JavaScript 十周年的主题演讲。演讲后的问答环节中，他对 Python 做出了积极的评价 [[Danvy 2005](./references.md#brendan:icfp:QA)]。他甚至还推测对于较大规模的 Web 脚本来说，Python 可能比 JavaScript 更好。在接下来的一年里他都在做游说，希望在新版 ES4 中再加入一些根据等价的 Python 特性直接建模的特性，包括迭代器、生成器、*解构*<sup>[g](./appendices.md#destructuring)</sup>赋值和数组推导式。他还提倡使用具备块级作用域的 `let` 和 `const` 关键字来声明变量，从而替代函数级作用域的 `var` 声明。在很大程度上，它们与人们为新版 ES4 提出的其他（所谓）更复杂的「大规模编程」特性并没有关系。这些特性被添加到了基于 SpiderMonkey 的 JavaScript 1.7 引擎 [[Mozilla 2006a](./references.md#moz:new1.7)] 中，相应的 Firefox 2 浏览器版本于 2006 年 10 月发布。但是这些特性未被其他浏览器接纳，因此并未在 XUL 之外的地方获得广泛的使用。
 
 Eich 担心其他浏览器厂商（尤其是微软）会选择非常缓慢地接纳新版 ES4 的 JavaScript 改进。另外还有一个令人担忧之处，那就是 JavaScript 引擎可能无法继续提高性能，满足不了 AJAX Web 应用涌现出的需求。有种能解决这两个问题的方法，即打造出支持设想中新版 ES4 规范的高性能开源 JavaScript 引擎。为此，Eich 说服了 Adobe 基于开源许可将其 AVM2 引擎实现贡献给了 Mozilla。Mozilla 将获得的代码库命名为「Tamarin」[[Mozilla 2006b](./references.md#moz:tamarin)]。在后面几个月中，Mozilla 发布了 [[Eich 2007a](./references.md#brendan:roadmap:july07)] 两个项目：一个是旨在用 Tamarin 代码库替代 SpiderMonkey 的 ActionMonkey，而另一个是基于 Tamarin 的 JavaScript 引擎 ScreamingMonkey，它可以当作 Internet Explorer 的第三方插件扩展来安装。这两个项目都没有完成。
 
@@ -177,11 +177,11 @@ Eich 担心其他浏览器厂商（尤其是微软）会选择非常缓慢地接
 
 委员会的工作起点，是 ActionScript 3 规范 [[Macromedia 2005](./references.md#AS3spec)] 中具备非正式描述的类型系统。这是一个名义化类型系统，其中的类和接口类型与 Java 类似，而泛型则是在这基础上加入的。ActionScript 3 支持为声明添加类型注解，而对于缺少显式类型注解的声明，语言还引入了一种通用类型。ActionScript 3 规范没有明确加入「函数子类型」的概念，并且对类和接口子类型的定义也并不完整。语言还具有严格模式，这个模式下会使用具有类型注解的声明和有限的类型推断，来执行提前（ahead-of-time）的静态类型检查。另外也有一种标准模式，可以用来根据类型注解来动态验证实际数据值。
 
-Dave Herman 和 Cormac Flanagan 早期提出的建议，是使用契约模型（contract model）[[Findler and Felleisen 2002](./references.md#Findler:2002:CHF:581478.581484)] 来更好地统一严格和标准模式，以及类型化和非类型化的声明。随着工作的进行，结构化类型（structural type）[[TC39 ES4 2006d](./references.md#es4:structualtypes)]也被加入了进来，用于处理对象和数组字面量。一并加入的还有用于处理数组类型的参数化类型。TG1 在内部<sup>[67](./notes.md#67)</sup> Wiki 网站 [[TC39 ES4 2007f](./references.md#es4:priv-wiki-jan-2007)] 上为此考虑并记录了许多可选的方法 [[TC39 ES4 2006b](./references.md#es4:typesystem)]。Herman 和 Flanagan 还试验了类型系统的形式化 [[TC39 ES4 2007a](./references.md#es4:formaltypes)]。到 2007 年初，语言设计仍不完整，但已演变到覆盖了许多现代类型概念，包括函数类型和协变 / 逆变（co/contra-variance）[[TC39 ES4 2007b](./references.md#es4:typesystem07)]。语言还需要支持可选类型（optional typing）和历史遗留的动态类型程序，这个现实需求一直是复杂性的重要来源。
+Dave Herman 和 Cormac Flanagan 早期提出的建议，是使用契约模型（contract model）[[Findler and Felleisen 2002](./references.md#Findler:2002:CHF:581478.581484)] 来更好地统一严格和标准模式，以及类型化和非类型化的声明。随着工作的进行，结构化类型（structural type）[[TC39 ES4 2006d](./references.md#es4:structualtypes)] 也被加入了进来，用于处理对象和数组字面量。一并加入的还有用于处理数组类型的参数化类型。TG1 在内部<sup>[67](./notes.md#67)</sup> Wiki 网站 [[TC39 ES4 2007f](./references.md#es4:priv-wiki-jan-2007)] 上为此考虑并记录了许多可选的方法 [[TC39 ES4 2006b](./references.md#es4:typesystem)]。Herman 和 Flanagan 还试验了类型系统的形式化 [[TC39 ES4 2007a](./references.md#es4:formaltypes)]。到 2007 年初，语言设计仍不完整，但已演变到覆盖了许多现代类型概念，包括函数类型和协变 / 逆变（co/contra-variance）[[TC39 ES4 2007b](./references.md#es4:typesystem07)]。语言还需要支持可选类型（optional typing）和历史遗留的动态类型程序，这个现实需求一直是复杂性的重要来源。
 
 在整个 2006 年和 2007 年的大部分时间里，TG1 继续致力于制定新提案和完善现有提案，最终在内部 Wiki 上整理出了一份列表。这其中包括了 54 份已批准的提案，它们都被规划进了新版 ES4 规范里。另外的 26 个提案则被推迟或删除。
 
-在 Brendan Eich 发现了 Dave Herman 介绍「对 ES3 的形式化语义进行文档化实验」的网页 [[Herman 2005](./references.md#Herman:CEKS)] 后，Herman 也被招募进了 TG1。2006 年 2 月的 TG1 会议 [[TC39-TG1 2006b](./references.md#TC39-TG1:2006:011)] 上，Herman 介绍了用于规范化编程语言的形式化技术。他解释说，除了为实现者提供指导之外，形式化的规范还提供了一种在规范中查找和纠正错误的方法。有人担心 ECMAScript 实现者和规范的其他使用者是否能阅读这种形式化的规范。对此 Herman 认为，基于操作语义的形式化是可以变得非常易读的。在接下来的几个月中，Herman 尝试使用 Maude [[Clavel et al. 2003](./references.md#Clavel:2003:MS:1759148.1759156)]、Stratego [[Visser 2001](./references.md#Visser:2001:SLP:647200.718711)] 和 PLT Redex [[Matthews et al. 2004](./references.md#matthews2004visual)] 等工具来确定 ECMAScript 的语义，但最终发现它们都不够令人满意。在同一时期，TG1 还讨论了 [[TC39-TG1 2006e](./references.md#TC39-TG1:2006:041)] 根据参考实现（Reference Implementation）来定义语言的可能性。还有一种可能性是专门为 ECMAScript 设计一种新的形式化规范语言。在 2006 年 10 月的会议上，TG1 讨论了这种语言的可能语法和语义。最后 Cormac Flanagan 指出，工作组现在已经在讨论定义两种语言（规范语言和新版 ECMAScript）的工作。于是工作组很快同意使用现有的语言来为新版 ES4 编写定义解释器，并迅速决定使用 SML<sup>[68](./notes.md#68)</sup> 语言 [[Milner et al. 1997](./references.md#Milner:1997:DSM:549659)]。到 11 月中旬，TG1 已经为此搭建了工具和基础架构，相关成员也在着手编写解释器。Herman 和 Flanagan [[2007](./references.md#HermanFlan:JSML)] 描述了这对委员会工作风格的影响，如下所述：
+在 Brendan Eich 发现了 Dave Herman 介绍如何对 ES3 的形式化语义进行文档化实验的网页 [[Herman 2005](./references.md#Herman:CEKS)] 后，Herman 也被招募进了 TG1。2006 年 2 月的 TG1 会议 [[TC39-TG1 2006b](./references.md#TC39-TG1:2006:011)] 上，Herman 介绍了用于规范化编程语言的形式化技术。他解释说，除了为实现者提供指导之外，形式化的规范还提供了一种在规范中查找和纠正错误的方法。有人担心 ECMAScript 实现者和规范的其他使用者是否能阅读这种形式化的规范。对此 Herman 认为，基于操作语义的形式化是可以变得非常易读的。在接下来的几个月中，Herman 尝试使用 Maude [[Clavel et al. 2003](./references.md#Clavel:2003:MS:1759148.1759156)]、Stratego [[Visser 2001](./references.md#Visser:2001:SLP:647200.718711)] 和 PLT Redex [[Matthews et al. 2004](./references.md#matthews2004visual)] 等工具来确定 ECMAScript 的语义，但最终发现它们都不够令人满意。在同一时期，TG1 还讨论了 [[TC39-TG1 2006e](./references.md#TC39-TG1:2006:041)] 根据参考实现（Reference Implementation）来定义语言的可能性。还有一种可能性是专门为 ECMAScript 设计一种新的形式化规范语言。在 2006 年 10 月的会议上，TG1 讨论了这种语言的可能语法和语义。最后 Cormac Flanagan 指出，工作组现在已经在讨论定义两种语言（规范语言和新版 ECMAScript）的工作。于是工作组很快同意使用现有的语言来为新版 ES4 编写定义解释器，并迅速决定使用 SML<sup>[68](./notes.md#68)</sup> 语言 [[Milner et al. 1997](./references.md#Milner:1997:DSM:549659)]。到 11 月中旬，TG1 已经为此搭建了工具和基础架构，相关成员也在着手编写解释器。Herman 和 Flanagan [[2007](./references.md#HermanFlan:JSML)] 描述了这对委员会工作风格的影响，如下所述：
 
 > 在我们选择了确定性的解释器后，委员会的互动方式就发生了很大变化，从每月一天半的讨论型会议转为了为期 3 天的 *hackathon*<sup>[g](./appendices.md#hackathon)</sup>。这中途也会进行技术讨论，涉及语言设计和实现时的各种极端情况。这些问题都被逐一发现和解决。
 
@@ -255,7 +255,7 @@ Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定�
 
 新版 ES4 项目的时间安排仍然非常紧迫。在 2007 年 5 月初，一份提交给 Ecma 共同管理委员会的报告 [[Miller 2007](./references.md#TC39:2007:002)] 指出，新版 ES4 规范的最终草案将在 2007 年 10 月前完成，以便 Ecma GA 大会在 12 月批准它。2007 年 6 月 8 日，Dave Herman [[2007](./references.md#Herman:LtU); Appendix K] 在 *Lambda the Ultimate*<sup>[72](./notes.md#72)</sup> 博客上宣布 ES4 参考实现的「M0」版本<sup>[73](./notes.md#73)</sup>已经可用。
 
-在 6 月的会议 [[TC39-TG1 2007b](./references.md#TC39-TG1:2007:025)] 上，有人呼吁立即启动 ES4 的「规范编写过程」。但当时仍有重大的技术设计问题未能解决，也经常发现新的问题。例如在 7 月的会议 [[Eich 2007d](./references.md#TC39:2007:008)] 上人们意识到，新版语言在对结构化类型做运行时类型检查时还有重大问题。
+在 6 月的会议 [[TC39-TG1 2007b](./references.md#TC39-TG1:2007:025)] 上，有人呼吁立即启动 ES4 的规范编写进程。但当时仍有重大的技术设计问题未能解决，也经常发现新的问题。例如在 7 月的会议 [[Eich 2007d](./references.md#TC39:2007:008)] 上人们意识到，新版语言在对结构化类型做运行时类型检查时还有重大问题。
 
 9 月 7 日的 TG1 召集人报告指出，想在 2007 年完成新版规范是不现实的，新的完成日期被推后一年至 2008 年 9 月。报告中还介绍 Lars Hansen 将担任新版 ES4 的编辑。这份报告既没有提到正在进行的 ES3.1 工作，也没有提到雅虎和微软对新版 ES4 的保留。
 
@@ -268,7 +268,7 @@ Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定�
 
 > 第四版的 ECMAScript 语言（ES4）代表了 ECMA 在 1999 年批准的 ECMA-262 标准语言第三版（ES3）的重要演变。ES4 与 ES3 兼容，并增加了重要的设施，用于大型程序设计（类、接口、命名空间、包、程序单元、可选的类型注解，以及可选的静态类型检查和验证）、演化式编程和脚本编写（结构化类型、鸭子类型、类型定义和方法多重派发）、数据结构构建（参数化类型、getter / setter 和元级方法）、控制抽象（适当的尾调用、迭代器和生成器）以及类型自省（类型元对象和堆栈标记）。
 
-最终证明，这份文档是对人们设想中新版 ES4 语言的最佳整体描述。然而，Allen Wirfs-Brock [[2007c](./references.md#awb:overview0)] 和 Douglas Crockford [[2007a](./references.md#crock:2007d)] 都对「ECMAScript 第四版」这一名称被不加限定地使用表示担心，这暗示了其所描述的语言已非常接近最终批准的 Ecma 标准。此外这份文档在导言中宣称，其整体设计代表了 Ecma TC39-TG1 的共识，并未提及任何 TG1 中对新版 ES4 在设计上的不同意见。在沟通后，Hansen 同意在文档标题前加上「拟议」字样，并在文档导言中插入了一段话，指出 TG1 中有少数成员对该设计的标准化表示反对。在新版 ES4 小组成员为分发概览文件和参考实现代码而建立的网站 [[TC39 ES4 2007c](./references.md#es4:es4doc)] 上，人们也提出了类似的意见。这些事件增加了 ES3.1 支持者对新版 ES4 支持者们「公开宣传 ES4，同时继续无视或贬低 ES3.1 投入」的担忧。
+最终证明，这份文档是对人们设想中新版 ES4 语言的最佳整体描述。然而，Allen Wirfs-Brock [[2007c](./references.md#awb:overview0)] 和 Douglas Crockford [[2007a](./references.md#crock:2007d)] 都对「ECMAScript 第四版」这一名称被不加限定地使用表示担心，这暗示了其所描述的语言已非常接近最终批准的 Ecma 标准。此外这份文档在导言中宣称，其整体设计代表了 Ecma TC39-TG1 的共识，并未提及任何 TG1 中对新版 ES4 在设计上的不同意见。在沟通后，Hansen 同意在文档标题前加上「拟议」字样，并在文档导言中插入了一段话，指出 TG1 中有少数成员对该设计的标准化表示反对。在新版 ES4 小组成员为分发概览文件和参考实现代码而建立的网站 [[TC39 ES4 2007c](./references.md#es4:es4doc)] 上，人们也提出了类似的意见。这些事件增加了 ES3.1 支持者对新版 ES4 支持者们的担忧，担心他们继续公开宣传 ES4，同时继续无视或贬低 ES3.1 的开发。
 
 Allen Wirfs-Brock 经常与微软的企业标准小组保持联系，其中包括 Ecma 共同协调委员会（CC）的成员 Isabelle Valet-Harper。协调委员会 [[Ecma International 2007b](./references.md#GA:2007:088)] 关注的是，TG1 将外部托管的私有 Wiki 作为文档和会议记录的载体，Ecma 秘书处和一般会员无法访问它们。秘书处要求 TG1 将议程、会议记录和重要文档格式化，以便发表到对 Ecma 内部成员专用的网站上。TG1 决定，对此最简单的办法是将整个 TG1 的 Wiki 网站都设为公开可读 [[TC39 2007](./references.md#TC39:wiki)]。
 
@@ -364,7 +364,7 @@ Mozilla 最初使用的路线称为 TraceMonkey [[Gal et al. 2009](./references.
 // moda.js - 源码
 var modp = require("modp");
 exports.n = modp.p++;
-exports.modName = "prefix"+exports.n;
+exports.modName = "prefix" + exports.n;
 
 
 // modb.js - 源码
@@ -374,14 +374,14 @@ exports[propName] = modx[propName];
 
 
 // moda.js - CJS 展开后
-(function(exports ,require ,module){
+(function (exports, require, module) {
   var modp = require("modp");
   exports.n = modp.p++;
-  exports.modName = "prefix"+exports.n;
+  exports.modName = "prefix" + exports.n;
 });
 
 // modb.js - CJS 展开后
-(function(exports ,require ,module){
+(function (exports, require, module) {
   var modx = require(require("moda").modName);
   var propName = Object.keys(modx)[0];
   exports[propName] = modx[propName];
@@ -408,8 +408,8 @@ JavaScript 这门语言属于一系列 Web 标准套件中的一部分，这些�
 > 长期以来，JavaScript 都把一个漂亮的对象模型隐藏在了 Java 式的语法中。CoffeeScript 试图通过偏重表达式而非语句的语法，减少标点符号的噪音，提供优雅的函数字面量，从而展示出 JavaScript 好的部分。像 `square: x => x * x` 这行 CoffeeScript，就可以编译成这样的 JavaScript：
 
 ``` js
-var square = function(x) {
-return x * x;
+var square = function (x) {
+  return x * x;
 };
 ```
 

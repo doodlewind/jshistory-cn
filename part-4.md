@@ -145,7 +145,7 @@ ES5 严格模式直接源于 Douglas Crockford 在 JavaScript 的设计中「纠
 Allen Wirfs-Brock 建议使用描述符对象（descriptor object），这种对象的属性将与各种属性标记相对应。这种描述符可以用来定义和检查属性。Wirfs-Brock 的第一份草案<sup>[84](./notes.md#84)</sup>展示了一种可能的 API 示例，用于向名为 `obj` 的对象添加属性：
 
 ``` js
-Object.addProperty(obj, { name:"pi", value:3.14159, writable:false });
+Object.addProperty(obj, { name: "pi", value: 3.14159, writable: false });
 ```
 
 在示例中，描述符被编码为对象的字面量。对于描述符上没有，但又与其他属性标记相对应的属性，则会使用这里提供的默认值。还有一个设想中的 `defineProperty` 函数也会接受类似的描述符，可以用来更改已有属性的标记值。`defineProperty` 不会修改不存在于描述符属性上的标记。最后，还可以通过调用 `getProperty` 来获取对象上任何已有属性的完整描述符。
@@ -154,8 +154,8 @@ Mark Miller 提出了改进意见，建议让这个 `defineProperty` 能支持�
 
 ``` js
 Object.defineProperties(obj, {
-    x: { value: 0, writable: true },
-    y: { value: 0, writable: true }
+  x: { value: 0, writable: true },
+  y: { value: 0, writable: true }
 });
 ```
 
@@ -230,14 +230,14 @@ Miller 建议移除 `defineProperty`，只保留 `defineProperties` 的形式，
 
 ``` js
 Object.defineProperties(obj, {
-    x: {
-        set: function(value) { this.privateX = value }, // 公有访问器属性
-        get: function() { return this.privateX }
-    },
-    privateX: {
-        value: 0,
-        writable: true
-    } // 「私有」数据属性
+  x: {
+    set: function (value) { this.privateX = value }, // 公有访问器属性
+    get: function () { return this.privateX }
+  },
+  privateX: {
+    value: 0,
+    writable: true
+  } // 「私有」数据属性
 });
 ```
 
@@ -245,10 +245,10 @@ Object.defineProperties(obj, {
 
 ``` js
 var obj = {
-    privateX: 0, // 一个普通的属性
-    set x(value) { this.privateX = value }, // 访问器属性 x 的 setter
-    get x() { return this.privateX }, // 访问器属性 x 的 getter
-    get negX() { return -this.privateX } // 只有 getter 的访问器
+  privateX: 0, // 一个普通的属性
+  set x(value) { this.privateX = value }, // 访问器属性 x 的 setter
+  get x() { return this.privateX }, // 访问器属性 x 的 getter
+  get negX() { return -this.privateX } // 只有 getter 的访问器
 };
 ```
 
@@ -271,8 +271,8 @@ var point1 = beget(protoPoint); // 用 Crockford 风格创建一个 point
 point1.x = 0;
 point1.y = 0;
 var point2 = Object.create(protoPoint, { // 使用 ES5 声明式风格
-    x: {value: 0},
-    y: {value: 0}
+  x: { value: 0 },
+  y: { value: 0 }
 });
 ```
 
@@ -292,8 +292,8 @@ point1.y = 0;
 
 // 以声明式风格使用 Object.create
 var point2 = Object.create(protoPoint, {
-    x: {value: 0},
-    y: {value: 0}
+  x: { value: 0 },
+  y: { value: 0 }
 });
 // point2.x 的标记为
 // writable: false, enumerable: false, configurable: false
@@ -306,8 +306,8 @@ var point2 = Object.create(protoPoint, {
 ``` js
 // 通过 ES5 与例行的标记值来创建 point 实例
 var point2 = Object.create(protoPoint, {
-    x: {value: 0, writable: true, enumerable: true, configurable: true },
-    y: {value: 0, writable: true, enumerable: true, configurable: true }
+  x: { value: 0, writable: true, enumerable: true, configurable: true },
+  y: { value: 0, writable: true, enumerable: true, configurable: true }
 });
 ```
 
@@ -328,8 +328,8 @@ Mark Miller 和 Douglas Crockford 希望添加新能力，从而在将对象传�
 
 ``` js
 function getGlobalObject() {
-    // 直接调用时，this 的值是全局对象
-    return this;
+  // 直接调用时，this 的值是全局对象
+  return this;
 }
 getGlobalObject().document.write("pwned");
 ```
@@ -342,22 +342,22 @@ getGlobalObject().document.write("pwned");
 // 假设我们已经发现某页面使用对象字面量
 // 将一些有价值的信息存在 secret 属性中
 function setupToStealSecret() {
-    // 使用 ES5 前非标准的 getter / setter API
-    // 在原型上定义一对 getter / setter
-    Object.prototype.__defineSetter__("secret", function(val) {
-        this.__harmlessSoundingName__ = val; // 将值存储在其他属性上
-        exploitTheSecret(val, this)
-    });
-    Object.prototype.__defineGetter__({"secret", function() {
-        // 从另一个位置获取值，不会破坏原有代码逻辑
-        return this.__harmlessSoundingName__;
-    });
+  // 使用 ES5 前非标准的 getter / setter API
+  // 在原型上定义一对 getter / setter
+  Object.prototype.__defineSetter__("secret", function (val) {
+    this.__harmlessSoundingName__ = val; // 将值存储在其他属性上
+    exploitTheSecret(val, this)
+  });
+  Object.prototype.__defineGetter__("secret", function () {
+    // 从另一个位置获取值，不会破坏原有代码逻辑
+    return this.__harmlessSoundingName__;
+  });
 }
 
 // 当代码使用具有 secret 属性的对象字面量定义对象时，秘密就会泄漏
 var objectWithSecret = {
-    secret: "password"; // 这会触发继承的 setter
-    // 可能还定义了其他属性
+  secret: "password" // 这会触发继承的 setter
+  // 可能还定义了其他属性
 };
 ```
 
@@ -379,8 +379,8 @@ ES5 只能使 JavaScript 在安全方面前进一小步。当 ES5 的工作正�
 
 var originalArray = Array;
 function AltArray() {
-    // 用于替代内置的 Array 构造器
-    // ...
+  // 用于替代内置的 Array 构造器
+  // ...
 }
 // 调用一个函数, 强制它使用 AltArray
 Object.prototype.Array = AltArray;
@@ -627,10 +627,10 @@ const #add(a, b) { a + b }
 ``` js
 const add = (a, b) => a + b // 表达式体隐式返回
 x => x * x
-x => {console.log(x); return x * x} // 语句体需要显式返回
+x => { console.log(x); return x * x } // 语句体需要显式返回
 // 对象字面量与类中的方法定义
 class {
-  add(a, b) {return a + b} // 不支持表达式体
+  add(a, b) { return a + b } // 不支持表达式体
 }
 ```
 
@@ -655,8 +655,8 @@ function writeNodes() {
 **梦想：记录（record）与元组（tuple）**。支持不可变的数据结构，并支持内容层面的等价性：
 
 ``` js
-const point = #{x: 10, y: 20}
-point === #{x: 10, y: 20} // true
+const point = #{ x: 10, y: 20 }
+point === #{ x: 10, y: 20 } // true
 ```
 
 **ES2015 现实**：未支持。这一特性过于接近「可扩展的值类型」的概念，这在 Harmony 中并未获得充分开发。
@@ -671,7 +671,7 @@ function construct(f, a) {
   return new f(...a)
 }
 let [first, second] = sequence
-const {name, address, ...misc} = person
+const { name, address, ...misc } = person
 ```
 
 **ES2015 现实**：除了 ES2015 中不支持 `...` 运算符的对象解构外，与设想完全相同。对象解构特性在后续版本中已经加入。
@@ -840,12 +840,15 @@ Object.defineCatchAll(obj, {
   has: function (id) { return peer.hasOwnProperty(id); },
   get: function (id) { return peer[id]; },
   set: function (id, value) {
-       if ((id >>> 0) === id && id >= peer.length) peer.length = 1 + id;
-       peer[id] = value},
-  add: function (id) { Object.defineProperty(obj, id,
-        { get: function (){ return peer[id]; },
-        set: function (value) { peer[id] = value);
-       }})},
+    if ((id >>> 0) === id && id >= peer.length) peer.length = 1 + id;
+    peer[id] = value
+  },
+  add: function (id) {
+    Object.defineProperty(obj, id, {
+      get: function () { return peer[id]; },
+      set: function (value) { peer[id] = value; }
+    })
+  },
   // 其他动作的定义...
 });
 ```
@@ -860,13 +863,16 @@ Object.defineCatchAll(obj, {
 // 最早的 Harmony Proxy 提案
 
 // 一个进行简单转发的代理
-function makeHandler(obj) { return {
-  has: function(name) { return name in obj; },
-  get: function(rcvr,name) { return obj[name]; },
-  set: function(rcvr,name,val) { obj[name]=val; return true; },
-  enumerate: function() {
-    var res = []; for (name in obj) { res.push(name); }; return res; },
-  delete: function(name) { return delete obj[name]; } };
+function makeHandler(obj) {
+  return {
+    has: function (name) { return name in obj; },
+    get: function (rcvr, name) { return obj[name]; },
+    set: function (rcvr, name, val) { obj[name] = val; return true; },
+    enumerate: function () {
+      var res = []; for (name in obj) { res.push(name); }; return res;
+    },
+    delete: function (name) { return delete obj[name]; }
+  };
 }
 var proxy = Proxy.create(makeHandler(o), Object.getPrototypeOf(o));
 ```
@@ -885,12 +891,20 @@ var proxy = Proxy.create(makeHandler(o), Object.getPrototypeOf(o));
 // Harmony 直接代理提案
 
 // 一个进行简单直接转发的代理
-var Proxy(o,{
+var Proxy(o, {
   // 处理器对象
-  has:function(target ,name){return Reflect.has(target ,name)},
-  get:function(target,name,rcvr){return Reflect.get(target,name,rcvr)},
-  set:function(target,name,val,rcvr){return Reflect.set(target,name,val,rcvr)},
-  enumerate:function(target){return Reflect.enumerate(target)},
+  has: function (target, name) {
+    return Reflect.has(target, name)
+  },
+  get: function (target, name, rcvr) {
+    return Reflect.get(target, name, rcvr)
+  },
+  set: function (target, name, val, rcvr) {
+    return Reflect.set(target, name, val, rcvr)
+  },
+  enumerate: function (target) {
+    return Reflect.enumerate(target)
+  },
   // ...
 });
 ```
@@ -936,8 +950,8 @@ var Proxy(o,{
 
 function f(x) { // 此函数有循环中闭包的 bug
   for (var p in x) {
-    var v = doSomething(x, p); 
-    bj.setCallback(function(arg) {handle(v, p, arg)});
+    var v = doSomething(x, p);
+    obj.setCallback(function (arg) { handle(v, p, arg) });
     // 全部在循环中创建的闭包都共享 v 和 p 的绑定
     // 而不是在每次迭代中使用不同的绑定
   }
@@ -957,11 +971,11 @@ ES5 曾考虑增加 `const` 声明。ES5 规范中包含了可用于确定块级
   let x = "outer";
   { // 内层块
     console.log(x);
-    var refX1 = function() {return x};
+    var refX1 = function () { return x };
     console.log(refX1());
     const x = "inner";
     console.log(x);
-    var refX2 = function() {return x};
+    var refX2 = function () { return x };
     console.log(refX2());
   }
 }
@@ -1016,10 +1030,10 @@ Horwat 感谢 Lars Hansen 将「死区」的概念引入讨论。术语「临时
 // 兼容但非标准的 ES3 扩展
 
 function f(bool) {
-  if (bool==true){
+  if (bool == true) {
     function g() { /*do something*/ }
   }
-  if (bool==true) g(); // 这在所有主流浏览器中均可用
+  if (bool == true) g(); // 这在所有主流浏览器中均可用
 }
 ```
 
@@ -1030,12 +1044,12 @@ function f(bool) {
 
 function f(bool) {
   var g; // 如果顶层存在由 let 声明的 g，则属于早期错误
-  function $setg(v) {g = v}
-  if (bool==true){
+  function $setg(v) { g = v }
+  if (bool == true) {
     function g() { /*do something*/ }
     $setg(g); // 将本地 g 设为顶层 g 的值
   }
-  if (bool==true) g(); // 引用顶层 g
+  if (bool == true) g(); // 引用顶层 g
 }
 ```
 
@@ -1058,8 +1072,8 @@ Flanagan 提出的稻草人提案，使用了简单的类定义语法。如下�
 class Point (initialX , initialY) {
   private x = initialX;
   private y = initialY;
-  public getX() {return x};
-  public getY() {return y};
+  public getX() { return x };
+  public getY() { return y };
 }
 ```
 
@@ -1074,19 +1088,20 @@ Mark Miller 提出的「糖式类」提案所经常受到的一种批评，是�
 Allen Wirfs-Brock 认为，如果让对象的创建变得不那么命令式，可能可以支持第二条目标。在经典的 JavaScript 中，最接近 Class 的是构造函数，它需要命令式地定义一个新对象的属性。对象字面量提供了一种更为声明式的方式来定义对象属性，但其缺乏与 ECMAScript 的内置类约定<sup>[93](./notes.md#93)</sup>相匹配的能力。也许对象字面量可以进行扩展，以更好地支持人们已经在写的东西，而不必引入「类」作为新的语言实体。
 
 ``` js
-function tripleFactory(a,b,c) {
+function tripleFactory(a, b, c) {
   return { // 这个对象字面量用于创建 triple 对象
     <proto: Array.prototype, // 由 proto 元属性设置继承的原型
     sealed>,                // 用 Object.seal() 封住元属性
     0: a,
     1: b,
     2: c,
-    var length const:3, // var 会设置 [[enumerable]] 为 false
+    var length const: 3, // var 会设置 [[enumerable]] 为 false
     // const 会设置 [[writable]] 为 false
-    method toString(){ // 方法是有函数值的数据属性
+    method toString() { // 方法是有函数值的数据属性
       // 并且其 [[ enumerable ]] 为 false
-      return "triple("+this[0]+","+this[1]+","+this[2]+")"},
-    method sum(){return this[0]+this[1]+this[2]}
+      return "triple(" + this[0] + "," + this[1] + "," + this[2] + ")"
+    },
+    method sum(){ return this[0] + this[1] + this[2] }
   }
 }
 ```
@@ -1204,12 +1219,12 @@ import mx as X;     // 将 X 本地绑定到以 mx 导出字段为属性的对�
 ``` js
 // ES2015
 
-import {x, f} from "m1.js"; // 从 m1 导入两个被导出的绑定
-import {pi as PI} from "m2.js"; // 导入一个绑定并重命名，以便于本地访问
+import { x, f } from "m1.js"; // 从 m1 导入两个被导出的绑定
+import { pi as PI } from "m2.js"; // 导入一个绑定并重命名，以便于本地访问
 import * as X from "mx.js"; // 将 X 本地绑定到命名空间对象，其属性映射为 mx.js 所导出的字段
 
 // 新增的导入形式
-import from "my.js"; // 仅为初始化副作用而导入 my.js
+import "my.js"; // 仅为初始化副作用而导入 my.js
 import z from "mz.js"; // 导入由 mz.js 所导出的唯一默认绑定
 ```
 
@@ -1225,7 +1240,7 @@ import z from "mz.js"; // 导入由 mz.js 所导出的唯一默认绑定
 ES2015 引入了一种简洁的函数定义表达形式，通常称之为「箭头函数」。箭头函数的写法是以形参列表为起始，然后是 `=>` 标记和函数体。例如：
 
 ``` js
-(a, b) => {return a+b}
+(a, b) => { return a + b }
 ```
 
 如果只有一个形参，那么可以省略括号。而如果函数体是单条 `return` 语句，还可以省略括号和 `return` 关键字。例如：

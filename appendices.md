@@ -435,7 +435,7 @@
   <tr><td>8 月 20 日</td><td>Bill Gibbons 完成「第 3 版最终候选草案」</td></tr>
   <tr><td rowspan="5">9 月 23 日 - 24 日</td><td>最后一次技术工作组的「E3」会议，Bill Gibbons 离任开始新工作</td></tr>
   <tr><td>将由 Herman Venter 和 Waldemar Horwat 完成规范</td></tr>
-  <tr><td>「合并函数」加入规范</td></tr>
+  <tr><td>「函数合并」加入规范</td></tr>
   <tr><td>就异常达成最终一致</td></tr>
   <tr><td>就具名 <i>FunctionExpression</i> 中标识符的作用域达成一致</td></tr>
   <tr><td>9 月 24 日</td><td>TC39 投票批准将 ECMA-262 第三版提交给 Ecma GA 大会</td></tr>

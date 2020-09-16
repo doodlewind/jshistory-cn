@@ -33,7 +33,7 @@ TC39 的组织会议于 1996 年 11 月 21 日至 22 日在加州山景城的 Ne
 
 Brendan Eich 参加了会议，但 Netscape 的技术演讲是由 Anh Nguyen 进行的，介绍了 Eich 和 C. Rand McKinny 为 JavaScript 1.1 编写的《JavaScript 语言规范》的初稿 [[1996](./references.md#TC39:1996:002)]。Netscape 向 Ecma 贡献了该文档，作为标准化工作的基础文档之一。Nguyen 解释说，Netscape Navigator 3 中的 JavaScript 1.1 与 Netscape 2 中的初始 JavaScript 版本有一些差异。Netscape 的规范使用类似于 ANSI C 语言标准 [[ANSI X3 1989](./references.md#c89)] 的 BNF 表示法来描述语言语法。它使用非正式的叙述（prose）来定义大多数语义，并使用表格来描述语言的隐式类型转换（coercion）规则。
 
-Borland 研发了JavaScript 和 JavaScript IDE 的服务端实现 [[Lazar 1997](./references.md#Lazar:1997:BI:252425.252427)]，其演讲专注于他们的实现中「已经完成或已纳入规划」的几种语言扩展 [[Borland International 1996](./references.md#TC39:1996:006)]。主要的扩展包括类定义、try / catch / finally 异常处理、类 C 的 switch 语句、作为一等值的代码块、数组字面量、类 C 的预处理器，以及许多内置库的新增特性（包括一些 IO 特性在内）。Borland 还指出了他们在尝试与 Netscape 的实现互相兼容时遇到的困难，并表示需要更正式的规范，以确保实现之间的互操作性。
+Borland 研发了JavaScript 和 JavaScript IDE 的服务端实现 [[Lazar 1997](./references.md#Lazar:1997:BI:252425.252427)]，其演讲专注于他们的实现中已经完成或纳入规划的几种语言扩展 [[Borland International 1996](./references.md#TC39:1996:006)]。主要的扩展包括类定义、try / catch / finally 异常处理、类 C 的 switch 语句、作为一等值的代码块、数组字面量、类 C 的预处理器，以及许多内置库的新增特性（包括一些 IO 特性在内）。Borland 还指出了他们在尝试与 Netscape 的实现互相兼容时遇到的困难，并表示需要更正式的规范，以确保实现之间的互操作性。
 
 Nombas 的 Brent Noorda 介绍了该公司定位于脚本语言的 Cmm（C minus minus）产品。Cmm 的表层语法和某些语义与 JavaScript 1.0 非常相似，后来，Nombas 将其 Cmm 实现发展成了面向嵌入式应用的 ECMAScript 实现 [[Noorda 2012](./references.md#nombas)]。
 
@@ -61,7 +61,7 @@ TC39 的第二次会议 [[1997e](./references.md#TC39:1997:007)] 于 1997 年 1 
 
 会议的主要技术内容，是对标准第一稿进行审查和讨论 [[TC39 1997c](./references.md#TC39:1997:001)]。Borland 的 Michael Gardner 和 Randy Solton 通过整合 Netscape、微软和 Borland 的贡献，创建出了这份文档。由于 Spyglass 公司没有加入 Ecma，因此 Anup Murarka 没有参加第一稿的开发。会议将所有三个实现中完全相同的特性认定为不存在争议，并确定了特性不同之处以便后续协调。
 
-那些特定于具体实现的特性，在「扩展提案」（Proposed Extensions）附录中列出。委员会讨论了对扩展的处理方式，并商定「当时实现中共有的核心特性」优先级将高于所有扩展。另外委员会还达成一致，认为规范应规避需要修改现有应用的改动，这也最终成为了未来对标准的修订中重要的设计准则。
+那些特定于具体实现的特性，在「扩展提案」（Proposed Extensions）附录中列出。委员会讨论了对扩展的处理方式，并商定对于当时实现中共有的核心特性，其优先级将高于所有扩展。另外委员会还达成一致，认为规范应规避需要修改现有应用的改动，这也最终成为了未来对标准的修订中重要的设计准则。
 
 为满足紧迫的时间表，委员会成立了一个特设技术工作组。这个工作组获得了与编辑一起工作的授权，以便填补丢失的材料，并解决规范中突出的技术问题。小组将进行电子化交流，每周轮流以当面会议和电话会议的形式开会，并由 Scott Wiltamuth 担任书记员。TC39 会议于 1 月 15 日上午 10:30 休会，其余时间用于特设技术工作组的会议。
 
@@ -100,11 +100,11 @@ Robert Welland 返回 Redmond 后，将他的 JScript 0.1 规范交接给了 Sho
 
 图 13. ECMAScript 标准的结构。
 
-草案中对语法约定的描述，主要来自 Netscape 的规范。但至于表达式与语句级语法的结构，以及产生式（production）的名称，则在很大程度上遵循了微软规范中的用法。在两份贡献出的规范中，表达式语法在细微的细节层面上有所不同，例如函数调用的优先级、对象的创建（`new` 运算符），以及「对象属性访问表达式」的元素等。
+草案中对语法约定的描述，主要来自 Netscape 的规范。但至于表达式与语句级语法的结构，以及产生式（production）的名称，则在很大程度上遵循了微软规范中的用法。在两份贡献出的规范中，表达式语法在细微的细节层面上有所不同，例如函数调用的优先级、对象的创建（`new` 运算符），以及对象属性访问表达式的元素等。
 
-这份草案试图将自动分号插入（ASI）规则精确地定义为用来「校正解析错误」的过程。语句的语法包括了显式的分号，用于终止所有非复合语句。如果没有 ASI，那么缺失分号将会产生解析错误。ASI 规范定义了 JavaScript 解析器何时必须通过「假设存在分号」并重新解析的方式，来尝试纠正此类解析错误。第一版草案中的 ASI 规则并不完整，这在后来的 ECMAScript 规范草案和发行版中进行了完善。
+这份草案试图将自动分号插入（ASI）的规则，精确地定义为用来「校正解析错误」的过程。语句的语法包括了显式的分号，用于终止所有非复合语句。如果没有 ASI，那么缺失分号将会产生解析错误。ASI 规范定义了 JavaScript 解析器何时必须通过「假设存在分号」并重新解析的方式，来尝试纠正此类解析错误。第一版草案中的 ASI 规则并不完整，这在后来的 ECMAScript 规范草案和发行版中进行了完善。
 
-1 月 10 日的草案中包含了 Shon Katzenberger 的伪代码算法（例如图 14），用于定义各种语言结构的语义。算法由「顺序编号的步骤」和「步骤之间的简单条件控制流」组成。每个步骤都包含一些*命令式*<sup>[g](./appendices.md#imperative)</sup>的叙述。步骤的叙述用英语编写，并结合了规范中针对常见动作所定义的基本词汇。可以在规范内的其他算法中命名和「调用」这些算法。
+1 月 10 日的草案中包含了 Shon Katzenberger 的伪代码算法（例如图 14），用于定义各种语言结构的语义。具体算法的组成，则包括了带顺序编号的步骤，以及步骤之间的简单条件控制流。每个步骤都包含一些*命令式*<sup>[g](./appendices.md#imperative)</sup>的叙述。步骤的叙述用英语编写，并结合了规范中针对常见动作所定义的基本词汇。可以在规范内的其他算法中命名和「调用」这些算法。
 
 ```
 4.4.7 GetValue(V)
@@ -120,7 +120,7 @@ Robert Welland 返回 Redmond 后，将他的 JScript 0.1 规范交接给了 Sho
 
 草案还定义了算法中使用的数据类型。ECMAScript 程序中可见值的类型包括 Number、Boolean、String、Object、Undefined 和 Null。另外还有 Reference、Completion 和 List 类型的值用于定义语言语义，ECMAScript 程序无法直接接触到它们。
 
-对象类型的规范引入了属性*标记*<sup>[g](./appendices.md#attribute)</sup>的概念，用于控制如何访问或修改各个属性。规范共定义了七种不同的标记：ReadOnly、ErrorOnWrite、DontEnum、NotImplicit、NotExplicit、Permanent 和 Internal。最后，ErrorOnWrite、NotImplicit 和 NotExplicit 被移除，而 Permanent 则被重命名为 DontDelete。具有 Internal 标记的属性会保留与对象相关联的内部状态，但这对 ECMAScript 程序并不直接可见。这种*内部属性*<sup>[g](./appendices.md#internal-property)</sup>的用途是保存状态，这些状态对于实现「对象语义」或「内置对象与宿主对象的唯一行为」是必需的。
+对象类型的规范引入了属性*标记*<sup>[g](./appendices.md#attribute)</sup>的概念，用于控制如何访问或修改各个属性。规范共定义了七种不同的标记：ReadOnly、ErrorOnWrite、DontEnum、NotImplicit、NotExplicit、Permanent 和 Internal。最后，ErrorOnWrite、NotImplicit 和 NotExplicit 被移除，而 Permanent 则被重命名为 DontDelete。具有 Internal 标记的属性会保留与对象相关联的内部状态，但这对 ECMAScript 程序并不直接可见。这种*内部属性*<sup>[g](./appendices.md#internal-property)</sup>的用途是保存状态。对于实现对象语义，或者实现内置对象与宿主对象的唯一行为，这些状态都是必需的。
 
 一并引入的概念还包括*内部方法*<sup>[g](./appendices.md#internal-method)</sup>，这是用于定义对象基本行为的算法。对于某些内部方法，可以用替代性的定义来指定不同种类的对象（例如 Array 对象），从而支持它们在行为上的变化。内部方法的接口，实质上是简单*元对象协议*<sup>[g](./appendices.md#metaobject-protocol)</sup>的规范 [[Kiczales et al. 1991](./references.md#Kiczales:1991:AMP:574212)]。
 
@@ -130,7 +130,7 @@ Robert Welland 返回 Redmond 后，将他的 JScript 0.1 规范交接给了 Sho
 
 1 月 10 日的草案，是 1997 年 1 月 15 日首次技术工作组会议上讨论的基础。会议做出了一些重要的决定 [[Wiltamuth 1997a](./references.md#TC39:1997:005)]，其中包括：
 
-* 初始标准的范畴将不涉及「宿主特定」的库对象与函数，例如那些应由浏览器和 Web 服务端宿主提供的规范。
+* 初始标准的范畴，将不涉及特定于宿主的库对象与函数。例如那些应由浏览器和 Web 服务端宿主提供的规范。
 * 只有在完整的规范草案可用后，才考虑对当前语言的扩展。
 * 逗号和 `?` 运算符不会传播（propagate）引用值，因此它们既不能在赋值运算的左侧使用，也不能作为函数调用的 `this` 值。
 * 标识符中不允许使用非 ASCII Unicode 字符。
@@ -201,176 +201,41 @@ ISO/IEC 投票产生了来自丹麦、法国、日本、荷兰和美国的国家
 在 TC39 的投入下，Mike Cowlishaw 准备了一份《意见处置报告》。这份报告在投票决议会议上获得了审核和接受 [[TC39 1998a](./references.md#TC39:1998:010)]。1998 年 7 月，即将出镜的修订版规范发布到了 ISO/IEC，并寄给了各 Ecma 标准会员。后者批准了该修订规范，是为《ECMA-262 第 2 版》[[Cowlishaw 1998](./references.md#ES2)]。
 
 ## 定义 ECMAScript 3
-在第一次 TC39 会议上，涌现出了许多对 JavaScript 1.0 / 1.1 语言的扩展，其中一些扩展也合并到了语言规范的初稿中。但是 TC39 技术工作组同意优先完成基本语言规范，而后才考虑新特性。因此对第一版来说，大部分可能的扩展都归入了规范草案的附录中 [[TC39 1997a](./references.md#TC39:1997:017B), Appendix B]。
+在第一次 TC39 会议上，涌现出了许多对 JavaScript 1.0/1.1 语言的扩展，其中一些扩展也合并到了语言规范的初稿中。但是 TC39 技术工作组同意优先完成基本语言规范，而后才考虑新特性。因此对第一版来说，大部分可能的扩展都归入了规范草案的附录中 [[TC39 1997a](./references.md#TC39:1997:017B), Appendix B]。
 
 到 1997 年 7 月的 TC39 会议 [[1997g](./references.md#TC39:1997:030)] 时，第一版的工作已接近完成。委员会考虑的重点转移到了下一版规范中所应包含的新特性。Netscape 已经表明了其 Netscape 4.0 的发展方向，其中会将 SpiderMonkey 引擎与 JavaScript 1.2 的扩展相结合。Scott Wiltamuth 则提出了微软 [[1997](./references.md#TC39:1997:032)] 关于「ECMAScript 2.0」的初步提案，其中包括 `switch` 语句、`do while` 语句，以及带有标签的 `break` 和 `continue` 语句。一并包含的还有 `===` 和 `!==` 运算符，以及将 `caller` 属性添加到 `arguments` 对象。微软的 Andrew Clinick [[1997](./references.md#TC39:1997:033)] 提出了一份单独的提案，希望增加条件编译支持。微软在 10 月将 JScript 3.0 作为 Internet Explorer 4.0 的组件发布时，确定了「第二版」的起点。图 17 列出了截至 1997 年底，由 Netscape [[1997c](./references.md#netscape:js1.2:guide)] 和微软 [[2009b](./references.md#jscriptversions)] 浏览器为 ECMAScript 第一版实现的主要扩展。
 
 <table>
   <thead>
-    <tr>
-      <th>Feature</th>
-      <th>JavaScript 1.2</th>
-      <th>JScript 3.0</th>
-      <th>ECMA-262 3rd Edition</th>
-    </tr>
+    <tr><th>Feature</th><th>JavaScript 1.2</th><th>JScript 3.0</th><th>ECMA-262 3rd Edition</th></tr>
   </thead>
   <tbody>
-    <tr>
-      <td><code>do</code> statement</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td><code>break</code>/<code>continue</code> to label</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td><code>switch</code> statement</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>Nested functions</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>Functions in expressions</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>Object literals</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>Array literals</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td><code>===</code> and <code>!==</code></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>Regular Expression literals</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td><code>delete</code> operator</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td><code>__proto__</code> pseudo property of all objects</td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Array methods: <code>concat</code>, <code>slice</code></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>Array methods: <code>push</code>, <code>pop</code>, <code>shift</code>, <code>splice</code>, <code>unshift</code></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>Sparse arrays with inherited elements</td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>String methods: <code>fromCharCode</code>, <code>match</code>, <code>replace</code>, <code>search</code>, <code>substr</code>, <code>split</code> using regular expressions</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>String method: <code>charCodeAt</code></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>RegExp method: <code>compile</code>, <code>exec</code>, <code>test</code></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>RegExp properties: <code>$1</code>...<code>$9</code>, <code>input</code></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>RegExp global properties: <code>lastMatch</code>, <code>lastParen</code>, <code>leftContext</code>, <code>rightContext</code></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><code>arguments</code> object has local declaration properties</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><code>arguments.callee</code></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td><code>arguments.caller</code></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><code>watch</code>/<code>unwatch</code> functions</td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><code>import</code>/<code>export</code> statements and signed scripts</td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Conditional compilation</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><code>debugger</code> keyword</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-    </tr>
+    <tr><td><code>do</code> statement</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>break</code>/<code>continue</code> to label</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>switch</code> statement</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Nested functions</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Functions in expressions</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Object literals</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Array literals</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>===</code> and <code>!==</code></td><td></td><td>✓</td><td>✓</td></tr>
+    <tr><td>Regular Expression literals</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>delete</code> operator</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>__proto__</code> pseudo property of all objects</td><td>✓</td><td></td><td></td></tr>
+    <tr><td>Array methods: <code>concat</code>, <code>slice</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Array methods: <code>push</code>, <code>pop</code>, <code>shift</code>, <code>splice</code>, <code>unshift</code></td><td>✓</td><td></td><td>✓</td></tr>
+    <tr><td>Sparse arrays with inherited elements</td><td>✓</td><td></td><td>✓</td></tr>
+    <tr><td>String methods: <code>fromCharCode</code>, <code>match</code>, <code>replace</code>, <code>search</code>, <code>substr</code>, <code>split</code> using regular expressions</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>String method: <code>charCodeAt</code></td><td>✓</td><td></td><td>✓</td></tr>
+    <tr><td>RegExp method: <code>compile</code>, <code>exec</code>, <code>test</code></td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>RegExp properties: <code>$1</code>...<code>$9</code>, <code>input</code></td><td>✓</td><td>✓</td><td></td></tr>
+    <tr><td>RegExp global properties: <code>lastMatch</code>, <code>lastParen</code>, <code>leftContext</code>, <code>rightContext</code></td><td>✓</td><td></td><td></td></tr>
+    <tr><td><code>arguments</code> object has local declaration properties</td><td>✓</td><td>✓</td><td></td></tr>
+    <tr><td><code>arguments.callee</code></td><td>✓</td><td></td><td>✓</td></tr>
+    <tr><td><code>arguments.caller</code></td><td>✓</td><td>✓</td><td></td></tr>
+    <tr><td><code>watch</code>/<code>unwatch</code> functions</td><td>✓</td><td></td><td></td></tr>
+    <tr><td><code>import</code>/<code>export</code> statements and signed scripts</td><td>✓</td><td></td><td></td></tr>
+    <tr><td>Conditional compilation</td><td></td><td>✓</td><td></td></tr>
+    <tr><td><code>debugger</code> keyword</td><td></td><td>✓</td><td></td></tr>
   </tbody>
 </table>
 
@@ -395,7 +260,7 @@ TC39 的正式会议已经改由代表成员公司的小组与项目经理参加
 
 图 18. 1998 年 TC39 技术工作组的经常性参与者。
 
-在 1997 年 10 月，技术工作组为能包含在第二版中的特性列出了清单（Appendix H）。在这里获得认可而列出的特性中，除了一些例外，主要都是 Netscape JavaScript 1.2 和微软 JScript 3.0 特性的结合。还有 `toSource` 也包括在内，对应于 Brendan Eich 为 JavaScript 1.3 开发的对象序列化与持久性方案<sup>[37](./notes.md#37)</sup>。其他已在设想中但缺乏共识的特性则另外列出。与第一版一样，工作组的大部分注意力集中在「精确指定已实现的特性」与「解决实现之间存在的差异」上。但是，商定的特性列表里还包括异常处理机制、`instanceof` 运算符，以及尚未实现的所有其他特性。开发这些特性将需要某种设计工作，这在第一版中是不必的。图 19 列出了一些 1998 年前的浏览器所没有的特性，这些特性最终都包含在了 ES3 中。
+在 1997 年 10 月，技术工作组为能包含在第二版中的特性列出了清单（Appendix H）。在这里获得认可而列出的特性中，除了一些例外，主要都是 Netscape JavaScript 1.2 和微软 JScript 3.0 特性的结合。还有 `toSource` 也包括在内，对应于 Brendan Eich 为 JavaScript 1.3 开发的对象序列化与持久性方案<sup>[37](./notes.md#37)</sup>。其他已在设想中但缺乏共识的特性则另外列出。与第一版一样，工作组的大部分注意力都集中在精确指定已实现的特性，并解决实现之间存在的差异。但是，商定的特性列表里还包括异常处理机制、`instanceof` 运算符，以及尚未实现的所有其他特性。开发这些特性将需要某种设计工作，这在第一版中是不必的。图 19 列出了一些 1998 年前的浏览器所没有的特性，这些特性最终都包含在了 ES3 中。
 
 ```
 * try-catch-finally 和异常对象
@@ -414,7 +279,7 @@ TC39 的正式会议已经改由代表成员公司的小组与项目经理参加
 
 Bill Gibbons 是新规范工作草案的编辑。每次会议都有一个介绍和讨论各种提案和未解决问题的议程。提案被提出的形式，则通常是提交新的或修订后的算法规范文本。会议还进行了一般状态审核，由与会人员讨论自上次会议以来确定的问题。当就提案或问题解决方案达成协议时，Gibbons 会将其纳入工作草案。V2 版本的第一份完整草案 [[Cowlishaw et al. 1998](./references.md#Gibbons:es2-9804)] 发布于 1998 年 4 月，基于 ECMA-262 第一版，其中没有包含任何为 ECMA-262 第二版（ISO 版本）同时开发的更改。工作草案的标题页指出，这里包含的是 Netscape 和微软提交的拟议更改。在 9 月 ISO 版本完成后，Gibbons 将 ES2 更改合并到了当前的 V2 工作草案中。
 
-当时 Unicode 仍然是一种新技术，语言设计人员还在探索将其集成到编程语言中的最佳实践。有个需要特别关注的问题，即如何处理 Unicode 的各种正规化（normalization）形式，这些形式允许对行为等效的字符序列进行替代编码。ES1 对 Unicode 的支持很少。惠普的 Tom McFarland 参加 1998 年 5 月的会议后提交了一份备忘录 [[McFarland 1998](./references.md#HP-I18N:a)]，指出了他认为与*国际化*<sup>[g](./appendices.md#internationalization)</sup>（I18N）有关的许多问题，以及如何将 Unicode 更好地集成到 ECMAScript 中。经过几次会议的讨论，TC39 在 1998 年 11 月建立了一个由 IBM 的 Richard Gillam [[1998](./references.md#Gillam:i18n9811)] 主持的「I18N 工作组」。I18N 小组很快决定将重点放在针对核心语言的少量基本 I18N 特性上 [[Gillam et al. 1999b](./references.md#Gillam:i18n9904)]，并将关于国际化和本地化更复杂的内容推迟，将它们纳入单独定义的可选库中 [[Gillam et al. 1999a](./references.md#Gillam:i18n9901), [b](./references.md#Gillam:i18n9904)]。但直到 2012 年，这些类库的规范 [[Lindenberg 2012](./references.md#ecma402-1)] 才得以完成。除了为核心语言添加了少量区域特定（locale-specific）特性外，I18N 小组还解决了如何将非拉丁字符合并到标识符中的问题。它推荐 ECMAScript 规范假定「提供给实现的源代码」都采用 Unicode 正规形式 C（Normal Form C）来编写，从而很大程度上避免了正规化问题。它还选择不对核心语言中的 Unicode 正规化提供任何支持，并把对正规化的编程支持推迟纳入可选库中。
+当时 Unicode 仍然是一种新技术，语言设计人员还在探索将其集成到编程语言中的最佳实践。有个需要特别关注的问题，即如何处理 Unicode 的各种正规化（normalization）形式，这些形式允许对行为等效的字符序列进行替代编码。ES1 对 Unicode 的支持很少。惠普的 Tom McFarland 参加 1998 年 5 月的会议后提交了一份备忘录 [[McFarland 1998](./references.md#HP-I18N:a)]，指出了他认为与*国际化*<sup>[g](./appendices.md#internationalization)</sup>（I18N）有关的许多问题，以及如何将 Unicode 更好地集成到 ECMAScript 中。经过几次会议的讨论，TC39 在 1998 年 11 月建立了一个由 IBM 的 Richard Gillam [[1998](./references.md#Gillam:i18n9811)] 主持的「I18N 工作组」。I18N 小组很快决定将重点放在针对核心语言的少量基本 I18N 特性上 [[Gillam et al. 1999b](./references.md#Gillam:i18n9904)]，并将关于国际化和本地化更复杂的内容推迟，将它们纳入单独定义的可选库中 [[Gillam et al. 1999a](./references.md#Gillam:i18n9901), [b](./references.md#Gillam:i18n9904)]。但直到 2012 年，这些类库的规范 [[Lindenberg 2012](./references.md#ecma402-1)] 才得以完成。除了为核心语言添加了少量区域特定（locale-specific）特性外，I18N 小组还解决了如何将非拉丁字符合并到标识符中的问题。它推荐 ECMAScript 规范对于提供给实现的源代码，可以假定其均采用 Unicode 的正规形式 C（Normal Form C）来编写。这在很大程度上避免了正规化问题。它还选择不对核心语言中的 Unicode 正规化提供任何支持，并把对正规化的编程支持推迟纳入可选库中。
 
 V2 的主要任务，是为语言设计异常处理机制。1998 年 2 月 [[TC39 1998c](./references.md#ES3:feb08)]，微软的 Herman Venter 和 Netscape 的 Waldemar Horwat 均提出了设计草案。两种设计都多少参考了 Java 的 try-catch-finally 语句语法，但它们和 Java 在语法和语义上都存在着显著的差异。
 
@@ -446,15 +311,14 @@ cleanup();
 // Netscape 的设计
 try {
   doSomething();
-}catch (e if e == "thing"){
-    console.log("a thing")
-}catch (e2 == if e2 == 42){
-    console.log("42")
-}catch (e3){
-    console.log(e3);
-    throw e3; // 重新 throw
-  }
-}finally {
+} catch (e if e == "thing") {
+  console.log("a thing")
+} catch (e2 if e2 == 42) {
+  console.log("42")
+} catch (e3) {
+  console.log(e3);
+  throw e3; // 重新 throw
+} finally {
   cleanup();
 }
 
@@ -462,7 +326,7 @@ try {
 // 第 3 版规范的最终设计
 try {
   doSomething();
-}catch (e){
+} catch (e) {
   if (e == "thing")
     console.log("a thing")
   else if (e == 42)
@@ -471,7 +335,7 @@ try {
     console.log(e);
     throw e; // 重新 throw
   }
-}finally {
+} finally {
   cleanup();
 }
 ```
@@ -500,26 +364,26 @@ ES3 包含了内部函数声明和函数表达式，它们与 JavaScript 1.2 中
 
 工作组在 1999 年 5 月至 1999 年 9 月间举行了四次会议，以解决有关第三版规范最终草案的问题。在此期间必须解决的重大设计问题包括：正则表达式匹配语义算法规范的创建、一组内置异常类型的确定、函数表达式绑定语义的确定，以及将 Unicode 支持合并到语言中时的细节。
 
-1999 年 8 月 8 日，Mike Cowlishaw [[1999c](./references.md#tc39:990803-e3status)] 发布了最终的「E3 草案状态」，展示了所有状态为「内容已同意」或「自 V1 以来未更改」的章节。8 月 25 日，Bill Gibbons [[1999](./references.md#Gibbons:990825-e3-final)] 分发了「Edition 3 最终草案」，并离开委员会开始了新工作。Herman Venter 和 Waldemar Horwat 负责将所有剩余的更改纳入草案。
+1999 年 8 月 8 日，Mike Cowlishaw [[1999c](./references.md#tc39:990803-e3status)] 发布了最终的「E3 草案状态」，展示了所有状态为「内容已同意」或「自 V1 以来未更改」的章节。8 月 25 日，Bill Gibbons [[1999](./references.md#Gibbons:990825-e3-final)] 发布了「第三版 3 最终草案」，并离开委员会开始了新工作。Herman Venter 和 Waldemar Horwat 负责将所有剩余的更改纳入草案。
 
 在最后的 ES3 开发会议 [[TC39 1999b](./references.md#ES3:sept09)] 中，Horwat 准备了很长的笔记清单，以标识对次要编辑和技术问题的更正，这其中只有少数变化会影响 JavaScript 程序员的日常。内置异常 `ConversionError` 和 `RegExpError` 被移除，由 `TypeError` 和 `SyntaxError` 取代。
 
 对于 *FunctionExpression*<sup>[40](./notes.md#40)</sup>（函数表达式）中允许在函数名称位置出现的可选标识符，8 月的草案没有为其指定任何含义。例如：
 
 ``` js
-function fact(n) {throw "wrong fact"}; // 函数声明
+function fact(n) { throw "wrong fact" }; // 函数声明
 var lambdaFact = function fact(n) { // 这个函数表达式，是否应该绑定到 fact 上？
-  return n<=1 ? 1: fact(n-1);
+  return n <= 1 ? 1 : fact(n - 1);
 };
 lambdaFact(5); // 应该递归还是抛出异常？
 ```
 
-在这份草案中，调用 `lambdaFact` 会抛出异常。这是因为这里 *FunctionExpression* 起始位置的 `fact` 名称，并没有为 `fact` 创建词法绑定。在 9 月的会议上达成了对规范的修订意见，会为这个名称创建一个到相应函数的「本地名称绑定」，这个绑定只在 *FunctionExpression* 的语句体内可见。
+在这份草案中，调用 `lambdaFact` 会抛出异常。这是因为这里 *FunctionExpression* 起始位置的 `fact` 名称，并没有为 `fact` 创建词法绑定。在 9 月的会议上达成了对规范的修订意见，会为这个名称创建一个到相应函数的本地名称绑定，这个绑定只在 *FunctionExpression* 的语句体内可见。
 
-在最后时刻还有个最令人惊讶的新增特性，即 Waldemar Horwat 在会议上提出的「合并函数」（joined functions）。只要实现支持该特性，就可以在如下情况时重复返回相同的函数闭包对象：
+在最后时刻还有个最令人惊讶的新增特性，即 Waldemar Horwat 在会议上提出的「函数合并」（joined functions）。只要实现支持该特性，就可以在如下情况时重复返回相同的函数闭包对象：
 
 ``` js
-function getClosure() {return function() {/* 没有对自由变量的引用 */}}
+function getClosure() { return function () {/* 没有对自由变量的引用 */ } }
 var firstTime = getClosure();
 var secondTime = getClosure();
 
@@ -527,7 +391,7 @@ var secondTime = getClosure();
 console.log(firstTime === secondTime); // 是否是相同对象？
 ```
 
-Waldemar Horwat 担心闭包创建的开销，并认为这个改动将可以让实现在某些常见情况下复用闭包。Herman Venter 表示了一些担忧，但在会议结束时同意支持这个改动。这本可能造成一个重大的设计错误，因为随后 Web 浏览器上的经验表明，这种特性所允许的某种「可观察到的实现差异」，可能会妨碍网站在不同浏览器上的正常工作。幸运的是，并没有浏览器实现函数联合特性，它在 2009 年也从 ES5 规范中删除。
+Waldemar Horwat 担心闭包创建的开销，并认为这个改动将可以让实现在某些常见情况下复用闭包。Herman Venter 表示了一些担忧，但在会议结束时同意支持这个改动。这本可能造成一个重大的设计错误，因为随后 Web 浏览器上的经验表明，这种特性所允许的某种在实现间可见的差异，可能会妨碍网站在不同浏览器上的正常工作。幸运的是，并没有浏览器实现函数合并特性，它在 2009 年也从 ES5 规范中删除。
 
 由于在字符串字面量中，对八进制常量（以 `0` 开头的数字写法）和八进制转义序列的使用不被提倡，它们从 *规范的*<sup>[g](./appendices.md#normative)</sup>标准中移到了非规范性的附录 B<sup>[41](./notes.md#41)</sup>（Annex B）中。一并移至附录 B 的内容包括：与 Y2K 不兼容的 Date 方法、`escape` 和 `unescape` 字符串函数，以及字符串方法 `substr`。这些特性都已被认定为过时，但仍被网站使用。此举背后的设想，在于特性一旦在标准的非规范性附录 B 中列出，即表明它们已被废弃而不应继续使用，各实现均有权最终删除它们。这是个幼稚的期望。TC39 成员尚未意识到，浏览器实现者们非常不愿意删除网页上实际可能用到的任何特性（不论是否标准化）——某些网页永远不会消失。
 
@@ -590,26 +454,25 @@ Web 2.0 和 AJAX 的出现，是 JavaScript 在 Web 开发中用途的主要转�
 
 这样一种特殊的库，已经重要到了要创造新词汇来表示它的程度。Remy Sharp [[2010](./references.md#polyfill)] 提出了「polyfill<sup>[g](./appendices.md#polyfill)</sup>」一词，它所描述的库提供了「应由浏览器提供但仍然缺失」的 API 支持。设计良好的 polyfill 会动态检查它所提供的特性是否在环境中已经可用。只有在缺少内置支持或不兼容的情况下，polyfill 才会自行将其置入环境。早期的 polyfill 库专注于使浏览器更具互操作性，其手段主要是隐藏早期浏览器竞争中留下的遗留特性变体，或在旧浏览器中支持新的浏览器特性。如果一个特性在某种流行的浏览器中存在，但在其他流行的浏览器中却不存在，那么 polyfill 可以使 Web 应用使用相同的代码在所有浏览器上运行。随着浏览器兼容性的改善，polyfill 则成为了一种常见手法，用来尽早用上浏览器和 JavaScript 的新特性。在 Web 新特性的设计过程中，polyfill 库的创建变得十分普遍。除了对开发者有用外，通过 polyfill 还能收集到宝贵的开发者反馈，从而支持新特性和 API 的设计。
 
-当 JavaScript 应用是朴素地将独立创建的几个部分组合而成时，命名冲突十分常见。许多框架和库提供了某种模块化机制，这通常是通过使用命名空间对象（namespace objects）和立即执行的函数表达式（IIFE<sup>[49](./notes.md#49)</sup>）来实现的。命名空间对象只是个单例对象，其主要用途是提供对函数或变量的限定（qualified）名称访问。JavaScript 1.0 的内置 Math 对象就是命名空间对象。命名空间对象的限制之一在于，它之中的所有名称都是公共的。这个限制可以通过在模块模式中「将命名空间对象与 IIFE 相结合」的方式来克服，如图 22 所示。
+当 JavaScript 应用是朴素地将独立创建的几个部分组合而成时，命名冲突十分常见。许多框架和库提供了某种模块化机制，这通常是通过使用命名空间对象（namespace objects）和立即执行的函数表达式（IIFE<sup>[49](./notes.md#49)</sup>）来实现的。命名空间对象只是个单例对象，其主要用途是提供对函数或变量的限定（qualified）名称访问。JavaScript 1.0 的内置 Math 对象就是命名空间对象。命名空间对象的限制之一在于，它之中的所有名称都是公共的。要克服这个限制，可以将命名空间对象与 IIFE 相结合，如图 22 所示。
 
 ``` js
 // 使用模块模式定义 services
 var Services = function () {
   var privateJobCount = 0; // 「模块」的私有状态
   return { // 命名空间对象
-    jobCount: function() {return privateJobCount},
-    job1: function() {privateJobCount++}
+    jobCount: function () { return privateJobCount },
+    job1: function () { privateJobCount++ }
   }
 }(); // Services 被初始化为调用该函数时的返回值
 
 // 从命名空间里获取实体
 Services.job1();
-console.log(Services.jobCount()); // 显示 1
 ```
 
 图 22. JavaScript 模块模式的示例。这里的 `Services` 函数封装了私有的实现。`Services` 会在被调用并返回命名空间对象时初始化，命名空间对象的属性暴露了「模块」的公共接口。
 
-模块模式有几个变体，但基本概念都是用 IIFE（或有时用命名函数）的词法作用域来「封装一系列函数的某些私有状态」。IIFE 会返回一个命名空间对象，其属性就是封装后需要支持被公开访问的函数。
+模块模式有几个变体，但基本概念都是用 IIFE（或有时用命名函数）的词法作用域，来封装一系列函数的某些私有状态。IIFE 会返回一个命名空间对象，其属性就是封装后需要支持被公开访问的函数。
 
 通常认为 Douglas Crockford 普及了模块模式，但它很可能是由许多 JavaScript 程序员独立发现的。
 
@@ -641,7 +504,7 @@ Brendan Eich 回忆说在某个时候，他意识到市场的务实性严重限�
 
 Eich 意识到这种情况很可能属于纳什均衡 [[Nash 1950](./references.md#nash1950equilibrium)]，因此创造了「浏览器博弈论」一词，用以描述浏览器实现者所受到的约束。
 
-第一个约束有时会用「不要破坏 Web！」的口号来表述。网页通常以 HTML 和 JavaScript 源码的形式存储在服务器上。每次用户访问页面时，浏览器都会对其进行重新解释。这些页面中有很多并非由其原始创建者维护，但仍在活跃使用中，其中还包括一些具有持续效用或历史重要性的文档。一旦浏览器解释源代码的方式发生*破坏性变更*<sup>[g](./appendices.md#breaking-change)</sup>，就可能导致某个页面变得难以辨认或无法正常工作。如果变化仅在单个浏览器上发生，那么用户可以切换到使用其他浏览器。如果这种变化在浏览器中普遍存在，那么这部分失去维护的 Web 就会永久损坏。这个事实也限制了 Web 标准的开发。如果浏览器实现者认为一旦某个标准所「引入的特性或授权做出的改动」会使得现存的大量 Web 内容失效，那么这个标准就将被忽略。
+第一个约束有时会用「不要破坏 Web！」的口号来表述。网页通常以 HTML 和 JavaScript 源码的形式存储在服务器上。每次用户访问页面时，浏览器都会对其进行重新解释。这些页面中有很多并非由其原始创建者维护，但仍在活跃使用中，其中还包括一些具有持续效用或历史重要性的文档。一旦浏览器解释源代码的方式发生*破坏性变更*<sup>[g](./appendices.md#breaking-change)</sup>，就可能导致某个页面变得难以辨认或无法正常工作。如果变化仅在单个浏览器上发生，那么用户可以切换到使用其他浏览器。如果这种变化在浏览器中普遍存在，那么这部分失去维护的 Web 就会永久损坏。这个事实也限制了 Web 标准的开发。一旦浏览器实现者认为某个标准所引入的特性（或授权做出的改动）会使得现存的大量 Web 内容失效，那么这个标准就将被忽略。
 
 如今，浏览器开发者普遍认识到作为 Web 及其开放标准基础的兼容要求，限制了他们通过单方面平台创新进行竞争的能力。浏览器「可以并且确实」会在实现的质量（如性能、安全性、可靠性和可用性）上进行竞争。但要想提高浏览器作为应用平台的基本技术能力，通常需要所有主流浏览器之间的合作。
 

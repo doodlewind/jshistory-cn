@@ -37,9 +37,9 @@ Marc Andreessen 强调，Mocha 应该非常易于使用，任何人都可以直�
 
 在外表接近 Java 的要求之外，Brendan Eich 可以自由选择大多数语言设计细节。加入 Netscape 后，他探索了一些「易于使用」与「教育用途」的语言，包括 HyperTalk 语言 [[Apple Computer 1988](./references.md#apple1988hypercard)]，Logo 语言 [[Papert 1980](./references.md#logo)] 和 Self 语言 [[Ungar and Smith 1987](./references.md#self)]。所有人都认可 Mocha 将会「基于对象」但没有类。因为支持类将花费很长时间，并有与 Java 竞争的风险。出于对 Self 的认可，Eich 选择使用带有单个原型链接的*委托*<sup>[g](./appendices.md#delegation)</sup>机制，来创建动态的对象模型。他认为这样可以节省实现成本，但最后还是没有足够时间在 Mocha 原型中暴露该机制。
 
-对象是通过为*构造函数*<sup>[g](./appendices.md#constructor-function)</sup>应用 `new` 运算符的方式创建的。名为 `Object` 的「默认对象构造函数」与其他内建对象一起内置在环境中。每个对象由零个或多个属性组成。每个*属性*<sup>[g](./appendices.md#property)</sup>都有一个名称（也叫*属性键*<sup>[g](./appendices.md#property-key)</sup>）和一个值，该值可以是*函数*<sup>[g](./appendices.md#function)</sup>、对象或其他几种内建数据类型之一。可以通过「为未使用的属性键赋值」的方式来创建属性。属性没有可见性或赋值限制，构造函数还可以提供一组初始属性。创建对象后，也可以将其他属性添加上去。LiveWire 团队特别喜欢这种非常动态的手法。
+对象是通过为*构造函数*<sup>[g](./appendices.md#constructor-function)</sup>应用 `new` 运算符的方式创建的。名为 `Object` 的默认对象构造函数，与其他内建对象一起内置在环境中。每个对象由零个或多个属性组成。每个*属性*<sup>[g](./appendices.md#property)</sup>都有一个名称（也叫*属性键*<sup>[g](./appendices.md#property-key)</sup>）和一个值，该值可以是*函数*<sup>[g](./appendices.md#function)</sup>、对象或其他几种内建数据类型之一。可以通过为未使用的属性键赋值的方式，来创建出新属性。属性没有可见性或赋值限制，构造函数还可以提供一组初始属性。创建对象后，也可以将其他属性添加上去。LiveWire 团队特别喜欢这种非常动态的手法。
 
-尽管 Scheme 的诱惑已经不再，Brendan Eich 仍然发现 Lisp 式的函数*一等公民*<sup>[g](./appendices.md#first-class)</sup>概念很有吸引力。函数一等公民对应的这套工具深受 Scheme 习惯用法的启发，方法不必被包含在类中。这包括支持顶层的子程序、将函数作为参数传递、对象上的方法，以及事件处理器（event handler）。由于时间限制，函数表达式（也叫 *lambda 表达式*<sup>[g](./appendices.md#lambda-expression)</sup>，或简称 lambda）被延期，但在语法中得以保留。事件处理器和对象方法通过向 Java（在 C++ 之后）借鉴的 `this` 关键字得以统一。在所有函数中，它都用于表示该函数「在作为方法被调用时」的上下文对象。
+尽管 Scheme 的诱惑已经不再，Brendan Eich 仍然发现 Lisp 式的函数*一等公民*<sup>[g](./appendices.md#first-class)</sup>概念很有吸引力。函数一等公民对应的这套工具深受 Scheme 习惯用法的启发，方法不必被包含在类中。这包括支持顶层的子程序、将函数作为参数传递、对象上的方法，以及事件处理器（event handler）。由于时间限制，函数表达式（也叫 *lambda 表达式*<sup>[g](./appendices.md#lambda-expression)</sup>，或简称 lambda）被延期，但在语法中得以保留。事件处理器和对象方法通过向 Java（在 C++ 之后）借鉴的 `this` 关键字得以统一。在所有函数中，它都用于表示该函数在作为方法被调用时的上下文对象。
 
 在与 Marc Andreessen 以及一些早期的 Netscape 工程师<sup>[11](./notes.md#11)</sup>做非正式讨论的激励之下，这个原型支持了 `eval` 函数。它可以解析执行包含程序的字符串。直觉上，这种动态的「字符串到程序」编程对 Web 浏览器和服务器上的某些应用很重要<sup>[12](./notes.md#12)</sup>。不过，支持 `eval` 的决策立刻带来了相应的后果。一些场景需要函数通过类似 Java 的 `toString` 方法，将其源码反编译为字符串。为此 Eich 选择在十天冲刺<sup>[13](./notes.md#13)</sup>内实现字节码反编译器，因为不论将源码放在主存储器（RAM 或 ROM）还是从辅助存储器（硬盘等）中恢复，对某些需支持的目标体系结构而言，代价都可能过于昂贵。对于受 Intel 8086 16 位分段内存模型约束的 Windows 3.1 计算机而言，情况尤其如此。因为对于内存中无边界或大型的结构体，需要覆盖并手动管理内存中的多个段。
 
@@ -114,7 +114,7 @@ JavaScript 1.0 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)] 是�
 
 图 3. JavaScript 1.0 中未涉及的 JavaScript 常用特性（约 2010 年时）。
 
-1996 年初，代号「Atlas」的 Netscape Navigator 3.0 开发工作启动 [[Netscape 1996g](./references.md#netscape:nav:3.0b3:releasenotes)]，并于 1996 年 8 月发布。Brendan Eich 在此期间得以继续开发那些当 1995 年 8 月的 2.0 版本特性冻结时，还不够完整或缺失的特性。直到 Navigator 3.0 中发布 JavaScript 1.1 [[Netscape 1996a](./references.md#netscape:js1.1:newfeatures), [e](./references.md#netscape:js1.1:handbook)] 时，JavaScript 的初始定义和开发才算完成。以下各节概述了 JavaScript 1.0 / 1.1 语言的设计。
+1996 年初，代号「Atlas」的 Netscape Navigator 3.0 开发工作启动 [[Netscape 1996g](./references.md#netscape:nav:3.0b3:releasenotes)]，并于 1996 年 8 月发布。Brendan Eich 在此期间得以继续开发那些当 1995 年 8 月的 2.0 版本特性冻结时，还不够完整或缺失的特性。直到 Navigator 3.0 中发布 JavaScript 1.1 [[Netscape 1996a](./references.md#netscape:js1.1:newfeatures), [e](./references.md#netscape:js1.1:handbook)] 时，JavaScript 的初始定义和开发才算完成。以下各节概述了 JavaScript 1.0/1.1 语言的设计。
 
 ### JavaScript 语法
 JavaScript 1.0 的语法直接以 C 语言 [[ANSI X3 1989](./references.md#c89)] 为基础，有一些地方受到了 *AWK*<sup>[g](./appendices.md#AWK)</sup> 语言 [[Aho et al. 1988](./references.md#aho1988awk)] 的启发。一个脚本（script）就是一系列的语句（statement）和声明（declaration）。与 C 不同的是，JavaScript 的语句并不限于在函数体内出现。在 JavaScript 1.0 中，脚本源码嵌入在由 `<script></script>` 标签包围的 HTML 文档中。
@@ -123,36 +123,36 @@ JavaScript 1.0 中受 C 启发的语句包括：表达式语句；`if` 条件语
 
 在基本的 C 语句全家桶基础上，JavaScript 1.0 添加了两个复合语句，用于访问其对象数据类型的属性。受 AWK 启发的 `for-in` 语句可以遍历对象的*属性键*<sup>[g](./appendices.md#property-key)</sup>。而在 `with` 语句<sup>[15](./notes.md#15)</sup>的语句体内，可以把某个对象的属性名称当作变量来访问。由于属性可能被动态添加（在更高版本的语言中还可以被删除），因此可见变量的*绑定*<sup>[g](./appendices.md#binding)</sup>可能会随 `with` 语句体中的执行过程而发生变化。
 
-JavaScript 中的声明（declaration）并未遵循 C 或 Java 的风格。JavaScript 是动态类型的，没有语言层面的类型名称作为识别声明的语法前缀。相反地，JavaScript 的声明使用关键字作为前缀。JavaScript 1.0 有两种形式的声明，即 `function` 声明和 `var` 声明。`function` 声明<sup>[16](./notes.md#16)</sup>的语法是直接从 AWK 借鉴的，定义了单个可调用函数的名称、形参和语句主体。`var` 声明可以引入一个或多个变量绑定，并能选择性地为变量赋值。所有的 `var` 声明都被视为语句，并可在任何语句上下文中出现，包括语句块中。在 JavaScript 1.0 / 1.1 中，函数声明则只能在脚本的顶层出现，并且不支持嵌套。`var` 声明也可以出现在函数体内。由这类声明定义的变量，属于函数的局部变量。
+JavaScript 中的声明（declaration）并未遵循 C 或 Java 的风格。JavaScript 是动态类型的，没有语言层面的类型名称作为识别声明的语法前缀。相反地，JavaScript 的声明使用关键字作为前缀。JavaScript 1.0 有两种形式的声明，即 `function` 声明和 `var` 声明。`function` 声明<sup>[16](./notes.md#16)</sup>的语法是直接从 AWK 借鉴的，定义了单个可调用函数的名称、形参和语句主体。`var` 声明可以引入一个或多个变量绑定，并能选择性地为变量赋值。所有的 `var` 声明都被视为语句，并可在任何语句上下文中出现，包括语句块中。在 JavaScript 1.0/1.1 中，函数声明则只能在脚本的顶层出现，并且不支持嵌套。`var` 声明也可以出现在函数体内。由这类声明定义的变量，属于函数的局部变量。
 
-与 C 不同的是，JavaScript 1.0 的语句块并未引入声明作用域的概念。在函数体内的语句块中，`var` 声明对这整个函数体均局部可见。位于函数外部块中的 `var` 声明则具备全局*作用域*<sup>[g](./appendices.md#scope)</sup>。如果向「作用域内不存在 `function` 或 `var` 声明」的变量名赋值，则会隐式创建具有该名称的全局变量。事实证明这种行为是导致错误的重要原因，因为如果拼写错了已声明的变量，也会静默地创建名称错误的新变量。
+与 C 不同的是，JavaScript 1.0 的语句块并未引入声明作用域的概念。在函数体内的语句块中，`var` 声明对这整个函数体均局部可见。位于函数外部块中的 `var` 声明则具备全局*作用域*<sup>[g](./appendices.md#scope)</sup>。如果向作用域内不存在 `function` 或 `var` 声明的变量名赋值，则会隐式创建具有该名称的全局变量。事实证明这种行为是导致错误的重要原因，因为如果拼写错了已声明的变量，也会静默地创建名称错误的新变量。
 
-JavaScript 与传统 C 语法还有一个重要区别，那就是它对语句末尾分号的处理。C 将分号视为强制性的语句终止符，而 JavaScript 则允许在分号是行中最后一个有效字符时，省略这个用于终止语句的分号。这种行为的确切规则并未包含在 JavaScript 1.0 文档中。《Netscape 2.0 手册》在描述各种 JavaScript 语句形式时也并未展示分号，它只说明「一条语句可能跨越多行。如果每条语句之间用分号分隔，则可能在一行上出现多条语句 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)]。」手册的 JavaScript 代码示例使用了无分号的编码风格，如下所示：
+JavaScript 与传统 C 语法还有一个重要区别，那就是它对语句末尾分号的处理。C 将分号视为强制性的语句终止符，而 JavaScript 则允许在分号是行中最后一个有效字符时，省略这个用于终止语句的分号。这种行为的确切规则并未包含在 JavaScript 1.0 文档中。《Netscape 2.0 手册》在描述各种 JavaScript 语句形式时也并未展示分号，它只说明「一条语句可能跨越多行。如果每条语句之间用分号分隔，则可能在一行上出现多条语句 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)]」。手册的 JavaScript 代码示例使用了无分号的编码风格，如下所示：
 
 ``` js
 var a, x, y
-var r=10
+var r = 10
 with (Math) {
   a = PI * r * r
   x = r * cos(PI)
-  y = r * sin(PI/2)
+  y = r * sin(PI / 2)
 }
 ```
 
 这种不使用分号就可以编写 JavaScript 代码的特性，称为自动分号插入（ASI）。ASI 在 JavaScript 程序员间仍然存在争议。相当一部分程序员仍然更喜欢以无分号风格编码，而其他人则从不使用 ASI。
 
 ### 数据类型与表达式
-JavaScript 1.0 / 1.1 是一种动态类型语言，具有五种基本数据类型：数字、字符串、布尔值、对象和函数。这里的「动态类型」意味着运行时类型信息与每条数据相关联，而不是与诸如变量之类的「值的容器」相关联。运行时类型检查可确保操作仅应用于各操作所支持的数据值上。
+JavaScript 1.0/1.1 是一种动态类型语言，具有五种基本数据类型：数字、字符串、布尔值、对象和函数。这里的「动态类型」意味着运行时类型信息与每条数据相关联，而不是与诸如变量之类的「值的容器」相关联。运行时类型检查可确保操作仅应用于各操作所支持的数据值上。
 
 布尔值、字符串和数字是不可变（immutable）的值。布尔类型具有两个值，分别为 `true` 和 `false`。字符串值由 8 位字符编码的不可变序列组成，没有 Unicode 支持。数字类型由所有可能的 IEEE 754 [[IEEE 2008](./references.md#ieee754)] 双精度二进制 64 位浮点值组成，不同之处在于仅暴露了一个规范（canonical）的 `NaN` 值。某些运算会特殊处理与「无符号 32 位整数」和「有符号 32 位二进制补码整数」相对应的数字值。Mocha 内部使用了此类整数值的替代表示形式，但只有一个正式的数字数据类型。
 
-JavaScript 1.0 有两个特殊值，用于表示「缺少有用的数据值」。未初始化的变量会被设置为特殊值 *undefined*<sup>[17](./notes.md#17)</sup>。这也是程序尝试访问「对象中尚不存在的属性值」时所返回的值。在 JavaScript 1.0 中，可以通过声明和访问未初始化变量的方式，获取到 *undefined* 这个值。而值 `null` 则旨在表示某个预期存在对象值的上下文里「没有对象」。它是根据 Java 的 `null` 值建模的，有助于将 JavaScript 与 Java 实现的对象进行集成。在整个历史上，同时存在这样两个相似但又有显著不同的值导致了 JavaScript 程序员的困惑，很多人不确定应在何时使用哪个。
+JavaScript 1.0 有两个特殊值，用于表示「缺少有用的数据值」。未初始化的变量会被设置为特殊值 *undefined*<sup>[17](./notes.md#17)</sup>。这也是程序在尝试访问对象中尚不存在的属性时所返回的值。在 JavaScript 1.0 中，可以通过声明和访问未初始化变量的方式，获取到 *undefined* 这个值。而值 `null` 则旨在表示某个预期存在对象值的上下文里「没有对象」。它是根据 Java 的 `null` 值建模的，有助于将 JavaScript 与 Java 实现的对象进行集成。在整个历史上，同时存在这样两个相似但又有显著不同的值导致了 JavaScript 程序员的困惑，很多人不确定应在何时使用哪个。
 
-JavaScript 1.0 的表达式语法基本上复制自 C，使用了一组相同的运算符（operator）与优先级规则。这里主要省略的部分是 C 的指针和与类型相关的运算符，以及一元的 `+` 运算符。二元的 `+` 运算符被重载，以执行数字加法与字符串连接。移位和按位逻辑运算符可以对「有符号 32 位二进制补码整数」进行位级的操作。如有必要，操作数将被截断为整数，并取模减少到 32 位的值。`>>` 运算符可以对 32 位整数值执行符号扩展的算术右移。JavaScript 还添加了从 Java 借鉴的 `>>>` 运算符，用于执行无符号的右移运算。
+JavaScript 1.0 的表达式语法基本上复制自 C，使用了一组相同的运算符（operator）与优先级规则。这里主要省略的部分是 C 的指针和与类型相关的运算符，以及一元的 `+` 运算符。二元的 `+` 运算符被重载，以执行数字加法与字符串连接。移位和按位逻辑运算符可以对有符号的 32 位二进制补码整数进行位级的操作。如有必要，操作数将被截断为整数，并取模减少到 32 位的值。`>>` 运算符可以对 32 位整数值执行符号扩展的算术右移。JavaScript 还添加了从 Java 借鉴的 `>>>` 运算符，用于执行无符号的右移运算。
 
-JavaScript 1.1 添加了 `delete`，`typeof` 和 `void` 运算符。在 JavaScript 1.1 中，`delete` 运算符仅会将其对应的变量或对象属性操作数设为 `null` 值。`typeof` 运算符会返回一个字符串，该字符串标识其操作数的原始类型。可能的字符串值包括 `"undefined"`、`"object"`、`"function"`、`"boolean"`、`"string"`、`"number"`，或一个「由实现环境决定的字符串值」来标示宿主对象的种类。令人困惑的是，`typeof null` 会返回字符串值 `"object"` 而不是 `"null"`。其实也可以说这与 Java 保持了一致，因为 Java 的所有值都是对象，而 `null` 本质上是表达「没有对象」的对象。但是，Java 缺少与 `typeof` 运算符等效的特性，并使用 `null` 作为未初始化变量的默认值。根据 Brendan Eich 的回忆，`typeof null` 的值是原始 Mocha 实现中*抽象泄漏*<sup>[g](./appendices.md#leaky-abstraction)</sup>的结果。`null` 的运行时值使用了与对象值相同的内部标记值进行编码，因此 `typeof` 运算符的实现就直接返回了 `"object"`，而无需任何额外的特殊处理。实践表明，这种选择对 JavaScript 程序员带来了很大的麻烦。他们通常想在尝试访问某个值的属性之前，先测试这个值是否确实是一个对象。但光是测试值的类型是否为 `"object"` 并不足以保护属性访问，因为尝试访问 `null` 的属性也会产生运行时错误。
+JavaScript 1.1 添加了 `delete`，`typeof` 和 `void` 运算符。在 JavaScript 1.1 中，`delete` 运算符仅会将其对应的变量或对象属性操作数设为 `null` 值。`typeof` 运算符会返回一个字符串，该字符串标识其操作数的原始类型。可能的字符串值包括 `"undefined"`、`"object"`、`"function"`、`"boolean"`、`"string"`、`"number"`，或一个由实现环境决定的字符串值，以此来标示宿主对象的种类。令人困惑的是，`typeof null` 会返回字符串值 `"object"` 而不是 `"null"`。其实也可以说这与 Java 保持了一致，因为 Java 的所有值都是对象，而 `null` 本质上是表达「没有对象」的对象。但是，Java 缺少与 `typeof` 运算符等效的特性，并使用 `null` 作为未初始化变量的默认值。根据 Brendan Eich 的回忆，`typeof null` 的值是原始 Mocha 实现中*抽象泄漏*<sup>[g](./appendices.md#leaky-abstraction)</sup>的结果。`null` 的运行时值使用了与对象值相同的内部标记值进行编码，因此 `typeof` 运算符的实现就直接返回了 `"object"`，而无需任何额外的特殊处理。实践表明，这种选择对 JavaScript 程序员带来了很大的麻烦。他们通常想在尝试访问某个值的属性之前，先测试这个值是否确实是一个对象。但光是测试值的类型是否为 `"object"` 并不足以保护属性访问，因为尝试访问 `null` 的属性也会产生运行时错误。
 
-`void` 运算符仅求值其操作数，然后返回 *undefined*。访问 *undefined* 的一种常见手法是 `void 0`。引入 `void` 运算符，是为了在定义「单击时执行 JavaScript 代码的 HTML 超链接」时作为辅助。例如：
+`void` 运算符仅求值其操作数，然后返回 *undefined*。访问 *undefined* 的一种常见手法是 `void 0`。引入 `void` 运算符是为了作为辅助，以便定义那些会在单击时执行 JavaScript 代码的 HTML 超链接。例如：
 
 ``` html
 <a href="javascript:void usefulFunction()">
@@ -166,120 +166,22 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
 
 <table>
   <thead>
-    <tr>
-      <th>From - To</th>
-      <th>function</th>
-      <th>object</th>
-      <th>number</th>
-      <th>boolean</th>
-      <th>string</th>
-    </tr>
+    <tr><th>From - To</th><th>function</th><th>object</th><th>number</th><th>boolean</th><th>string</th></tr>
   </thead>
   <tbody>
-    <tr>
-      <td><b>undefined</b></td>
-      <td>error</td>
-      <td>null</td>
-      <td>error</td>
-      <td>false</td>
-      <td><code>"undefined"</code></td>
-    </tr>
-    <tr>
-      <td><b>function</b></td>
-      <td>N/C</td>
-      <td>Function object</td>
-      <td>valueOf/error</td>
-      <td>valueOf/true</td>
-      <td>decompile</td>
-    </tr>
-    <tr>
-      <td><b>object (not null)</b></td>
-      <td>Function object</td>
-      <td>N/C</td>
-      <td>valueOf/error</td>
-      <td>valueOf/true</td>
-      <td>toString/valueOf<sup>1</sup></td>
-    </tr>
-    <tr>
-      <td><b>object (null)</b></td>
-      <td>error</td>
-      <td>N/C</td>
-      <td>0</td>
-      <td>false</td>
-      <td><code>"null"</code></td>
-    </tr>
-    <tr>
-      <td><b>number (zero)</b></td>
-      <td>error</td>
-      <td>null</td>
-      <td>N/C</td>
-      <td>false</td>
-      <td><code>"0"</code></td>
-    </tr>
-    <tr>
-      <td><b>number (nonzero)</b></td>
-      <td>error</td>
-      <td>Number</td>
-      <td>N/C</td>
-      <td>true</td>
-      <td>default</td>
-    </tr>
-    <tr>
-      <td><b>number (NaN)</b></td>
-      <td>error</td>
-      <td>Number</td>
-      <td>N/C</td>
-      <td>false<sup>2</sup></td>
-      <td><code>"NaN"</code></td>
-    </tr>
-    <tr>
-      <td><b>number (+Infinity)</b></td>
-      <td>error</td>
-      <td>Number</td>
-      <td>N/C</td>
-      <td>true</td>
-      <td><code>"+Infinity"</code></td>
-    </tr>
-    <tr>
-      <td><b>number (-Infinity)</b></td>
-      <td>error</td>
-      <td>Number</td>
-      <td>N/C</td>
-      <td>true</td>
-      <td><code>"-Infinity"</code></td>
-    </tr>
-    <tr>
-      <td><b>boolean (false)</b></td>
-      <td>error</td>
-      <td>Boolean</td>
-      <td>0</td>
-      <td>N/C</td>
-      <td><code>"false"</code></td>
-    </tr>
-    <tr>
-      <td><b>boolean (true)</b></td>
-      <td>error</td>
-      <td>Boolean</td>
-      <td>1</td>
-      <td>N/C</td>
-      <td><code>"true"</code></td>
-    </tr>
-    <tr>
-      <td><b>string (empty)</b></td>
-      <td>error</td>
-      <td>String</td>
-      <td>error<sup>3</sup></td>
-      <td>false</td>
-      <td>N/C</td>
-    </tr>
-    <tr>
-      <td><b>string (non-empty)</b></td>
-      <td>error</td>
-      <td>String</td>
-      <td>number/error</td>
-      <td>true</td>
-      <td>N/C</td>
-    </tr>
+    <tr><td><b>undefined</b></td><td>error</td><td>null</td><td>error</td><td>false</td><td><code>"undefined"</code></td></tr>
+    <tr><td><b>function</b></td><td>N/C</td><td>Function object</td><td>valueOf/error</td><td>valueOf/true</td><td>decompile</td></tr>
+    <tr><td><b>object (not null)</b></td><td>Function object</td><td>N/C</td><td>valueOf/error</td><td>valueOf/true</td><td>toString/valueOf<sup>1</sup></td></tr>
+    <tr><td><b>object (null)</b></td><td>error</td><td>N/C</td><td>0</td><td>false</td><td><code>"null"</code></td></tr>
+    <tr><td><b>number (zero)</b></td><td>error</td><td>null</td><td>N/C</td><td>false</td><td><code>"0"</code></td></tr>
+    <tr><td><b>number (nonzero)</b></td><td>error</td><td>Number</td><td>N/C</td><td>true</td><td>default</td></tr>
+    <tr><td><b>number (NaN)</b></td><td>error</td><td>Number</td><td>N/C</td><td>false<sup>2</sup></td><td><code>"NaN"</code></td></tr>
+    <tr><td><b>number (+Infinity)</b></td><td>error</td><td>Number</td><td>N/C</td><td>true</td><td><code>"+Infinity"</code></td></tr>
+    <tr><td><b>number (-Infinity)</b></td><td>error</td><td>Number</td><td>N/C</td><td>true</td><td><code>"-Infinity"</code></td></tr>
+    <tr><td><b>boolean (false)</b></td><td>error</td><td>Boolean</td><td>0</td><td>N/C</td><td><code>"false"</code></td></tr>
+    <tr><td><b>boolean (true)</b></td><td>error</td><td>Boolean</td><td>1</td><td>N/C</td><td><code>"true"</code></td></tr>
+    <tr><td><b>string (empty)</b></td><td>error</td><td>String</td><td>error<sup>3</sup></td><td>false</td><td>N/C</td></tr>
+    <tr><td><b>string (non-empty)</b></td><td>error</td><td>String</td><td>number/error</td><td>true</td><td>N/C</td></tr>
   </tbody>
 </table>
 
@@ -296,26 +198,26 @@ C 和 JavaScript 表达式之间的最大区别，是 JavaScript 运算符会自
 图 4. Eich 和 McKinney 在 JavaScript 1.1 初始规范中提出的隐式类型转换规则 [[1996](./references.md#TC39:1996:002), page 23]，最终标准化的规则与此略有不同。这是对原始表格的复制，存在一些排版上的细微差别。脚注 3 并未出现在原文中。
 
 ### 对象
-JavaScript 1.0 的对象是关联数组，其元素称为属性。每个属性都有一个字符串键和一个值，该值可以是任何 JavaScript 数据类型。属性可以被动态添加。JavaScript 1.0 / 1.1 不支持从对象中删除属性。
+JavaScript 1.0 的对象是关联数组，其元素称为属性。每个属性都有一个字符串键和一个值，该值可以是任何 JavaScript 数据类型。属性可以被动态添加。JavaScript 1.0/1.1 不支持从对象中删除属性。
 
-只要某个属性的键字符串符合标识符的语法规则，就可以用形如 `obj.prop0` 的点符号（dot notation）来访问它。所有属性都可以使用方括号表示法（bracket notation）来访问，包括那些键不符合标识符规则的属性。其中用方括号括起来的表达式将被求值，并转换为用作属性键的字符串。例如当 `n` 的值为 `0` 时，`obj["prop" + n]` 等效于 `obj.prop0`。赋值给不存在的属性会创建一个新属性，访问不存在的属性通常会返回 *undefined*。但是在 JavaScript 1.0 / 1.1 中，如果使用方括号表示法访问不存在的属性值，并且属性键是「非负整数的字符串表示形式」，则会返回 `null` 值。
+只要某个属性的键字符串符合标识符的语法规则，就可以用形如 `obj.prop0` 的点符号（dot notation）来访问它。所有属性都可以使用方括号表示法（bracket notation）来访问，包括那些键不符合标识符规则的属性。其中用方括号括起来的表达式将被求值，并转换为用作属性键的字符串。例如当 `n` 的值为 `0` 时，`obj["prop" + n]` 等效于 `obj.prop0`。赋值给不存在的属性会创建一个新属性，访问不存在的属性通常会返回 *undefined*。但是在 JavaScript 1.0/1.1 中，如果使用方括号表示法访问不存在的属性值，并且属性键是非负整数的字符串表示形式，则会返回 `null` 值。
 
-属性既可以用作数据存储，也可以将行为与对象关联。「值为函数的属性」可以作为对象的方法被调用。而作为对象方法被调用的函数，则可以通过关键字 `this` 的动态绑定来访问该对象。
+属性既可以用作数据存储，也可以将行为与对象关联。那些值为函数的属性，可以作为对象的方法被调用。而作为对象方法被调用的函数，则可以通过关键字 `this` 的动态绑定来访问该对象。
 
-对象是通过将 `new` 运算符应用于「内置函数或用户定义的函数」的方式来创建的。意图以这种方式被使用的函数，称为构造函数（constructor）。构造函数通常会将属性添加到新对象。这些属性既可以是数据，也可以是方法。内置的构造函数 `Object` 可以用于创建最初没有属性的新对象。图 5 展示了如何使用 `Object` 构造函数或用户定义的构造函数，来创建新对象。
+要想创建对象，可以将 `new` 运算符应用于内置函数或用户自定义的函数。那些意图以这种方式被使用的函数，则称为构造函数（constructor）。构造函数通常会将属性添加到新对象。这些属性既可以是数据，也可以是方法。内置的构造函数 `Object` 可以用于创建最初没有属性的新对象。图 5 展示了如何使用 `Object` 构造函数或用户定义的构造函数，来创建新对象。
 
 ``` js
 // 使用 Object 构造函数
 var p1 = new Object;
-p1.x=0;
-p2.y=0;
+p1.x = 0;
+p2.y = 0;
 
 // 使用自定义的构造函数
-function Point(x,y) {
+function Point(x, y) {
   this.x = x;
   this.y = y;
 }
-var p2 = new Point(0,0);
+var p2 = new Point(0, 0);
 ```
 
 图 5. JavaScript 1.0 中创建对象的可选方式。属性既可以在对象被 `Object` 创建之后添加，也可以通过自定义构造函数在创建对象时添加。
@@ -332,17 +234,19 @@ a[2] = "two";
 a.length = 3;
 ```
 
-JavaScript 1.0 中没有对象*继承*<sup>[g](./appendices.md#inheritance)</sup>的概念。程序必须分别将所有属性添加到每个新对象，这通常是通过为程序使用的每个「类对象」（class object）定义一个构造函数来实现的。图 6 展示了基于 JavaScript 1.0 定义的简单 Point 抽象。
+JavaScript 1.0 中没有对象*继承*<sup>[g](./appendices.md#inheritance)</sup>的概念。程序必须分别将所有属性添加到每个新对象上，这通常是通过为程序所使用的每个「类对象」（class object）定义一个构造函数的方式来实现的。图 6 展示了基于 JavaScript 1.0 定义的简单 Point 抽象。
 
 ``` js
 // 定义出作为方法被使用的函数
-function ptSum(pt2) {return new Point(this.x+pt2.x, this.y+pt2.y)}
+function ptSum(pt2) {
+  return new Point(this.x + pt2.x, this.y + pt2.y);
+}
 function ptDistance(pt2) {
-  return Math.sqrt(Math.pow(pt2.x - this.x, 2) + Math.pow(pt2.y - this.y,2));
+  return Math.sqrt(Math.pow(pt2.x - this.x, 2) + Math.pow(pt2.y - this.y, 2));
 }
 
 // 定义 Point 构造函数
-function Point(x,y) {
+function Point(x, y) {
   // 创建并初始化新对象的数据属性
   this.x = x;
   this.y = y;
@@ -351,7 +255,7 @@ function Point(x,y) {
   this.sum = ptSum;
   this.distance = ptDistance;
 }
-var origin = new Point(0,0); // 创建 Point 对象
+var origin = new Point(0, 0); // 创建 Point 对象
 ```
 
 图 6. 使用 JavaScript 1.0 定义的 Point 抽象，每个实例对象具备自己的方法属性。
@@ -362,7 +266,7 @@ var origin = new Point(0,0); // 创建 Point 对象
 * 构造对象时，必须为每个方法创建一个对象属性，并将其值初始化为相应的全局函数。
 * 方法是通过属性名称（`origin.distance`）而非声明的全局名称（`ptDistance`）被调用的。
 
-JavaScript 1.1 不再需要直接在每个新实例上创建方法属性。它通过函数对象名为 `prototype` 的属性，将*原型*<sup>[g](./appendices.md#prototype)</sup>对象与构造函数关联起来。《JavaScript 1.1 指南》[[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 将 `prototype` 描述为「由所有该类型对象共享的属性」。这是个模糊的描述，更好的表述可能是这样的：一个自身属性与所有「由构造函数创建的对象」共享的对象。
+JavaScript 1.1 不再需要直接在每个新实例上创建方法属性。它通过函数对象名为 `prototype` 的属性，将*原型*<sup>[g](./appendices.md#prototype)</sup>对象与构造函数关联起来。《JavaScript 1.1 指南》[[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 将 `prototype` 描述为「由所有该类型对象共享的属性」。这是个模糊的描述，更好的表述可能是这样的：原型是一种特殊的对象，其自身属性与所有「由构造函数创建的对象」所共享。
 
 对这种共享机制没有更进一步的说明，但可以发现原型对象具备如下特征：
 
@@ -376,13 +280,15 @@ JavaScript 1.1 不再需要直接在每个新实例上创建方法属性。它�
 
 ``` js
 // 定义出作为方法被使用的函数
-function ptSum(pt2) {return new Point(this.x+pt2.x, this.y+pt2.y)}
+function ptSum(pt2) {
+  return new Point(this.x + pt2.x, this.y + pt2.y);
+}
 function ptDistance(pt2) {
-  return Math.sqrt(Math.pow(pt2.x - this.x, 2) + Math.pow(pt2.y - this.y,2));
+  return Math.sqrt(Math.pow(pt2.x - this.x, 2) + Math.pow(pt2.y - this.y, 2));
 }
 
 // 定义 Point 构造函数
-function Point(x,y) {
+function Point(x, y) {
   // 创建并初始化新对象的数据属性
   this.x = x;
   this.y = y;
@@ -392,21 +298,21 @@ function Point(x,y) {
 Point.prototype.sum = ptSum;
 Point.prototype.distance = ptDistance;
 
-var origin = new Point(0,0); // 创建 Point 对象
+var origin = new Point(0, 0); // 创建 Point 对象
 ```
 
 图 7. 使用 JavaScript 1.1 定义的 Point 抽象。实例对象从 `Point.ptototype` 对象上继承方法，而不是在每个实例上定义方法属性。
 
 这里的不同之处在于，方法仅在原型对象上挂载了一次，而不是在构造每个实例对象时重复挂载。由原型对象提供给某个对象的属性称为*继承属性*<sup>[g](./appendices.md#inherited-property)</sup>，而直接在对象上定义的属性则称为*自有属性*<sup>[g](./appendices.md#own-property)</sup>。自有属性会遮盖同名的继承属性。
 
-原型对象的属性通常是方法。在这种情况下，构造函数提供的原型发挥的是与 C++ 中的虚函数表（vtable）或 Smalltalk 中的 MethodDictionary 相同的作用，也就是将通用的行为与一组对象相关联。构造函数实际上充当的是类对象（class object）的角色，其原型相当于「与类的实例共享方法」的容器。这是一种对 JavaScript 1.1 对象模型的合理解释，当然也不是唯一的解释。
+原型对象的属性通常是方法。在这种情况下，构造函数提供的原型发挥的是与 C++ 中的虚函数表（vtable）或 Smalltalk 中的 MethodDictionary 相同的作用，也就是将通用的行为与一组对象相关联。构造函数实际上充当的是类对象（class object）的角色，其原型相当于与类实例共享方法的容器。这是一种对 JavaScript 1.1 对象模型的合理解释，当然也不是唯一的解释。
 
-对「构造函数原型属性」的命名，清楚地表明 Brendan Eich 考虑了另一种对象模型。该模型的灵感来自于 Self 编程语言 [[Ungar and Smith 1987](./references.md#self)]。在 Self 中，新对象是通过「部分克隆某些种类的原型对象」来创建的。每个克隆体都有一个指回其原型的 `parent` 链接，这样原型就可以提供「想在其所有克隆体之间共享」的功能了。JavaScript 1.1 的对象模型可以看作是 Self 模型的一种变体。在原型中，原型对象可以通过构造函数被间接访问到，而 `new` 运算符将从原型中克隆出新实例。这些克隆出的实例，会*继承*<sup>[g](./appendices.md#inherit)</sup>那些在原型对象属性上通用共享的功能。一些 JavaScript 程序员将此机制称为「原型继承<sup>[g](./appendices.md#prototypal-inheritance)</sup>」。这是一种委托机制的形式。一些 JavaScript 程序员还使用带引号的「类式继承<sup>[g](./appendices.md#classical-inheritance)</sup>」概念，来指代 Java 和许多其他面向对象语言中使用的继承风格。
+对构造函数原型属性的命名，清楚地表明 Brendan Eich 考虑了另一种对象模型。该模型的灵感来自于 Self 编程语言 [[Ungar and Smith 1987](./references.md#self)]。在 Self 中，新对象是通过「部分克隆某些种类的原型对象」的方式来创建的。每个克隆体都有一个指回其原型的 `parent` 链接，这样原型就可以提供能在其所有克隆体之间共享的功能了。JavaScript 1.1 的对象模型可以看作是 Self 模型的一种变体。在原型中，原型对象可以通过构造函数被间接访问到，而 `new` 运算符将从原型中克隆出新实例。这些克隆出的实例，会*继承*<sup>[g](./appendices.md#inherit)</sup>那些在原型对象属性上通用共享的功能。一些 JavaScript 程序员将此机制称为「原型继承<sup>[g](./appendices.md#prototypal-inheritance)</sup>」。这是一种委托机制的形式。一些 JavaScript 程序员还使用带引号的「类式继承<sup>[g](./appendices.md#classical-inheritance)</sup>」概念，来指代 Java 和许多其他面向对象语言中使用的继承风格。
 
-JavaScript 1.1 的文档 [[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 并未完全描述这两个对象模型。它维护的是一个与 1995 年 12 月 Netscape / Sun 新闻稿一致的营销故事。JavaScript 被定位为一种「脚本式编写对象交互」的语言，而对象抽象的实际定义（类定义）将用 Java 编写。此时原生 JavaScript 的对象抽象能力尚且限于次要特性。这些次要特性仅引起了微小的关注，有很多并未被文档化。
+JavaScript 1.1 的文档 [[Netscape 1996e](./references.md#netscape:js1.1:handbook)] 并未完全描述这两个对象模型。它维护的是一个与 1995 年 12 月 Netscape / Sun 新闻稿一致的营销故事。JavaScript 被定位为一种用于「脚本式编写对象交互」的语言，而对象抽象的实际定义（类定义）将用 Java 编写。此时原生 JavaScript 的对象抽象能力尚且限于次要特性。这些次要特性仅引起了微小的关注，有很多并未被文档化。
 
 ### 函数对象
-在 JavaScript 1.0 / 1.1 中，函数定义（function definition）会创建并命名一个可调用的函数。JavaScript 函数是一等（first-class）的对象值。在 `function` 声明中提供的名称会被定义为全局变量，类似于顶层代码中的 `var` 声明。而它的值则是函数对象，可以赋值给变量、设置为属性值、在函数调用中作为参数传递，以及作为函数的返回值。因为函数也是对象，所以在它们上面同样可以定义属性。以下示例展示了如何将属性添加到函数对象上：
+在 JavaScript 1.0/1.1 中，函数定义（function definition）会创建并命名一个可调用的函数。JavaScript 函数是一等（first-class）的对象值。在 `function` 声明中提供的名称会被定义为全局变量，类似于顶层代码中的 `var` 声明。而它的值则是函数对象，可以赋值给变量、设置为属性值、在函数调用中作为参数传递，以及作为函数的返回值。因为函数也是对象，所以在它们上面同样可以定义属性。以下示例展示了如何将属性添加到函数对象上：
 
 ``` js
 function countedHello() {
@@ -414,11 +320,11 @@ function countedHello() {
   countedHello.callCount++; // 增加该函数的 callCount 属性
 }
 countedHello.callCount = 0; // 将计数器与函数相关联
-for (var i=0; i<5; i++) countedHello();
+for (var i = 0; i < 5; i++) countedHello();
 alert(countedHello.callCount); // 显示 5
 ```
 
-函数需要用形式参数列表（formal parameter list）来声明。但参数列表的大小，并不会限制调用函数时可传递的参数数量。如果调用函数时传递的实参（实际参数，argument）数量少于其声明的形参（形式参数，parameter）数量，那么多余的形参将被设置为 *undefined*。而如果传递的实参数量超过形参数量，则会对额外的实参求值，但无法通过形参名称获得这些值。不过在执行函数体期间，还可以使用类似数组的实参对象（arguments object）作为函数对象 `arguments` 属性的值。调用函数时传递的所有实参，都可以用作 `arguments` 对象的整数键（integer-keyed）属性。这样一来，就可以编写出「支持处理可变长度参数列表」的函数了。
+函数需要用形式参数列表（formal parameter list）来声明。但参数列表的大小，并不会限制调用函数时可传递的参数数量。如果调用函数时传递的实参（实际参数，argument）数量少于其声明的形参（形式参数，parameter）数量，那么多余的形参将被设置为 *undefined*。而如果传递的实参数量超过形参数量，则会对额外的实参求值，但无法通过形参名称获得这些值。不过在执行函数体期间，还可以使用类似数组的实参对象（arguments object）作为函数对象 `arguments` 属性的值。调用函数时传递的所有实参，都可以用作 `arguments` 对象的整数键（integer-keyed）属性。这样一来，就可以支持可变长度参数列表的函数了。
 
 ### 内置库
 JavaScript 1.0 附带了具备内置函数、对象和构造函数的库（library）。在这个库定义的通用对象<sup>[19](./notes.md#19)</sup>和函数之中，有少量属于通用，而有大量则是宿主特定（host-specific）的。在 Netscape Navigator 中，*宿主对象*<sup>[g](./appendices.md#host-object)</sup>提供的模型表达了当前 HTML 文档的一部分。这些 API 最终被称为级别 0 的文档对象模型（DOM）[[Koch 2003](./references.md#dom0); [Netscape 1996b](./references.md#navdom0)]。而对于 Netscape Enterprise Server，宿主对象支持客户端与服务端之间的通信，管理客户端与服务端之间的会话（session）状态，以及对文件与数据库的访问。这种服务端宿主对象的设计，并没有在 Netscape 服务器产品以外的地方被采用。
@@ -427,87 +333,27 @@ JavaScript 的早期设计，很大程度上受到了浏览器平台需求的驱
 
 JavaScript 1.0 仅具有两个通用的对象类，即 `String` 和 `Date`。此外还有一个单例全局对象 `Math`，其属性是常用的数学常量和函数。
 
-在 JavaScript 1.0 程序中，也可以看到若干「不活跃或实现得不完整的类」的构造函数，前提是程序知道该如何访问它们。
+在 JavaScript 1.0 程序中，对于某些不活跃或实现得不完整的类，也可以看到它们的构造函数，前提是程序知道该如何访问它们。
 
 JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的存在。图 8 总结了 JavaScript 1.0 和 1.1 中定义的那些与宿主无关的类。
 
 <table>
   <thead>
-    <tr>
-      <th colspan="2">Base Objects</th>
-      <th colspan="2">Properties</th>
-    </tr>
-    <tr>
-      <th>1.0</th>
-      <th>1.1</th>
-      <th>1.0</th>
-      <th>Added in 1.1</th>
-    </tr>
+    <tr><th colspan="2">Base Objects</th><th colspan="2">Properties</th></tr>
+    <tr><th>1.0</th><th>1.1</th><th>1.0</th><th>Added in 1.1</th></tr>
   </thead>
   <tbody>
-    <tr>
-      <td colspan="2">(global functions)</td>
-      <td>eval, isNaN<sup>1</sup>, parseFloat<sup>2</sup>, parseInt<sup>2</sup></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><del>Array</del><sup>3</sup></td>
-      <td>Array</td>
-      <td></td>
-      <td>join, reverse, sort, toString</td>
-    </tr>
-    <tr>
-      <td><del>Boolean</del><sup>3</sup></td>
-      <td>Boolean</td>
-      <td></td>
-      <td>toString</td>
-    </tr>
-    <tr>
-      <td>Date</td>
-      <td></td>
-      <td>getDate, getDay, getHours, getMinutes, getMonth, getSeconds, getTime, getTimezoneOffset, getYear, setDate, setHours, setMinutes, setMonth, setSeconds, setTime, setYear, toGMTString, toLocaleString, Date.parse, Date.UTC</td>
-      <td>toString</td>
-    </tr>
-    <tr>
-      <td colspan="2">(function objects)</td>
-      <td>arguments, length, caller</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><del>Function</del><sup>3</sup></td>
-      <td>Function</td>
-      <td></td>
-      <td>prototype, toString</td>
-    </tr>
-    <tr>
-      <td>Math</td>
-      <td></td>
-      <td>E, LN2, LN10, LOG2E, LOG10E, PI, SQRT1_2, SQRT2, abs, acos, asin, atan, ceil, cos, exp, floor, log, max, min, pow, random<sup>1</sup>, round, sin, sqrt, tan</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Object</td>
-      <td></td>
-      <td></td>
-      <td>constructor, eval, toString, valueOf</td>
-    </tr>
-    <tr>
-      <td><del>Number</del><sup>3</sup></td>
-      <td>Number</td>
-      <td></td>
-      <td>toString, Number.NaN, Number.MAX_VALUE, Number.MIN_VALUE, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY</td>
-    </tr>
-    <tr>
-      <td colspan="2">(string values)</td>
-      <td>length</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>String</td>
-      <td>charAt<sup>4</sup>, indexOf, lastIndexOf, <del>split</del><sup>3</sup>, substring, toLowerCase, toUpperCase, (plus 13 HTML wrapper methods)</td>
-      <td>split, toString, valueOf</td>
-    </tr>
+    <tr><td colspan="2">(global functions)</td><td>eval, isNaN<sup>1</sup>, parseFloat<sup>2</sup>, parseInt<sup>2</sup></td><td></td></tr>
+    <tr><td><del>Array</del><sup>3</sup></td><td>Array</td><td></td><td>join, reverse, sort, toString</td></tr>
+    <tr><td><del>Boolean</del><sup>3</sup></td><td>Boolean</td><td></td><td>toString</td></tr>
+    <tr><td>Date</td><td></td><td>getDate, getDay, getHours, getMinutes, getMonth, getSeconds, getTime, getTimezoneOffset, getYear, setDate, setHours, setMinutes, setMonth, setSeconds, setTime, setYear, toGMTString, toLocaleString, Date.parse, Date.UTC</td><td>toString</td></tr>
+    <tr><td colspan="2">(function objects)</td><td>arguments, length, caller</td><td></td></tr>
+    <tr><td><del>Function</del><sup>3</sup></td><td>Function</td><td></td><td>prototype, toString</td></tr>
+    <tr><td>Math</td><td></td><td>E, LN2, LN10, LOG2E, LOG10E, PI, SQRT1_2, SQRT2, abs, acos, asin, atan, ceil, cos, exp, floor, log, max, min, pow, random<sup>1</sup>, round, sin, sqrt, tan</td><td></td></tr>
+    <tr><td>Object</td><td></td><td></td><td>constructor, eval, toString, valueOf</td></tr>
+    <tr><td><del>Number</del><sup>3</sup></td><td>Number</td><td></td><td>toString, Number.NaN, Number.MAX_VALUE, Number.MIN_VALUE, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY</td></tr>
+    <tr><td colspan="2">(string values)</td><td>length</td><td></td></tr>
+    <tr><td></td><td>String</td><td>charAt<sup>4</sup>, indexOf, lastIndexOf, <del>split</del><sup>3</sup>, substring, toLowerCase, toUpperCase, (plus 13 HTML wrapper methods)</td><td>split, toString, valueOf</td></tr>
   </tbody>
 </table>
 
@@ -516,20 +362,20 @@ JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的�
 * <sup>3</sup> 在 1.0 中存在，但缺乏实用性或 bug 较多。
 * <sup>4</sup> 在 1.0 中这些方法是字符串值的属性。在 1.1 中它们是 String.prototype 的属性。
 
-图 8. JavaScript 1.0 / 1.1 中宿主独立的内置库。
+图 8. JavaScript 1.0/1.1 中宿主独立的内置库。
 
-`String` 类提供了 `length` 属性和 6 个对不可变字符串值进行操作的通用方法，它们会在适当的时候返回新的字符串值。JavaScript 1.0 的 `String` 类还包括 13 种方法，用于使用各种 HTML 标签来包装字符串值。这个例子说明了 JavaScript 1.0 / 1.1 中「与宿主相关的特性」和「通用特性」之间的模糊界限。JavaScript 1.0 没有提供全局 `String` 构造函数，所有字符串值都是使用字符串字面量、运算符或内置函数创建的。JavaScript 1.1 添加了全局 `String` 构造函数和 `split` 方法。
+`String` 类提供了 `length` 属性和 6 个对不可变字符串值进行操作的通用方法，它们会在适当的时候返回新的字符串值。JavaScript 1.0 的 `String` 类还包括 13 种方法，用于使用各种 HTML 标签来包装字符串值。这个例子说明了 JavaScript 1.0/1.1 中「与宿主相关的特性」和「通用特性」之间的模糊界限。JavaScript 1.0 没有提供全局 `String` 构造函数，所有字符串值都是使用字符串字面量、运算符或内置函数创建的。JavaScript 1.1 添加了全局 `String` 构造函数和 `split` 方法。
 
 `Date` 类用于表示日历日期和时间。JavaScript 1.0 的 `Date` 是直接按照 Java 1.0 [[Gosling et al. 1996](./references.md#jls)] 中的 `java.util.Date` 类而实现的，连 bug 都保持了一致。这里包括了一些编码细节，如使用以 GMT 时间 1970 年 1 月 1 日 00:00:00 为中心的毫秒级分辨率时间值，在外部以 0-11 编号的月份，以及 Java 设计中存在的 2000 年歧义。这个设计决策的理由，是与 Java 互操作性方面的需求。唯一被排除的 Java 方法是 `equal`，`before` 和 `after`。这里并没有使用它们的必要，因为 JavaScript 具备隐式类型转换（automatic coercion）转换能力，可以将数字关系运算符直接与 Date 对象一起使用。
 
 除了 `Object` 之外，`Date` 是 JavaScript 1.0 中唯一可用的内置构造函数。另外除了类的实例方法之外，`Date` 也是唯一在构造函数对象上暴露方法的类。那些浏览器特定（broswer-specific）的类则都没有暴露出构造函数。
 
-对内置库和宿主提供的对象而言，它们的属性有一些特征是「由 JavaScript 程序员自定义的属性」所不具备的。比如，有的方法属性不会被 `for-in` 语句枚举，而某些属性会被 `delete` 运算符忽略，或具有只读的值。访问或修改某些这样的属性时，会产生具有可见副作用的特殊行为。
+对内置库和宿主提供的对象而言，它们的属性具有一些特殊的性质。这些性质是那些由 JavaScript 程序员自定义的属性所不具备的。比如，有的方法属性不会被 `for-in` 语句枚举，而某些属性会被 `delete` 运算符忽略，或具有只读的值。访问或修改某些这样的属性时，会产生具有可见副作用的特殊行为。
 
 JavaScript 1.1 加入了可用的 `Array` 类。由 `Array` 构造函数创建的对象，可以用于表示由整数索引且起点为零的多个异类（heterogeneous）向量。数组元素作为对象属性表示，它们的键是其整数下标的字符串表示形式。数组对象还具有 `length` 属性，这一属性的值由构造函数初始化设置。每当访问大于或等于当前 `length` 值的元素索引时，就会更新 `length` 属性的值。因此，数组对象的元素数量可以动态增长。
 
 ### 执行模型
-在 Netscape 2 和后续的浏览器中，HTML 网页都可能包含多个 `<script>` 元素。加载页面后，浏览器将为 HTML 文档创建一个新的 JavaScript 执行环境和全局上下文。全局上下文包括了全局对象，这个对象的属性键涵盖了由「JavaScript 内置库与宿主环境」提供的内置函数与变量的名称，以及脚本中定义的全局变量和函数。
+在 Netscape 2 和后续的浏览器中，HTML 网页都可能包含多个 `<script>` 元素。加载页面后，浏览器将为 HTML 文档创建一个新的 JavaScript 执行环境和全局上下文。全局上下文包括了全局对象，这个对象的属性键涵盖了（由 JavaScript 内置库与宿主环境所提供的）内置函数与变量的名称，以及脚本中定义的全局变量和函数。
 
 在 Netscape 2 中，每个 `<script>` 元素里的 JavaScript 代码都会按照它们在页面 HTML 文件中的出现顺序，逐个解析和求值。在后来的浏览器中，还可以标记 `<script>` 元素以支持延迟求值（deferred evaluation）。这使得浏览器可以在等待从网络上请求 JavaScript 代码的同时，继续处理 HTML。但不论在哪种情况下，浏览器一次都只会求值一个脚本。脚本之间通常共享同一个全局对象。由脚本创建的全局变量和函数，对所有后续脚本均可见。每个脚本都会运行到完成（run to completion），而不会被抢占（preëmption）或中断（interruption）。早期浏览器的这一特性已成为 JavaScript 的一条基本原理。脚本是执行的基本单位。每个脚本的执行一旦开始，就会持续到它完成为止。在脚本内部，不必担心其他脚本的并发执行，因为这种情况不会发生。
 
@@ -547,7 +393,7 @@ alert(alien.sharedProperty); // undefined
 
 图 9. JavaScript 1.1 示例，表明即便不同 HTML 页框的内置对象不同，对象也可以互通。
 
-每个页框都有独立的 `Object` 构造函数和 `Object.prototype`，它们提供「由该构造函数创建的所有对象继承」的属性。向某个页框的 `Object.prototype` 添加属性，不会使该属性对其他页框内由 `Object` 构造函数创建的对象可见。
+每个页框都有独立的 `Object` 构造函数和 `Object.prototype`。它们所提供的属性，由该构造函数创建的所有对象所继承。向某个页框的 `Object.prototype` 添加属性，不会使该属性对其他页框内由 `Object` 构造函数创建的对象可见。
 
 交互式的 JavaScript 网页是事件驱动的应用。其中的事件循环（event loop）由浏览器实现。HyperCard [[Apple Computer 1988](./references.md#apple1988hypercard)] 启发了 Brendan Eich 在最初的 Netscape 2 DOM [[Netscape 1996c](./references.md#navscripting)] 设计中使用事件的概念。最初，事件主要是由用户交互触发的。但在现代浏览器中事件有很多种，其中只有一些是源自用户的。
 
@@ -571,9 +417,9 @@ JavaScript 允许作用域内存在多个具有相同名称的声明。函数内
 function f(x, x) { // x 对应第二个形参，忽略第一个 x
   var x; // 和第二个形参相同的绑定
   for (var x in obj) { // 和第二个形参相同的绑定
-    var x=1, x=2; // 和第二个形参相同的绑定
+    var x = 1, x = 2; // 和第二个形参相同的绑定
   }
-  var x=3; // 和第二个形参相同的绑定
+  var x = 3; // 和第二个形参相同的绑定
 }
 ```
 
@@ -589,7 +435,7 @@ JavaScript 1.0 还会在 `if` 语句的断言内，将 `=` 运算符视为 `==`�
 ``` js
 // JavaScript 1.0-1.2
 if (a = 0) alert("true"); // 这两条语句是等价的
-if (a == 0) alert("true"); 
+if (a == 0) alert("true");
 ```
 
 #### 32 位算术
@@ -597,7 +443,7 @@ JavaScript 的按位逻辑运算符，会对编码为 IEEE double 浮点数的 3
 
 ``` js
 function int32bitAdd(x, y) {
-  return ((x|0) + (y|0))|0 // 将结果 32 位截断的加法
+  return ((x | 0) + (y | 0)) | 0; // 将结果 32 位截断的加法
 }
 ```
 
@@ -609,7 +455,9 @@ function int32bitAdd(x, y) {
 当直接调用函数而未为其限定（qualify）对象时，`this` 将被隐式设置为全局对象。而全局对象的属性包括了程序的所有全局变量。因此在直接调用函数时，`this` 所限定的属性引用，等价于对全局变量的引用。因为对 `this` 的处理取决于函数的调用方式，所以相同的 `this` 引用在不同的调用场景下，可能具有不同的含义。例如：
 
 ``` js
-function setX(value) {this.x=value}
+function setX(value) {
+  this.x = value;
+}
 var obj = new Object;
 obj.setX = setX; // 将 setX 作为 obj 的方法
 
@@ -636,7 +484,7 @@ alert(obj.x); // 显示 42
 
 ``` js
 // JavaScript 1.0-1.1
-f(1,2);
+f(1, 2);
 function f(argA, argB) {
   alert(argA); // 显示 1
   alert(f.arguments[0]); // 显示 1
@@ -650,14 +498,14 @@ function f(argA, argB) {
 
 如以上示例的最后一行所示，还可以将形参名称作为 `arguments` 对象的属性键，以此来访问形参。
 
-从概念上说，在调用函数时，应该为这次触发的函数创建一个新的 `arguments` 对象，并将该函数对象 `arguments` 属性的值设置为这个新 `arguments` 对象。但在 JavaScript 1.0 / 1.1 中，函数对象和 `arguments` 对象是相同的对象：
+从概念上说，在调用函数时，应该为这次触发的函数创建一个新的 `arguments` 对象，并将该函数对象 `arguments` 属性的值设置为这个新 `arguments` 对象。但在 JavaScript 1.0/1.1 中，函数对象和 `arguments` 对象是相同的对象：
 
 ``` js
 // JavaScript 1.0-1.1
-function f(a,b) {
-  if (f==f.arguments) alert("f and f.arguments are the same object")
+function f(a, b) {
+  if (f == f.arguments) alert("f and f.arguments are the same object");
 }
-if (f.arguments==null) alert("but only while a call to f is active")
+if (f.arguments == null) alert("but only while a call to f is active");
 ```
 
 理想情况下，函数的 `arguments` 对象只能在其函数体内访问。这是通过在函数调用返回时，自动将函数的 `arguments` 属性设置为 `null` 来部分实现的。但假设有两个函数 `f1` 和 `f2`，如果 `f1` 调用 `f2`，那么 `f2` 就可以通过对 `f1.arguments` 求值的方式，访问到 `f1` 的实参。
@@ -665,7 +513,7 @@ if (f.arguments==null) alert("but only while a call to f is active")
 `arguments` 对象还有一个名为 `caller` 的属性。这个 `caller` 属性的值是「触发当前函数调用」的函数对象。但如果是最外层的函数调用，这个值则为 `null`。通过使用 `caller` 和 `arguments`，任何函数都可以检查当前调用栈上的函数及其实参，甚至还可以修改调用栈上函数的形参值。还有一个具备相同含义的 `caller` 属性可以通过函数对象直接访问，而无需通过 `arguments` 对象。
 
 #### 对数值属性键的特殊处理
-在 JavaScript 1.0 中，方括号在与整数键一起使用时具有不寻常的语义。在某些情况下，带方括号的整数键会按「属性的创建顺序」来访问对象的属性。如果对象上尚不存在具有该键的属性，并且该整数值 n 小于对象属性的总数，那么就会使用属性顺序来访问对象。在这种情况下，将会访问在该对象上创建的第 n 个属性（起点为零），例如：
+在 JavaScript 1.0 中，方括号在与整数键一起使用时具有不寻常的语义。在某些情况下，带方括号的整数键会按照属性的创建顺序，来依次访问对象的属性。如果对象上尚不存在具有该键的属性，并且该整数值 n 小于对象属性的总数，那么就会使用属性顺序来访问对象。在这种情况下，将会访问在该对象上创建的第 n 个属性（起点为零），例如：
 
 ``` js
 // JavaScript 1.0
@@ -699,7 +547,7 @@ alert("abc".prop); // 显示 42
 alert("xyz".prop); // 隐式创建另一个包装器，显示 undefined
 var abc = new String("abc"); // 显式创建一个包装器对象
 
-alert(abc+"xyz"); // 隐式将包装器转为字符串，显示 abcxyz
+alert(abc + "xyz"); // 隐式将包装器转为字符串，显示 abcxyz
 abc.prop = 42; // 在包装器对象上创建属性
 alert(abc.prop); // 显示 42
 ```
@@ -759,7 +607,7 @@ IE 团队非常重视与 Netscape 的竞争。他们希望当时作为 Active Sc
 
 Brendan Eich 继续将语言增强为 JavaScript 1.2，以使其成为 Netscape 4.0 的一部分。它于 1996 年 12 月发布了第一个 beta 版本，而正则表达式则添加到了 1997 年 4 月的 beta 版本中。各平台上的 Netscape 4 生产版本于 6 月起开始释出，并于 1997 年下半年进行了分发。
 
-SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScript 1.0 / 1.1 有了显著的增强。图 10 列出了JavaScript 1.2 中主要的新特性 [[Netscape 1997c](./references.md#netscape:js1.2:guide)]。
+SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScript 1.0/1.1 有了显著的增强。图 10 列出了JavaScript 1.2 中主要的新特性 [[Netscape 1997c](./references.md#netscape:js1.2:guide)]。
 
 ```
 * do 语句
@@ -791,7 +639,7 @@ SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScri
 
 JavaScript 1.2 在语句层面所添加的内容，提供了以前熟悉 C 系列语言的程序员所期望的语句。`do` 语句直接复制了 C 语言 `do` 语句的语法和类似的语义，这在 JavaScript 1.0 中遗漏了。带标签的语句以及名为 `break` / `continue` 的标签，则是直接按照 Java 中的相同特性建模的。它们允许从多级嵌套的循环和 `switch` 语句中尽早脱离（early escape），也可以在非迭代的代码块里这么做。JavaScript 1.2 的 `switch` 语句包含了对 `case` 选择器表达式的编译期求值 [[Eich et al. 1998](./references.md#spidermonkey:js1.4-src), jsemit.c lines 757-776]，这同 C 与 Java 是一致的。
 
-在 JavaScript 1.0 / 1.1 中，函数只能定义在脚本顶层的全局声明中。JavaScript 1.2 支持把函数通过局部声明的形式，定义在另一个封闭函数中。这样的内部函数定义可以嵌套到任意层级。内部函数具备词法作用域，它们的局部声明会遮盖外部作用域中具有相同名称的声明。在 JavaScript 1.0 / 1.1 中，可以对变量和函数做前向引用，因为语言在逻辑上将顶级的 `var` 和 `function` 声明「提升」到了脚本的开头，而函数局部的 `var` 声明也会被「提升」到函数体的开头。类似地在 JavaScript 1.2 中，嵌套的 `function` 声明也会被提升到封闭函数体的开头。如果有多个具有相同名称的 `function` 声明，那么就将封闭函数体源码中最后出现的那个声明与该名称绑定。
+在 JavaScript 1.0/1.1 中，函数只能定义在脚本顶层的全局声明中。JavaScript 1.2 支持把函数通过局部声明的形式，定义在另一个封闭函数中。这样的内部函数定义可以嵌套到任意层级。内部函数具备词法作用域，它们的局部声明会遮盖外部作用域中具有相同名称的声明。在 JavaScript 1.0/1.1 中，可以对变量和函数做前向引用，因为语言在逻辑上将顶级的 `var` 和 `function` 声明「提升」到了脚本的开头，而函数局部的 `var` 声明也会被「提升」到函数体的开头。类似地在 JavaScript 1.2 中，嵌套的 `function` 声明也会被提升到封闭函数体的开头。如果有多个具有相同名称的 `function` 声明，那么就将封闭函数体源码中最后出现的那个声明与该名称绑定。
 
 JavaScript 1.2 还提供了 lambda 表达式支持，这是通过允许函数定义作为表达式原语的方式来实现的。它们称为「函数表达式」，并在语法上与函数声明相同，只是函数名称变成了可选的。如果存在函数名称，语言则会出于绑定目的，将函数表达式视为提升后的 `function` 声明。不带函数名称的函数表达式则会定义一个匿名函数。不论在哪种情况下，函数表达式的每次运行时求值都会创建一个新的闭包（closure）。新的 `callee` 属性被添加到了 `arguments` 对象上，使得此类闭包可以递归引用自己。
 
@@ -799,7 +647,7 @@ JavaScript 1.2 还提供了 lambda 表达式支持，这是通过允许函数定
 
 ``` js
 // JavaScript 1.2
-var p2 = [1,2,4,8,16,32,64];
+var p2 = [1, 2, 4, 8, 16, 32, 64];
 ```
 
 而不必这样：
@@ -807,9 +655,9 @@ var p2 = [1,2,4,8,16,32,64];
 ``` js
 // JavaScript 1.1
 var p2 = new Array();
-p2 [0] = 1;
-p2 [1] = 2;
-p2 [2] = 4;
+p2[0] = 1;
+p2[1] = 2;
+p2[2] = 4;
 // etc.
 ```
 
@@ -817,7 +665,7 @@ p2 [2] = 4;
 
 ``` js
 // JavaScript 1.2
-var origin = {x: 0, y: 0};
+var origin = { x: 0, y: 0 };
 ```
 
 而不必这样：
@@ -839,18 +687,20 @@ function Point(x, y) {
     y: y,
     distance: function (another) {
       return Math.sqrt(Math.pow(this.x - another.x, 2)
-                      +Math.pow(this.y - another.y, 2));
+        + Math.pow(this.y - another.y, 2)
+      );
     }
+  }
 }
 var origin = new Point(0, 0);
-alert(origin.distance(new Point(5, 5));
+alert(origin.distance(new Point(5, 5)));
 ```
 
-将对象字面量和函数表达式的组合，也提供了一种更方便的方法来定义原型对象。另外添加的地方还有 `__proto__` 伪属性（pesudo-property），这个伪属性使 JavaScript 程序能动态访问并修改每个对象「用来访问继承属性」的内部引用<sup>[29](./notes.md#29)</sup>。通过使用 `__proto__`，程序可以动态构造任意深度的属性继承层次结构，并动态指定对象该从何处继承属性。
+将对象字面量和函数表达式的组合，也提供了一种更方便的方法来定义原型对象。另外添加的地方还有 `__proto__` 伪属性（pesudo-property），这个伪属性使 JavaScript 程序能动态访问并修改每个对象（用来访问继承属性）的内部引用<sup>[29](./notes.md#29)</sup>。通过使用 `__proto__`，程序可以动态构造任意深度的属性继承层次结构，并动态指定对象该从何处继承属性。
 
 最终，某些 JavaScript 1.2 的更改被证明是错误的。`import` 和 `export` 语句旨在与 Netscape 4 中兼容 Java 的脚本签名机制 [[Netscape 1997a](./references.md#jssec)] 一起使用。对于签名后的脚本，它们之中定义的全局变量对该脚本是私有的，但使用 `export` 语句可以显式导出其中的函数。非 Netscape 浏览器从未采用过此特性。
 
-尽管用户需求促生了 JavaScript 1.0 / 1.1 中 `==` 运算符的隐式类型转换规则，但一些用户仍发现该行为令人惊讶和混乱。Brendan Eich 决定消除 JavaScript 的大多数隐式类型转换，以修复 `==` [[Netscape 1997a](./references.md#netscape:js1.2:guide:operators); [Rein 1997](./references.md#js1.2evol)]。如果两个操作数都不是相同的原始类型（数字，字符串，布尔值，对象），那么 `==` 将返回 `false`。
+尽管用户需求促生了 JavaScript 1.0/1.1 中 `==` 运算符的隐式类型转换规则，但一些用户仍发现该行为令人惊讶和混乱。Brendan Eich 决定消除 JavaScript 的大多数隐式类型转换，以修复 `==` [[Netscape 1997a](./references.md#netscape:js1.2:guide:operators); [Rein 1997](./references.md#js1.2evol)]。如果两个操作数都不是相同的原始类型（数字，字符串，布尔值，对象），那么 `==` 将返回 `false`。
 
 JavaScript 1.2 希望通过 `<script>` 标签的 `version` 属性，来应对 JavaScript 1.0 和 1.1 的语义更改。但是到 JavaScript 1.2 生产版本发布时，这种形式的版本管理对 Web 开发者来说已变得难以维护 [[Rein 1997](./references.md#js1.2evol)]，对于需要工作在非 Netscape 浏览器上的网页来说尤其是这样。这些浏览器都维护了自己的 JavaScript 实现。
 
