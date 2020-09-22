@@ -29,7 +29,7 @@ Netscape 内部的这项快速决策，使得对 Scheme / Perl / Python / Tcl / 
 ### Mocha 的故事
 随着 Java 发布的临近，Brendan Eich 认为时间至关重要。双鸟在林不如一鸟在手，因此他在 1995 年 5 月<sup>[8](./notes.md#8)</sup>花了连续十天进行第一个 *Mocha*<sup>[g](./appendices.md#Mocha)</sup> 实现的原型设计。这项工作赶在了可行性论证的最后期限之前完成。这个 Demo 包括语言的最小实现，并最小化地集成到了 Netscape 2 浏览器的 pre-alpha 版本中。
 
-Eich 的原型是在 SGI Indy Unix 工作站 [[Netfreak 2019](./references.md#sgiIndy)] 上开发的，使用了一个手写的词法分析器和递归下降解析器（parser）。这个解析器发出（emit）的是字节码指令，而不是语法分析树（parse tree）。字节码*解释器*<sup>[g](./appendices.md#interpreter)</sup>简单而缓慢<sup>[9](./notes.md#9)</sup>。
+Eich 的原型是在 SGI Indy Unix 工作站 [[Netfreak 2019](./references.md#sgiIndy)] 上开发的，使用了一个手写的词法分析器和递归下降解析器。这个解析器发出的是字节码指令，而不是语法分析树（parse tree）。字节码*解释器*<sup>[g](./appendices.md#interpreter)</sup>简单而缓慢<sup>[9](./notes.md#9)</sup>。
 
 字节码特性源于 Netscape LiveWire 服务器<sup>[10](./notes.md#10)</sup>的需求，其开发人员甚至在将 Mocha 原型化之前就希望将其嵌入。这支团队的前 Borland 管理和工程人员都坚信动态脚本语言的未来，但他们希望使用字节码而非源码解析的方式，加快服务器应用的加载速度。
 
@@ -71,45 +71,16 @@ JavaScript 只是 Netscape Navigator 中一个相对较小的功能，因此其�
 JavaScript 1.0 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)] 是一种简单的*动态类型*<sup>[g](./appendices.md#dynamically-typed)</sup>语言，它支持数字、字符串与布尔值、一等公民函数，以及对象数据类型。从语法上看，JavaScript 与 Java 一样属于 C 家族，其控制流语句借鉴了 C，其表达式语法也包括了大多数 C 的数字运算符。JavaScript 1.0 有一个小的内置函数库，其源码通常直接嵌入 HTML 文件中，但其内置库包含一个 `eval` 函数，可以解析并求值编码到字符串中的 JavaScript 源码。整个 JavaScript 1.0 是一门非常精简的语言。图 3 总结了一些缺失的特性。对于现代 JavaScript 程序员而言，这些特性的遗漏可能令人惊讶。
 
 <table>
-  <tr>
-    <td>独立的 <code>Array</code> 对象类型</td>
-    <td><code>Array</code> 字面量</td></tr>
-  <tr>
-    <td>正则表达式</td>
-    <td>对象字面量</td>
-  </tr>
-  <tr>
-    <td>对 <code>undefined</code> 的全局绑定</td>
-    <td><code>===</code> 运算符</td>
-  </tr>
-  <tr>
-    <td><code>typeof</code>, <code>void</code>, <code>delete</code> 运算符</td>
-    <td><code>in</code>, <code>instanceof</code> 运算符</td>
-  </tr>
-  <tr>
-    <td><code>do-while</code> 语句</td>
-    <td><code>switch</code> 语句</td>
-  </tr>
-  <tr>
-    <td><code>try-catch-finally</code> 语句</td>
-    <td><code>break</code>/<code>continue</code> 到标签</td>
-  </tr>
-  <tr>
-    <td>嵌套函数声明</td>
-    <td>函数表达式</td>
-  </tr>
-  <tr>
-    <td>函数的 <code>call</code> 和 <code>apply</code> 方法</td>
-    <td>函数的 <code>prototype</code> 属性</td>
-  </tr>
-  <tr>
-    <td>基于原型的继承</td>
-    <td>对内置原型对象的访问</td>
-  </tr>
-  <tr>
-    <td>循环垃圾回收<sup><a href="./appendices.md#cyclic-garbage-collection">g</a></sup></td>
-    <td>HTML <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性</td>
-  </tr>
+  <tr><td>独立的 <code>Array</code> 对象类型</td><td><code>Array</code> 字面量</td></tr>
+  <tr><td>正则表达式</td><td>对象字面量</td></tr>
+  <tr><td>对 <code>undefined</code> 的全局绑定</td><td><code>===</code> 运算符</td></tr>
+  <tr><td><code>typeof</code>, <code>void</code>, <code>delete</code> 运算符</td><td><code>in</code>, <code>instanceof</code> 运算符</td></tr>
+  <tr><td><code>do-while</code> 语句</td><td><code>switch</code> 语句</td></tr>
+  <tr><td><code>try-catch-finally</code> 语句</td><td><code>break</code>/<code>continue</code> 到标签</td></tr>
+  <tr><td>嵌套函数声明</td><td>函数表达式</td></tr>
+  <tr><td>函数的 <code>call</code> 和 <code>apply</code> 方法</td><td>函数的 <code>prototype</code> 属性</td></tr>
+  <tr><td>基于原型的继承</td><td>对内置原型对象的访问</td></tr>
+  <tr><td>循环垃圾回收<sup><a href="./appendices.md#cyclic-garbage-collection">g</a></sup></td><td>HTML <code>&lt;script&gt;</code> 标签的 <code>src</code> 属性</td></tr>
 </table>
 
 图 3. JavaScript 1.0 中未涉及的 JavaScript 常用特性（约 2010 年时）。
