@@ -593,7 +593,7 @@ SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScri
 * 正则表达式字面量
 * 可进行正则表达式匹配的 RegExp 对象
 * 所有对象上的 __proto__ 伪属性
-* 新数组方法 push, pop, shift, unshift, solice, concat, slice
+* 新数组方法 push, pop, shift, unshift, splice, concat, slice
 * 新字符串方法 charCodeAt
 * 基于 RegExp 的 fromCharCode (ISO latin-1), match, replace, search, substr, split
 * 函数的 arity 属性
