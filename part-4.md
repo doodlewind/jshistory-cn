@@ -64,7 +64,7 @@ ES3.1 的开发在 2008 年 1 月的 TC39 会议上正式启动。这次会议�
 
 图 31. 2008 年 2 月 ES3.1 修订后的目标 [[Crockford 2008a](./references.md#ES3.1:goals)]。
 
-在 2008 年 3 月的面对面会议上，工作组一致认为应该立即开始编写实际的 ES3.1 规范文档。Patrap Lakshman 在会议上提供了一份经过纠正的 ES3 规范，其改动来源于 Mozilla 维护的勘误表 [[Horwat 2003b](./references.md#es3:errata)]。工作组同意将其用作 ES3.1 基础文档，并请 Lakshman 担任编辑。跟以前的版本一样，规范文档将使用微软 Word 编写。通过相对于第三版的修订追踪（change tracking）功能，可以跟踪规范的演变情况，从而进行评审，并确保这些改动能被重新集成到新版 ES4 中。工作组成员被分配到了对具体新特性的规范文本开发上（图 32）。工作完成后，Lakshman 会将它们合并到 master 草案中。
+在 2008 年 3 月的面对面会议上，工作组一致认为应该立即开始编写实际的 ES3.1 规范文档。Pratap Lakshman 在会议上提供了一份经过纠正的 ES3 规范，其改动来源于 Mozilla 维护的勘误表 [[Horwat 2003b](./references.md#es3:errata)]。工作组同意将其用作 ES3.1 基础文档，并请 Lakshman 担任编辑。跟以前的版本一样，规范文档将使用微软 Word 编写。通过相对于第三版的修订追踪（change tracking）功能，可以跟踪规范的演变情况，从而进行评审，并确保这些改动能被重新集成到新版 ES4 中。工作组成员被分配到了对具体新特性的规范文本开发上（图 32）。工作完成后，Lakshman 会将它们合并到 master 草案中。
 
 <table>
   <tr><td>Lakshman</td><td>基于 Mozilla「数组扩展」的新数组方法，以及 <code>reduce</code> 和 <code>reduceRight</code></td></tr>
@@ -1384,15 +1384,15 @@ Brendan Eich 在 2011 年一次名为「JSLOL」[[Eich 2011e](./references.md#ei
 # 致谢
 HOPL-IV 项目委员会成员们协助了两位作者（图 49）。他们提供了修改指导、LATEX 技巧和详尽的评审，并对本文草稿做出了有价值的反馈。
 
-以下同事参与了 JavaScript 和 ECMAScript 的开发，他们为本文所讨论的事件与技术提供了信息：Douglas Crockford、Jeff Dyer、Richard Gabriel、Bill Gibbons、Gary Grossman、Lars T. Hansen、Dave Herman、Graydon Hoare、Yehuda Katz、Shon Katzenberger、Peter Kukol、Pratrap Lakshman、Mark S. Miller、István Sebestyén、Mike Shaver、Brian Terlson、Tom Van Cutsem、Herman Venter、Rick Waldron 和 Robert Welland。
+以下同事参与了 JavaScript 和 ECMAScript 的开发，他们为本文所讨论的事件与技术提供了信息：Douglas Crockford、Jeff Dyer、Richard Gabriel、Bill Gibbons、Gary Grossman、Lars T. Hansen、Dave Herman、Graydon Hoare、Yehuda Katz、Shon Katzenberger、Peter Kukol、Pratap Lakshman、Mark S. Miller、István Sebestyén、Mike Shaver、Brian Terlson、Tom Van Cutsem、Herman Venter、Rick Waldron 和 Robert Welland。
 
-在稿件编写的各个阶段，对部分或全部稿件提供编辑反馈的 Beta 读者们包括：Jory Burson、Douglas Crockford、Jeff Dyer、Richard Gabriel、Lars T. Hansen、Dave Herman、Pratrap Lakshman、Mathias Bynens、Axel Rauschmayer、Jonathan Sampson、Jon Steinhart、Tom Van Cutsem、Herman Venter、Rick Waldron、Rebecca Wirfs-Brook 和 Joseph Yoder。
+在稿件编写的各个阶段，对部分或全部稿件提供编辑反馈的 Beta 读者们包括：Jory Burson、Douglas Crockford、Jeff Dyer、Richard Gabriel、Lars T. Hansen、Dave Herman、Pratap Lakshman、Mathias Bynens、Axel Rauschmayer、Jonathan Sampson、Jon Steinhart、Tom Van Cutsem、Herman Venter、Rick Waldron、Rebecca Wirfs-Brook 和 Joseph Yoder。
 
 Richard Gabriel、Rebecca Wirfs-Brock 和 Joseph Yoder 都参加了耗时多日的研讨会，在研讨会上，我们用全面的通读微调了论文的结构和语言。
 
 记忆是不可靠的。因此准确的历史取决于能否获得原始文件。互联网档案馆和 Ecma 国际的内部档案，为本文提供了重要的原始资料。特别地，如果没有 Ecma 现任秘书长 István Sebestyén 的热情支持，本文是不可能完成的。Sebestyén 博士不仅确保了能让我们访问 Ecma 的内部档案，而且和我们一样都认为 Ecma 与 TC39 和 ECMAScript 有关的大部分文件档案，也都需要能通过网络公开访问。Ecma 的 Patrick Charollais 协助建立了 https://www.ecma-international.org/archive/ecmascript 网页。
 
-最后，Allen Wirfs-Brock 要感谢 Pratrap Lakshman 在 2007 年 1 月写的那封邮件。这是通向本文道路的起点。
+最后，Allen Wirfs-Brock 要感谢 Pratap Lakshman 在 2007 年 1 月写的那封邮件。这是通向本文道路的起点。
 
 ![](./images/EichAWB.jpg)
 
