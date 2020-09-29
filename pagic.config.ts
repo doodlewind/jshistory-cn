@@ -1,7 +1,7 @@
-// 使用方式：安装 Deno v1.3.3, Pagic v0.9.1
+// 需安装 Deno 与 Pagic
 // curl -fsSL https://deno.land/x/install/install.sh | sh
 // deno install --unstable --allow-read --allow-write --allow-net --name=pagic https://deno.land/x/pagic/mod.ts
-// ~/.deno/bin/pagic build --serve --watch
+// pagic build --serve --watch
 
 export default {
   srcDir: './',
