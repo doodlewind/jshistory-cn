@@ -9,6 +9,10 @@ export default {
     title: 'JavaScript 20 年',
     description: '自 1995 年语言诞生到 2015 年 ES6 规范制定为止，共计 20 年的 JavaScript 语言演化历程。',
     github: 'https://github.com/doodlewind/jshistory-cn',
+    md: {
+        anchorLevel: [1, 2, 3, 4, 5, 6],
+        tocLevel: [2, 3, 4]
+    },
     nav: [
     // { text: '阅读', link: '/' },
     ],
