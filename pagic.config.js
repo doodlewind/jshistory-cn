@@ -11,7 +11,7 @@ export default {
     github: 'https://github.com/doodlewind/jshistory-cn',
     md: {
         anchorLevel: [1, 2, 3, 4, 5, 6],
-        tocLevel: [2, 3, 4]
+        tocLevel: [1, 2, 3, 4]
     },
     nav: [
     // { text: '阅读', link: '/' },
