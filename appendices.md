@@ -178,7 +178,7 @@
 * <a id="Dart">**Dart**</a> *n.* 一门基于类的面向对象语言。它由 Google 开发，其初始设计目标是在 Web 浏览器中取代 JavaScript。
 * <a id="declarative">**declarative**</a> *adj.* 声明式，表示一种以「对所需结果特质进行描述」为基础的计算方式。
 * <a id="delegation">**delegation**</a> *n.* 委托，一种使对象从其他对象中获取部分状态和行为（而非从类定义中获取）的机制。
-* <a id="discriminated-union">**discriminated union**</a> *n.* 一种带有多种可选内部结构的数据记录，其实际结构由显式的 tag 标签值确定。
+* <a id="discriminated-union">**discriminated union**</a> *n.* 差异联合体，一种带有多种可选内部结构的数据记录，其实际结构由显式的 tag 标签值确定。
 * <a id="destructuring">**destructuring**</a> *n.* 解构，用类似数组或对象字面量的语法，来引用数组或对象的某些属性。
 * <a id="desugar">**desugar**</a> *v.* 去糖化，将一种编程语言中的语句或操作，分解为更为基础的语句或操作。
 * <a id="DevDiv">**DevDiv**</a> *n.* 微软的开发者工具部门，即 Developer Tools Division。
@@ -748,9 +748,9 @@
 
 [[Netscape and Sun 1995](./references.md#netscape:press:javascript), Page 1-2]
 
-#### 网景公司和太阳公司宣布推出 JavaScript：面向企业网络和互联网的开放跨平台对象脚本语言
+**网景公司和太阳公司宣布推出 JavaScript：面向企业网络和互联网的开放跨平台对象脚本语言**
 
-##### 28 家行业领先企业支持将 JavaScript 作为 Java 的补充，实现便捷的在线应用开发
+28 家行业领先企业支持将 JavaScript 作为 Java 的补充，实现便捷的在线应用开发
 
 ---
 

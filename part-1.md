@@ -572,7 +572,7 @@ IE 团队非常重视与 Netscape 的竞争。他们希望当时作为 Active Sc
 ## 从 Mocha 到 SpiderMonkey
 在 1995 年全年和 1996 年的大部分时间里，Brendan Eich 都是唯一全职从事 *JavaScript 引擎*<sup>[g](./appendices.md#JavaScript-engine)</sup><sup>[25](./notes.md#25)</sup>开发工作的 Netscape 开发者。在 1996 年 8 月发布的 Netscape 3.0 版本中，JavaScript 1.1 仍然主要包含 1995 年 5 月的 10 天原型代码。在发布这个版本后，Eich 认为是时候偿还*引擎*<sup>[g](./appendices.md#engine)</sup>的技术债<sup>[26](./notes.md#26)</sup>，并努力使 JavaScript「成为一门更干净的语言」了。但 Netscape 管理层则希望他研究语言规范。他们对微软针对 JavaScript 规范缺失的批评很敏感，并认为即将开始的语言标准化进程需要这样一份规范作为输入。Eich 拒绝了，他想把重新实现 Mocha 作为开始。要想编写规范，他需要的是仔细检查 Mocha 的实现。他认为在检查 Mocha 时重写 Mocha 是最有效率的方法，这也能让他在初始的设计错误被纳入规范前纠正它们。
 
-由于对辩论感到沮丧，Brendan Eich 离开办公室，在家工作了两个星期。在此期间，他重新设计实现了 JavaScript 引擎的核心。此举的收获是一个更快、更可靠和更灵活的运行引擎。他舍弃了将 JavaScript 值表示为 *discriminated union*<sup>[g](./appendices.md#discriminated-union)</sup> 的实践，改为使用包含即时原始值的标记指针（tagged pointer）。他还实现了诸如嵌套函数、函数表达式和 `switch` 语句之类的特性，这些特性从未在原始引擎中实现过。基于引用计数的内存管理器也被替换成了基于标记 / 清除算法的垃圾收集器。
+由于对辩论感到沮丧，Brendan Eich 离开办公室，在家工作了两个星期。在此期间，他重新设计实现了 JavaScript 引擎的核心。此举的收获是一个更快、更可靠和更灵活的运行引擎。他舍弃了将 JavaScript 值表示为*差异联合体*<sup>[g](./appendices.md#discriminated-union)</sup>的实践，改为使用包含即时原始值的标记指针（tagged pointer）。他还实现了诸如嵌套函数、函数表达式和 `switch` 语句之类的特性，这些特性从未在原始引擎中实现过。基于引用计数的内存管理器也被替换成了基于标记 / 清除算法的垃圾收集器。
 
 当 Eich 返回办公室时，新引擎已经取代了 Mocha。Chris Houck 这位早期的 Netscape 开发者也参与了进来，成为了 JavaScript 团队的第二位专职成员。Houck 根据电影《Beavis and Butt-Head Do America》[[Judge et al. 1996](./references.md#beavis)] 中的桥段，将新引擎命名为「*SpiderMonkey*<sup>[g](./appendices.md#SpiderMonkey)</sup>」<sup>[27](./notes.md#27)</sup>。Clayton Lewis 加入团队担任经理，并聘请来了 Norris Boyd。技术作家 Rand McKinny 被派来协助 Eich 编写规范。
 

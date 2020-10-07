@@ -5,7 +5,7 @@
 * <a id="6">[6]</a> Java 的秘密 alpha 版本是 1995 年 3 月或 4 月发布的。
 * <a id="7">[7]</a> Jon Bentley [[1986](./references.md#littlelangs)] 引入了「小语言」（little language）术语，以表示那些小而易于学习的语言。它们专注于解决特定领域的问题，并不包含许多传统语言中的特性。
 * <a id="8">[8]</a> Mocha 的诞生日期没有已知的确切记录，但 Brendan Eich 相信这一时间是 5 月 6 日到 15 日。
-* <a id="9">[9]</a> 最早的 Mocha 实现使用了大型的 *discriminated union*<sup>[g](./appendices.md#discriminated-union)</sup> 来表达不同的数据*值*<sup>[g](./appendices.md#value)</sup>，并基于引用计数来做内存管理。
+* <a id="9">[9]</a> 最早的 Mocha 实现使用了大型的*差异联合体*<sup>[g](./appendices.md#discriminated-union)</sup>来表达不同的数据*值*<sup>[g](./appendices.md#value)</sup>，并基于引用计数来做内存管理。
 * <a id="10">[10]</a> 在 Brendan Eich 进入 Netscape 的第一个月里，他在服务器团队工作。
 * <a id="11">[11]</a> Eich 的讨论对象包括曾在 General Magic 公司工作过的 John Giannandrea，他在那里实现了两门可以同时在客户端与服务端使用的编程语言。
 * <a id="12">[12]</a> `eval` 的设计，可以支持某种形式上对代码的部分求值，或者将提供给客户端的代码在服务端执行，和 Telescript [[General Magic 1995](./references.md#telescript)] 代理类似。
