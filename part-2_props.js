@@ -61,8 +61,8 @@ export default {
         } }),
     'head': undefined,
     'script': React.createElement(React.Fragment, null,
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
+        React.createElement("script", { crossOrigin: "anonymous", src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
+        React.createElement("script", { crossOrigin: "anonymous", src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
     'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
             __html: '<nav class="toc"><ol><li><a href="#%E5%AF%BB%E6%89%BE%E5%9C%BA%E5%9C%B0">寻找场地</a></li><li><a href="#%E9%A6%96%E6%AC%A1-tc39-%E4%BC%9A%E8%AE%AE">首次 TC39 会议</a></li><li><a href="#%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83">编写规范</a></li><li><a href="#%E5%91%BD%E5%90%8D%E6%A0%87%E5%87%86">命名标准</a></li><li><a href="#iso-%E5%BF%AB%E9%80%9F%E9%80%9A%E9%81%93">ISO 快速通道</a></li><li><a href="#%E5%AE%9A%E4%B9%89-ecmascript-3">定义 ECMAScript 3</a></li><li><a href="#%E5%B8%83%E9%81%93%E5%B8%88">布道师</a></li><li><a href="#%E5%AF%8C%E4%BA%92%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E4%B8%8E-ajax">富互联网应用与 AJAX</a></li><li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8D%9A%E5%BC%88%E8%AE%BA">浏览器博弈论</a></li></ol></nav>'

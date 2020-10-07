@@ -58,8 +58,8 @@ export default {
         } }),
     'head': undefined,
     'script': React.createElement(React.Fragment, null,
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react@16.13.1/umd/react.production.min.js" }),
-        React.createElement("script", { crossOrigin: "anonymous", src: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js" }),
+        React.createElement("script", { crossOrigin: "anonymous", src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
+        React.createElement("script", { crossOrigin: "anonymous", src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
     'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
             __html: '<nav class="toc"><ol><li><a href="#%E5%8E%9F%E6%96%87%E7%AE%80%E4%BB%8B">原文简介</a></li><li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li><li><a href="#%E8%AE%B8%E5%8F%AF">许可</a></li></ol></nav>'
