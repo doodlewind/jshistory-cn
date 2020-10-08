@@ -1300,7 +1300,7 @@ TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精
 * **Narcissus** [[Eich et al. 2012](./references.md#Narcissus)] 是一个以 JavaScript 为宿主的 JavaScript 引擎，被 Mozilla Research 用于 ES6 语言实验。
 * **Traceur** [[Hallam and Russell 2011](./references.md#traceurvideo); [Traceur Project 2011a](./references.md#traceurrepo)] 是谷歌开发的一款转译器，用于实验 ES6 的早期特性。Traceur 提供了 ES6 语义的高保真实现，但由此产生的运行时开销使其在生产使用中缺乏吸引力。
 * **Babel** [[2015](./references.md#Babel)] 原名 6to5，是由 Sebastian McKenzie 开发的。当时 Sebastian McKenzie 是一名 17 岁的开发者，生活在澳大利亚的农村：「在 2014 年 9 月 28 日，我推送到 GitHub 上的第一次提交，是为了一个我在高考复习时正在做的 JavaScript 库。」[[McKenzie 2016](./references.md#McKen)] Babel 通过牺牲与规范草案之间的完全语义一致性，来将运行时开销最小化。它使人们能提前使用 ES2015 和其他实验性的 JavaScript 特性，使大多数 ES2015 级 JavaScript 代码能在旧的浏览器（或仅支持 ES5 的平台）上运行。然而，一些使用 Babel 的开发者开始依赖于实验性特性、不正确的语义，或者后来相对于标准 ECMAScript 特性的过时变体。这使得向原生实现的过渡变得更加困难，并且在少数情况下还造成了限制 TC39 设计灵活性的遗留问题。
-* **TypeScript** [[Microsoft 2019](./references.md#typescript)] 是微软的一款免费语言产品，最初以带有 ES6+ 特性的 ES5 为目标，后来增加了 ES2015 作为编译目标。TypeScript 最重要的功能，是一个可选的静态分析类型系统与类型注解。它可以编译成人们惯用的动态类型 JavaScript 代码。在 2020 年，TypeScript 是编写带类型注解的 JavaScript 时的事实标准 [[Greif and Benitte 2019](./references.md#stateofjs:2019typescript)]。
+* **TypeScript** [[Microsoft 2019](./references.md#typescript)] 是微软的一款自由语言产品，最初以带有 ES6+ 特性的 ES5 为目标，后来增加了 ES2015 作为编译目标。TypeScript 最重要的功能，是一个可选的静态分析类型系统与类型注解。它可以编译成人们惯用的动态类型 JavaScript 代码。在 2020 年，TypeScript 是编写带类型注解的 JavaScript 时的事实标准 [[Greif and Benitte 2019](./references.md#stateofjs:2019typescript)]。
 
 转译器的生产级使用（尤其是 Babel 和 TypeScript），是许多 JavaScript 开发团队内部大型文化转型的一部分。在这些团队中，JavaScript 已经被近似于当作传统的、具备开发和部署构建工具链的 AOT 编译型语言，而不是作为一个动态执行环境，加载并直接执行程序员的原始源代码。
 
