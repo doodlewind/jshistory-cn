@@ -59,13 +59,13 @@ Netscape 和 Sun 于 1995 年 12 月 4 日在联合新闻稿 [[Netscape and Sun 
 JavaScript 只是 Netscape Navigator 中一个相对较小的功能，因此其开发受到了 Navigator 2.0 整体规划的约束。该计划要求在 1995 年 8 月冻结特性。JavaScript 1.0 的特性集，实际上是划出了当年 8 月 Mocha 实现里正在开发或即将开发的特性。尽管 Eich 在整个 Navigator 2.0 发布历程中都在继续修复最初 Mocha 实现中的 bug，但相对于设想中的语言设计而言，这一特性集并不完整，仍然存在各种疑难 bug 和边界条件下的特殊行为。Brendan Eich 在 1.0 发行前不久接受了采访 [[Shah 1996](./references.md#brendan96)]，他回应了 JavaScript 作为 Java 附属品的官方定位，以及初始发布版本的仓促性：
 
 > BE（Brendan Eich）：我希望它（JavaScript）可以由其他厂商基于我和 Bill Joy 正在起草的规范来实现。我希望看到它保持小巧，但能在 Web 上随处可见，成为把对 HTML 元素的操作与 Java applet 等其他组件粘合在一起时的首选方式。
-> 
+>
 > BE：……据我所知，最常见的用途是使页面更智能，更生动。比如可以根据一天中的时间，在单击链接时加载不同的 *URL*<sup>[g](./appendices.md#URL)</sup>。
-> 
+>
 > ……
-> 
+>
 > BE：隧道的尽头是光明的。现在 JavaScript 的单人秀成分还太重，2.0（Netscape Navigator 版本，译者注）会包含许多烦人的小 bug。我希望所有重大错误都有解决方法，我也已经花了很多时间与开发者一起寻找 bug 及其解法。
-> 
+>
 > 我将继续通过修正错误、添加新特性，并尝试使 JavaScript 在所有平台上保持一致的方式，来完成 2.1 版本。我不知道 2.1 版本具体何时交付，但可以保证它会在明年秋天前发布——我们这里前进得很快。
 
 JavaScript 1.0 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)] 是一种简单的*动态类型*<sup>[g](./appendices.md#dynamically-typed)</sup>语言，它支持数字、字符串与布尔值、一等公民函数，以及对象数据类型。从语法上看，JavaScript 与 Java 一样属于 C 家族，其控制流语句借鉴了 C，其表达式语法也包括了大多数 C 的数字运算符。JavaScript 1.0 有一个小的内置函数库，其源码通常直接嵌入 HTML 文件中，但其内置库包含一个 `eval` 函数，可以解析并求值编码到字符串中的 JavaScript 源码。整个 JavaScript 1.0 是一门非常精简的语言。图 3 总结了一些缺失的特性。对于现代 JavaScript 程序员而言，这些特性的遗漏可能令人惊讶。
@@ -272,7 +272,7 @@ Point.prototype.distance = ptDistance;
 var origin = new Point(0, 0); // 创建 Point 对象
 ```
 
-图 7. 使用 JavaScript 1.1 定义的 Point 抽象。实例对象从 `Point.ptototype` 对象上继承方法，而不是在每个实例上定义方法属性。
+图 7. 使用 JavaScript 1.1 定义的 Point 抽象。实例对象从 `Point.prototype` 对象上继承方法，而不是在每个实例上定义方法属性。
 
 这里的不同之处在于，方法仅在原型对象上挂载了一次，而不是在构造每个实例对象时重复挂载。由原型对象提供给某个对象的属性称为*继承属性*<sup>[g](./appendices.md#inherited-property)</sup>，而直接在对象上定义的属性则称为*自有属性*<sup>[g](./appendices.md#own-property)</sup>。自有属性会遮盖同名的继承属性。
 
@@ -339,7 +339,7 @@ JavaScript 1.1 完成了这些特性的实现，并文档化记录了它们的�
 
 `Date` 类用于表示日历日期和时间。JavaScript 1.0 的 `Date` 是直接按照 Java 1.0 [[Gosling et al. 1996](./references.md#jls)] 中的 `java.util.Date` 类而实现的，连 bug 都保持了一致。这里包括了一些编码细节，如使用以 GMT 时间 1970 年 1 月 1 日 00:00:00 为中心的毫秒级分辨率时间值，在外部以 0-11 编号的月份，以及 Java 设计中存在的 2000 年歧义。这个设计决策的理由，是与 Java 互操作性方面的需求。唯一被排除的 Java 方法是 `equal`，`before` 和 `after`。这里并没有使用它们的必要，因为 JavaScript 具备隐式类型转换（automatic coercion）转换能力，可以将数字关系运算符直接与 Date 对象一起使用。
 
-除了 `Object` 之外，`Date` 是 JavaScript 1.0 中唯一可用的内置构造函数。另外除了类的实例方法之外，`Date` 也是唯一在构造函数对象上暴露方法的类。那些浏览器特定（broswer-specific）的类则都没有暴露出构造函数。
+除了 `Object` 之外，`Date` 是 JavaScript 1.0 中唯一可用的内置构造函数。另外除了类的实例方法之外，`Date` 也是唯一在构造函数对象上暴露方法的类。那些浏览器特定（browser-specific）的类则都没有暴露出构造函数。
 
 对内置库和宿主提供的对象而言，它们的属性具有一些特殊的性质。这些性质是那些由 JavaScript 程序员自定义的属性所不具备的。比如，有的方法属性不会被 `for-in` 语句枚举，而某些属性会被 `delete` 运算符忽略，或具有只读的值。访问或修改某些这样的属性时，会产生具有可见副作用的特殊行为。
 
@@ -445,7 +445,7 @@ alert(obj.x); // 显示 42
 ``` html
 <button name="B" onclick="alert(this.name + " clicked")>
   Click me
-</button> 
+</button>
 ```
 
 当执行事件处理器时，它将触发按钮的 `onclick` 方法。这时 `this` 指向按钮对象，然后 `this.name` 会检索其 `name` 属性的值。
@@ -507,7 +507,7 @@ JavaScript 1.1 删除了对方括号的这种特殊处理。
 // JavaScript 1.0
 "xyz".prop = 42; // 设置所有字符串的 prop 属性为 42
 alert("xyz".prop); // 显示 42
-alert("abc".prop); // 显示 42 
+alert("abc".prop); // 显示 42
 ```
 
 在 JavaScript 1.1 中，对数字、布尔值或字符串值做属性访问或赋值时，会使用内置的 Number / Boolean / String 构造函数隐式创建「包装器对象」（wrapper object）。属性访问是在包装器（wrapper）上执行的，并且通常会从其内置原型来访问继承的属性。通过自动调用 `valueOf` 和 `toString` 方法执行的类型转换，使得在大多数情况下，包装器可以被视为原始值来使用。还可以通过赋值的方式，在包装器对象上创建新属性。但隐式创建的包装器，通常会在赋值后立即不可访问。例如：
@@ -667,7 +667,7 @@ var origin = new Point(0, 0);
 alert(origin.distance(new Point(5, 5)));
 ```
 
-将对象字面量和函数表达式的组合，也提供了一种更方便的方法来定义原型对象。另外添加的地方还有 `__proto__` 伪属性（pesudo-property），这个伪属性使 JavaScript 程序能动态访问并修改每个对象（用来访问继承属性）的内部引用<sup>[29](./notes.md#29)</sup>。通过使用 `__proto__`，程序可以动态构造任意深度的属性继承层次结构，并动态指定对象该从何处继承属性。
+将对象字面量和函数表达式的组合，也提供了一种更方便的方法来定义原型对象。另外添加的地方还有 `__proto__` 伪属性（pseudo-property），这个伪属性使 JavaScript 程序能动态访问并修改每个对象（用来访问继承属性）的内部引用<sup>[29](./notes.md#29)</sup>。通过使用 `__proto__`，程序可以动态构造任意深度的属性继承层次结构，并动态指定对象该从何处继承属性。
 
 最终，某些 JavaScript 1.2 的更改被证明是错误的。`import` 和 `export` 语句旨在与 Netscape 4 中兼容 Java 的脚本签名机制 [[Netscape 1997a](./references.md#jssec)] 一起使用。对于签名后的脚本，它们之中定义的全局变量对该脚本是私有的，但使用 `export` 语句可以显式导出其中的函数。非 Netscape 浏览器从未采用过此特性。
 
