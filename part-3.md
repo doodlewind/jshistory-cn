@@ -9,7 +9,7 @@
 
 研讨会中 IBM 代表 David Singer [[1998](./references.md#singer:futurehtml)] 的演讲则更加直言不讳，他说「我们知道 HTML 的未来应该是这样的：讨厌、粗野而贫乏。」
 
-在 ES3 即将完成时，TC39 也处于类似的处境中。借着 ES3，ECMAScript 规范也算与 Netscape 和微软浏览器中提供的 JavaScript 特性接轨了。并且至少在当时（早期），浏览器厂商并未过多引导干涉语言的未来规划。与 1995 年的 Netscape 不同的是，现在的 TC39 已经不必再规避类似 Java 的特性了。一些 TC39 的参与者意识到了对第二代浏览器脚本语言的需求 [[Raggett 1999b](./references.md#TC39wg:tcn9901); [TC39 1999c](./references.md#ES3:ES4futures); Appendix J]，这样的一门语言可以纠正原始 JavaScript 中的设计错误，并提供满足专业软件开发者需求的特性，而非仅仅满足非专业的脚本编写者。打造新一代 ECMASript 的目标集中在了 ECMA-262 的第四版上。这个版本在 TC39 内部最初被称为「E4」，后来则称为「ES4」。
+在 ES3 即将完成时，TC39 也处于类似的处境中。借着 ES3，ECMAScript 规范也算与 Netscape 和微软浏览器中提供的 JavaScript 特性接轨了。并且至少在当时（早期），浏览器厂商并未过多引导干涉语言的未来规划。与 1995 年的 Netscape 不同的是，现在的 TC39 已经不必再规避类似 Java 的特性了。一些 TC39 的参与者意识到了对第二代浏览器脚本语言的需求 [[Raggett 1999b](./references.md#TC39wg:tcn9901); [TC39 1999c](./references.md#ES3:ES4futures); Appendix J]，这样的一门语言可以纠正原始 JavaScript 中的设计错误，并提供满足专业软件开发者需求的特性，而非仅仅满足非专业的脚本编写者。打造新一代 ECMAScript 的目标集中在了 ECMA-262 的第四版上。这个版本在 TC39 内部最初被称为「E4」，后来则称为「ES4」。
 
 > TC39 对 ES4 的尝试共进行了两轮，本文中用「初版 ES4」和「新版 ES4」区分它们。
 
@@ -54,7 +54,7 @@ var x: float, y: int[], z; // z 的类型是 any
 
 对类和接口所定义的语法大致遵循 Java，包括了对 `public`、`private`、`protected` 和默认（包级）可见性修饰符的完整补充。语言底层的元对象结构未涵盖在内，但这里的元对象模型已经必须与当时的 JavaScript 原型继承模型存在隐式区别了。这份文档提出了关于如何区分「使用声明出的静态类型信息的早期绑定（early binding）成员访问」和「没有静态类型信息的延迟绑定（late binding）成员访问」的问题。文档还探索了属性的动态添加<sup>[52](./notes.md#52)</sup>，认为可以在类中禁用这一能力。
 
-相关的设计讨论发生在 1999 年 1 月和 2 月 [[Raggeet 1999b](./references.md#TC39wg:tcn9901), [c](./references.md#TC39wg:tcn9902)]，主要与类、*类型注解*<sup>[g](./appendices.md#type-annotation)</sup>和作用域有关。Chris Dollin、Waldemar Horwat 和 Herman Venter 是首要的参与者。许多讨论都涉及用类所定义出的对象的性质，以及类成员访问的语义。Dollin 和 Venter 主要倾向于使用类似 Java 的语义，其中类实例的结构由类声明静态确定，并且成员的可访问性都能基于类型信息静态地决定，可以在文档网站上查找到。Horwat 则主要倾向于使用更具动态性的模型，其中即使存在类型注解，也会使用不可靠的动态查找来访问成员。要想满足现有 JavaScript 程序员的预期，并兼容那些使用了「基于原型的特设类（ad hoc class）」的已有代码，似乎都需要动态语义。这里涉及的特性包括可选的类型注解，以及 *expando properties*<sup>[g](./appendices.md#expando-property)</sup>。此外 Horwat 认为，动态语义与脚本的性质更加一致，脚本编程天生地涉及从多个来源动态组装出代码，并使用独立于引用方脚本做版本控制的库。Horwat [[1999b](./references.md#js2mbrlookup)] 在描述成员查找可选方案的文档中，总结了使用静态方案和动态方案之间的区别。
+相关的设计讨论发生在 1999 年 1 月和 2 月 [[Raggett 1999b](./references.md#TC39wg:tcn9901), [c](./references.md#TC39wg:tcn9902)]，主要与类、*类型注解*<sup>[g](./appendices.md#type-annotation)</sup>和作用域有关。Chris Dollin、Waldemar Horwat 和 Herman Venter 是首要的参与者。许多讨论都涉及用类所定义出的对象的性质，以及类成员访问的语义。Dollin 和 Venter 主要倾向于使用类似 Java 的语义，其中类实例的结构由类声明静态确定，并且成员的可访问性都能基于类型信息静态地决定，可以在文档网站上查找到。Horwat 则主要倾向于使用更具动态性的模型，其中即使存在类型注解，也会使用不可靠的动态查找来访问成员。要想满足现有 JavaScript 程序员的预期，并兼容那些使用了「基于原型的特设类（ad hoc class）」的已有代码，似乎都需要动态语义。这里涉及的特性包括可选的类型注解，以及 *expando properties*<sup>[g](./appendices.md#expando-property)</sup>。此外 Horwat 认为，动态语义与脚本的性质更加一致，脚本编程天生地涉及从多个来源动态组装出代码，并使用独立于引用方脚本做版本控制的库。Horwat [[1999b](./references.md#js2mbrlookup)] 在描述成员查找可选方案的文档中，总结了使用静态方案和动态方案之间的区别。
 
 在 2 月的会议上，Waldemar Horwat [[1999a](./references.md#js2feb99)] 展示了他的「JavaScript 2.0」规范。他说这是一份最早为 Netscape 编写的实验性设计<sup>[53](./notes.md#53)</sup>，但与 TC39 最近讨论的内容相匹配<sup>[54](./notes.md#54)</sup>。规范中包含了具有大量机器级数字类型的名义化类型系统，类似 Java 的类成员可见性规则，以及带有显式 import 支持的包。它还具有许多更新颖的特性，包括：类扩展声明、包成员的声明级版本控制、nullable 和 non-nullable 的类型，以及一等公民的类型值。JavaScript 2.0 提出了一种「流式执行模型」[[Raggett 1999d](./references.md#TC39:1999:006)]，取代了之前 JavaScript 版本的声明提升（declaration-hoisting）语义。在这种语义下，声明要在执行过程中遇到时才会被处理。例如 `if` 语句可以用来选择性地声明变量，或者用来选择带有不同类型注解的声明。像这样「一等公民类型值」和「声明的流式执行」的结合，会使得在某些情况下无法进行完整的静态类型检查。
 
@@ -108,7 +108,7 @@ TG1 召开会议的频率和出席人数都在逐渐降低。Chris Dollin 于 20
 
 ECMAScript 第三版中的「精简模式（compact profile）项目」为 ES3 的一个动态程度较低的子集定义出了一种语言*模式*<sup>[g](./appendices.md#profile)</sup>，这可以使得资源受限环境中的 JavaScript 实现仍然符合 ECMAScript 规范。这一规范的创建 [[Raggett 2000](./references.md#TC39wg:mins-20jan00)] 是由 Ecma 之外的 WMLScript 推动的，目标是定义用于手机应用<sup>[60](./notes.md#60)</sup>的 JavaScript 方言 [[Lewis 1999b](./references.md#TC39:1999:008)]。精简模式包含了 ES3 的所有特性，但允许实现移除对 `with` 语句的支持。实现也可以移除对 `eval` 和 `Function` 构造函数的支持。精简模式还支持让内置库的对象不可变的实现，这样可以进行预编译，或提供基于 ROM 的实现。Ecma GA 大会批准了 ECMA-327 精简模式标准 [[Vartiainen 2001](./references.md#ecma327)]。与 ECMA-290 不同的是，ECMA-327 实际上已经在某些环境中实现了。但是随着新版 ECMA-262 的发布，人们对更新 ECMA-327 缺乏兴趣。ECMA-262 的最新版本已经使用在了资源非常受限的环境上。如果针对这类环境的实现需要移除某些特性，直接做就是了。实际上对于大多数资源受限的应用而言，并没有证据表明实现之间需要具备完美的 JavaScript 互操作性。Ecma GA 大会在 2015 年投票决定撤回 ECMA-327 标准 [[Ecma International 2015b](./references.md#GA:2015:068)]。
 
-在 2002 年，TC39-TG1 将大部分注意力转移到了开发「ECMAScript for XML」的规范上。所谓 E4X 是一个单独的 Ecma 标准，它向 ES3 添加了语法扩展，从而支持对 XML 文档的处理。相应的 ECMA-357 版本 [[Ecma International 2004](./references.md#E4X:PR); [Scheneider et al. 2005](./references.md#E4X:2)] 分别于 2004 年和 2005 年发布。Firefox 是唯一实现 E4X 的浏览器，因此就像浏览器博弈论中指出的那样，这个能力很少被使用。到了 2015 年，由于 E4X 扩展与 ECMAScript 2015 不兼容，ECMA-357 这项 Ecma 标准也被撤回 [[Ecma International 2015b](./references.md#GA:2015:068)]。
+在 2002 年，TC39-TG1 将大部分注意力转移到了开发「ECMAScript for XML」的规范上。所谓 E4X 是一个单独的 Ecma 标准，它向 ES3 添加了语法扩展，从而支持对 XML 文档的处理。相应的 ECMA-357 版本 [[Ecma International 2004](./references.md#E4X:PR); [Schneider et al. 2005](./references.md#E4X:2)] 分别于 2004 年和 2005 年发布。Firefox 是唯一实现 E4X 的浏览器，因此就像浏览器博弈论中指出的那样，这个能力很少被使用。到了 2015 年，由于 E4X 扩展与 ECMAScript 2015 不兼容，ECMA-357 这项 Ecma 标准也被撤回 [[Ecma International 2015b](./references.md#GA:2015:068)]。
 
 ## Flash 与 ActionScript
 Macromedia 公司的 *Flash*<sup>[g](./appendices.md#Flash)</sup>（后来被 Adobe 收购）在 2000 年代初问世，成为了人们在构造富互联网应用时，对 Java 和 JavaScript 的流行替代品。Flash 最初是一个基于时间轴的动画产品，建立在 Jonathan Gay [[2006](./references.md#Gay06)] 工作的基础上。Flash 附带了视觉创作工具，它能将基于动画的应用编译为二进制文件，这些文件由 Flash Player 解释执行。播放器组件可以通过浏览器的插件扩展 API 集成到浏览器中。在巅峰时期，几乎所有浏览器用户都安装了 Flash 播放器 [[Adobe 2013](./references.md#flashstats)]。
@@ -158,7 +158,7 @@ Brendan Eich 乐观地认为，在编程语言规范和类型系统领域的现�
   <tr><td>Brendan Eich</td><td>Mozilla</td></tr>
   <tr><td>Cormac Flanagan</td><td>University of California, Santa Cruz</td></tr>
   <tr><td>Lars T Hansen</td><td>Opera/Adobe</td></tr>
-  <tr><td>Dave Herman</td><td>Northeasten University</td></tr>
+  <tr><td>Dave Herman</td><td>Northeastern University</td></tr>
   <tr><td>Graydon Hoare<sup><a href="./notes.md#66">66</a></sup></td><td>Mozilla</td></tr>
   <tr><td>Edwin Smith</td><td>Adobe</td></tr>
 </table>
@@ -327,9 +327,9 @@ Allen Wirfs-Brock 回忆说，当 Adobe 宣布退出新版 ES4 时，他感到�
 8 月 13 日，Brendan Eich [[2008b](./references.md#Eich:ES-harmony); Appendix M] 通过电子邮件向 `es4-discuss` 邮件列表发送了一份略为个性化的白皮书。8 月 19 日，Ecma 国际 [[2008](./references.md#TC39:2008:073)] 发布了一份简短的新闻稿，宣布 TC39 将把工作重点放在 ES3.1 上。8 月 15 日，Eich 录制了一个播客 [[Openweb 2008](./references.md#openweb)]。他在其中解释了自己在技术层面和现实层面上对新版 ES4 失败的看法，以及他对 TC39 内部「和谐的未来」的希望。在播客开始不久，他说「通过命名空间来统一早期绑定和延迟绑定的尝试已经失败了。」后来他做了详细的说明：
 
 > 首先我们把 ES4 的包给砍掉了，这是我们砍的。然后我们把 ES4 的命名空间也砍掉了，这也是我们砍的。我们这样做不是为了讨好 3.1。我们这样做是因为命名空间的问题。
-> 
+>
 > ……
-> 
+>
 > 这并不是让步，也不是对立斗争——这（新版 ES4）确实是个很好的尝试，它试着把事情统一起来，回到 Waldemar Horwat 的规范（也许甚至是 Common Lisp）去尝试命名空间和包，然后认识到它们不适合 Web。
 
 

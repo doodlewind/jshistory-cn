@@ -443,7 +443,7 @@ delete Object.prototype.Array; // 移除可选的 Array 绑定
 Lakshman 实现了 900 多个测试用例，以及一个用于运行和报告各用例的简单测试工具。图 37 是其中一个测试用例的示例。
 
 ``` js
-// Test Subclause 10.4.2 Alorithm 3 Step 1 Strict mode}
+// Test Subclause 10.4.2 Algorithm 3 Step 1 Strict mode}
 var testName =
 "Eval code in strict mode-cannot instantiate variable in calling context";
 
@@ -596,7 +596,7 @@ Dave Herman [[2011b](./references.md#nooptin)] 在题为「ES6 不需要 opt-in�
 2011 年 1 月，在 Harmony 上投入了两年多的工作后，Brendan Eich [[2011b](./references.md#BrendanDreams)] 发表了一篇名为《我的 Harmony 梦想》的博客文章，其中提出了一些关于语言进化和标准委员会的观点。文中核心则给出了他希望中「Harmony JavaScript 应该是什么样子」的示例。
 
 > ……我想提出一个全新的 JavaScript Harmony 愿景。当然，这里的概念性尝试还（暂时）不够标准，但也不是一些随意而糟糕的衍生品。这些东西确实可能成为现实。如果有你们的帮助，它们会更有可能实现，并且能实现得更好（关于如何参与，可参见本文末尾）。
-> 
+>
 > 我正在模糊 Ecma TC39 目前的共识与我的想法之间的界限。这里的共识包括 Harmony 项目，以及 TC39 上一些人赞成的 Harmony 稻草人提案。我这么做是故意的，因为我认为 JS 需要一些新的概念上的完整性。它不需要安全的委员会设计，不管是那种「让我们把所有提案联合起来」的方法（这在 TC39 上是行不通的），还是盲目地「让我们求出提案间的交集，如果结果还是空集，那就这样算了吧」的方法（这也是行不通的，但这是更可能的坏结果），都是不可行的。
 
 他介绍了各种场景下如何使用 ES5 特性进行编码的示例，以及如何在他梦想的 Harmony 中表达同等内容的替代性示例。这些设想中的例子，展示了 Harmony 提案的中间阶段，以及它们是如何演变成实际 ES2015 特性的。他提出的一些内容并未纳入 ES2015 中，大多数特性最后在某些方面发生了变化。另外也有必要做出其他的改动，因为 1JS 理念消除了对现有特性的语法和语义进行选择性修改的可能性。
@@ -729,14 +729,14 @@ if x > y { f() else if x > z { g() }
 **ES2015 现实**：被认为过于激进而被 TC39 拒绝，未纳入规范。1JS 要求继续承认旧的语法形式，新旧形式的混合导致了设计和使用上额外的复杂性。
 
 ### 重新打造规范
-使用可执行、可测试的规范来表达 ECMAScript 语义的愿望，从新版 ES4 的工作中延续了下来。但使用 ML 作为规范语言的尝试已经被放弃了。在 Harmony 工作的早期，Allen Wirfs-Brook [[2009](./references.md#awb:definterp)] 提出了通过「以 ES5 JavaScript 编写的定义解释器」来确定 Harmony 的想法。这个想法甚至被列入了 Harmony 目标声明中（图 38）。但到 2010 年春天，在这个概念上仍然没有取得什么进展，TC39 成员对此方法也感到了更多的不确定性。而为 ES5（附录 P）所做的伪代码改进，已经消除了早期版本中伪代码存在的大部分可用性问题。并且 Test262 的进展也表明，一套全面的测试套件对于验证规范和实现同样有用。在 5 月的 TC39 会议 [[2010](./references.md#TC39:2010:028)] 上，人们再次讨论了规范的形式。当前现状对会议上的许多人来说仍然很有吸引力。苹果公司的 Oliver Hunt 发现，作为规范实现者，ES5 中的伪代码比他见过的任何可执行规范代码都更好用。于是会议一致决定继续使用伪代码来定义 Harmony。
+使用可执行、可测试的规范来表达 ECMAScript 语义的愿望，从新版 ES4 的工作中延续了下来。但使用 ML 作为规范语言的尝试已经被放弃了。在 Harmony 工作的早期，Allen Wirfs-Brock [[2009](./references.md#awb:definterp)] 提出了通过「以 ES5 JavaScript 编写的定义解释器」来确定 Harmony 的想法。这个想法甚至被列入了 Harmony 目标声明中（图 38）。但到 2010 年春天，在这个概念上仍然没有取得什么进展，TC39 成员对此方法也感到了更多的不确定性。而为 ES5（附录 P）所做的伪代码改进，已经消除了早期版本中伪代码存在的大部分可用性问题。并且 Test262 的进展也表明，一套全面的测试套件对于验证规范和实现同样有用。在 5 月的 TC39 会议 [[2010](./references.md#TC39:2010:028)] 上，人们再次讨论了规范的形式。当前现状对会议上的许多人来说仍然很有吸引力。苹果公司的 Oliver Hunt 发现，作为规范实现者，ES5 中的伪代码比他见过的任何可执行规范代码都更好用。于是会议一致决定继续使用伪代码来定义 Harmony。
 
 对于项目编辑来说，创建规范并不仅仅是一件简单的集成任务。从理论上来说，提案应当由倡导者开发到「可以轻松集成到规范中」的程度。但在实践中，这种情况很少发生。一些倡导者对规范的结构或形式不够熟悉，无法创建可集成的伪代码。另外一些人则没有必要的时间或专业知识来创建详细的语义规范。对于许多提案，Allen Wirfs-Brock 不得不设法将它们集成到规范中。这需要制定语义细节，并编写或重写提案在规范中的算法。
 
 倡导者们往往会较为狭隘地关注自己的提案所定义的特性。好的提案会考虑到该特性如何与语言的现有特性交互。然而即使是最熟练的倡导者，也很难考虑他们的特性和「其他倡导者同时开发的其他提案」之间所有的潜在交互。所有特性都必须通过编辑，才能成为实际规范的一部分。所以 Wirfs-Brock 对于原有语言和所有 Harmony 提案如何结合在一起形成 ES6，有着最完整的看法。他特别关注跨越多个特性提案的交叉问题，并确保提案之间在语法和语义上的一致性。当整合已批准的提案时，他会试图将它们转化为一组可组合的正交特性 [[Linsey 1993](./references.md#Lindsey:1993:HA:154766.155365)]。有时，这需要改变提案的语法或语义细节，甚至增加或删除重要特性。然后这些改变必须提交给倡导者，而且往往还要提交给整个委员会批准。
 
 #### 重组规范结构
-从 1997 年的第一版初稿（图 13）到 ES5.1 为止，ECMAScript 规范的组织结构基本没有变化。在编写 ES5 规范时，Allen Wirfs-Brook 发现规范中材料的基本排序令人困惑。他逐渐认识到规范实际上定义了三个独立的部分：
+从 1997 年的第一版初稿（图 13）到 ES5.1 为止，ECMAScript 规范的组织结构基本没有变化。在编写 ES5 规范时，Allen Wirfs-Brock 发现规范中材料的基本排序令人困惑。他逐渐认识到规范实际上定义了三个独立的部分：
 
 * 一个 ECMAScript 虚拟机，包括各种运行时实体及其语义。
 * ECMAScript 语言的语法、语义，及其与虚拟机之间的映射。
@@ -909,7 +909,7 @@ var Proxy(o, {
 });
 ```
 
-这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brook 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。其具体的实现手段是增加新的内部方法，以及将一些不可截取的操作，重新定义为基础级、可捕获的常规方法调用。此外提案还定义了每个内部方法的关键一致性规则。ECMAScript 的实现和宿主都必须确保符合这些一致性规则，而 `Proxy` 可以对自托管的异质对象实行<sup>[91](./notes.md#91)</sup>这些规则。图 44 是对 ES2015 中元对象编程的概述：
+这里 `Reflect` 对象的方法对应于标准的内部方法。它们使处理器函数能直接调用对象的内部方法，而非使用隐式调用它们的 JavaScript 代码序列。在直接代理的设计中，最初主要根据 ES5 的内部方法，定义出了 16 种不同的 trap。设计中还发现对于某些对象的内部操作，由于其没有用内部方法来定义，所以无法被 Proxy 拦截。Tom Van Cutsem、Mark Miller 和 Allen Wirfs-Brock 共同开发了 Harmony 内部方法和 Proxy 的 trap，使它们保持一致，并足以表达 ECMAScript 规范和宿主对象中所定义的所有对象行为。其具体的实现手段是增加新的内部方法，以及将一些不可截取的操作，重新定义为基础级、可捕获的常规方法调用。此外提案还定义了每个内部方法的关键一致性规则。ECMAScript 的实现和宿主都必须确保符合这些一致性规则，而 `Proxy` 可以对自托管的异质对象实行<sup>[91](./notes.md#91)</sup>这些规则。图 44 是对 ES2015 中元对象编程的概述：
 
 <table>
   <thead>
@@ -1061,7 +1061,7 @@ Mark Miller [[2008d](./references.md#msm:nothis)] 认为，对于类抽象所需
 Cormac Flanagan [[2008](./references.md#Harmony:konaclasses)] 将最初对类的讨论总结如下：
 
 > EcmaScript（原文如此）需要提供对「具有数据抽象和隐藏的高完整性对象<sup>[92](./notes.md#92)</sup>」更好的支持，也需要更好地支持私有字段和方法……
-> 
+>
 > ……我们最初专注于一个简单的、极简的设计，它不支持继承或类型注解，并使用在实例中私有的数据。类名没有单独的命名空间，类对象是一种新的（一等公民）值。
 
 Flanagan 提出的稻草人提案，使用了简单的类定义语法。如下所示：
@@ -1115,9 +1115,9 @@ Allen Wirfs-Brock 的提案还展示了对于扩展对象字面量的语法，�
 2011 年 5 月初，TC39 的 ES.next 特性冻结会议迅速临近，此时仍然有几个与类相关的稻草人提案在进行竞争。看起来委员会仍然未必有足够的共识，能使其中的某个提案被采纳。2011 年 5 月 10 日，Allen Wirfs-Brock 与 Mark Miller、Peter Hallam 和 Bob Nystrom 见了面。Hallam 和 Nystrom 是使用 Google 的 Traceur 转译器 [[Traceur Project 2011b](./references.md#traceurfeatures)]，对 JavaScript 类支持进行原型设计的团队成员。他们的原型融合了 Wirfs-Brock 和 Miller 提案中的想法。会议的目标是取得足够的一致意见，以便能提出一份统一的提案。Bob Nystrom [[2011](./references.md#Nystrom:classes)] 在其会议报告中列出了许多一致意见，包括：
 
 > ……构造函数、原型和实例这三要素，足以解决其他语言中的类所要解决的问题。Harmony 类语法的目的，并不是去要改变这些语义。相反地，它是要为这些语义提供一种简明而声明式的外表，以便体现程序员的意图，而非底层的命令式机制。
-> 
+>
 > ……对象是声明式和信息性的，函数则是命令式和行为式的。类的问题在于：「我们是否应将其建立在这些抽象的基础上。如果是的话，应该选择哪一个？」……
-> 
+>
 > 在我们的共识提案中，会通过结合这两种手段来解决这种宗教式的分歧：引入一种类似对象字面量的形式作为类体，再加上一个函数来作为构造器。
 
 会后，Mark Miller [[2011b](./references.md#harmonyclasses)] 创建了一份新的稻草人提案。尽管该提案中仍有许多细节缺乏共识，它在特性冻结会议 [[TC39 2011b](./references.md#TC39:2011:028)] 上仍然获得了接受。图 46 中作为示例的类定义，是基于 Miller 的特性冻结类提案而给出的：
@@ -1160,7 +1160,7 @@ class Monster extends Character {
 
 > 我们是否能想出一种大家都认为「比没有好」的类语法，并注重于为将来的改进留出可能性呢？作为一种「安全语法」，这并不意味着我们停止尝试寻找更好的语法。它只意味着如果我们还没有找到答案，那我们也仍然留着一些东西——这些东西我们可以在 ES7 中做得更好。
 
-Leggett 的帖子在三天内收到了 119 个以正面为主的回复。它列出了一套「绝对最低的要求」，这与 Dave Herman 去年夏天的清单基本相同。Leggett 的贡献是创造了「安全学校」的隐喻。Allen Wirfs-Brook 对此立即表示支持，并创造了一份新的「最大化的最小」（max-min）版本 [[Wirfs-Brock 2012d](./references.md#awb:straw:maxmin)] 提案，用这个隐喻重新定义了 Herman 的最小化类提案。这里最大的技术变动，是移除了原提案中的构造器属性<sup>[96](./notes.md#96)</sup>。如果此时要将此「max-min」提案正式列入 2012 年 3 月 TC39 会议的议程，已经为时已晚。但 Allen Wirfs-Brock 和 Alex Russell 在会议结束时，领导了一次非正式讨论 [[TC39 2012a](./references.md#TC39:2012:020:r2)]。总体来说，委员会对提案的接受度是积极的。但有几位成员就此表示担心，认为提案内容可能过少而不值得就此费心，或者可能会对他们考虑的未来扩展产生不利影响。当时没有试图就该提案达成共识，但 Wirfs-Brook 和 Russell 表示，任何更详细的内容都不可能进入 ES.next。
+Leggett 的帖子在三天内收到了 119 个以正面为主的回复。它列出了一套「绝对最低的要求」，这与 Dave Herman 去年夏天的清单基本相同。Leggett 的贡献是创造了「安全学校」的隐喻。Allen Wirfs-Brock 对此立即表示支持，并创造了一份新的「最大化的最小」（max-min）版本 [[Wirfs-Brock 2012d](./references.md#awb:straw:maxmin)] 提案，用这个隐喻重新定义了 Herman 的最小化类提案。这里最大的技术变动，是移除了原提案中的构造器属性<sup>[96](./notes.md#96)</sup>。如果此时要将此「max-min」提案正式列入 2012 年 3 月 TC39 会议的议程，已经为时已晚。但 Allen Wirfs-Brock 和 Alex Russell 在会议结束时，领导了一次非正式讨论 [[TC39 2012a](./references.md#TC39:2012:020:r2)]。总体来说，委员会对提案的接受度是积极的。但有几位成员就此表示担心，认为提案内容可能过少而不值得就此费心，或者可能会对他们考虑的未来扩展产生不利影响。当时没有试图就该提案达成共识，但 Wirfs-Brock 和 Russell 表示，任何更详细的内容都不可能进入 ES.next。
 
 这份 max-min 提案正式列入了 2012 年 5 月的会议议程，并在会上进行了类似的讨论 [[TC39 2012b](./references.md#TC39:2012:034)]，其结果是类似的。与会人员正逐步就该提案达成共识，但还有一些关键人物缺席。由于时间上的压力，与会者一致认为，已经可以就原型和初步规范草案开展工作了。到 7 月会议 [[TC39 2012c](./references.md#TC39:2012:056)] 时，Allen Wirfs-Brock 已经写好了 max-min 类提案的规范文本，并准备了一套演示文稿 [[Wirfs-Brock 2012b](./references.md#TC39:2012:054-X1)]，列举了他遇到的每项设计决策。他带领委员会逐条审查了每项决策，并记录了对某一备选方案的接受或共识。这种方法回避了就整个提案达成共识的问题，但却让委员会在细节设计层面参与了共识的形成。ES.next 规范的下一份草案 [[Wirfs-Brock et al. 2012b](./references.md#ES6rev10), [c](./references.md#TC39:2012:071)] 包含了完整的 max-min 类设计，其中纳入了 7 月会议上做出的决策。对此没有人表示反对。
 
@@ -1234,7 +1234,7 @@ import z from "mz.js"; // 导入由 mz.js 所导出的唯一默认绑定
 
 为了充分理解模块加载过程和该如何确定它，Dave Herman 与 Mozilla 的 Jason Orendorff 合作，使用 JavaScript 代码实现了一个模块加载器参考实现的原型 [[Orendorff and Herman 2014](./references.md#modloaderrefimplRepo)]。2013 年 12 月，Herman [[2013a](./references.md#modloadrefimplspec)] 完成了对 Orendorff 的 JavaScript 代码的初步改写，使其变成了规范伪代码。2014 年 1 月，Allen Wirfs-Brock [[2014a](./references.md#ES6draft22)] 将伪代码初步整合到了 ES6 草案中。但 Wirfs-Brock 发现模块加载器的异步性质，给 ECMAScript 规范增加了新的复杂性和潜在的不确定性。这种情况因加载器 API 而变得更糟，因为它允许用户程序在模块加载过程中注入任意的 JavaScript 代码。到 2014 年年中，异步模块加载的额外复杂性和 API 中一连串难以解决的设计问题，似乎已经危及了 ES6 在 2015 发布版本的目标。
 
-在开发简单模块提案的早期阶段，Allen Wirfs-Brook [[2010](./references.md#simpmodnoldr)] 曾注意到模块作用域和链接的语义，可以从加载器管道中分离出来。在之前的 ECMA-262 版本中，规范已经定义了 JavaScript 源码的语法和语义，但并未涉及该如何访问它。这是由托管 JavaScript 引擎的环境来承担的责任。在 2014 年 9 月的 TC39 会议 [[TC39 2014b](./references.md#TC39:2014:051)] 上，Wirfs-Brock 认为类似的方法也可以适用于模块，这样 ECMA-262 就不需要包含模块加载管道的规范了。如果 ECMA-262 假定模块的源码都已经存在，那么只要规定各独立模块的语法和语义，以及该如何「将被导入和导出的绑定联系起来」的语义就足够了。浏览器等宿主环境可以提供异步加载管道，但其定义将与语言规范解耦。要移除加载器管道，也意味着要移除加载器 API。TC39 接受了这一观点。Wirfs-Brook 也得以在 2014 年 10 月的规范草案 [[Wirfs-Brock et al. 2014b](./references.md#ES6draft28)] 中，纳入了基本完整的语言级模块规范。模块语义与加载器管道的分离，使得 WHATWG 能够专注于确定 ECMAScript 模块该如何与 Web 平台 [[Denicola 2016](./references.md#whatwgmodules)] 集成。
+在开发简单模块提案的早期阶段，Allen Wirfs-Brock [[2010](./references.md#simpmodnoldr)] 曾注意到模块作用域和链接的语义，可以从加载器管道中分离出来。在之前的 ECMA-262 版本中，规范已经定义了 JavaScript 源码的语法和语义，但并未涉及该如何访问它。这是由托管 JavaScript 引擎的环境来承担的责任。在 2014 年 9 月的 TC39 会议 [[TC39 2014b](./references.md#TC39:2014:051)] 上，Wirfs-Brock 认为类似的方法也可以适用于模块，这样 ECMA-262 就不需要包含模块加载管道的规范了。如果 ECMA-262 假定模块的源码都已经存在，那么只要规定各独立模块的语法和语义，以及该如何「将被导入和导出的绑定联系起来」的语义就足够了。浏览器等宿主环境可以提供异步加载管道，但其定义将与语言规范解耦。要移除加载器管道，也意味着要移除加载器 API。TC39 接受了这一观点。Wirfs-Brock 也得以在 2014 年 10 月的规范草案 [[Wirfs-Brock et al. 2014b](./references.md#ES6draft28)] 中，纳入了基本完整的语言级模块规范。模块语义与加载器管道的分离，使得 WHATWG 能够专注于确定 ECMAScript 模块该如何与 Web 平台 [[Denicola 2016](./references.md#whatwgmodules)] 集成。
 
 #### 箭头函数
 ES2015 引入了一种简洁的函数定义表达形式，通常称之为「箭头函数」。箭头函数的写法是以形参列表为起始，然后是 `=>` 标记和函数体。例如：
@@ -1253,7 +1253,7 @@ x => x /* 一个 identity 函数 */
 
 设计箭头函数的主要动机，在于开发者经常需要编写冗长的函数表达式，以此作为平台和库 API 函数的回调参数。在 JavaScript 1.8 中，Mozilla [[2008b](./references.md#moz:new1.8)] 实现了<sup>[98](./notes.md#98)</sup>「表达式闭包」，它保留了对`function` 关键字的使用，允许使用无括号的单个表达式体。TC39 讨论了一些类似但较短小的表示法，用诸如 𝜆、*f*、\ 或 # 等符号 [[Eich 2010b](./references.md#eich:bikeshed); [TC39 Harmony 2010c](./references.md#Harmony:shorterfuncs)] 来代替函数，但未能就其中任何一种方法达成共识。
 
-TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精简语义的「lambda 函数」感兴趣，比如支持*消栈的尾调用*<sup>[g](./appendices.md#proper-tail-call)</sup>和 Tennent [[1981](./references.md#tennent1981principles)] 一致性原则<sup>[99](./notes.md#99)</sup>。其支持者们认为，这样的函数将会在实现由语言或库所定义的控制抽象时有所用处。在 Harmony 进程早期，Brendan Eich [[2008a](./references.md#Eich:allenslambda)] 在 `es-discuss` 上的一篇讨论贴中， 提出了一个最初由 Allen Wirfs-Brook 所提出的建议，即基于 Smalltalk 块语法的启发，采用一种简洁的 lambda 函数语法。例如 `{|a，b| a+b}` 就相当于 Herman 的 `lambda(a,b){a+b}`。Eich 的帖子引发了一场大规模但没有结论的线上讨论，话题涉及与（某种可能的）简明函数特性所相关的方方面面。作为关键总结，可以认为其中许多语法的灵感会带来解析或可用性上的问题，而且 JavaScript 的非本地控制转移语句——`return`、`break` 和 `continue`——会显著地使编写控制抽象的机制变得更加复杂。大多数 TC39 成员和 `es-discuss` 订阅者似乎主要对简洁的函数语法更感兴趣，而非对 Tennent 一致性感兴趣。
+TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精简语义的「lambda 函数」感兴趣，比如支持*消栈的尾调用*<sup>[g](./appendices.md#proper-tail-call)</sup>和 Tennent [[1981](./references.md#tennent1981principles)] 一致性原则<sup>[99](./notes.md#99)</sup>。其支持者们认为，这样的函数将会在实现由语言或库所定义的控制抽象时有所用处。在 Harmony 进程早期，Brendan Eich [[2008a](./references.md#Eich:allenslambda)] 在 `es-discuss` 上的一篇讨论贴中， 提出了一个最初由 Allen Wirfs-Brock 所提出的建议，即基于 Smalltalk 块语法的启发，采用一种简洁的 lambda 函数语法。例如 `{|a，b| a+b}` 就相当于 Herman 的 `lambda(a,b){a+b}`。Eich 的帖子引发了一场大规模但没有结论的线上讨论，话题涉及与（某种可能的）简明函数特性所相关的方方面面。作为关键总结，可以认为其中许多语法的灵感会带来解析或可用性上的问题，而且 JavaScript 的非本地控制转移语句——`return`、`break` 和 `continue`——会显著地使编写控制抽象的机制变得更加复杂。大多数 TC39 成员和 `es-discuss` 订阅者似乎主要对简洁的函数语法更感兴趣，而非对 Tennent 一致性感兴趣。
 
 在这之后的 30 个月里，这方面都没有出现什么重大进展，直到 Brendan Eich [[2011f](./references.md#Eich:arrow1); [2011g](./references.md#Eich:blockrevival)] 撰写了两份替代性的稻草人提案为止。这两份提案之中，有一份设计的是「箭头函数」，它参照了 CoffeeScript 中的类似特性。这份提案中有 `->` 和 `=>` 两种函数，它们具备各种语法和语义上的差异和选项。而另一份提案设计的，则是以 Smalltalk 和 Ruby 的块为模型的「块级 lambda」，它还支持 Tennent 一致性。在随后的 9 个月里，这两项提案及其备选方案在 `es-discuss` 和 TC39 会议上得到了广泛的讨论。有人担心如果要支持解析箭头函数，现有的 JavaScript 实现是否易于更新。这里的问题是箭头符号出现在整个结构的中间，而且它前面还有一个形参列表，因此可能会被有歧义地解析为括号表达式。对于块级 lambda 提案，有人担心 [[Wirfs-Brock 2012a](./references.md#allen:brkcnt)] 它所创建出的用户定义控制结构，并不能充分而完整地与内置的语法控制结构相集成。Brendan Eich 总体倾向于块级 lambda 提案，但随着 2012 年 3 月 TC39 会议的临近，他认为箭头函数更有可能被委员会接受。在会议上 [[TC39 2012a](./references.md#TC39:2012:020:r2)]，他向委员会介绍了一套关于箭头函数最终设计基本特征的共识性决定 [[Eich 2012b](./references.md#Eich:arrow2)]。
 
@@ -1346,7 +1346,7 @@ TC39 主席 John Neumann 和 Ecma 秘书长 István Sebestyén 为项目提供�
 
 以年为单位进行更新，将要求 TC39 在开发新语言特性方面更加规范。有些设计工作仍然需要多年才能完成，因此这需要一个流程，以适应跨越多个年度发布周期的特性开发项目，并能协调不同特性之间重叠的开发周期。还有人担心，ES6 过于依赖一位编辑来完成大部分规范的编写工作。要想成功实现每年发布，倡议者需要为自己的特性进行大部分的规范编写。
 
-Rafael Weinstein 和 Dimitry Lomov 发表了一份提案 [[TC39 2013c](./references.md#TC39:2013:055); [Weinstein and Lomov 2013](./references.md#postES6:1stdeck)]，建议在开发过程中，新特性提案要经过五个成熟阶段。后来 Weinstein 与 Allen Wirfs-Brook 合作，进一步定义和文档化了这一过程。附录 Q 是对新流程和发展阶段的描述。从 2014 年起，TC39 在 ES6 之后的所有工作中都遵循这一程序。截至 2020 年 6 月发表本文，TC39 在每年 6 月都成功发布了 ECMAScript 规范的新版本。
+Rafael Weinstein 和 Dimitry Lomov 发表了一份提案 [[TC39 2013c](./references.md#TC39:2013:055); [Weinstein and Lomov 2013](./references.md#postES6:1stdeck)]，建议在开发过程中，新特性提案要经过五个成熟阶段。后来 Weinstein 与 Allen Wirfs-Brock 合作，进一步定义和文档化了这一过程。附录 Q 是对新流程和发展阶段的描述。从 2014 年起，TC39 在 ES6 之后的所有工作中都遵循这一程序。截至 2020 年 6 月发表本文，TC39 在每年 6 月都成功发布了 ECMAScript 规范的新版本。
 
 # 总结
 JavaScript 是一门以低预期要求来创建的语言。它的初衷是作为 Java 在浏览器内的一个辅助工具，适合初级网页开发者和兼职程序员使用。然而在很短的时间内，它就（在浏览器里）超过了 Java，成为了交互式网页的主要语言。尽管 JavaScript 的前 20 年里充满了增强、改进、重新设计或取代它的失败尝试，但到这一时期结束时，JavaScript 已成为了世界上使用最广泛的编程语言——而且还不仅仅用于网页。除了使用 Node.js 和其他宿主构建的服务器应用外，JavaScript 还被用于构建桌面应用、移动设备应用、健身追踪器、机器人和众多嵌入式系统。它甚至是詹姆斯·韦伯太空望远镜的一部分。这个望远镜使用 Nombas 的 ES1 级嵌入式 JavaScript，作为其板载控制软件的一部分 [[Dashevsky and Balzano 2008](./references.md#jameswebb)]。
@@ -1370,15 +1370,15 @@ JavaScript 的崛起是必然的吗？基于 Web 和浏览器博弈论中提出�
 Brendan Eich 在 2011 年一次名为「JSLOL」[[Eich 2011e](./references.md#eich:alwaysbetonjs)] 的会议演讲中，是这么描述 JavaScript 的：
 
 > 最早他们说 JavaScript 没法做「富互联网应用」。
-> 
+>
 > 然后他们说 JavaScript 没法快起来。
-> 
+>
 > 然后他们说 JavaScript 没法修复语言问题。
-> 
+>
 > 然后他们说 JavaScript 没法做多核与 GPU 运算。
-> 
+>
 > 他们每次都错了！
-> 
+>
 > 我建议：**永远押宝在 JS**。
 
 # 致谢
@@ -1386,7 +1386,7 @@ HOPL-IV 项目委员会成员们协助了两位作者（图 49）。他们提供
 
 以下同事参与了 JavaScript 和 ECMAScript 的开发，他们为本文所讨论的事件与技术提供了信息：Douglas Crockford、Jeff Dyer、Richard Gabriel、Bill Gibbons、Gary Grossman、Lars T. Hansen、Dave Herman、Graydon Hoare、Yehuda Katz、Shon Katzenberger、Peter Kukol、Pratap Lakshman、Mark S. Miller、István Sebestyén、Mike Shaver、Brian Terlson、Tom Van Cutsem、Herman Venter、Rick Waldron 和 Robert Welland。
 
-在稿件编写的各个阶段，对部分或全部稿件提供编辑反馈的 Beta 读者们包括：Jory Burson、Douglas Crockford、Jeff Dyer、Richard Gabriel、Lars T. Hansen、Dave Herman、Pratap Lakshman、Mathias Bynens、Axel Rauschmayer、Jonathan Sampson、Jon Steinhart、Tom Van Cutsem、Herman Venter、Rick Waldron、Rebecca Wirfs-Brook 和 Joseph Yoder。
+在稿件编写的各个阶段，对部分或全部稿件提供编辑反馈的 Beta 读者们包括：Jory Burson、Douglas Crockford、Jeff Dyer、Richard Gabriel、Lars T. Hansen、Dave Herman、Pratap Lakshman、Mathias Bynens、Axel Rauschmayer、Jonathan Sampson、Jon Steinhart、Tom Van Cutsem、Herman Venter、Rick Waldron、Rebecca Wirfs-Brock 和 Joseph Yoder。
 
 Richard Gabriel、Rebecca Wirfs-Brock 和 Joseph Yoder 都参加了耗时多日的研讨会，在研讨会上，我们用全面的通读微调了论文的结构和语言。
 
