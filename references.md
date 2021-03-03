@@ -487,7 +487,7 @@
 * <a id="jscript:interview">[Oral history of members of original Microsoft JScript development team](https://web.archive.org/web/20200307173732/http://www.wirfs-brock.com/allen/files/jshistory/JScriptInterview.mp3)</a>
 * <a id="wikinews:cailliau">[Wikinews interviews World Wide Web co-inventor Robert Cailliau](https://web.archive.org/web/20071205220409/http://en.wikinews.org/wiki/Wikinews_interviews_World_Wide_Web_co-inventor_Robert_Cailliau)</a>
 * <a id="TC39:1997:002">[Selecting a new name to replace ECMAScript](https://www.ecma-international.org/archive/ecmascript/1997/TC39/97-002.pdf)</a>
-* <a id="wikip:EEE">[Embrace, extend, and extinguish---Wikipedia, The Free Encyclopedia](https://en.wikipedia.org/wiki/Embrace)</a>
+* <a id="wikip:EEE">[Embrace, extend, and extinguish---Wikipedia, The Free Encyclopedia](https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish)</a>
 * <a id="infoworld:1995:12:11">[Microsoft storms the Web](https://web.archive.org/web/20200227211510/https://books.google.com/books?id=QjgEAAAAMBAJ&lpg=PP1&dq=Inforworld%2520Dec%252011%252C%25201995&pg=PP3#v=onepage&q&f=false)</a>
 * <a id="awb:mozextensions">[Mozilla Extensions to ECMAScript, 3rd Edition](https://www.ecma-international.org/archive/ecmascript/2007/misc/mozilla_javascript_extensions.pdf)</a>
 * <a id="awb:loopholes">[Implementation Loopholes In ECMAScript, 3rd Edition](https://www.ecma-international.org/archive/ecmascript/2007/misc/es3_implementation_loopholes_annotated.pdf)</a>
