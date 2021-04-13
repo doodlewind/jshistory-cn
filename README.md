@@ -1,4 +1,4 @@
-# JavaScript 20 年
+# JavaScript 二十年
 
 <p>
   <a href="https://github.com/doodlewind/jshistory-cn">
