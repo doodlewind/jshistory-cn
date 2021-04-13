@@ -8,7 +8,7 @@ export default {
     'next': null,
     'sidebar': [
         {
-            "text": "JavaScript 20 年",
+            "text": "JavaScript 二十年",
             "link": "index.html",
             "pagePath": "README.md"
         },

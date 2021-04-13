@@ -2,7 +2,7 @@ import projectConfig from '/pagic.config.js';
 var _a, _b;
 export default {
     'prev': {
-        "text": "JavaScript 20 年",
+        "text": "JavaScript 二十年",
         "link": "index.html"
     },
     'next': {
@@ -11,7 +11,7 @@ export default {
     },
     'sidebar': [
         {
-            "text": "JavaScript 20 年",
+            "text": "JavaScript 二十年",
             "link": "index.html",
             "pagePath": "README.md"
         },

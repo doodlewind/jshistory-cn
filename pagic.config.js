@@ -6,7 +6,7 @@ export default {
     srcDir: './',
     theme: 'docs',
     plugins: ['sidebar', 'prev_next'],
-    title: 'JavaScript 20 年',
+    title: 'JavaScript 二十年',
     description: '自 1995 年语言诞生到 2015 年 ES6 规范制定为止，共计 20 年的 JavaScript 语言演化历程。',
     github: 'https://github.com/doodlewind/jshistory-cn',
     md: {
