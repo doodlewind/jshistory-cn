@@ -266,7 +266,7 @@ Allen Wirfs-Brock 联系了 Douglas Crockford，他们同意一起合作制定�
 
 2007 年初，TG1 的目标是在 10 月前完成新版 ES4 规范。这一目标没有实现，但 Lars Hansen [[2007e](./references.md#es4overview)] 在 10 月完成了一份文件，其初稿 [[Hansen 2007b](./references.md#lars:overview0)] 名为《ECMAScript 第四版语言概述》。这不是一份详细的规范，而是对语言主要特性的 40 页总结。其摘要的第一段是这样描述新版 ES4 语言的：
 
-> 第四版的 ECMAScript 语言（ES4）代表了 ECMA 在 1999 年批准的 ECMA-262 标准语言第三版（ES3）的重要演变。ES4 与 ES3 兼容，并增加了重要的设施，用于大型程序设计（类、接口、命名空间、包、程序单元、可选的类型注解，以及可选的静态类型检查和验证）、演化式编程和脚本编写（结构化类型、鸭子类型、类型定义和方法多重派发）、数据结构构建（参数化类型、getter / setter 和元级方法）、控制抽象（适当的尾调用、迭代器和生成器）以及类型自省（类型元对象和堆栈标记）。
+> 第四版的 ECMAScript 语言（ES4）代表了 ECMA 在 1999 年批准的 ECMA-262 标准语言第三版（ES3）的重要演变。ES4 与 ES3 兼容，并增加了重要的设施，用于大型程序设计（类、接口、命名空间、包、程序单元、可选的类型注解，以及可选的静态类型检查和验证）、演化式编程和脚本编写（结构化类型、鸭子类型、类型定义和方法多重派发）、数据结构构建（参数化类型、getter / setter 和元级方法）、控制抽象（消栈的尾调用、迭代器和生成器）以及类型自省（类型元对象和堆栈标记）。
 
 最终证明，这份文档是对人们设想中新版 ES4 语言的最佳整体描述。然而，Allen Wirfs-Brock [[2007c](./references.md#awb:overview0)] 和 Douglas Crockford [[2007a](./references.md#crock:2007d)] 都对「ECMAScript 第四版」这一名称被不加限定地使用表示担心，这暗示了其所描述的语言已非常接近最终批准的 Ecma 标准。此外这份文档在导言中宣称，其整体设计代表了 Ecma TC39-TG1 的共识，并未提及任何 TG1 中对新版 ES4 在设计上的不同意见。在沟通后，Hansen 同意在文档标题前加上「拟议」字样，并在文档导言中插入了一段话，指出 TG1 中有少数成员对该设计的标准化表示反对。在新版 ES4 小组成员为分发概览文件和参考实现代码而建立的网站 [[TC39 ES4 2007c](./references.md#es4:es4doc)] 上，人们也提出了类似的意见。这些事件增加了 ES3.1 支持者对新版 ES4 支持者们的担忧，担心他们继续公开宣传 ES4，同时继续无视或贬低 ES3.1 的开发。
 
@@ -390,7 +390,7 @@ exports[propName] = modx[propName];
 
 图 28. CommonJS 模块被模块加载器转换成了「实现模块模式的函数」。模块之间的共享，是通过动态构造出的 `exports` 对象上的属性来实现的。
 
-CommonJS 模块的早期使用者之一，就是 2009 年初由 Ryan Dahl 开发的 *Node.js*<sup>[g](./appendices.md#Nodejs)</sup>。在其设想中，Node.js 是个用于通过 JavaScript 构建服务端应用的开源平台，其能力足以处理大量的客户端同时连接。Node.js 支持一种异步的 I/O 模型，并为此提供了一个带有库的 JavaScript 编程环境。它连接起了常见的 POSIX 接口、JavaScript 回调，以及简化的浏览器事件循环，其整体实现主要包含了谷歌的 V8 JavaScript 引擎、一个 CommonJS 模块加载器，以及一组 C 语言实现的模块。这些模块提供了许多平台接口的非阻塞版本，包括 POSIX API 和其他高层面的文件和网络操作。Node.js 的首个公开版本是在 2009 年 5 月发布的 [[Node Project 2009](./references.md#node0.1)]。但直到 2009 年 11 月 Dahl [[2009](./references.md#dahlvideo)] 在 jsconf.eu 上做了一次演讲后，它才引起了人们的重视。此后不久，Dahl 被 Joyent 雇用。Joyent 负责管理和支持 Node.js 的进一步开发，直到 2015 年将其交接给 Node.js 基金会为止 [[Node Foundation 2018](./references.md#node2018)]。
+CommonJS 模块的早期使用者之一，就是 2009 年初由 Ryan Dahl 开发的 *Node.js*<sup>[g](./appendices.md#Nodejs)</sup>。在其设想中，Node.js 是个用于通过 JavaScript 构建服务端应用的开源平台，其能力足以处理大量客户端的同时连接。Node.js 支持一种异步的 I/O 模型，并为此提供了一个带有库的 JavaScript 编程环境。它连接起了常见的 POSIX 接口、JavaScript 回调，以及简化的浏览器事件循环，其整体实现主要包含了谷歌的 V8 JavaScript 引擎、一个 CommonJS 模块加载器，以及一组 C 语言实现的模块。这些模块提供了许多平台接口的非阻塞版本，包括 POSIX API 和其他高层面的文件和网络操作。Node.js 的首个公开版本是在 2009 年 5 月发布的 [[Node Project 2009](./references.md#node0.1)]。但直到 2009 年 11 月 Dahl [[2009](./references.md#dahlvideo)] 在 jsconf.eu 上做了一次演讲后，它才引起了人们的重视。此后不久，Dahl 被 Joyent 雇用。Joyent 负责管理和支持 Node.js 的进一步开发，直到 2015 年将其交接给 Node.js 基金会为止 [[Node Foundation 2018](./references.md#node2018)]。
 
 Node.js 最早被设想为一种用于构建服务端应用的技术。但它已经成为了一个平台，使 JavaScript 能作为通用编程语言，应用在包括小型嵌入式设备在内的各种平台上。Node.js 的 I/O 模块与高性能的 V8 引擎相结合，在能力上足以与 Python 和 Ruby 等其他动态应用语言相媲美，在性能上也往往更胜一筹，成为了编写命令行 JavaScript 应用时的事实标准。Node.js 使掌握了 JavaScript 的 Web 程序员能将其技能转移到其他类型的应用和非浏览器环境中。最初许多客户端 Web 应用的开发者们之所以使用 JavaScript 编程，是因为他们别无选择。而许多 Node.js 开发者选择使用它，反而是因为他们更喜欢用 JavaScript 编程。
 
