@@ -6,7 +6,13 @@
   </a>
 </p>
 
-![The Mocha Console](./images/2.png)
+<p>
+  <a href="https://item.jd.com/13211336.html">
+    <img alt="纸质版" src="./images/book-cover.jpg"/>
+  </a>
+</p>
+
+本项目已与博文视点合作推出纸质版，其版税收入将有 10% 捐献给 Mozilla，[点击购买](https://item.jd.com/13211336.html)。
 
 ## 原文简介
 本书由 JavaScript 之父 Brendan Eich 与 ES6 规范首席作者 Allen Wirfs-Brock 联合编写，详细记载和解读了自 1995 年语言诞生到 2015 年 ES6 规范制定为止，共计 20 年的 JavaScript 语言演化历程。全书不仅讲解了大量语言技术细节层面的演进，更复盘了更高层面上规范制定与标准博弈中的历史成败，是一部讲述人类如何在商业与技术上的竞争合作中促进产业发展的故事。
