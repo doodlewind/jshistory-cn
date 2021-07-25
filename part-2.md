@@ -211,7 +211,7 @@ ISO/IEC 投票产生了来自丹麦、法国、日本、荷兰和美国的国家
   </thead>
   <tbody>
     <tr><td><code>do</code> 语句</td><td>✓</td><td>✓</td><td>✓</td></tr>
-    <tr><td><code>break</code>/<code>continue</code> 的标签</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td><code>break</code>/<code>continue</code> 到标签</td><td>✓</td><td>✓</td><td>✓</td></tr>
     <tr><td><code>switch</code> 语句</td><td>✓</td><td>✓</td><td>✓</td></tr>
     <tr><td>嵌套函数</td><td>✓</td><td>✓</td><td>✓</td></tr>
     <tr><td>函数表达式</td><td>✓</td><td>✓</td><td>✓</td></tr>

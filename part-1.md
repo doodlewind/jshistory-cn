@@ -76,7 +76,7 @@ JavaScript 1.0 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)] 是�
   <tr><td>对 <code>undefined</code> 的全局绑定</td><td><code>===</code> 运算符</td></tr>
   <tr><td><code>typeof</code>, <code>void</code>, <code>delete</code> 运算符</td><td><code>in</code>, <code>instanceof</code> 运算符</td></tr>
   <tr><td><code>do-while</code> 语句</td><td><code>switch</code> 语句</td></tr>
-  <tr><td><code>try-catch-finally</code> 语句</td><td><code>break</code>/<code>continue</code> 的标签</td></tr>
+  <tr><td><code>try-catch-finally</code> 语句</td><td><code>break</code>/<code>continue</code> 到标签</td></tr>
   <tr><td>嵌套函数声明</td><td>函数表达式</td></tr>
   <tr><td>函数的 <code>call</code> 和 <code>apply</code> 方法</td><td>函数的 <code>prototype</code> 属性</td></tr>
   <tr><td>基于原型的继承</td><td>对内置原型对象的访问</td></tr>
@@ -582,7 +582,7 @@ SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScri
 
 ```
 * do 语句
-* 语句标签，以及 break/continue 的标签
+* 语句标签，以及 break/continue 到标签
 * switch 语句
 * 嵌套函数声明（使用词法作用域）
 * 函数表达式（lambda 表达式）
@@ -608,7 +608,7 @@ SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScri
 
 在 JavaScript 1.2 中，大多数新加入的库都来自于其他流行语言现有特性的启发。数组 `concat` 和 `slice` 方法的灵感来自 Python 的序列操作，而 `push` / `pop` / `shift` / `unshift` / `splice` 方法都直接根据同名的 Perl 数组函数建模。Python 还启发了字符串的 `concat` / `slice` / `search` 方法。字符串的 `match` / `replace` / `substr` 来自 Perl。Java 启发了 `charCodeAt` 方法。至于正则表达式的字符串匹配语法和语义，借鉴的则还是 Perl。
 
-JavaScript 1.2 在语句层面所添加的内容，提供了以前熟悉 C 系列语言的程序员所期望的语句。`do` 语句直接复制了 C 语言 `do` 语句的语法和类似的语义，这在 JavaScript 1.0 中遗漏了。带标签的语句以及名为 `break` / `continue` 的标签，则是直接按照 Java 中的相同特性建模的。它们允许从多级嵌套的循环和 `switch` 语句中尽早脱离（early escape），也可以在非迭代的代码块里这么做。JavaScript 1.2 的 `switch` 语句包含了对 `case` 选择器表达式的编译期求值 [[Eich et al. 1998](./references.md#spidermonkey:js1.4-src), jsemit.c lines 757-776]，这同 C 与 Java 是一致的。
+JavaScript 1.2 在语句层面所添加的内容，提供了以前熟悉 C 系列语言的程序员所期望的语句。`do` 语句直接复制了 C 语言 `do` 语句的语法和类似的语义，这在 JavaScript 1.0 中遗漏了。带标签的语句以及 `break` / `continue` 到某个标签名的功能，则是直接按照 Java 中的相同特性建模的。它们允许从多级嵌套的循环和 `switch` 语句中尽早脱离（early escape），也可以在非迭代的代码块里这么做。JavaScript 1.2 的 `switch` 语句包含了对 `case` 选择器表达式的编译期求值 [[Eich et al. 1998](./references.md#spidermonkey:js1.4-src), jsemit.c lines 757-776]，这同 C 与 Java 是一致的。
 
 在 JavaScript 1.0/1.1 中，函数只能定义在脚本顶层的全局声明中。JavaScript 1.2 支持把函数通过局部声明的形式，定义在另一个封闭函数中。这样的内部函数定义可以嵌套到任意层级。内部函数具备词法作用域，它们的局部声明会遮盖外部作用域中具有相同名称的声明。在 JavaScript 1.0/1.1 中，可以对变量和函数做前向引用，因为语言在逻辑上将顶级的 `var` 和 `function` 声明「提升」到了脚本的开头，而函数局部的 `var` 声明也会被「提升」到函数体的开头。类似地在 JavaScript 1.2 中，嵌套的 `function` 声明也会被提升到封闭函数体的开头。如果有多个具有相同名称的 `function` 声明，那么就将封闭函数体源码中最后出现的那个声明与该名称绑定。
 
