@@ -55,7 +55,7 @@
   <tr><td>对 <code>undefined</code> 的全局绑定</td><td><code>===</code> 运算符</td></tr>
   <tr><td><code>typeof</code>, <code>void</code>, <code>delete</code> 运算符</td><td><code>in</code>, <code>instanceof</code> 运算符</td></tr>
   <tr><td><code>do-while</code> 语句</td><td><code>switch</code> 语句</td></tr>
-  <tr><td><code>try-catch-finally</code> 语句</td><td><code>break</code>/<code>continue</code> 的标签</td></tr>
+  <tr><td><code>try-catch-finally</code> 语句</td><td><code>break</code>/<code>continue</code> 到标签</td></tr>
   <tr><td>嵌套函数声明</td><td>函数表达式</td></tr>
   <tr><td>函数的 <code>call</code> 和 <code>apply</code> 方法</td><td>函数的 <code>prototype</code> 属性</td></tr>
   <tr><td>基于原型的继承</td><td>对内置原型对象的访问</td></tr>
@@ -425,7 +425,7 @@ abc<span class="token punctuation">.</span><span class="token property-access">p
 <p>Brendan Eich 继续将语言增强为 JavaScript 1.2，以使其成为 Netscape 4.0 的一部分。它于 1996 年 12 月发布了第一个 beta 版本，而正则表达式则添加到了 1997 年 4 月的 beta 版本中。各平台上的 Netscape 4 生产版本于 6 月起开始释出，并于 1997 年下半年进行了分发。</p>
 <p>SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScript 1.0/1.1 有了显著的增强。图 10 列出了JavaScript 1.2 中主要的新特性 [<a href="./references.html#netscape:js1.2:guide">Netscape 1997c</a>]。</p>
 <pre class="language-autoit"><code class="language-autoit"><span class="token operator">*</span> <span class="token keyword">do</span> 语句
-<span class="token operator">*</span> 语句标签，以及 break<span class="token operator">/</span>continue 的标签
+<span class="token operator">*</span> 语句标签，以及 break<span class="token operator">/</span>continue 到标签
 <span class="token operator">*</span> <span class="token keyword">switch</span> 语句
 <span class="token operator">*</span> 嵌套函数声明（使用词法作用域）
 <span class="token operator">*</span> 函数表达式（lambda 表达式）
@@ -448,7 +448,7 @@ abc<span class="token punctuation">.</span><span class="token property-access">p
 </code></pre>
 <p>图 10. JavaScript 1.2 的新特性。</p>
 <p>在 JavaScript 1.2 中，大多数新加入的库都来自于其他流行语言现有特性的启发。数组 <code>concat</code> 和 <code>slice</code> 方法的灵感来自 Python 的序列操作，而 <code>push</code> / <code>pop</code> / <code>shift</code> / <code>unshift</code> / <code>splice</code> 方法都直接根据同名的 Perl 数组函数建模。Python 还启发了字符串的 <code>concat</code> / <code>slice</code> / <code>search</code> 方法。字符串的 <code>match</code> / <code>replace</code> / <code>substr</code> 来自 Perl。Java 启发了 <code>charCodeAt</code> 方法。至于正则表达式的字符串匹配语法和语义，借鉴的则还是 Perl。</p>
-<p>JavaScript 1.2 在语句层面所添加的内容，提供了以前熟悉 C 系列语言的程序员所期望的语句。<code>do</code> 语句直接复制了 C 语言 <code>do</code> 语句的语法和类似的语义，这在 JavaScript 1.0 中遗漏了。带标签的语句以及名为 <code>break</code> / <code>continue</code> 的标签，则是直接按照 Java 中的相同特性建模的。它们允许从多级嵌套的循环和 <code>switch</code> 语句中尽早脱离（early escape），也可以在非迭代的代码块里这么做。JavaScript 1.2 的 <code>switch</code> 语句包含了对 <code>case</code> 选择器表达式的编译期求值 [<a href="./references.html#spidermonkey:js1.4-src">Eich et al. 1998</a>, jsemit.c lines 757-776]，这同 C 与 Java 是一致的。</p>
+<p>JavaScript 1.2 在语句层面所添加的内容，提供了以前熟悉 C 系列语言的程序员所期望的语句。<code>do</code> 语句直接复制了 C 语言 <code>do</code> 语句的语法和类似的语义，这在 JavaScript 1.0 中遗漏了。带标签的语句以及 <code>break</code> / <code>continue</code> 到某个标签名的功能，则是直接按照 Java 中的相同特性建模的。它们允许从多级嵌套的循环和 <code>switch</code> 语句中尽早脱离（early escape），也可以在非迭代的代码块里这么做。JavaScript 1.2 的 <code>switch</code> 语句包含了对 <code>case</code> 选择器表达式的编译期求值 [<a href="./references.html#spidermonkey:js1.4-src">Eich et al. 1998</a>, jsemit.c lines 757-776]，这同 C 与 Java 是一致的。</p>
 <p>在 JavaScript 1.0/1.1 中，函数只能定义在脚本顶层的全局声明中。JavaScript 1.2 支持把函数通过局部声明的形式，定义在另一个封闭函数中。这样的内部函数定义可以嵌套到任意层级。内部函数具备词法作用域，它们的局部声明会遮盖外部作用域中具有相同名称的声明。在 JavaScript 1.0/1.1 中，可以对变量和函数做前向引用，因为语言在逻辑上将顶级的 <code>var</code> 和 <code>function</code> 声明「提升」到了脚本的开头，而函数局部的 <code>var</code> 声明也会被「提升」到函数体的开头。类似地在 JavaScript 1.2 中，嵌套的 <code>function</code> 声明也会被提升到封闭函数体的开头。如果有多个具有相同名称的 <code>function</code> 声明，那么就将封闭函数体源码中最后出现的那个声明与该名称绑定。</p>
 <p>JavaScript 1.2 还提供了 lambda 表达式支持，这是通过允许函数定义作为表达式原语的方式来实现的。它们称为「函数表达式」，并在语法上与函数声明相同，只是函数名称变成了可选的。如果存在函数名称，语言则会出于绑定目的，将函数表达式视为提升后的 <code>function</code> 声明。不带函数名称的函数表达式则会定义一个匿名函数。不论在哪种情况下，函数表达式的每次运行时求值都会创建一个新的闭包（closure）。新的 <code>callee</code> 属性被添加到了 <code>arguments</code> 对象上，使得此类闭包可以递归引用自己。</p>
 <p>数组字面量和对象字面量<sup><a href="./notes.html#28">28</a></sup>都受到了 Python 中类似特性的启发。数组字面量为创建和初始化数组对象的元素提供了简洁的语法，让 JavaScript 程序员可以编写如下内容：</p>
