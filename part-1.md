@@ -76,7 +76,7 @@ JavaScript 1.0 [[Netscape 1996d](./references.md#netscape:js1.0:handbook)] 是�
   <tr><td>对 <code>undefined</code> 的全局绑定</td><td><code>===</code> 运算符</td></tr>
   <tr><td><code>typeof</code>, <code>void</code>, <code>delete</code> 运算符</td><td><code>in</code>, <code>instanceof</code> 运算符</td></tr>
   <tr><td><code>do-while</code> 语句</td><td><code>switch</code> 语句</td></tr>
-  <tr><td><code>try-catch-finally</code> 语句</td><td><code>break</code>/<code>continue</code> 到标签</td></tr>
+  <tr><td><code>try-catch-finally</code> 语句</td><td><code>break</code>/<code>continue</code> 的标签</td></tr>
   <tr><td>嵌套函数声明</td><td>函数表达式</td></tr>
   <tr><td>函数的 <code>call</code> 和 <code>apply</code> 方法</td><td>函数的 <code>prototype</code> 属性</td></tr>
   <tr><td>基于原型的继承</td><td>对内置原型对象的访问</td></tr>
@@ -582,7 +582,7 @@ SpiderMonkey 所实现的 JavaScript 1.2 语言和内置库，相对于 JavaScri
 
 ```
 * do 语句
-* 语句标签，以及 break/continue 到标签
+* 语句标签，以及 break/continue 的标签
 * switch 语句
 * 嵌套函数声明（使用词法作用域）
 * 函数表达式（lambda 表达式）
