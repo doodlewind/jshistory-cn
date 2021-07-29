@@ -443,7 +443,7 @@ alert(obj.x); // 显示 42
 由于某些 HTML 会将 JavaScript 代码段隐式转换成作为方法调用的函数，因此 `this` 引起了进一步的混乱。例如：
 
 ``` html
-<button name="B" onclick="alert(this.name + " clicked")>
+<button name="B" onclick="alert(this.name + ' clicked')">
   Click me
 </button>
 ```
