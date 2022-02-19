@@ -181,7 +181,7 @@ JavaScript 1.0 的对象是关联数组，其元素称为属性。每个属性�
 // 使用 Object 构造函数
 var p1 = new Object;
 p1.x = 0;
-p2.y = 0;
+p1.y = 0;
 
 // 使用自定义的构造函数
 function Point(x, y) {
