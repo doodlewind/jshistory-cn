@@ -1290,7 +1290,7 @@ TC39 [[Herman 2008](./references.md#Herman:lambdas)] 同时也对提供具有精
 * **Realms API** [[Herman 2014b](./references.md#realmapi)] Realm API 原本可使 JavaScript 程序员能在新的 Realms 中创建、补充和执行代码，它与模块加载器 API 密切相关。这一特性被推迟，以进行额外的设计工作。
 * **模式匹配** [[Herman 2011e](./references.md#patmatch); [Rossberg 2013](./references.md#rossberg:patmatch)] 解构的通用化，它原本将包括受 Haskell 启发的可驳式匹配（refutable matching）。
 * **Object.observe** [[Arvidsson 2015](./references.md#arv:observe); [Klein 2015](./references.md#klein:observe); [Weinstein 2012](./references.md#raf:observe)] 一种复杂的数据绑定机制，可以在受监控对象的属性被修改时产生事件。
-* **并行 JavaScript** [[Hudson 2012](./references.md#TC39:2012:016), [2014](./references.md#hudson:rvrtrail)] 又名 River Trail，是英特尔和 Mozilla 的一个联合项目，旨在使 JavaScript 程序员能够明确地利用处理器的 SIMD 能力。
+* **并行 JavaScript** [[Hudson 2012](./references.md#TC39:2012:016), [2014](./references.md#hudson:rvrtrail)] 又名 River Trail，是英特尔和 Mozilla 的一个联合项目，旨在使 JavaScript 程序员能够显式地利用处理器的 SIMD 能力。
 * **值对象** [[Eich 2013](./references.md#TC39:2013:040)] 其目标是提供一种通用性的支持，以便定义出类似 Number 和 String 的新原始数据类型（包括运算符重载）。这可以允许库实现十进制小数、大整数等特性。
 * **Guards** [[Miller 2010c](./references.md#msm:guards)] 为声明添加的类似于类型的注解，可对其进行动态验证。
 
